@@ -146,7 +146,15 @@ function SkillData(code) {
     skill5_image: skills[4]["Image"],
     skill6_image: skills[5]["Image"],
     skill7_image: skills[6]["Image"],
-    skill8_image: skills[7]["Image"]
+    skill8_image: skills[7]["Image"],
+    skill1_recharge: skills[0]["Recharge"],
+    skill2_recharge: skills[1]["Recharge"],
+    skill3_recharge: skills[2]["Recharge"],
+    skill4_recharge: skills[3]["Recharge"],
+    skill5_recharge: skills[4]["Recharge"],
+    skill6_recharge: skills[5]["Recharge"],
+    skill7_recharge: skills[6]["Recharge"],
+    skill8_recharge: skills[7]["Recharge"]
   };
 
   var template = [

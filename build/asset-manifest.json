@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/React-Guild-Wars-Skill-Template/static/css/main.bf41395b.chunk.css",
-    "main.js": "/React-Guild-Wars-Skill-Template/static/js/main.eb4d5572.chunk.js",
-    "main.js.map": "/React-Guild-Wars-Skill-Template/static/js/main.eb4d5572.chunk.js.map",
-    "runtime-main.js": "/React-Guild-Wars-Skill-Template/static/js/runtime-main.476b4e8f.js",
-    "runtime-main.js.map": "/React-Guild-Wars-Skill-Template/static/js/runtime-main.476b4e8f.js.map",
-    "static/js/2.34659799.chunk.js": "/React-Guild-Wars-Skill-Template/static/js/2.34659799.chunk.js",
-    "static/js/2.34659799.chunk.js.map": "/React-Guild-Wars-Skill-Template/static/js/2.34659799.chunk.js.map",
-    "index.html": "/React-Guild-Wars-Skill-Template/index.html",
-    "precache-manifest.b61e295b373acdfb9a98e860d3857586.js": "/React-Guild-Wars-Skill-Template/precache-manifest.b61e295b373acdfb9a98e860d3857586.js",
-    "service-worker.js": "/React-Guild-Wars-Skill-Template/service-worker.js",
-    "static/css/main.bf41395b.chunk.css.map": "/React-Guild-Wars-Skill-Template/static/css/main.bf41395b.chunk.css.map",
-    "static/js/2.34659799.chunk.js.LICENSE.txt": "/React-Guild-Wars-Skill-Template/static/js/2.34659799.chunk.js.LICENSE.txt",
-    "static/media/logo.svg": "/React-Guild-Wars-Skill-Template/static/media/logo.5d5d9eef.svg"
+    "main.css": "/gw-skills/static/css/main.bf41395b.chunk.css",
+    "main.js": "/gw-skills/static/js/main.e82f952a.chunk.js",
+    "main.js.map": "/gw-skills/static/js/main.e82f952a.chunk.js.map",
+    "runtime-main.js": "/gw-skills/static/js/runtime-main.dd786cba.js",
+    "runtime-main.js.map": "/gw-skills/static/js/runtime-main.dd786cba.js.map",
+    "static/js/2.34659799.chunk.js": "/gw-skills/static/js/2.34659799.chunk.js",
+    "static/js/2.34659799.chunk.js.map": "/gw-skills/static/js/2.34659799.chunk.js.map",
+    "index.html": "/gw-skills/index.html",
+    "precache-manifest.dcc55d6ac6f72c121d34f1e0e76f5860.js": "/gw-skills/precache-manifest.dcc55d6ac6f72c121d34f1e0e76f5860.js",
+    "service-worker.js": "/gw-skills/service-worker.js",
+    "static/css/main.bf41395b.chunk.css.map": "/gw-skills/static/css/main.bf41395b.chunk.css.map",
+    "static/js/2.34659799.chunk.js.LICENSE.txt": "/gw-skills/static/js/2.34659799.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/gw-skills/static/media/logo.5d5d9eef.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.476b4e8f.js",
+    "static/js/runtime-main.dd786cba.js",
     "static/js/2.34659799.chunk.js",
     "static/css/main.bf41395b.chunk.css",
-    "static/js/main.eb4d5572.chunk.js"
+    "static/js/main.e82f952a.chunk.js"
   ]
 }
