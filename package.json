@@ -1,8 +1,9 @@
 {
-    "homepage": "http://developer.callumhutchy.co.uk/gw-skills/",
+
     "name": "gw-skills",
     "version": "0.1.0",
     "private": true,
+    "homepage": "http://developer.callumhutchy.co.uk/gw-skills/",
     "dependencies": {
         "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^9.5.0",
@@ -13,7 +14,7 @@
         "react-scripts": "3.4.1"
     },
     "scripts": {
-        "predeploy": "npm run build",
+        "predeploy": "yarn build",
         "deploy": "gh-pages -d build",
         "start": "react-scripts start",
         "build": "react-scripts build",
