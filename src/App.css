@@ -55,10 +55,28 @@
     border-bottom: 1px dotted black;
 }
 
+#tooltiptext-icons {
+    float: left;
+    width: 15%;
+    height: 100%;
+}
+
+#tooltiptext-text {
+    margin-left: 15%;
+}
+
 #tooltiptext-icons,
 #tooltiptext-text {
     display: inline;
-    margin: 20px 0;
+    margin: 30px 0;
+}
+
+#skill-prof,
+#skill-attribute,
+#skill-camp {
+    display: inline-block;
+    font-size: 10pt;
+    font-weight: bold;
 }
 
 .tooltip .tooltiptext {
@@ -76,10 +94,12 @@
     /* Position the tooltip */
     position: absolute;
     z-index: 1;
+    display: inline;
 }
 
 .tooltip:hover .tooltiptext {
     visibility: visible;
+    padding-right: 20%;
 }
 
 @keyframes App-logo-spin {
