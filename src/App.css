@@ -61,14 +61,55 @@
     height: 100%;
 }
 
+#rank-value {
+    color: blue;
+    display: inline;
+}
+
+#tooltip-skill-name {
+    color: goldenrod;
+    text-decoration: underline;
+}
+
 #tooltiptext-text {
     margin-left: 15%;
+}
+
+.tooltiptext-energy,
+.detail-text {
+    display: inline;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 10pt;
+    font-weight: bolder;
+}
+
+#tooltiptext-icons {
+    border-style: solid;
+    border-color: aliceblue;
+    border-radius: 3px;
+    border-width: 2px;
+    padding: 5px 5px 5px 5px;
+    height: 100%;
+}
+
+.tooltiptext-img {
+    align-content: center;
+    width: auto;
+    height: auto;
+    display: block;
+    max-width: 100%;
 }
 
 #tooltiptext-icons,
 #tooltiptext-text {
     display: inline;
-    margin: 30px 0;
+    margin: 10px 0;
+}
+
+#tooltiptext-text {
+    float: right;
+    width: 75%;
 }
 
 #skill-prof,
@@ -84,17 +125,16 @@
     width: 300px;
     top: 100%;
     margin-left: -32px;
-    background-color: black;
+    background-color: grey;
     font-size: 8pt;
     color: #fff;
     text-align: left;
-    border-radius: 6px;
-    padding: 5px 0;
+    border-radius: 10px;
+    padding: 2px 0;
     padding-left: 10px;
     /* Position the tooltip */
     position: absolute;
     z-index: 1;
-    display: inline;
 }
 
 .tooltip:hover .tooltiptext {

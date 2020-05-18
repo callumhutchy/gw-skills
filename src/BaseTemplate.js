@@ -100,178 +100,104 @@ export function SkillData(code) {
 
         console.log(skills);
 
-        var data = {
-            skill1_wiki: skills[0]["Wiki"],
-            skill1_name: skills[0]["Name"],
-            skill2_name: skills[1]["Name"],
-            skill3_name: skills[2]["Name"],
-            skill4_name: skills[3]["Name"],
-            skill5_name: skills[4]["Name"],
-            skill6_name: skills[5]["Name"],
-            skill7_name: skills[6]["Name"],
-            skill8_name: skills[7]["Name"],
-            skill1_image: skills[0]["Image"],
-            skill2_image: skills[1]["Image"],
-            skill3_image: skills[2]["Image"],
-            skill4_image: skills[3]["Image"],
-            skill5_image: skills[4]["Image"],
-            skill6_image: skills[5]["Image"],
-            skill7_image: skills[6]["Image"],
-            skill8_image: skills[7]["Image"],
-            skill1_recharge: skills[0]["Recharge"],
-            skill2_recharge: skills[1]["Recharge"],
-            skill3_recharge: skills[2]["Recharge"],
-            skill4_recharge: skills[3]["Recharge"],
-            skill5_recharge: skills[4]["Recharge"],
-            skill6_recharge: skills[5]["Recharge"],
-            skill7_recharge: skills[6]["Recharge"],
-            skill8_recharge: skills[7]["Recharge"],
-            skill1_energy: skills[0]["Energy"],
-            skill2_energy: skills[1]["Energy"],
-            skill3_energy: skills[2]["Energy"],
-            skill4_energy: skills[3]["Energy"],
-            skill5_energy: skills[4]["Energy"],
-            skill6_energy: skills[5]["Energy"],
-            skill7_energy: skills[6]["Energy"],
-            skill8_energy: skills[7]["Energy"],
-            skill1_activation: skills[0]["Activation"],
-            skill2_activation: skills[1]["Activation"],
-            skill3_activation: skills[2]["Activation"],
-            skill4_activation: skills[3]["Activation"],
-            skill5_activation: skills[4]["Activation"],
-            skill6_activation: skills[5]["Activation"],
-            skill7_activation: skills[6]["Activation"],
-            skill8_activation: skills[7]["Activation"],
-            skill1_adrenaline: skills[0]["Adrenaline"],
-            skill2_adrenaline: skills[1]["Adrenaline"],
-            skill3_adrenaline: skills[2]["Adrenaline"],
-            skill4_adrenaline: skills[3]["Adrenaline"],
-            skill5_adrenaline: skills[4]["Adrenaline"],
-            skill6_adrenaline: skills[5]["Adrenaline"],
-            skill7_adrenaline: skills[6]["Adrenaline"],
-            skill8_adrenaline: skills[7]["Adrenaline"],
-            skill1_sacrifice: skills[0]["Sacrifice"],
-            skill2_sacrifice: skills[1]["Sacrifice"],
-            skill3_sacrifice: skills[2]["Sacrifice"],
-            skill4_sacrifice: skills[3]["Sacrifice"],
-            skill5_sacrifice: skills[4]["Sacrifice"],
-            skill6_sacrifice: skills[5]["Sacrifice"],
-            skill7_sacrifice: skills[6]["Sacrifice"],
-            skill8_sacrifice: skills[7]["Sacrifice"],
-            skill1_overcast: skills[0]["Overcast"],
-            skill2_overcast: skills[1]["Overcast"],
-            skill3_overcast: skills[2]["Overcast"],
-            skill4_overcast: skills[3]["Overcast"],
-            skill5_overcast: skills[4]["Overcast"],
-            skill6_overcast: skills[5]["Overcast"],
-            skill7_overcast: skills[6]["Overcast"],
-            skill8_overcast: skills[7]["Overcast"],
-            skill1_upkeep: skills[0]["Upkeep"],
-            skill2_upkeep: skills[1]["Upkeep"],
-            skill3_upkeep: skills[2]["Upkeep"],
-            skill4_upkeep: skills[3]["Upkeep"],
-            skill5_upkeep: skills[4]["Upkeep"],
-            skill6_upkeep: skills[5]["Upkeep"],
-            skill7_upkeep: skills[6]["Upkeep"],
-            skill8_upkeep: skills[7]["Upkeep"]
+        var template = '';
+        for (var skillIndex = 0; skillIndex < 8; skillIndex++) {
+            template += "<div id=\"skill-" + (skillIndex + 1) + "\" class=\"skill tooltip\" onclick={window.open(\'";
+            template += skills[skillIndex]["Wiki"];
+            template += '\')}>';
 
-        };
-var template = '<div id="skill-1" class="skill tooltip" onclick={window.open(\'';
-template += skills[0]["Wiki"];
-template += '\')}>';
-       
             template += ['<span class="tooltiptext">',
-            '<div id="tooltiptext-icons">',
-            '<img class="tooltiptext-img" src="{{{skill1_image}}}" alt=""></img>'].join('\n');
-        if (skills[0]["Energy"] != null) {
-            template += '<br></br><img class="tooltiptext-energy" src="https://wiki.guildwars.com/images/b/be/Tango-energy.png" alt=""></img>{{{skill1_energy}}}\n';
-        }
-        if (skills[0]["Recharge"] != null) {
-            template += '<br></br><img class="tooltiptext-energy" src="https://wiki.guildwars.com/images/f/f4/Tango-recharge-darker.png" alt=""></img>{{{skill1_recharge}}}\n';
-        }
-        if (skills[0]["Activation"] != null) {
-            template += '<br></br><img class="tooltiptext-energy" src="https://wiki.guildwars.com/images/a/aa/Tango-activation-darker.png" alt=""></img>{{{skill1_activation}}}\n';
-        }
-        if (skills[0]["Adrenaline"] != null) {
-            template += '<br></br><img class="tooltiptext-energy" src="https://wiki.guildwars.com/images/0/0d/Tango-adrenaline.png" alt=""></img>{{{skill1_adrenaline}}}\n';
-        }
-        if (skills[0]["Sacrifice"] != null) {
-            template += '<br></br><img class="tooltiptext-energy" src="https://wiki.guildwars.com/images/7/78/Tango-sacrifice.png" alt=""></img>{{{skill1_sacrifice}}}\n';
-        }
-        if (skills[0]["Overcast"] != null) {
-            template += '<br></br><img class="tooltiptext-energy" src="https://wiki.guildwars.com/images/e/e3/Tango-overcast.png" alt=""></img>{{{skill1_overcast}}}\n';
-        }
-        if (skills[0]["Upkeep"] != null) {
-            template += '<br></br><img class="tooltiptext-energy" src="https://wiki.guildwars.com/images/0/01/Tango-upkeep.png" alt=""></img>{{{skill1_upkeep}}}\n';
-        }
-        template += ['</div>',
-            '<div id="tooltiptext-text">',
-            '<h1><div id="tooltip-skill-name">',
-            '{{{skill1_name}}}',
-            '</div></h1>',
-            '<h2>',
-            '<div id="tooltip-skill-type">'].join('\n');
-        if (skills[0]["Elite"]) {
-            template += 'Elite ';
-        }
-        var type = skills[0]["Type"];
-        template += type[0].toUpperCase() + type.slice(1);
-        template += ['</div>',
-            '</h2>',
-            '<h3><div id="tooltip-skill-description">'].join("\n");
+                '<div id="tooltiptext-icons">',
+                '<img class="tooltiptext-img" src="'].join('\n');
+            template += skills[skillIndex]["Image"];
+            template += '" alt=""></img>';
 
-        var numOfRanks = skills[0]["Ranks"].length;
-        var rawDescription = skills[0]["Description"];
-        var skillAttribute = skills[0]["Attribute"];
-        var points = attributes.find(x => x.id == skillAttribute)["value"];
-        var description = rawDescription;
-        if(numOfRanks != undefined && numOfRanks > 0){
-            for(var i = 0; i < numOfRanks; i++){
-                var currentRank = skills[0]["Ranks"][i];
-                var currentRankValue = currentRank[points];
-                description = description.replace("{"+i+"}",currentRankValue);
+            if (skills[skillIndex]["Energy"] != null) {
+                template += '<br></br><img class="tooltiptext-energy" src="https://wiki.guildwars.com/images/b/be/Tango-energy.png" alt=""></img><div class="detail-text"> ';
+                template += skills[skillIndex]["Energy"];
+                template += '</div>\n';
             }
-            template += description;
-        }else{
-            template += rawDescription;
-        }
-        
-        var skillProf = skills[0]["Profession"];
-        var skillCampaign = skills[0]["Campaign"];
-        template += "<br></br><div id=\"skill-prof\">"+skillProf+"</div>. <div id=\"skill-attribute\">"+skillAttribute + " " + points + "</div>. <div id=\"skill-camp\">"+skillCampaign+"</div>\n";
+            if (skills[skillIndex]["Recharge"] != null) {
+                template += '<br></br><img class="tooltiptext-energy" src="https://wiki.guildwars.com/images/f/f4/Tango-recharge-darker.png" alt=""></img><div class="detail-text"> ';
+                template += skills[skillIndex]["Recharge"];
+                template += '</div>\n';
+            }
+            if (skills[skillIndex]["Activation"] != null) {
+                template += '<br></br><img class="tooltiptext-energy" src="https://wiki.guildwars.com/images/a/aa/Tango-activation-darker.png" alt=""></img><div class="detail-text"> ';
+                template += skills[skillIndex]["Activation"];
+                template += '</div>\n';
+            }
+            if (skills[skillIndex]["Adrenaline"] != null) {
+                template += '<br></br><img class="tooltiptext-energy" src="https://wiki.guildwars.com/images/0/0d/Tango-adrenaline.png" alt=""></img><div class="detail-text"> ';
+                template += skills[skillIndex]["Adrenaline"];
+                template += '</div>\n';
+            }
+            if (skills[skillIndex]["Sacrifice"] != null) {
+                template += '<br></br><img class="tooltiptext-energy" src="https://wiki.guildwars.com/images/7/78/Tango-sacrifice.png" alt=""></img><div class="detail-text"> ';
+                template += skills[skillIndex]["Sacrifice"];
+                template += '</div>\n';
+            }
+            if (skills[skillIndex]["Overcast"] != null) {
+                template += '<br></br><img class="tooltiptext-energy" src="https://wiki.guildwars.com/images/e/e3/Tango-overcast.png" alt=""></img><div class="detail-text"> ';
+                template += skills[skillIndex]["Overcast"];
+                template += '</div>\n';
+            }
+            if (skills[skillIndex]["Upkeep"] != null) {
+                template += '<br></br><img class="tooltiptext-energy" src="https://wiki.guildwars.com/images/0/01/Tango-upkeep.png" alt=""></img><div class="detail-text"> ';
+                template += skills[skillIndex]["Upkeep"];
+                template += '</div>\n';
+            }
+            template += ['</div>',
+                '<div id="tooltiptext-text">',
+                '<h1><div id="tooltip-skill-name">'].join('\n');
+            template += skills[skillIndex]["Name"];
+            template += ['</div></h1>',
+                '<h2>',
+                '<div id="tooltip-skill-type">'].join('\n');
+            if (skills[skillIndex]["Elite"]) {
+                template += 'Elite ';
+            }
+            var type = skills[skillIndex]["Type"];
+            template += type[0].toUpperCase() + type.slice(1);
+            template += ['</div>',
+                '</h2>',
+                '<h3><div id="tooltip-skill-description">'].join("\n");
 
-        template += ['</div>',
-            '</h3>',
-            '</div>',
-            '</span>',
-            '<img class="skill-img" src="{{{skill1_image}}}" alt=""></img>',
-            '</div>',
-            '<div id="skill-2" class="skill tooltip">',
-            '<img class="skill-img" src="{{{skill2_image}}}" alt=""></img>',
-            '</div>',
-            '<div id="skill-3" class="skill tooltip">',
-            '<img class="skill-img" src="{{{skill3_image}}}" alt=""></img>',
-            '</div>',
-            '<div id="skill-4" class="skill tooltip">',
-            '<img class="skill-img" src="{{{skill4_image}}}" alt=""></img>',
-            '</div>',
-            '<div id="skill-5" class="skill tooltip">',
-            '<img class="skill-img" src="{{{skill5_image}}}" alt=""></img>',
-            '</div>',
-            '<div id="skill-6" class="skill tooltip">',
-            '<img class="skill-img" src="{{{skill6_image}}}" alt=""></img>',
-            '</div>',
-            '<div id="skill-7" class="skill tooltip">',
-            '<img class="skill-img" src="{{{skill7_image}}}" alt=""></img>',
-            '</div>',
-            '<div id="skill-8" class="skill tooltip">',
-            '<img class="skill-img" src="{{{skill8_image}}}" alt=""></img>',
-            '</div>'
-        ].join("\n");
+            var numOfRanks = skills[skillIndex]["Ranks"].length;
+            var rawDescription = skills[skillIndex]["Description"];
+            var skillAttribute = skills[skillIndex]["Attribute"];
+            if(skillAttribute != undefined && skillAttribute != ""){
+                var points = attributes.find(x => x.id == skillAttribute)["value"];
+                var description = rawDescription;
+            }
+            
+            if (numOfRanks != undefined && numOfRanks > 0) {
+                for (var i = 0; i < numOfRanks; i++) {
+                    var currentRank = skills[skillIndex]["Ranks"][i];
+                    var currentRankValue = currentRank[points];
+                    description = description.replace("{" + i + "}", "<div id=\"rank-value\">" + currentRankValue + "</div>");
+                }
+                template += description;
+            } else {
+                template += rawDescription;
+            }
+
+            var skillProf = skills[skillIndex]["Profession"];
+            var skillCampaign = skills[skillIndex]["Campaign"];
+            template += "<br></br><div id=\"skill-prof\">" + skillProf + "</div>. <div id=\"skill-attribute\">" + skillAttribute + " " + points + "</div>. <div id=\"skill-camp\">" + skillCampaign + "</div>\n";
+
+            template += ['</div>',
+                '</h3>',
+                '</div>',
+                '</span>',
+                '<img class="skill-img" src="'].join('\n');
+                template += skills[skillIndex]["Image"];
+                template += ['" alt=""></img>',
+                '</div>'].join('\n');
+        }
         //console.log(data);
-        var html = Mustache.render(template, data);
-       // console.log(html);
-        return html;
+        // console.log(html);
+        return template;
     } else {
         return "";
     }
