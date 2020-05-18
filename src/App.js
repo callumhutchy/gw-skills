@@ -246,9 +246,14 @@ function SkillData(code) {
     template += type[0].toUpperCase() + type.slice(1);
     template += ['</div>',
     '</h2>',
-    '<h3>',
-    '<div id="tooltip-skill-description">For 15 seconds, whenever you attack a foe with your scythe, you deal 10...22...25 slashing damage to all adjacent foes.',
-    '</div>',
+    '<h3><div id="tooltip-skill-description">'].join("\n");
+    
+    var numOfRanks = skills[0].Ranks;
+
+
+    'For 15 seconds, whenever you attack a foe with your scythe, you deal 10...22...25 slashing damage to all adjacent foes.',
+    
+    template += ['</div>',
     '</h3>',
     '</div>',
     '</span>',
