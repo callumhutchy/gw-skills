@@ -166,16 +166,28 @@ export function SkillData(code) {
             var numOfRanks = skills[skillIndex]["Ranks"].length;
             var rawDescription = skills[skillIndex]["Description"];
             var skillAttribute = skills[skillIndex]["Attribute"];
-            if(skillAttribute != undefined && skillAttribute != ""){
-                var points = attributes.find(x => x.id == skillAttribute)["value"];
+            if (skillAttribute != undefined && skillAttribute != "") {
+                var points = 0;
+                console.log(skillAttribute);
+                switch (skillAttribute) {
+                    case "Norn rank":
+                    case "Ebon Vanguard rank":
+                    case "Asuran rank":
+                    case "Deldrimor rank":
+                        points = 5;
+                        break;
+                    default:
+                        points = attributes.find(x => x.id == skillAttribute)["value"];
+                }
+
                 var description = rawDescription;
             }
-            
+
             if (numOfRanks != undefined && numOfRanks > 0) {
                 for (var i = 0; i < numOfRanks; i++) {
                     var currentRank = skills[skillIndex]["Ranks"][i];
                     var currentRankValue = currentRank[points];
-                    description = description.replace("{" + i + "}", "<div id=\"rank-value\">" + currentRankValue + "</div>");
+                    description = description.split('{'+i+'}').join('<div id="rank-value">' + currentRankValue + '</div>');
                 }
                 template += description;
             } else {
@@ -191,8 +203,8 @@ export function SkillData(code) {
                 '</div>',
                 '</span>',
                 '<img class="skill-img" src="'].join('\n');
-                template += skills[skillIndex]["Image"];
-                template += ['" alt=""></img>',
+            template += skills[skillIndex]["Image"];
+            template += ['" alt=""></img>',
                 '</div>'].join('\n');
         }
         //console.log(data);
