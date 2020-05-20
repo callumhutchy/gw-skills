@@ -2,6 +2,7 @@ import React from 'react';
 import Mustache from 'mustache';
 import logo from './logo.svg';
 import Parser from 'html-react-parser';
+import Popover from 'react-bootstrap/Popover'
 
 var ReactDOM = require('react-dom');
 
@@ -106,7 +107,8 @@ export function SkillData(code) {
             template += skills[skillIndex]["Wiki"];
             template += '\')}>';
 
-            template += ['<span class="tooltiptext">',
+            template += ['<Popover id="tooltiptext">',
+                '<Popover.Content>',
                 '<div id="tooltiptext-icons">',
                 '<img class="tooltiptext-img" src="'].join('\n');
             template += skills[skillIndex]["Image"];
@@ -201,7 +203,8 @@ export function SkillData(code) {
             template += ['</div>',
                 '</h3>',
                 '</div>',
-                '</span>',
+                '</Popover.Content>',
+                '</Popover>',
                 '<img class="skill-img" src="'].join('\n');
             template += skills[skillIndex]["Image"];
             template += ['" alt=""></img>',

@@ -120,7 +120,7 @@
     font-weight: bold;
 }
 
-.tooltip .tooltiptext {
+.tooltip #tooltiptext {
     visibility: hidden;
     width: 300px;
     top: 100%;
@@ -137,11 +137,11 @@
     z-index: 9;
 }
 
-.tooltiptext {
+#tooltiptext {
     overflow: hidden;
 }
 
-.tooltip:hover .tooltiptext {
+.tooltip:hover #tooltiptext {
     visibility: visible;
     padding-right: 20%;
 }
