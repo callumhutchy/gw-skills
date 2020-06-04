@@ -8,10 +8,9 @@ var ReactDOM = require('react-dom');
 
 export class BaseTemplate extends React.Component {
     render() {
-        return (
-            <div id="skillbar">
-                {Parser(SkillData(this.props.code))}
-            </div>
+        return ( <
+            div id = "skillbar" > { Parser(SkillData(this.props.code)) } <
+            /div>
         );
     }
 
@@ -110,7 +109,8 @@ export function SkillData(code) {
             template += ['<Popover id="tooltiptext">',
                 '<Popover.Content>',
                 '<div id="tooltiptext-icons">',
-                '<img class="tooltiptext-img" src="'].join('\n');
+                '<img class="tooltiptext-img" src="'
+            ].join('\n');
             template += skills[skillIndex]["Image"];
             template += '" alt=""></img>';
 
@@ -151,11 +151,13 @@ export function SkillData(code) {
             }
             template += ['</div>',
                 '<div id="tooltiptext-text">',
-                '<h1><div id="tooltip-skill-name">'].join('\n');
+                '<h1><div id="tooltip-skill-name">'
+            ].join('\n');
             template += skills[skillIndex]["Name"];
             template += ['</div></h1>',
                 '<h2>',
-                '<div id="tooltip-skill-type">'].join('\n');
+                '<div id="tooltip-skill-type">'
+            ].join('\n');
             if (skills[skillIndex]["Elite"]) {
                 template += 'Elite ';
             }
@@ -163,7 +165,8 @@ export function SkillData(code) {
             template += type[0].toUpperCase() + type.slice(1);
             template += ['</div>',
                 '</h2>',
-                '<h3><div id="tooltip-skill-description">'].join("\n");
+                '<h3><div id="tooltip-skill-description">'
+            ].join("\n");
 
             var numOfRanks = skills[skillIndex]["Ranks"].length;
             var rawDescription = skills[skillIndex]["Description"];
@@ -174,7 +177,7 @@ export function SkillData(code) {
                 switch (skillAttribute) {
                     case "Norn rank":
                     case "Ebon Vanguard rank":
-                    case "Asuran rank":
+                    case "Asura rank":
                     case "Deldrimor rank":
                         points = 5;
                         break;
@@ -189,7 +192,7 @@ export function SkillData(code) {
                 for (var i = 0; i < numOfRanks; i++) {
                     var currentRank = skills[skillIndex]["Ranks"][i];
                     var currentRankValue = currentRank[points];
-                    description = description.split('{'+i+'}').join('<div id="rank-value">' + currentRankValue + '</div>');
+                    description = description.split('{' + i + '}').join('<div id="rank-value">' + currentRankValue + '</div>');
                 }
                 template += description;
             } else {
@@ -205,10 +208,12 @@ export function SkillData(code) {
                 '</div>',
                 '</Popover.Content>',
                 '</Popover>',
-                '<img class="skill-img" src="'].join('\n');
+                '<img class="skill-img" src="'
+            ].join('\n');
             template += skills[skillIndex]["Image"];
             template += ['" alt=""></img>',
-                '</div>'].join('\n');
+                '</div>'
+            ].join('\n');
         }
         //console.log(data);
         // console.log(html);
@@ -222,6 +227,7 @@ export function SkillData(code) {
 }
 
 export default BaseTemplate;
+
 function WriteBits(val) {
     var buff = [
         ((val >> 0) & 1),
@@ -233,8 +239,7 @@ function WriteBits(val) {
     ]
     return buff;
 }
-var _Base64ToValue = [
-    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, // [0,   16)
+var _Base64ToValue = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, // [0,   16)
     -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, // [16,  32)
     -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, -1, 63, // [32,  48)
     52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -1, -1, -1, // [48,  64)
@@ -325,8 +330,7 @@ var skillTable = [
         "Campaign": "Core",
         "Image": "https://wiki.guildwars.com/images/e/e0/Resurrection_Signet.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Resurrection_Signet",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 3,
         "Name": "Signet of Capture",
@@ -347,8 +351,7 @@ var skillTable = [
         "Campaign": "Core",
         "Image": "https://wiki.guildwars.com/images/8/8d/Signet_of_Capture.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Signet_of_Capture",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 1403,
         "Name": "Agonizing Chop",
@@ -370,7 +373,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/55/Agonizing_Chop.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Agonizing_Chop",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 334,
         "Name": "Axe Rake",
@@ -392,7 +396,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/42/Axe_Rake.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Axe_Rake",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]
+        ]
     }, {
         "Id": 342,
         "Name": "Axe Twist",
@@ -414,7 +419,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/56/Axe_Twist.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Axe_Twist",
         "Ranks": [
-            [1, 2, 4, 5, 6, 7, 9, 10, 11, 12, 14, 15, 16, 17, 19, 20, 21, 23, 24, 25, 26, 28]]
+            [1, 2, 4, 5, 6, 7, 9, 10, 11, 12, 14, 15, 16, 17, 19, 20, 21, 23, 24, 25, 26, 28]
+        ]
     }, {
         "Id": 335,
         "Name": "Cleave",
@@ -436,7 +442,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f9/Cleave.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Cleave",
         "Ranks": [
-            [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38]]
+            [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38]
+        ]
     }, {
         "Id": 1402,
         "Name": "Critical Chop",
@@ -458,7 +465,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/4a/Critical_Chop.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Critical_Chop",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 330,
         "Name": "Cyclone Axe",
@@ -480,7 +488,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/ba/Cyclone_Axe.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Cyclone_Axe",
         "Ranks": [
-            [4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 13, 13, 14, 14, 15, 15]]
+            [4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 13, 13, 14, 14, 15, 15]
+        ]
     }, {
         "Id": 1696,
         "Name": "Decapitate",
@@ -502,7 +511,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/98/Decapitate.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Decapitate",
         "Ranks": [
-            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 337,
         "Name": "Dismember",
@@ -524,7 +535,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/82/Dismember.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Dismember",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 340,
         "Name": "Disrupting Chop",
@@ -545,8 +557,7 @@ var skillTable = [
         "Campaign": "Core",
         "Image": "https://wiki.guildwars.com/images/e/e7/Disrupting_Chop.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Disrupting_Chop",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 338,
         "Name": "Eviscerate",
@@ -568,7 +579,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/30/Eviscerate.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Eviscerate",
         "Ranks": [
-            [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 336,
         "Name": "Executioner's Strike",
@@ -590,7 +603,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/d9/Executioner%27s_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Executioner%27s_Strike",
         "Ranks": [
-            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]]
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]
+        ]
     }, {
         "Id": 904,
         "Name": "Furious Axe",
@@ -612,7 +626,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/00/Furious_Axe.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Furious_Axe",
         "Ranks": [
-            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47]]
+            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47]
+        ]
     }, {
         "Id": 2009,
         "Name": "Keen Chop",
@@ -633,8 +648,7 @@ var skillTable = [
         "Campaign": "Eye of the North",
         "Image": "https://wiki.guildwars.com/images/9/98/Keen_Chop.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Keen_Chop",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 849,
         "Name": "Lacerating Chop",
@@ -656,7 +670,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f9/Lacerating_Chop.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Lacerating_Chop",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 339,
         "Name": "Penetrating Blow",
@@ -678,7 +694,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e1/Penetrating_Blow.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Penetrating_Blow",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1136,
         "Name": "Penetrating Chop",
@@ -700,7 +717,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/cf/Penetrating_Chop.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Penetrating_Chop",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 341,
         "Name": "Swift Chop",
@@ -722,7 +740,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/82/Swift_Chop.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Swift_Chop",
         "Ranks": [
-            [1, 2, 4, 5, 6, 7, 9, 10, 11, 12, 14, 15, 16, 17, 19, 20, 21, 23, 24, 25, 26, 28], [1, 2, 4, 5, 6, 7, 9, 10, 11, 12, 14, 15, 16, 17, 19, 20, 21, 23, 24, 25, 26, 28]]
+            [1, 2, 4, 5, 6, 7, 9, 10, 11, 12, 14, 15, 16, 17, 19, 20, 21, 23, 24, 25, 26, 28],
+            [1, 2, 4, 5, 6, 7, 9, 10, 11, 12, 14, 15, 16, 17, 19, 20, 21, 23, 24, 25, 26, 28]
+        ]
     }, {
         "Id": 992,
         "Name": "Triple Chop",
@@ -744,7 +764,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a5/Triple_Chop.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Triple_Chop",
         "Ranks": [
-            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]]
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]
+        ]
     }, {
         "Id": 888,
         "Name": "Whirling Axe",
@@ -766,7 +787,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/1b/Whirling_Axe.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Whirling_Axe",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 905,
         "Name": "Auspicious Blow",
@@ -788,7 +810,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e0/Auspicious_Blow.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Auspicious_Blow",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10]
+        ]
     }, {
         "Id": 358,
         "Name": "Backbreaker",
@@ -810,7 +834,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c1/Backbreaker.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Backbreaker",
         "Ranks": [
-            [1, 2, 4, 5, 6, 7, 9, 10, 11, 12, 14, 15, 16, 17, 19, 20, 21, 23, 24, 25, 26, 28]]
+            [1, 2, 4, 5, 6, 7, 9, 10, 11, 12, 14, 15, 16, 17, 19, 20, 21, 23, 24, 25, 26, 28]
+        ]
     }, {
         "Id": 350,
         "Name": "Belly Smash",
@@ -832,7 +857,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/aa/Belly_Smash.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Belly_Smash",
         "Ranks": [
-            [3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 8, 8, 8, 8, 9]]
+            [3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 8, 8, 8, 8, 9]
+        ]
     }, {
         "Id": 357,
         "Name": "Counter Blow",
@@ -853,8 +879,7 @@ var skillTable = [
         "Campaign": "Core",
         "Image": "https://wiki.guildwars.com/images/f/ff/Counter_Blow.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Counter_Blow",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 353,
         "Name": "Crude Swing",
@@ -876,7 +901,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/69/Crude_Swing.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Crude_Swing",
         "Ranks": [
-            [1, 2, 4, 5, 6, 7, 9, 10, 11, 12, 14, 15, 16, 17, 19, 20, 21, 23, 24, 25, 26, 28]]
+            [1, 2, 4, 5, 6, 7, 9, 10, 11, 12, 14, 15, 16, 17, 19, 20, 21, 23, 24, 25, 26, 28]
+        ]
     }, {
         "Id": 352,
         "Name": "Crushing Blow",
@@ -898,7 +924,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f9/Crushing_Blow.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Crushing_Blow",
         "Ranks": [
-            [1, 2, 4, 5, 6, 7, 9, 10, 11, 12, 14, 15, 16, 17, 19, 20, 21, 23, 24, 25, 26, 28], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [1, 2, 4, 5, 6, 7, 9, 10, 11, 12, 14, 15, 16, 17, 19, 20, 21, 23, 24, 25, 26, 28],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 355,
         "Name": "Devastating Hammer",
@@ -920,7 +948,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/3a/Devastating_Hammer.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Devastating_Hammer",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 354,
         "Name": "Earth Shaker",
@@ -941,8 +970,7 @@ var skillTable = [
         "Campaign": "Prophecies",
         "Image": "https://wiki.guildwars.com/images/a/ac/Earth_Shaker.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Earth_Shaker",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 993,
         "Name": "Enraged Smash",
@@ -964,7 +992,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a6/Enraged_Smash.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Enraged_Smash",
         "Ranks": [
-            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5], [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]]
+            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5],
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]
+        ]
     }, {
         "Id": 850,
         "Name": "Fierce Blow",
@@ -986,7 +1016,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/11/Fierce_Blow.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Fierce_Blow",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 11]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 11]
+        ]
     }, {
         "Id": 889,
         "Name": "Forceful Blow",
@@ -1008,7 +1040,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/b0/Forceful_Blow.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Forceful_Blow",
         "Ranks": [
-            [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 331,
         "Name": "Hammer Bash",
@@ -1029,8 +1063,7 @@ var skillTable = [
         "Campaign": "Core",
         "Image": "https://wiki.guildwars.com/images/d/dd/Hammer_Bash.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Hammer_Bash",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 359,
         "Name": "Heavy Blow",
@@ -1052,7 +1085,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/d5/Heavy_Blow.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Heavy_Blow",
         "Ranks": [
-            [1, 3, 5, 7, 9, 11, 13, 15, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42]]
+            [1, 3, 5, 7, 9, 11, 13, 15, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42]
+        ]
     }, {
         "Id": 356,
         "Name": "Irresistible Blow",
@@ -1074,7 +1108,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/2b/Irresistible_Blow.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Irresistible_Blow",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1697,
         "Name": "Magehunter's Smash",
@@ -1095,8 +1131,7 @@ var skillTable = [
         "Campaign": "Nightfall",
         "Image": "https://wiki.guildwars.com/images/1/11/Magehunter%27s_Smash.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Magehunter%27s_Smash",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 351,
         "Name": "Mighty Blow",
@@ -1118,7 +1153,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/da/Mighty_Blow.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mighty_Blow",
         "Ranks": [
-            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]]
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]
+        ]
     }, {
         "Id": 1409,
         "Name": "Mokele Smash",
@@ -1140,7 +1176,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/37/Mokele_Smash.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mokele_Smash",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1410,
         "Name": "Overbearing Smash",
@@ -1162,7 +1199,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f8/Overbearing_Smash.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Overbearing_Smash",
         "Ranks": [
-            [1, 2, 4, 5, 6, 7, 9, 10, 11, 12, 14, 15, 16, 17, 19, 20, 21, 23, 24, 25, 26, 28], [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 11]]
+            [1, 2, 4, 5, 6, 7, 9, 10, 11, 12, 14, 15, 16, 17, 19, 20, 21, 23, 24, 25, 26, 28],
+            [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 11]
+        ]
     }, {
         "Id": 2008,
         "Name": "Pulverizing Smash",
@@ -1184,7 +1223,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a5/Pulverizing_Smash.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Pulverizing_Smash",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 994,
         "Name": "Renewing Smash",
@@ -1206,7 +1246,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/58/Renewing_Smash.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Renewing_Smash",
         "Ranks": [
-            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]]
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]
+        ]
     }, {
         "Id": 360,
         "Name": "Staggering Blow",
@@ -1228,7 +1269,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/d3/Staggering_Blow.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Staggering_Blow",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1137,
         "Name": "Yeti Smash",
@@ -1249,8 +1291,7 @@ var skillTable = [
         "Campaign": "Factions",
         "Image": "https://wiki.guildwars.com/images/c/cd/Yeti_Smash.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Yeti_Smash",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 2067,
         "Name": "\"I Meant to Do That!\"",
@@ -1272,7 +1313,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/0e/%22I_Meant_to_Do_That%21%22.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22I_Meant_to_Do_That!%22",
         "Ranks": [
-            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]]
+            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]
+        ]
     }, {
         "Id": 333,
         "Name": "\"I Will Avenge You!\"",
@@ -1294,7 +1336,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/84/%22I_Will_Avenge_You%21%22.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22I_Will_Avenge_You!%22",
         "Ranks": [
-            [3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 8, 8, 8, 8, 9]]
+            [3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 8, 8, 8, 8, 9]
+        ]
     }, {
         "Id": 368,
         "Name": "\"I Will Survive!\"",
@@ -1316,7 +1359,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/23/%22I_Will_Survive%21%22.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22I_Will_Survive!%22",
         "Ranks": [
-            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13, 13]]
+            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13, 13]
+        ]
     }, {
         "Id": 1141,
         "Name": "\"You Will Die!\"",
@@ -1338,7 +1382,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/6d/%22You_Will_Die%21%22.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22You_Will_Die!%22",
         "Ranks": [
-            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4]]
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4]
+        ]
     }, {
         "Id": 317,
         "Name": "Battle Rage",
@@ -1360,7 +1405,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/dd/Battle_Rage.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Battle_Rage",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 370,
         "Name": "Berserker Stance",
@@ -1382,7 +1428,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/ef/Berserker_Stance.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Berserker_Stance",
         "Ranks": [
-            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13, 13]]
+            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13, 13]
+        ]
     }, {
         "Id": 2197,
         "Name": "Body Blow",
@@ -1404,7 +1451,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/1f/Body_Blow.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Body_Blow",
         "Ranks": [
-            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]]
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52],
+            [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+        ]
     }, {
         "Id": 379,
         "Name": "Bull's Charge",
@@ -1426,7 +1475,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/fb/Bull%27s_Charge.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Bull%27s_Charge",
         "Ranks": [
-            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13, 13]]
+            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13, 13]
+        ]
     }, {
         "Id": 332,
         "Name": "Bull's Strike",
@@ -1448,7 +1498,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/9e/Bull%27s_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Bull%27s_Strike",
         "Ranks": [
-            [5, 7, 8, 10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40]]
+            [5, 7, 8, 10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40]
+        ]
     }, {
         "Id": 1413,
         "Name": "Burst of Aggression",
@@ -1470,7 +1521,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/43/Burst_of_Aggression.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Burst_of_Aggression",
         "Ranks": [
-            [2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 13]]
+            [2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 13]
+        ]
     }, {
         "Id": 1405,
         "Name": "Charging Strike",
@@ -1492,7 +1544,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/ad/Charging_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Charging_Strike",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14], [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14],
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]
+        ]
     }, {
         "Id": 1693,
         "Name": "Counterattack",
@@ -1514,7 +1568,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/8c/Counterattack.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Counterattack",
         "Ranks": [
-            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47], [2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 7, 7, 7, 7, 8]]
+            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47],
+            [2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 7, 7, 7, 7, 8]
+        ]
     }, {
         "Id": 318,
         "Name": "Defy Pain",
@@ -1536,7 +1592,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/16/Defy_Pain.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Defy_Pain",
         "Ranks": [
-            [90, 104, 118, 132, 146, 160, 174, 188, 202, 216, 230, 244, 258, 272, 286, 300, 314, 328, 342, 356, 370, 384], [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]]
+            [90, 104, 118, 132, 146, 160, 174, 188, 202, 216, 230, 244, 258, 272, 286, 300, 314, 328, 342, 356, 370, 384],
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]
+        ]
     }, {
         "Id": 2066,
         "Name": "Disarm",
@@ -1558,7 +1616,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/4e/Disarm.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Disarm",
         "Ranks": [
-            [0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4]]
+            [0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4]
+        ]
     }, {
         "Id": 361,
         "Name": "Dolyak Signet",
@@ -1580,7 +1639,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/8f/Dolyak_Signet.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Dolyak_Signet",
         "Ranks": [
-            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25], [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]]
+            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25],
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]
+        ]
     }, {
         "Id": 375,
         "Name": "Dwarven Battle Stance",
@@ -1602,7 +1663,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/b9/Dwarven_Battle_Stance.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Dwarven_Battle_Stance",
         "Ranks": [
-            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13, 13]]
+            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13, 13]
+        ]
     }, {
         "Id": 347,
         "Name": "Endure Pain",
@@ -1624,7 +1686,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a9/Endure_Pain.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Endure_Pain",
         "Ranks": [
-            [7, 8, 8, 9, 10, 11, 11, 12, 13, 14, 14, 15, 16, 17, 17, 18, 19, 19, 20, 21, 22, 22], [90, 104, 118, 132, 146, 160, 174, 188, 202, 216, 230, 244, 258, 272, 286, 300, 314, 328, 342, 356, 370, 384]]
+            [7, 8, 8, 9, 10, 11, 11, 12, 13, 14, 14, 15, 16, 17, 17, 18, 19, 19, 20, 21, 22, 22],
+            [90, 104, 118, 132, 146, 160, 174, 188, 202, 216, 230, 244, 258, 272, 286, 300, 314, 328, 342, 356, 370, 384]
+        ]
     }, {
         "Id": 1414,
         "Name": "Enraging Charge",
@@ -1646,7 +1710,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/84/Enraging_Charge.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Enraging_Charge",
         "Ranks": [
-            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19], [0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4]]
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19],
+            [0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4]
+        ]
     }, {
         "Id": 1404,
         "Name": "Flail",
@@ -1668,7 +1734,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c7/Flail.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Flail",
         "Ranks": [
-            [1, 2, 3, 4, 5, 6, 7, 8, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]]
+            [1, 2, 3, 4, 5, 6, 7, 8, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+        ]
     }, {
         "Id": 389,
         "Name": "Flourish",
@@ -1690,7 +1757,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/97/Flourish.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Flourish",
         "Ranks": [
-            [2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9]]
+            [2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9]
+        ]
     }, {
         "Id": 327,
         "Name": "Griffon's Sweep",
@@ -1712,7 +1780,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/0f/Griffon%27s_Sweep.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Griffon%27s_Sweep",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [10, 12, 13, 15, 16, 18, 20, 21, 23, 24, 26, 28, 29, 31, 32, 34, 36, 37, 39, 40, 42, 44]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [10, 12, 13, 15, 16, 18, 20, 21, 23, 24, 26, 28, 29, 31, 32, 34, 36, 37, 39, 40, 42, 44]
+        ]
     }, {
         "Id": 1406,
         "Name": "Headbutt",
@@ -1734,7 +1804,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/64/Headbutt.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Headbutt",
         "Ranks": [
-            [40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100, 104, 108, 112, 116, 120, 124], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100, 104, 108, 112, 116, 120, 124],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1134,
         "Name": "Leviathan's Sweep",
@@ -1756,7 +1828,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/9c/Leviathan%27s_Sweep.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Leviathan%27s_Sweep",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [10, 12, 13, 15, 16, 18, 20, 21, 23, 24, 26, 28, 29, 31, 32, 34, 36, 37, 39, 40, 42, 44]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [10, 12, 13, 15, 16, 18, 20, 21, 23, 24, 26, 28, 29, 31, 32, 34, 36, 37, 39, 40, 42, 44]
+        ]
     }, {
         "Id": 1407,
         "Name": "Lion's Comfort",
@@ -1778,7 +1852,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/fc/Lion%27s_Comfort.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Lion%27s_Comfort",
         "Ranks": [
-            [50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 98, 102, 106, 110, 114, 118, 122, 126, 130, 134], [0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4]]
+            [50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 98, 102, 106, 110, 114, 118, 122, 126, 130, 134],
+            [0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4]
+        ]
     }, {
         "Id": 1694,
         "Name": "Magehunter Strike",
@@ -1800,7 +1876,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/69/Magehunter_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Magehunter_Strike",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 322,
         "Name": "Power Attack",
@@ -1822,7 +1899,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/af/Power_Attack.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Power_Attack",
         "Ranks": [
-            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]]
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]
+        ]
     }, {
         "Id": 831,
         "Name": "Primal Rage",
@@ -1844,7 +1922,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/d8/Primal_Rage.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Primal_Rage",
         "Ranks": [
-            [1, 2, 3, 4, 5, 6, 7, 8, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]]
+            [1, 2, 3, 4, 5, 6, 7, 8, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+        ]
     }, {
         "Id": 326,
         "Name": "Protector's Strike",
@@ -1866,7 +1945,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/b5/Protector%27s_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Protector%27s_Strike",
         "Ranks": [
-            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]]
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]
+        ]
     }, {
         "Id": 1408,
         "Name": "Rage of the Ntouka",
@@ -1888,7 +1968,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/11/Rage_of_the_Ntouka.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Rage_of_the_Ntouka",
         "Ranks": [
-            [1, 1, 2, 2, 3, 3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9]]
+            [1, 1, 2, 2, 3, 3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9]
+        ]
     }, {
         "Id": 319,
         "Name": "Rush",
@@ -1910,7 +1991,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/fb/Rush.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Rush",
         "Ranks": [
-            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25]]
+            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25]
+        ]
     }, {
         "Id": 363,
         "Name": "Shield Bash",
@@ -1932,7 +2014,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/ca/Shield_Bash.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Shield_Bash",
         "Ranks": [
-            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13, 13]]
+            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13, 13]
+        ]
     }, {
         "Id": 1411,
         "Name": "Signet of Stamina",
@@ -1954,7 +2037,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/d5/Signet_of_Stamina.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Signet_of_Stamina",
         "Ranks": [
-            [50, 67, 83, 100, 117, 133, 150, 167, 183, 200, 217, 233, 250, 267, 283, 300, 317, 333, 350, 367, 383, 400]]
+            [50, 67, 83, 100, 117, 133, 150, 167, 183, 200, 217, 233, 250, 267, 283, 300, 317, 333, 350, 367, 383, 400]
+        ]
     }, {
         "Id": 944,
         "Name": "Signet of Strength",
@@ -1976,7 +2060,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/35/Signet_of_Strength.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Signet_of_Strength",
         "Ranks": [
-            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]]
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]
+        ]
     }, {
         "Id": 349,
         "Name": "Sprint",
@@ -1998,7 +2083,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c5/Sprint.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Sprint",
         "Ranks": [
-            [8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 12, 13, 13, 14, 14, 14, 15, 15, 16, 16, 16]]
+            [8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 12, 13, 13, 14, 14, 14, 15, 15, 16, 16, 16]
+        ]
     }, {
         "Id": 995,
         "Name": "Tiger Stance",
@@ -2020,7 +2106,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/37/Tiger_Stance.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Tiger_Stance",
         "Ranks": [
-            [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 12]]
+            [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 12]
+        ]
     }, {
         "Id": 362,
         "Name": "Warrior's Cunning",
@@ -2042,7 +2129,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/32/Warrior%27s_Cunning.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Warrior%27s_Cunning",
         "Ranks": [
-            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13, 13]]
+            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13, 13]
+        ]
     }, {
         "Id": 374,
         "Name": "Warrior's Endurance",
@@ -2064,7 +2152,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c2/Warrior%27s_Endurance.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Warrior%27s_Endurance",
         "Ranks": [
-            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47], [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]]
+            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47],
+            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
+        ]
     }, {
         "Id": 1416,
         "Name": "Barbarous Slice",
@@ -2086,7 +2176,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/ae/Barbarous_Slice.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Barbarous_Slice",
         "Ranks": [
-            [5, 7, 8, 10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40], [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19]]
+            [5, 7, 8, 10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40],
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19]
+        ]
     }, {
         "Id": 1415,
         "Name": "Crippling Slash",
@@ -2108,7 +2200,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/93/Crippling_Slash.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Crippling_Slash",
         "Ranks": [
-            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19], [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]]
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19],
+            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
+        ]
     }, {
         "Id": 907,
         "Name": "Dragon Slash",
@@ -2130,7 +2224,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/6a/Dragon_Slash.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Dragon_Slash",
         "Ranks": [
-            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52], [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]]
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52],
+            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]
+        ]
     }, {
         "Id": 385,
         "Name": "Final Thrust",
@@ -2152,7 +2248,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/58/Final_Thrust.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Final_Thrust",
         "Ranks": [
-            [1, 4, 6, 9, 11, 14, 17, 19, 22, 24, 27, 30, 32, 35, 37, 40, 43, 45, 48, 50, 53, 56], [2, 8, 12, 18, 22, 28, 34, 38, 44, 48, 54, 60, 64, 70, 74, 80, 86, 90, 96, 100, 106, 112]]
+            [1, 4, 6, 9, 11, 14, 17, 19, 22, 24, 27, 30, 32, 35, 37, 40, 43, 45, 48, 50, 53, 56],
+            [2, 8, 12, 18, 22, 28, 34, 38, 44, 48, 54, 60, 64, 70, 74, 80, 86, 90, 96, 100, 106, 112]
+        ]
     }, {
         "Id": 383,
         "Name": "Galrath Slash",
@@ -2174,7 +2272,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/6d/Galrath_Slash.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Galrath_Slash",
         "Ranks": [
-            [1, 4, 6, 9, 11, 14, 17, 19, 22, 24, 27, 30, 32, 35, 37, 40, 43, 45, 48, 50, 53, 56]]
+            [1, 4, 6, 9, 11, 14, 17, 19, 22, 24, 27, 30, 32, 35, 37, 40, 43, 45, 48, 50, 53, 56]
+        ]
     }, {
         "Id": 384,
         "Name": "Gash",
@@ -2196,7 +2295,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/70/Gash.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Gash",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 320,
         "Name": "Hamstring",
@@ -2218,7 +2319,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/dd/Hamstring.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Hamstring",
         "Ranks": [
-            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19, 20]]
+            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19, 20]
+        ]
     }, {
         "Id": 381,
         "Name": "Hundred Blades",
@@ -2240,7 +2342,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/63/Hundred_Blades.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Hundred_Blades",
         "Ranks": [
-            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]]
+            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
+        ]
     }, {
         "Id": 1135,
         "Name": "Jaizhenju Strike",
@@ -2262,7 +2365,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/8e/Jaizhenju_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Jaizhenju_Strike",
         "Ranks": [
-            [1, 3, 5, 7, 9, 11, 13, 15, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42]]
+            [1, 3, 5, 7, 9, 11, 13, 15, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42]
+        ]
     }, {
         "Id": 2010,
         "Name": "Knee Cutter",
@@ -2284,7 +2388,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/6b/Knee_Cutter.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Knee_Cutter",
         "Ranks": [
-            [2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9], [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4]]
+            [2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9],
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4]
+        ]
     }, {
         "Id": 328,
         "Name": "Pure Strike",
@@ -2306,7 +2412,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c8/Pure_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Pure_Strike",
         "Ranks": [
-            [1, 3, 5, 7, 9, 11, 13, 15, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42]]
+            [1, 3, 5, 7, 9, 11, 13, 15, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42]
+        ]
     }, {
         "Id": 892,
         "Name": "Quivering Blade",
@@ -2328,7 +2435,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/8f/Quivering_Blade.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Quivering_Blade",
         "Ranks": [
-            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]]
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]
+        ]
     }, {
         "Id": 390,
         "Name": "Savage Slash",
@@ -2350,7 +2458,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/7e/Savage_Slash.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Savage_Slash",
         "Ranks": [
-            [1, 4, 6, 9, 11, 14, 17, 19, 22, 24, 27, 30, 32, 35, 37, 40, 43, 45, 48, 50, 53, 56]]
+            [1, 4, 6, 9, 11, 14, 17, 19, 22, 24, 27, 30, 32, 35, 37, 40, 43, 45, 48, 50, 53, 56]
+        ]
     }, {
         "Id": 386,
         "Name": "Seeking Blade",
@@ -2372,7 +2481,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/14/Seeking_Blade.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Seeking_Blade",
         "Ranks": [
-            [1, 2, 4, 5, 6, 7, 9, 10, 11, 12, 14, 15, 16, 17, 19, 20, 21, 23, 24, 25, 26, 28], [1, 2, 4, 5, 6, 7, 9, 10, 11, 12, 14, 15, 16, 17, 19, 20, 21, 23, 24, 25, 26, 28]]
+            [1, 2, 4, 5, 6, 7, 9, 10, 11, 12, 14, 15, 16, 17, 19, 20, 21, 23, 24, 25, 26, 28],
+            [1, 2, 4, 5, 6, 7, 9, 10, 11, 12, 14, 15, 16, 17, 19, 20, 21, 23, 24, 25, 26, 28]
+        ]
     }, {
         "Id": 382,
         "Name": "Sever Artery",
@@ -2394,7 +2505,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/54/Sever_Artery.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Sever_Artery",
         "Ranks": [
-            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32, 33]]
+            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32, 33]
+        ]
     }, {
         "Id": 1144,
         "Name": "Silverwing Slash",
@@ -2416,7 +2528,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/9c/Silverwing_Slash.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Silverwing_Slash",
         "Ranks": [
-            [1, 4, 6, 9, 11, 14, 17, 19, 22, 24, 27, 30, 32, 35, 37, 40, 43, 45, 48, 50, 53, 56]]
+            [1, 4, 6, 9, 11, 14, 17, 19, 22, 24, 27, 30, 32, 35, 37, 40, 43, 45, 48, 50, 53, 56]
+        ]
     }, {
         "Id": 996,
         "Name": "Standing Slash",
@@ -2438,7 +2551,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/1d/Standing_Slash.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Standing_Slash",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1702,
         "Name": "Steelfang Slash",
@@ -2460,7 +2575,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/fc/Steelfang_Slash.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Steelfang_Slash",
         "Ranks": [
-            [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43], [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]]
+            [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43],
+            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]
+        ]
     }, {
         "Id": 851,
         "Name": "Sun and Moon Slash",
@@ -2481,8 +2598,7 @@ var skillTable = [
         "Campaign": "Factions",
         "Image": "https://wiki.guildwars.com/images/3/38/Sun_and_Moon_Slash.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Sun_and_Moon_Slash",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 364,
         "Name": "\"Charge!\"",
@@ -2504,7 +2620,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/32/%22Charge%21%22.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22Charge!%22",
         "Ranks": [
-            [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 14, 14, 15, 15, 16, 16]]
+            [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 14, 14, 15, 15, 16, 16]
+        ]
     }, {
         "Id": 366,
         "Name": "\"Fear Me!\"",
@@ -2526,7 +2643,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f5/%22Fear_Me%21%22.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22Fear_Me!%22",
         "Ranks": [
-            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5], [1, 2, 3, 4, 5, 6, 7, 8, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21], [5, 7, 8, 10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40]]
+            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5],
+            [1, 2, 3, 4, 5, 6, 7, 8, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+            [5, 7, 8, 10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40]
+        ]
     }, {
         "Id": 891,
         "Name": "\"None Shall Pass!\"",
@@ -2548,7 +2668,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f9/%22None_Shall_Pass%21%22.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22None_Shall_Pass!%22",
         "Ranks": [
-            [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 11]]
+            [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 11]
+        ]
     }, {
         "Id": 839,
         "Name": "\"Retreat!\"",
@@ -2570,7 +2691,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/64/%22Retreat%21%22.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22Retreat!%22",
         "Ranks": [
-            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13, 13]]
+            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13, 13]
+        ]
     }, {
         "Id": 367,
         "Name": "\"Shields Up!\"",
@@ -2592,7 +2714,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/d5/%22Shields_Up%21%22.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22Shields_Up!%22",
         "Ranks": [
-            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13, 13]]
+            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13, 13]
+        ]
     }, {
         "Id": 316,
         "Name": "\"To the Limit!\"",
@@ -2614,7 +2737,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a4/%22To_the_Limit%21%22.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22To_the_Limit!%22",
         "Ranks": [
-            [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8], [10, 11, 11, 12, 13, 13, 14, 15, 15, 16, 17, 17, 18, 19, 19, 20, 21, 21, 22, 23, 23, 24], [10, 13, 17, 20, 23, 27, 30, 33, 37, 40, 43, 47, 50, 53, 57, 60, 63, 67, 70, 73, 77, 80]]
+            [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8],
+            [10, 11, 11, 12, 13, 13, 14, 15, 15, 16, 17, 17, 18, 19, 19, 20, 21, 21, 22, 23, 23, 24],
+            [10, 13, 17, 20, 23, 27, 30, 33, 37, 40, 43, 47, 50, 53, 57, 60, 63, 67, 70, 73, 77, 80]
+        ]
     }, {
         "Id": 365,
         "Name": "\"Victory Is Mine!\"",
@@ -2636,7 +2762,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/0b/%22Victory_Is_Mine%21%22.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22Victory_Is_Mine!%22",
         "Ranks": [
-            [10, 14, 18, 22, 25, 29, 33, 37, 41, 45, 49, 53, 56, 60, 64, 68, 72, 76, 80, 83, 87, 91], [3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 8, 8, 8, 8, 9]]
+            [10, 14, 18, 22, 25, 29, 33, 37, 41, 45, 49, 53, 56, 60, 64, 68, 72, 76, 80, 83, 87, 91],
+            [3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 8, 8, 8, 8, 9]
+        ]
     }, {
         "Id": 348,
         "Name": "\"Watch Yourself!\"",
@@ -2658,7 +2786,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/9f/%22Watch_Yourself%21%22.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22Watch_Yourself!%22",
         "Ranks": [
-            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32, 33]]
+            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32, 33]
+        ]
     }, {
         "Id": 1142,
         "Name": "Auspicious Parry",
@@ -2680,7 +2809,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/09/Auspicious_Parry.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Auspicious_Parry",
         "Ranks": [
-            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5]]
+            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5]
+        ]
     }, {
         "Id": 371,
         "Name": "Balanced Stance",
@@ -2702,7 +2832,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f1/Balanced_Stance.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Balanced_Stance",
         "Ranks": [
-            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25]]
+            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25]
+        ]
     }, {
         "Id": 380,
         "Name": "Bonetti's Defense",
@@ -2724,7 +2855,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/db/Bonetti%27s_Defense.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Bonetti%27s_Defense",
         "Ranks": [
-            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13, 13]]
+            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13, 13]
+        ]
     }, {
         "Id": 388,
         "Name": "Deadly Riposte",
@@ -2746,7 +2878,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/85/Deadly_Riposte.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Deadly_Riposte",
         "Ranks": [
-            [15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120], [3, 4, 6, 7, 9, 10, 12, 13, 15, 16, 18, 19, 21, 22, 24, 25, 26, 28, 29, 31, 32, 34]]
+            [15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120],
+            [3, 4, 6, 7, 9, 10, 12, 13, 15, 16, 18, 19, 21, 22, 24, 25, 26, 28, 29, 31, 32, 34]
+        ]
     }, {
         "Id": 345,
         "Name": "Defensive Stance",
@@ -2768,7 +2902,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/14/Defensive_Stance.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Defensive_Stance",
         "Ranks": [
-            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7], [0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5, 5, 5, 5, 6]]
+            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7],
+            [0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5, 5, 5, 5, 6]
+        ]
     }, {
         "Id": 373,
         "Name": "Deflect Arrows",
@@ -2790,7 +2926,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a9/Deflect_Arrows.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Deflect_Arrows",
         "Ranks": [
-            [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8], [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19]]
+            [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8],
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19]
+        ]
     }, {
         "Id": 323,
         "Name": "Desperation Blow",
@@ -2812,7 +2950,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/24/Desperation_Blow.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Desperation_Blow",
         "Ranks": [
-            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]]
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]
+        ]
     }, {
         "Id": 376,
         "Name": "Disciplined Stance",
@@ -2834,7 +2973,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/11/Disciplined_Stance.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Disciplined_Stance",
         "Ranks": [
-            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5]]
+            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5]
+        ]
     }, {
         "Id": 1133,
         "Name": "Drunken Blow",
@@ -2856,7 +2996,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/0b/Drunken_Blow.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Drunken_Blow",
         "Ranks": [
-            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]]
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]
+        ]
     }, {
         "Id": 372,
         "Name": "Gladiator's Defense",
@@ -2878,7 +3019,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/8e/Gladiator%27s_Defense.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Gladiator%27s_Defense",
         "Ranks": [
-            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13, 13], [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47]]
+            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13, 13],
+            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47]
+        ]
     }, {
         "Id": 1,
         "Name": "Healing Signet",
@@ -2900,7 +3043,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e6/Healing_Signet.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Healing_Signet",
         "Ranks": [
-            [82, 88, 94, 100, 106, 112, 118, 124, 130, 136, 142, 148, 154, 160, 166, 172, 178, 184, 190, 196, 202, 208]]
+            [82, 88, 94, 100, 106, 112, 118, 124, 130, 136, 142, 148, 154, 160, 166, 172, 178, 184, 190, 196, 202, 208]
+        ]
     }, {
         "Id": 810,
         "Name": "Protector's Defense",
@@ -2922,7 +3066,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/35/Protector%27s_Defense.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Protector%27s_Defense",
         "Ranks": [
-            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13, 13]]
+            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13, 13]
+        ]
     }, {
         "Id": 387,
         "Name": "Riposte",
@@ -2944,7 +3089,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/b2/Riposte.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Riposte",
         "Ranks": [
-            [20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100, 104]]
+            [20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100, 104]
+        ]
     }, {
         "Id": 378,
         "Name": "Shield Stance",
@@ -2966,7 +3112,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/2a/Shield_Stance.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Shield_Stance",
         "Ranks": [
-            [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8]]
+            [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8]
+        ]
     }, {
         "Id": 1146,
         "Name": "Shove",
@@ -2988,7 +3135,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/bb/Shove.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Shove",
         "Ranks": [
-            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]]
+            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]
+        ]
     }, {
         "Id": 1699,
         "Name": "Soldier's Defense",
@@ -3010,7 +3158,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/ee/Soldier%27s_Defense.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Soldier%27s_Defense",
         "Ranks": [
-            [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8]]
+            [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8]
+        ]
     }, {
         "Id": 2196,
         "Name": "Soldier's Speed",
@@ -3032,7 +3181,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/99/Soldier%27s_Speed.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Soldier%27s_Speed",
         "Ranks": [
-            [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]]
+            [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+        ]
     }, {
         "Id": 1698,
         "Name": "Soldier's Stance",
@@ -3054,7 +3204,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/1b/Soldier%27s_Stance.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Soldier%27s_Stance",
         "Ranks": [
-            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19]]
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19]
+        ]
     }, {
         "Id": 1695,
         "Name": "Soldier's Strike",
@@ -3076,7 +3227,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/28/Soldier%27s_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Soldier%27s_Strike",
         "Ranks": [
-            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]]
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]
+        ]
     }, {
         "Id": 1701,
         "Name": "Steady Stance",
@@ -3098,7 +3250,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/47/Steady_Stance.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Steady_Stance",
         "Ranks": [
-            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4], [1, 1, 2, 2, 3, 3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9]]
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4],
+            [1, 1, 2, 2, 3, 3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9]
+        ]
     }, {
         "Id": 324,
         "Name": "Thrill of Victory",
@@ -3120,7 +3274,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/ae/Thrill_of_Victory.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Thrill_of_Victory",
         "Ranks": [
-            [20, 21, 23, 24, 25, 27, 28, 29, 31, 32, 33, 35, 36, 37, 39, 40, 41, 43, 44, 45, 47, 48], [1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]]
+            [20, 21, 23, 24, 25, 27, 28, 29, 31, 32, 33, 35, 36, 37, 39, 40, 41, 43, 44, 45, 47, 48],
+            [1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+        ]
     }, {
         "Id": 377,
         "Name": "Wary Stance",
@@ -3142,7 +3298,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/be/Wary_Stance.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Wary_Stance",
         "Ranks": [
-            [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8]]
+            [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8]
+        ]
     }, {
         "Id": 869,
         "Name": "\"Coward!\"",
@@ -3163,8 +3320,7 @@ var skillTable = [
         "Campaign": "Factions",
         "Image": "https://wiki.guildwars.com/images/9/9c/%22Coward%21%22.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22Coward!%22",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 343,
         "Name": "\"For Great Justice!\"",
@@ -3185,8 +3341,7 @@ var skillTable = [
         "Campaign": "Core",
         "Image": "https://wiki.guildwars.com/images/5/5f/%22For_Great_Justice%21%22.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22For_Great_Justice!%22",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 1014,
         "Name": "\"Let's Get 'Em!\"",
@@ -3207,8 +3362,7 @@ var skillTable = [
         "Campaign": "Core",
         "Image": "https://wiki.guildwars.com/images/e/e8/%22Let%27s_Get_%27Em%21%22.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22Let%27s_Get_%27Em!%22",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 906,
         "Name": "\"On Your Knees!\"",
@@ -3229,8 +3383,7 @@ var skillTable = [
         "Campaign": "Factions",
         "Image": "https://wiki.guildwars.com/images/7/7b/%22On_Your_Knees%21%22.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22On_Your_Knees!%22",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 1412,
         "Name": "\"You're All Alone!\"",
@@ -3251,8 +3404,7 @@ var skillTable = [
         "Campaign": "Nightfall",
         "Image": "https://wiki.guildwars.com/images/f/f1/%22You%27re_All_Alone%21%22.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22You%27re_All_Alone!%22",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 325,
         "Name": "Distracting Blow",
@@ -3273,8 +3425,7 @@ var skillTable = [
         "Campaign": "Core",
         "Image": "https://wiki.guildwars.com/images/e/ed/Distracting_Blow.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Distracting_Blow",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 2194,
         "Name": "Distracting Strike",
@@ -3295,8 +3446,7 @@ var skillTable = [
         "Campaign": "Eye of the North",
         "Image": "https://wiki.guildwars.com/images/0/04/Distracting_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Distracting_Strike",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 344,
         "Name": "Flurry",
@@ -3317,8 +3467,7 @@ var skillTable = [
         "Campaign": "Prophecies",
         "Image": "https://wiki.guildwars.com/images/8/84/Flurry.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Flurry",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 1700,
         "Name": "Frenzied Defense",
@@ -3339,8 +3488,7 @@ var skillTable = [
         "Campaign": "Nightfall",
         "Image": "https://wiki.guildwars.com/images/2/28/Frenzied_Defense.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Frenzied_Defense",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 346,
         "Name": "Frenzy",
@@ -3361,8 +3509,7 @@ var skillTable = [
         "Campaign": "Core",
         "Image": "https://wiki.guildwars.com/images/9/94/Frenzy.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Frenzy",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 2011,
         "Name": "Grapple",
@@ -3383,8 +3530,7 @@ var skillTable = [
         "Campaign": "Eye of the North",
         "Image": "https://wiki.guildwars.com/images/3/35/Grapple.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Grapple",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 329,
         "Name": "Skull Crack",
@@ -3405,8 +3551,7 @@ var skillTable = [
         "Campaign": "Prophecies",
         "Image": "https://wiki.guildwars.com/images/c/c2/Skull_Crack.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Skull_Crack",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 1140,
         "Name": "Storm of Swords",
@@ -3427,8 +3572,7 @@ var skillTable = [
         "Campaign": "Factions",
         "Image": "https://wiki.guildwars.com/images/f/f9/Storm_of_Swords.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Storm_of_Swords",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 2195,
         "Name": "Symbolic Strike",
@@ -3449,8 +3593,7 @@ var skillTable = [
         "Campaign": "Eye of the North",
         "Image": "https://wiki.guildwars.com/images/3/37/Symbolic_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Symbolic_Strike",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 321,
         "Name": "Wild Blow",
@@ -3471,8 +3614,7 @@ var skillTable = [
         "Campaign": "Core",
         "Image": "https://wiki.guildwars.com/images/1/1f/Wild_Blow.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Wild_Blow",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 1209,
         "Name": "Bestial Fury",
@@ -3494,7 +3636,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/bc/Bestial_Fury.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Bestial_Fury",
         "Ranks": [
-            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13]]
+            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13]
+        ]
     }, {
         "Id": 1203,
         "Name": "Bestial Mauling",
@@ -3516,7 +3659,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/ac/Bestial_Mauling.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Bestial_Mauling",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25], [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
+            [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12]
+        ]
     }, {
         "Id": 437,
         "Name": "Bestial Pounce",
@@ -3538,7 +3683,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/6a/Bestial_Pounce.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Bestial_Pounce",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+        ]
     }, {
         "Id": 444,
         "Name": "Brutal Strike",
@@ -3560,7 +3706,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/21/Brutal_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Brutal_Strike",
         "Ranks": [
-            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45]]
+            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45]
+        ]
     }, {
         "Id": 415,
         "Name": "Call of Haste",
@@ -3581,8 +3728,7 @@ var skillTable = [
         "Campaign": "Core",
         "Image": "https://wiki.guildwars.com/images/2/2b/Call_of_Haste.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Call_of_Haste",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 412,
         "Name": "Call of Protection",
@@ -3604,7 +3750,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/bf/Call_of_Protection.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Call_of_Protection",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+        ]
     }, {
         "Id": 411,
         "Name": "Charm Animal",
@@ -3625,8 +3772,7 @@ var skillTable = [
         "Campaign": "Core",
         "Image": "https://wiki.guildwars.com/images/b/b1/Charm_Animal.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Charm_Animal",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 436,
         "Name": "Comfort Animal",
@@ -3648,7 +3794,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/b6/Comfort_Animal.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Comfort_Animal",
         "Ranks": [
-            [20, 26, 31, 37, 42, 48, 54, 59, 65, 70, 76, 82, 87, 93, 98, 104, 110, 115, 121, 126, 132], [10, 13, 16, 20, 23, 26, 29, 32, 36, 39, 42, 45, 48, 52, 55, 58, 61, 64, 68, 71, 74]]
+            [20, 26, 31, 37, 42, 48, 54, 59, 65, 70, 76, 82, 87, 93, 98, 104, 110, 115, 121, 126, 132],
+            [10, 13, 16, 20, 23, 26, 29, 32, 36, 39, 42, 45, 48, 52, 55, 58, 61, 64, 68, 71, 74]
+        ]
     }, {
         "Id": 2141,
         "Name": "Companionship",
@@ -3670,7 +3818,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/9b/Companionship.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Companionship",
         "Ranks": [
-            [30, 36, 42, 48, 54, 60, 66, 72, 78, 84, 90, 96, 102, 108, 114, 120, 126, 132, 138, 144, 150]]
+            [30, 36, 42, 48, 54, 60, 66, 72, 78, 84, 90, 96, 102, 108, 114, 120, 126, 132, 138, 144, 150]
+        ]
     }, {
         "Id": 445,
         "Name": "Disrupting Lunge",
@@ -3692,7 +3841,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/93/Disrupting_Lunge.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Disrupting_Lunge",
         "Ranks": [
-            [1, 2, 2, 3, 4, 5, 5, 6, 7, 8, 8, 9, 10, 11, 11, 12, 13, 13, 14, 15, 16]]
+            [1, 2, 2, 3, 4, 5, 5, 6, 7, 8, 8, 9, 10, 11, 11, 12, 13, 13, 14, 15, 16]
+        ]
     }, {
         "Id": 464,
         "Name": "Edge of Extinction",
@@ -3714,7 +3864,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/2b/Edge_of_Extinction.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Edge_of_Extinction",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13], [14, 16, 19, 21, 24, 26, 28, 31, 33, 36, 38, 40, 43, 45, 48, 50, 52, 55, 57, 60, 62], [30, 38, 46, 54, 62, 70, 78, 86, 94, 102, 110, 118, 126, 134, 142, 150, 158, 166, 174, 182, 190]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13],
+            [14, 16, 19, 21, 24, 26, 28, 31, 33, 36, 38, 40, 43, 45, 48, 50, 52, 55, 57, 60, 62],
+            [30, 38, 46, 54, 62, 70, 78, 86, 94, 102, 110, 118, 126, 134, 142, 150, 158, 166, 174, 182, 190]
+        ]
     }, {
         "Id": 474,
         "Name": "Energizing Wind",
@@ -3736,7 +3889,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/1c/Energizing_Wind.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Energizing_Wind",
         "Ranks": [
-            [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8], [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41]]
+            [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8],
+            [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41]
+        ]
     }, {
         "Id": 1202,
         "Name": "Enraged Lunge",
@@ -3758,7 +3913,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/43/Enraged_Lunge.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Enraged_Lunge",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25], [10, 13, 15, 18, 21, 23, 26, 29, 31, 34, 37, 39, 42, 45, 47, 50, 53, 55, 58, 61, 63]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
+            [10, 13, 15, 18, 21, 23, 26, 29, 31, 34, 37, 39, 42, 45, 47, 50, 53, 55, 58, 61, 63]
+        ]
     }, {
         "Id": 2142,
         "Name": "Feral Aggression",
@@ -3780,7 +3937,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/df/Feral_Aggression.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Feral_Aggression",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25], [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
+            [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12]
+        ]
     }, {
         "Id": 439,
         "Name": "Feral Lunge",
@@ -3802,7 +3961,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/02/Feral_Lunge.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Feral_Lunge",
         "Ranks": [
-            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45], [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32]]
+            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45],
+            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32]
+        ]
     }, {
         "Id": 442,
         "Name": "Ferocious Strike",
@@ -3824,7 +3985,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/5e/Ferocious_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Ferocious_Strike",
         "Ranks": [
-            [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33], [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12]]
+            [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33],
+            [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12]
+        ]
     }, {
         "Id": 467,
         "Name": "Fertile Season",
@@ -3846,7 +4009,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/13/Fertile_Season.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Fertile_Season",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13], [50, 57, 63, 70, 77, 83, 90, 97, 103, 110, 117, 123, 130, 137, 143, 150, 157, 163, 170, 177, 183], [15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13],
+            [50, 57, 63, 70, 77, 83, 90, 97, 103, 110, 117, 123, 130, 137, 143, 150, 157, 163, 170, 177, 183],
+            [15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55]
+        ]
     }, {
         "Id": 1195,
         "Name": "Heal as One",
@@ -3868,7 +4034,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/97/Heal_as_One.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Heal_as_One",
         "Ranks": [
-            [20, 26, 31, 37, 42, 48, 54, 59, 65, 70, 76, 82, 87, 93, 98, 104, 110, 115, 121, 126, 132], [1, 2, 4, 5, 6, 7, 9, 10, 11, 12, 14, 15, 16, 17, 19, 20, 21, 23, 24, 25, 26]]
+            [20, 26, 31, 37, 42, 48, 54, 59, 65, 70, 76, 82, 87, 93, 98, 104, 110, 115, 121, 126, 132],
+            [1, 2, 4, 5, 6, 7, 9, 10, 11, 12, 14, 15, 16, 17, 19, 20, 21, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1728,
         "Name": "Heket's Rampage",
@@ -3890,7 +4058,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a9/Heket%27s_Rampage.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Heket%27s_Rampage",
         "Ranks": [
-            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13]]
+            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13]
+        ]
     }, {
         "Id": 961,
         "Name": "Lacerate",
@@ -3912,7 +4081,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/fa/Lacerate.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Lacerate",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13], [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32], [30, 38, 46, 54, 62, 70, 78, 86, 94, 102, 110, 118, 126, 134, 142, 150, 158, 166, 174, 182, 190]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13],
+            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32],
+            [30, 38, 46, 54, 62, 70, 78, 86, 94, 102, 110, 118, 126, 134, 142, 150, 158, 166, 174, 182, 190]
+        ]
     }, {
         "Id": 438,
         "Name": "Maiming Strike",
@@ -3934,7 +4106,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/72/Maiming_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Maiming_Strike",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25], [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
+            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19]
+        ]
     }, {
         "Id": 441,
         "Name": "Melandru's Assault",
@@ -3956,7 +4130,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/2d/Melandru%27s_Assault.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Melandru%27s_Assault",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+        ]
     }, {
         "Id": 447,
         "Name": "Otyugh's Cry",
@@ -3978,7 +4153,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/95/Otyugh%27s_Cry.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Otyugh%27s_Cry",
         "Ranks": [
-            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]]
+            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
+        ]
     }, {
         "Id": 1205,
         "Name": "Poisonous Bite",
@@ -4000,7 +4176,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/ed/Poisonous_Bite.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Poisonous_Bite",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+        ]
     }, {
         "Id": 1206,
         "Name": "Pounce",
@@ -4022,7 +4199,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f4/Pounce.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Pounce",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+        ]
     }, {
         "Id": 443,
         "Name": "Predator's Pounce",
@@ -4044,7 +4222,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e4/Predator%27s_Pounce.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Predator%27s_Pounce",
         "Ranks": [
-            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45], [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65]]
+            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45],
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65]
+        ]
     }, {
         "Id": 1194,
         "Name": "Predatory Bond",
@@ -4066,7 +4246,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/83/Predatory_Bond.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Predatory_Bond",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25], [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
+            [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41]
+        ]
     }, {
         "Id": 470,
         "Name": "Predatory Season",
@@ -4088,7 +4270,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/fd/Predatory_Season.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Predatory_Season",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13], [30, 38, 46, 54, 62, 70, 78, 86, 94, 102, 110, 118, 126, 134, 142, 150, 158, 166, 174, 182, 190]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13],
+            [30, 38, 46, 54, 62, 70, 78, 86, 94, 102, 110, 118, 126, 134, 142, 150, 158, 166, 174, 182, 190]
+        ]
     }, {
         "Id": 469,
         "Name": "Primal Echoes",
@@ -4110,7 +4294,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/68/Primal_Echoes.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Primal_Echoes",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13], [30, 38, 46, 54, 62, 70, 78, 86, 94, 102, 110, 118, 126, 134, 142, 150, 158, 166, 174, 182, 190]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13],
+            [30, 38, 46, 54, 62, 70, 78, 86, 94, 102, 110, 118, 126, 134, 142, 150, 158, 166, 174, 182, 190]
+        ]
     }, {
         "Id": 1721,
         "Name": "Rampage as One",
@@ -4132,7 +4318,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/25/Rampage_as_One.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Rampage_as_One",
         "Ranks": [
-            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19]]
+            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19]
+        ]
     }, {
         "Id": 422,
         "Name": "Revive Animal",
@@ -4154,7 +4341,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/ba/Revive_Animal.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Revive_Animal",
         "Ranks": [
-            [10, 16, 21, 27, 32, 38, 44, 49, 55, 60, 66, 72, 77, 83, 88, 94, 100, 105, 111, 116, 122]]
+            [10, 16, 21, 27, 32, 38, 44, 49, 55, 60, 66, 72, 77, 83, 88, 94, 100, 105, 111, 116, 122]
+        ]
     }, {
         "Id": 811,
         "Name": "Run as One",
@@ -4176,7 +4364,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/fa/Run_as_One.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Run_as_One",
         "Ranks": [
-            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18]]
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18]
+        ]
     }, {
         "Id": 1201,
         "Name": "Savage Pounce",
@@ -4198,7 +4387,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/3e/Savage_Pounce.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Savage_Pounce",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+        ]
     }, {
         "Id": 440,
         "Name": "Scavenger Strike",
@@ -4220,7 +4410,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/85/Scavenger_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Scavenger_Strike",
         "Ranks": [
-            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30], [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19]]
+            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19]
+        ]
     }, {
         "Id": 1468,
         "Name": "Strike as One",
@@ -4242,7 +4434,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/43/Strike_as_One.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Strike_as_One",
         "Ranks": [
-            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18], [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18]]
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18],
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18]
+        ]
     }, {
         "Id": 468,
         "Name": "Symbiosis",
@@ -4264,7 +4458,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e8/Symbiosis.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Symbiosis",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13], [27, 35, 43, 52, 60, 68, 76, 84, 93, 101, 109, 117, 125, 134, 142, 150, 158, 166, 175, 183, 191], [30, 38, 46, 54, 62, 70, 78, 86, 94, 102, 110, 118, 126, 134, 142, 150, 158, 166, 174, 182, 190]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13],
+            [27, 35, 43, 52, 60, 68, 76, 84, 93, 101, 109, 117, 125, 134, 142, 150, 158, 166, 175, 183, 191],
+            [30, 38, 46, 54, 62, 70, 78, 86, 94, 102, 110, 118, 126, 134, 142, 150, 158, 166, 174, 182, 190]
+        ]
     }, {
         "Id": 423,
         "Name": "Symbiotic Bond",
@@ -4286,7 +4483,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e4/Symbiotic_Bond.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Symbiotic_Bond",
         "Ranks": [
-            [120, 132, 144, 156, 168, 180, 192, 204, 216, 228, 240, 252, 264, 276, 288, 300, 312, 324, 336, 348, 360], [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4]]
+            [120, 132, 144, 156, 168, 180, 192, 204, 216, 228, 240, 252, 264, 276, 288, 300, 312, 324, 336, 348, 360],
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4]
+        ]
     }, {
         "Id": 454,
         "Name": "Tiger's Fury",
@@ -4308,7 +4507,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c6/Tiger%27s_Fury.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Tiger%27s_Fury",
         "Ranks": [
-            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13]]
+            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13]
+        ]
     }, {
         "Id": 1472,
         "Name": "Toxicity",
@@ -4330,7 +4530,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/14/Toxicity.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Toxicity",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13], [30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 98, 102, 106, 110]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13],
+            [30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 98, 102, 106, 110]
+        ]
     }, {
         "Id": 1211,
         "Name": "Viper's Nest",
@@ -4352,7 +4554,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/78/Viper%27s_Nest.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Viper%27s_Nest",
         "Ranks": [
-            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]]
+            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+        ]
     }, {
         "Id": 1200,
         "Name": "Archer's Signet",
@@ -4374,7 +4578,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/b2/Archer%27s_Signet.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Archer%27s_Signet",
         "Ranks": [
-            [1, 3, 4, 6, 7, 9, 10, 12, 13, 15, 16, 18, 19, 21, 22, 24, 26, 27, 29, 30, 32]]
+            [1, 3, 4, 6, 7, 9, 10, 12, 13, 15, 16, 18, 19, 21, 22, 24, 26, 27, 29, 30, 32]
+        ]
     }, {
         "Id": 399,
         "Name": "Distracting Shot",
@@ -4396,7 +4601,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/60/Distracting_Shot.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Distracting_Shot",
         "Ranks": [
-            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]]
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+        ]
     }, {
         "Id": 425,
         "Name": "Dodge",
@@ -4418,7 +4624,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/63/Dodge.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Dodge",
         "Ranks": [
-            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13], [27, 30, 33, 37, 40, 43, 46, 49, 53, 56, 59, 62, 65, 69, 72, 75, 78, 81, 85, 88, 91]]
+            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13],
+            [27, 30, 33, 37, 40, 43, 46, 49, 53, 56, 59, 62, 65, 69, 72, 75, 78, 81, 85, 88, 91]
+        ]
     }, {
         "Id": 448,
         "Name": "Escape",
@@ -4440,7 +4648,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a2/Escape.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Escape",
         "Ranks": [
-            [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10]]
+            [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10]
+        ]
     }, {
         "Id": 2145,
         "Name": "Expert Focus",
@@ -4462,7 +4671,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/7c/Expert_Focus.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Expert_Focus",
         "Ranks": [
-            [1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2], [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13]]
+            [1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13]
+        ]
     }, {
         "Id": 1724,
         "Name": "Expert's Dexterity",
@@ -4484,7 +4695,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/58/Expert%27s_Dexterity.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Expert%27s_Dexterity",
         "Ranks": [
-            [1, 2, 4, 5, 6, 7, 9, 10, 11, 12, 14, 15, 16, 17, 19, 20, 21, 23, 24, 25, 26]]
+            [1, 2, 4, 5, 6, 7, 9, 10, 11, 12, 14, 15, 16, 17, 19, 20, 21, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1199,
         "Name": "Glass Arrows",
@@ -4506,7 +4718,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/3a/Glass_Arrows.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Glass_Arrows",
         "Ranks": [
-            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25], [10, 11, 11, 12, 13, 13, 14, 15, 15, 16, 17, 17, 18, 19, 19, 20, 21, 21, 22, 23, 23]]
+            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
+            [10, 11, 11, 12, 13, 13, 14, 15, 15, 16, 17, 17, 18, 19, 19, 20, 21, 21, 22, 23, 23]
+        ]
     }, {
         "Id": 1730,
         "Name": "Infuriating Heat",
@@ -4528,7 +4743,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/bb/Infuriating_Heat.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Infuriating_Heat",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13], [30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13],
+            [30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70]
+        ]
     }, {
         "Id": 453,
         "Name": "Lightning Reflexes",
@@ -4550,7 +4767,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/23/Lightning_Reflexes.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Lightning_Reflexes",
         "Ranks": [
-            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13]]
+            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13]
+        ]
     }, {
         "Id": 430,
         "Name": "Marksman's Wager",
@@ -4572,7 +4790,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/50/Marksman%27s_Wager.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Marksman%27s_Wager",
         "Ranks": [
-            [5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10, 10, 11, 11, 11, 12]]
+            [5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10, 10, 11, 11, 11, 12]
+        ]
     }, {
         "Id": 405,
         "Name": "Oath Shot",
@@ -4594,7 +4813,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/b6/Oath_Shot.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Oath_Shot",
         "Ranks": [
-            [10, 10, 9, 9, 8, 8, 8, 7, 7, 6, 6, 6, 5, 5, 4, 4, 4, 3, 3, 2, 2]]
+            [10, 10, 9, 9, 8, 8, 8, 7, 7, 6, 6, 6, 5, 5, 4, 4, 4, 3, 3, 2, 2]
+        ]
     }, {
         "Id": 407,
         "Name": "Point Blank Shot",
@@ -4616,7 +4836,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/35/Point_Blank_Shot.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Point_Blank_Shot",
         "Ranks": [
-            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50]]
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50]
+        ]
     }, {
         "Id": 449,
         "Name": "Practiced Stance",
@@ -4638,7 +4859,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/ae/Practiced_Stance.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Practiced_Stance",
         "Ranks": [
-            [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40], [30, 38, 46, 54, 62, 70, 78, 86, 94, 102, 110, 118, 126, 134, 142, 150, 158, 166, 174, 182, 190]]
+            [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40],
+            [30, 38, 46, 54, 62, 70, 78, 86, 94, 102, 110, 118, 126, 134, 142, 150, 158, 166, 174, 182, 190]
+        ]
     }, {
         "Id": 424,
         "Name": "Throw Dirt",
@@ -4660,7 +4883,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/30/Throw_Dirt.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Throw_Dirt",
         "Ranks": [
-            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19]]
+            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19]
+        ]
     }, {
         "Id": 946,
         "Name": "Trapper's Focus",
@@ -4682,7 +4906,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/7c/Trapper%27s_Focus.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Trapper%27s_Focus",
         "Ranks": [
-            [12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25, 26, 26, 27, 28], [0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 3, 3]]
+            [12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25, 26, 26, 27, 28],
+            [0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 3, 3]
+        ]
     }, {
         "Id": 1475,
         "Name": "Trapper's Speed",
@@ -4704,7 +4930,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a0/Trapper%27s_Speed.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Trapper%27s_Speed",
         "Ranks": [
-            [5, 7, 8, 10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38]]
+            [5, 7, 8, 10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38]
+        ]
     }, {
         "Id": 450,
         "Name": "Whirling Defense",
@@ -4726,7 +4953,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/02/Whirling_Defense.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Whirling_Defense",
         "Ranks": [
-            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24], [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13]]
+            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24],
+            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13]
+        ]
     }, {
         "Id": 1196,
         "Name": "Zojun's Haste",
@@ -4748,7 +4977,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/32/Zojun%27s_Haste.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Zojun%27s_Haste",
         "Ranks": [
-            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13], [27, 30, 33, 37, 40, 43, 46, 49, 53, 56, 59, 62, 65, 69, 72, 75, 78, 81, 85, 88, 91]]
+            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13],
+            [27, 30, 33, 37, 40, 43, 46, 49, 53, 56, 59, 62, 65, 69, 72, 75, 78, 81, 85, 88, 91]
+        ]
     }, {
         "Id": 1192,
         "Name": "Zojun's Shot",
@@ -4770,7 +5001,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/ea/Zojun%27s_Shot.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Zojun%27s_Shot",
         "Ranks": [
-            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50]]
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50]
+        ]
     }, {
         "Id": 1467,
         "Name": "Arcing Shot",
@@ -4792,7 +5024,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/5c/Arcing_Shot.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Arcing_Shot",
         "Ranks": [
-            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]]
+            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
+        ]
     }, {
         "Id": 395,
         "Name": "Barrage",
@@ -4814,7 +5047,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/93/Barrage.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Barrage",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 2198,
         "Name": "Body Shot",
@@ -4836,7 +5070,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c5/Body_Shot.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Body_Shot",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10, 10, 11, 11, 11, 12, 12]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10, 10, 11, 11, 11, 12, 12]
+        ]
     }, {
         "Id": 1198,
         "Name": "Broad Head Arrow",
@@ -4858,7 +5094,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/51/Broad_Head_Arrow.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Broad_Head_Arrow",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1466,
         "Name": "Burning Arrow",
@@ -4880,7 +5117,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/da/Burning_Arrow.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Burning_Arrow",
         "Ranks": [
-            [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38], [1, 1, 2, 2, 3, 3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9]]
+            [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38],
+            [1, 1, 2, 2, 3, 3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9]
+        ]
     }, {
         "Id": 408,
         "Name": "Concussion Shot",
@@ -4902,7 +5141,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/53/Concussion_Shot.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Concussion_Shot",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]
+        ]
     }, {
         "Id": 393,
         "Name": "Crippling Shot",
@@ -4924,7 +5165,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/da/Crippling_Shot.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Crippling_Shot",
         "Ranks": [
-            [1, 2, 2, 3, 4, 4, 5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15]]
+            [1, 2, 2, 3, 4, 4, 5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15]
+        ]
     }, {
         "Id": 1469,
         "Name": "Crossfire",
@@ -4946,7 +5188,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/2c/Crossfire.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Crossfire",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 406,
         "Name": "Debilitating Shot",
@@ -4968,7 +5211,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e7/Debilitating_Shot.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Debilitating_Shot",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]
+        ]
     }, {
         "Id": 402,
         "Name": "Determined Shot",
@@ -4990,7 +5234,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/bd/Determined_Shot.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Determined_Shot",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1723,
         "Name": "Disrupting Accuracy",
@@ -5011,8 +5256,7 @@ var skillTable = [
         "Campaign": "Nightfall",
         "Image": "https://wiki.guildwars.com/images/8/86/Disrupting_Accuracy.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Disrupting_Accuracy",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 2143,
         "Name": "Disrupting Shot",
@@ -5034,7 +5278,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/d3/Disrupting_Shot.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Disrupting_Shot",
         "Ranks": [
-            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]]
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]
+        ]
     }, {
         "Id": 472,
         "Name": "Favorable Winds",
@@ -5056,7 +5301,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/53/Favorable_Winds.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Favorable_Winds",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14], [30, 38, 46, 54, 62, 70, 78, 86, 94, 102, 110, 118, 126, 134, 142, 150, 158, 166, 174, 182, 190, 198]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14],
+            [30, 38, 46, 54, 62, 70, 78, 86, 94, 102, 110, 118, 126, 134, 142, 150, 158, 166, 174, 182, 190, 198]
+        ]
     }, {
         "Id": 909,
         "Name": "Focused Shot",
@@ -5078,7 +5325,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/1d/Focused_Shot.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Focused_Shot",
         "Ranks": [
-            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], [5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 3, 2, 2, 2]]
+            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+            [5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 3, 2, 2, 2]
+        ]
     }, {
         "Id": 391,
         "Name": "Hunter's Shot",
@@ -5100,7 +5349,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/7c/Hunter%27s_Shot.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Hunter%27s_Shot",
         "Ranks": [
-            [3, 4, 6, 7, 9, 10, 12, 13, 15, 16, 18, 19, 21, 22, 24, 25, 26, 28, 29, 31, 32, 34]]
+            [3, 4, 6, 7, 9, 10, 12, 13, 15, 16, 18, 19, 21, 22, 24, 25, 26, 28, 29, 31, 32, 34]
+        ]
     }, {
         "Id": 1720,
         "Name": "Keen Arrow",
@@ -5122,7 +5372,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/80/Keen_Arrow.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Keen_Arrow",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32, 33]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32, 33]
+        ]
     }, {
         "Id": 908,
         "Name": "Marauder's Shot",
@@ -5144,7 +5396,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/3d/Marauder%27s_Shot.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Marauder%27s_Shot",
         "Ranks": [
-            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45]]
+            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45]
+        ]
     }, {
         "Id": 853,
         "Name": "Melandru's Shot",
@@ -5166,7 +5419,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/ac/Melandru%27s_Shot.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Melandru%27s_Shot",
         "Ranks": [
-            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32, 33], [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19]]
+            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32, 33],
+            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19]
+        ]
     }, {
         "Id": 1197,
         "Name": "Needling Shot",
@@ -5188,7 +5444,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/3e/Needling_Shot.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Needling_Shot",
         "Ranks": [
-            [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38]]
+            [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38]
+        ]
     }, {
         "Id": 398,
         "Name": "Penetrating Attack",
@@ -5210,7 +5467,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/17/Penetrating_Attack.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Penetrating_Attack",
         "Ranks": [
-            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32, 33]]
+            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32, 33]
+        ]
     }, {
         "Id": 392,
         "Name": "Pin Down",
@@ -5232,7 +5490,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/81/Pin_Down.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Pin_Down",
         "Ranks": [
-            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19, 20]]
+            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19, 20]
+        ]
     }, {
         "Id": 394,
         "Name": "Power Shot",
@@ -5254,7 +5513,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/be/Power_Shot.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Power_Shot",
         "Ranks": [
-            [25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45, 47, 48, 50, 52, 53, 55, 57, 58, 60]]
+            [25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45, 47, 48, 50, 52, 53, 55, 57, 58, 60]
+        ]
     }, {
         "Id": 400,
         "Name": "Precision Shot",
@@ -5276,7 +5536,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/ba/Precision_Shot.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Precision_Shot",
         "Ranks": [
-            [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 13]]
+            [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 13]
+        ]
     }, {
         "Id": 1465,
         "Name": "Prepared Shot",
@@ -5298,7 +5559,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/3d/Prepared_Shot.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Prepared_Shot",
         "Ranks": [
-            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], [1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 10, 10, 11, 11, 12, 12]]
+            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+            [1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 10, 10, 11, 11, 12, 12]
+        ]
     }, {
         "Id": 409,
         "Name": "Punishing Shot",
@@ -5320,7 +5583,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/96/Punishing_Shot.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Punishing_Shot",
         "Ranks": [
-            [10, 11, 11, 12, 13, 13, 14, 15, 15, 16, 17, 17, 18, 19, 19, 20, 21, 21, 22, 23, 23, 24]]
+            [10, 11, 11, 12, 13, 13, 14, 15, 15, 16, 17, 17, 18, 19, 19, 20, 21, 21, 22, 23, 23, 24]
+        ]
     }, {
         "Id": 2068,
         "Name": "Rapid Fire",
@@ -5342,7 +5606,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/95/Rapid_Fire.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Rapid_Fire",
         "Ranks": [
-            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32, 33]]
+            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32, 33]
+        ]
     }, {
         "Id": 432,
         "Name": "Read the Wind",
@@ -5364,7 +5629,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/62/Read_the_Wind.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Read_the_Wind",
         "Ranks": [
-            [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 13]]
+            [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 13]
+        ]
     }, {
         "Id": 426,
         "Name": "Savage Shot",
@@ -5386,7 +5652,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/fd/Savage_Shot.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Savage_Shot",
         "Ranks": [
-            [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34]]
+            [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34]
+        ]
     }, {
         "Id": 1719,
         "Name": "Screaming Shot",
@@ -5408,7 +5675,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/b6/Screaming_Shot.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Screaming_Shot",
         "Ranks": [
-            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 893,
         "Name": "Seeking Arrows",
@@ -5430,7 +5699,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/99/Seeking_Arrows.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Seeking_Arrows",
         "Ranks": [
-            [3, 4, 4, 5, 6, 7, 7, 8, 9, 10, 10, 11, 12, 13, 13, 14, 15, 15, 16, 17, 18, 18]]
+            [3, 4, 4, 5, 6, 7, 7, 8, 9, 10, 10, 11, 12, 13, 13, 14, 15, 15, 16, 17, 18, 18]
+        ]
     }, {
         "Id": 2069,
         "Name": "Sloth Hunter's Shot",
@@ -5452,7 +5722,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/92/Sloth_Hunter%27s_Shot.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Sloth_Hunter%27s_Shot",
         "Ranks": [
-            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45]]
+            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45]
+        ]
     }, {
         "Id": 852,
         "Name": "Splinter Shot",
@@ -5474,7 +5746,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/1d/Splinter_Shot.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Splinter_Shot",
         "Ranks": [
-            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19, 20], [5, 9, 13, 17, 21, 25, 29, 33, 37, 41, 45, 49, 53, 57, 61, 65, 69, 73, 77, 81, 85, 89]]
+            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19, 20],
+            [5, 9, 13, 17, 21, 25, 29, 33, 37, 41, 45, 49, 53, 57, 61, 65, 69, 73, 77, 81, 85, 89]
+        ]
     }, {
         "Id": 1191,
         "Name": "Sundering Attack",
@@ -5496,7 +5770,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/2b/Sundering_Attack.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Sundering_Attack",
         "Ranks": [
-            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32, 33]]
+            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32, 33]
+        ]
     }, {
         "Id": 2144,
         "Name": "Volley",
@@ -5518,7 +5793,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/b9/Volley.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Volley",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]
+        ]
     }, {
         "Id": 435,
         "Name": "Apply Poison",
@@ -5540,7 +5816,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/91/Apply_Poison.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Apply_Poison",
         "Ranks": [
-            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19]]
+            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19]
+        ]
     }, {
         "Id": 1470,
         "Name": "Barbed Arrows",
@@ -5562,7 +5839,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/3a/Barbed_Arrows.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Barbed_Arrows",
         "Ranks": [
-            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19]]
+            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19]
+        ]
     }, {
         "Id": 458,
         "Name": "Barbed Trap",
@@ -5584,7 +5862,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/64/Barbed_Trap.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Barbed_Trap",
         "Ranks": [
-            [7, 8, 9, 10, 11, 12, 13, 14, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28], [3, 4, 6, 7, 9, 10, 12, 13, 15, 16, 18, 19, 21, 22, 24, 25, 26, 28, 29, 31, 32]]
+            [7, 8, 9, 10, 11, 12, 13, 14, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28],
+            [3, 4, 6, 7, 9, 10, 12, 13, 15, 16, 18, 19, 21, 22, 24, 25, 26, 28, 29, 31, 32]
+        ]
     }, {
         "Id": 947,
         "Name": "Brambles",
@@ -5606,7 +5886,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/72/Brambles.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Brambles",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25], [30, 38, 46, 54, 62, 70, 78, 86, 94, 102, 110, 118, 126, 134, 142, 150, 158, 166, 174, 182, 190]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
+            [30, 38, 46, 54, 62, 70, 78, 86, 94, 102, 110, 118, 126, 134, 142, 150, 158, 166, 174, 182, 190]
+        ]
     }, {
         "Id": 434,
         "Name": "Choking Gas",
@@ -5628,7 +5911,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/70/Choking_Gas.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Choking_Gas",
         "Ranks": [
-            [1, 2, 2, 3, 4, 5, 5, 6, 7, 8, 8, 9, 10, 11, 11, 12, 13, 13, 14, 15, 16], [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10]]
+            [1, 2, 2, 3, 4, 5, 5, 6, 7, 8, 8, 9, 10, 11, 11, 12, 13, 13, 14, 15, 16],
+            [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10]
+        ]
     }, {
         "Id": 466,
         "Name": "Conflagration",
@@ -5650,7 +5935,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/75/Conflagration.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Conflagration",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13], [30, 38, 46, 54, 62, 70, 78, 86, 94, 102, 110, 118, 126, 134, 142, 150, 158, 166, 174, 182, 190]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13],
+            [30, 38, 46, 54, 62, 70, 78, 86, 94, 102, 110, 118, 126, 134, 142, 150, 158, 166, 174, 182, 190]
+        ]
     }, {
         "Id": 452,
         "Name": "Dryder's Defenses",
@@ -5672,7 +5959,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c5/Dryder%27s_Defenses.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Dryder%27s_Defenses",
         "Ranks": [
-            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13], [34, 36, 37, 39, 41, 43, 44, 46, 48, 50, 51, 53, 55, 57, 58, 60, 62, 63, 65, 67, 69]]
+            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13],
+            [34, 36, 37, 39, 41, 43, 44, 46, 48, 50, 51, 53, 55, 57, 58, 60, 62, 63, 65, 67, 69]
+        ]
     }, {
         "Id": 457,
         "Name": "Dust Trap",
@@ -5694,7 +5983,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a4/Dust_Trap.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Dust_Trap",
         "Ranks": [
-            [3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10], [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]]
+            [3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10],
+            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
+        ]
     }, {
         "Id": 1212,
         "Name": "Equinox",
@@ -5716,7 +6007,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/db/Equinox.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Equinox",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13], [30, 38, 46, 54, 62, 70, 78, 86, 94, 102, 110, 118, 126, 134, 142, 150, 158, 166, 174, 182, 190]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13],
+            [30, 38, 46, 54, 62, 70, 78, 86, 94, 102, 110, 118, 126, 134, 142, 150, 158, 166, 174, 182, 190]
+        ]
     }, {
         "Id": 997,
         "Name": "Famine",
@@ -5738,7 +6031,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/d4/Famine.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Famine",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13], [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43], [30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 98, 102, 106, 110]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13],
+            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43],
+            [30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 98, 102, 106, 110]
+        ]
     }, {
         "Id": 459,
         "Name": "Flame Trap",
@@ -5760,7 +6056,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/5b/Flame_Trap.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Flame_Trap",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25], [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4]
+        ]
     }, {
         "Id": 471,
         "Name": "Frozen Soil",
@@ -5782,7 +6080,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/ff/Frozen_Soil.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Frozen_Soil",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13], [30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 98, 102, 106, 110]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13],
+            [30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 98, 102, 106, 110]
+        ]
     }, {
         "Id": 465,
         "Name": "Greater Conflagration",
@@ -5804,7 +6104,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/50/Greater_Conflagration.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Greater_Conflagration",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13], [30, 38, 46, 54, 62, 70, 78, 86, 94, 102, 110, 118, 126, 134, 142, 150, 158, 166, 174, 182, 190]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13],
+            [30, 38, 46, 54, 62, 70, 78, 86, 94, 102, 110, 118, 126, 134, 142, 150, 158, 166, 174, 182, 190]
+        ]
     }, {
         "Id": 460,
         "Name": "Healing Spring",
@@ -5826,7 +6128,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/12/Healing_Spring.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Healing_Spring",
         "Ranks": [
-            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75]]
+            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75]
+        ]
     }, {
         "Id": 431,
         "Name": "Ignite Arrows",
@@ -5848,7 +6151,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/d0/Ignite_Arrows.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Ignite_Arrows",
         "Ranks": [
-            [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]]
+            [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+        ]
     }, {
         "Id": 428,
         "Name": "Incendiary Arrows",
@@ -5870,7 +6174,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/90/Incendiary_Arrows.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Incendiary_Arrows",
         "Ranks": [
-            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4]]
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4]
+        ]
     }, {
         "Id": 433,
         "Name": "Kindle Arrows",
@@ -5892,7 +6197,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/50/Kindle_Arrows.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Kindle_Arrows",
         "Ranks": [
-            [3, 4, 6, 7, 9, 10, 11, 13, 14, 16, 17, 18, 20, 21, 23, 24, 25, 27, 28, 30, 31]]
+            [3, 4, 6, 7, 9, 10, 11, 13, 14, 16, 17, 18, 20, 21, 23, 24, 25, 27, 28, 30, 31]
+        ]
     }, {
         "Id": 429,
         "Name": "Melandru's Arrows",
@@ -5914,7 +6220,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/45/Melandru%27s_Arrows.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Melandru%27s_Arrows",
         "Ranks": [
-            [3, 4, 6, 7, 9, 10, 12, 13, 15, 16, 18, 19, 21, 22, 24, 25, 26, 28, 29, 31, 32], [8, 9, 11, 12, 13, 15, 16, 17, 19, 20, 21, 23, 24, 25, 27, 28, 29, 31, 32, 33, 35]]
+            [3, 4, 6, 7, 9, 10, 12, 13, 15, 16, 18, 19, 21, 22, 24, 25, 26, 28, 29, 31, 32],
+            [8, 9, 11, 12, 13, 15, 16, 17, 19, 20, 21, 23, 24, 25, 27, 28, 29, 31, 32, 33, 35]
+        ]
     }, {
         "Id": 451,
         "Name": "Melandru's Resilience",
@@ -5936,7 +6244,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/b0/Melandru%27s_Resilience.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Melandru%27s_Resilience",
         "Ranks": [
-            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24]]
+            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24]
+        ]
     }, {
         "Id": 477,
         "Name": "Muddy Terrain",
@@ -5958,7 +6267,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/87/Muddy_Terrain.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Muddy_Terrain",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13], [30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 98, 102, 106, 110]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13],
+            [30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 98, 102, 106, 110]
+        ]
     }, {
         "Id": 1727,
         "Name": "Natural Stride",
@@ -5980,7 +6291,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/5c/Natural_Stride.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Natural_Stride",
         "Ranks": [
-            [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10]]
+            [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10]
+        ]
     }, {
         "Id": 476,
         "Name": "Nature's Renewal",
@@ -6002,7 +6314,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/73/Nature%27s_Renewal.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Nature%27s_Renewal",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13], [30, 38, 46, 54, 62, 70, 78, 86, 94, 102, 110, 118, 126, 134, 142, 150, 158, 166, 174, 182, 190]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13],
+            [30, 38, 46, 54, 62, 70, 78, 86, 94, 102, 110, 118, 126, 134, 142, 150, 158, 166, 174, 182, 190]
+        ]
     }, {
         "Id": 870,
         "Name": "Pestilence",
@@ -6024,7 +6338,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/39/Pestilence.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Pestilence",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13], [30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 98, 102, 106, 110]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13],
+            [30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 98, 102, 106, 110]
+        ]
     }, {
         "Id": 2140,
         "Name": "Piercing Trap",
@@ -6046,7 +6362,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/7d/Piercing_Trap.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Piercing_Trap",
         "Ranks": [
-            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65], [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75]]
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65],
+            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75]
+        ]
     }, {
         "Id": 404,
         "Name": "Poison Arrow",
@@ -6068,7 +6386,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/fd/Poison_Arrow.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Poison_Arrow",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+        ]
     }, {
         "Id": 2199,
         "Name": "Poison Tip Signet",
@@ -6090,7 +6409,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/6b/Poison_Tip_Signet.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Poison_Tip_Signet",
         "Ranks": [
-            [8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15, 15, 16, 16, 17, 17]]
+            [8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15, 15, 16, 16, 17, 17]
+        ]
     }, {
         "Id": 475,
         "Name": "Quickening Zephyr",
@@ -6112,7 +6432,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/36/Quickening_Zephyr.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Quickening_Zephyr",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13], [15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13],
+            [15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55]
+        ]
     }, {
         "Id": 1473,
         "Name": "Quicksand",
@@ -6134,7 +6456,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/9a/Quicksand.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Quicksand",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13], [30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 98, 102, 106, 110]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13],
+            [30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 98, 102, 106, 110]
+        ]
     }, {
         "Id": 1725,
         "Name": "Roaring Winds",
@@ -6156,7 +6480,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e7/Roaring_Winds.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Roaring_Winds",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13], [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6], [30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13],
+            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6],
+            [30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70]
+        ]
     }, {
         "Id": 1471,
         "Name": "Scavenger's Focus",
@@ -6178,7 +6505,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c2/Scavenger%27s_Focus.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Scavenger%27s_Focus",
         "Ranks": [
-            [3, 4, 4, 5, 5, 6, 7, 7, 8, 8, 9, 10, 10, 11, 11, 12, 13, 13, 14, 14, 15]]
+            [3, 4, 4, 5, 5, 6, 7, 7, 8, 8, 9, 10, 10, 11, 11, 12, 13, 13, 14, 14, 15]
+        ]
     }, {
         "Id": 456,
         "Name": "Serpent's Quickness",
@@ -6200,7 +6528,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/da/Serpent%27s_Quickness.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Serpent%27s_Quickness",
         "Ranks": [
-            [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35]]
+            [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35]
+        ]
     }, {
         "Id": 1729,
         "Name": "Smoke Trap",
@@ -6222,7 +6551,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f5/Smoke_Trap.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Smoke_Trap",
         "Ranks": [
-            [5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10, 10, 11, 11, 11, 12]]
+            [5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10, 10, 11, 11, 11, 12]
+        ]
     }, {
         "Id": 854,
         "Name": "Snare",
@@ -6244,7 +6574,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/41/Snare.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Snare",
         "Ranks": [
-            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19]]
+            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19]
+        ]
     }, {
         "Id": 461,
         "Name": "Spike Trap",
@@ -6266,7 +6597,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/1a/Spike_Trap.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Spike_Trap",
         "Ranks": [
-            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50], [3, 4, 6, 7, 9, 10, 12, 13, 15, 16, 18, 19, 21, 22, 24, 25, 26, 28, 29, 31, 32]]
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50],
+            [3, 4, 6, 7, 9, 10, 12, 13, 15, 16, 18, 19, 21, 22, 24, 25, 26, 28, 29, 31, 32]
+        ]
     }, {
         "Id": 455,
         "Name": "Storm Chaser",
@@ -6288,7 +6621,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/fa/Storm_Chaser.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Storm_Chaser",
         "Ranks": [
-            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24], [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6]]
+            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24],
+            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6]
+        ]
     }, {
         "Id": 1213,
         "Name": "Tranquility",
@@ -6310,7 +6645,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/ea/Tranquility.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Tranquility",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13], [20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60], [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13],
+            [20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60],
+            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75]
+        ]
     }, {
         "Id": 1476,
         "Name": "Tripwire",
@@ -6332,7 +6670,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/9d/Tripwire.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Tripwire",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+        ]
     }, {
         "Id": 446,
         "Name": "Troll Unguent",
@@ -6354,7 +6693,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c7/Troll_Unguent.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Troll_Unguent",
         "Ranks": [
-            [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12]]
+            [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12]
+        ]
     }, {
         "Id": 463,
         "Name": "Winnowing",
@@ -6376,7 +6716,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/88/Winnowing.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Winnowing",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13], [30, 38, 46, 54, 62, 70, 78, 86, 94, 102, 110, 118, 126, 134, 142, 150, 158, 166, 174, 182, 190]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13],
+            [30, 38, 46, 54, 62, 70, 78, 86, 94, 102, 110, 118, 126, 134, 142, 150, 158, 166, 174, 182, 190]
+        ]
     }, {
         "Id": 462,
         "Name": "Winter",
@@ -6398,7 +6740,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/65/Winter.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Winter",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13], [30, 38, 46, 54, 62, 70, 78, 86, 94, 102, 110, 118, 126, 134, 142, 150, 158, 166, 174, 182, 190]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13],
+            [30, 38, 46, 54, 62, 70, 78, 86, 94, 102, 110, 118, 126, 134, 142, 150, 158, 166, 174, 182, 190]
+        ]
     }, {
         "Id": 427,
         "Name": "Antidote Signet",
@@ -6419,8 +6763,7 @@ var skillTable = [
         "Campaign": "Core",
         "Image": "https://wiki.guildwars.com/images/9/90/Antidote_Signet.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Antidote_Signet",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 403,
         "Name": "Called Shot",
@@ -6441,8 +6784,7 @@ var skillTable = [
         "Campaign": "Core",
         "Image": "https://wiki.guildwars.com/images/8/87/Called_Shot.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Called_Shot",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 396,
         "Name": "Dual Shot",
@@ -6463,8 +6805,7 @@ var skillTable = [
         "Campaign": "Core",
         "Image": "https://wiki.guildwars.com/images/1/12/Dual_Shot.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Dual_Shot",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 1722,
         "Name": "Forked Arrow",
@@ -6485,8 +6826,7 @@ var skillTable = [
         "Campaign": "Nightfall",
         "Image": "https://wiki.guildwars.com/images/0/06/Forked_Arrow.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Forked_Arrow",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 1726,
         "Name": "Magebane Shot",
@@ -6507,8 +6847,7 @@ var skillTable = [
         "Campaign": "Nightfall",
         "Image": "https://wiki.guildwars.com/images/7/70/Magebane_Shot.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Magebane_Shot",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 397,
         "Name": "Quick Shot",
@@ -6529,8 +6868,7 @@ var skillTable = [
         "Campaign": "Core",
         "Image": "https://wiki.guildwars.com/images/9/9a/Quick_Shot.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Quick_Shot",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 1474,
         "Name": "Storm's Embrace",
@@ -6551,8 +6889,7 @@ var skillTable = [
         "Campaign": "Nightfall",
         "Image": "https://wiki.guildwars.com/images/3/36/Storm%27s_Embrace.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Storm%27s_Embrace",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 256,
         "Name": "Blessed Aura",
@@ -6574,7 +6911,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/b7/Blessed_Aura.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Blessed_Aura",
         "Ranks": [
-            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45]]
+            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45]
+        ]
     }, {
         "Id": 941,
         "Name": "Blessed Light",
@@ -6596,7 +6934,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/40/Blessed_Light.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Blessed_Light",
         "Ranks": [
-            [10, 19, 27, 36, 45, 53, 62, 71, 79, 88, 97, 105, 114, 123, 131, 140, 149, 157, 166, 175, 183, 192]]
+            [10, 19, 27, 36, 45, 53, 62, 71, 79, 88, 97, 105, 114, 123, 131, 140, 149, 157, 166, 175, 183, 192]
+        ]
     }, {
         "Id": 297,
         "Name": "Blessed Signet",
@@ -6618,7 +6957,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f5/Blessed_Signet.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Blessed_Signet",
         "Ranks": [
-            [3, 4, 6, 7, 9, 10, 11, 13, 14, 16, 17, 18, 20, 21, 23, 24, 25, 27, 28, 30, 31, 32]]
+            [3, 4, 6, 7, 9, 10, 11, 13, 14, 16, 17, 18, 20, 21, 23, 24, 25, 27, 28, 30, 31, 32]
+        ]
     }, {
         "Id": 847,
         "Name": "Boon Signet",
@@ -6640,7 +6980,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a7/Boon_Signet.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Boon_Signet",
         "Ranks": [
-            [20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100, 104], [20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100, 104]]
+            [20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100, 104],
+            [20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100, 104]
+        ]
     }, {
         "Id": 300,
         "Name": "Contemplation of Purity",
@@ -6662,7 +7004,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/81/Contemplation_of_Purity.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Contemplation_of_Purity",
         "Ranks": [
-            [0, 5, 11, 16, 21, 27, 32, 37, 43, 48, 53, 59, 64, 69, 75, 80, 85, 91, 96, 101, 107, 112], [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 11]]
+            [0, 5, 11, 16, 21, 27, 32, 37, 43, 48, 53, 59, 64, 69, 75, 80, 85, 91, 96, 101, 107, 112],
+            [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 11]
+        ]
     }, {
         "Id": 991,
         "Name": "Deny Hexes",
@@ -6683,8 +7027,7 @@ var skillTable = [
         "Campaign": "Factions",
         "Image": "https://wiki.guildwars.com/images/4/45/Deny_Hexes.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Deny_Hexes",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 284,
         "Name": "Divine Boon",
@@ -6706,7 +7049,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/1c/Divine_Boon.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Divine_Boon",
         "Ranks": [
-            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78]]
+            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78]
+        ]
     }, {
         "Id": 279,
         "Name": "Divine Healing",
@@ -6728,7 +7072,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c3/Divine_Healing.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Divine_Healing",
         "Ranks": [
-            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78]]
+            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78]
+        ]
     }, {
         "Id": 246,
         "Name": "Divine Intervention",
@@ -6750,7 +7095,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/ec/Divine_Intervention.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Divine_Intervention",
         "Ranks": [
-            [26, 40, 55, 69, 83, 97, 112, 126, 140, 154, 169, 183, 197, 211, 226, 240, 254, 269, 283, 297, 311, 326]]
+            [26, 40, 55, 69, 83, 97, 112, 126, 140, 154, 169, 183, 197, 211, 226, 240, 254, 269, 283, 297, 311, 326]
+        ]
     }, {
         "Id": 310,
         "Name": "Divine Spirit",
@@ -6772,7 +7118,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/dc/Divine_Spirit.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Divine_Spirit",
         "Ranks": [
-            [1, 2, 3, 4, 4, 5, 6, 7, 8, 9, 10, 11, 11, 12, 13, 14, 15, 16, 17, 17, 18, 19]]
+            [1, 2, 3, 4, 4, 5, 6, 7, 8, 9, 10, 11, 11, 12, 13, 14, 15, 16, 17, 17, 18, 19]
+        ]
     }, {
         "Id": 1393,
         "Name": "Healer's Boon",
@@ -6794,7 +7141,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f6/Healer%27s_Boon.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Healer%27s_Boon",
         "Ranks": [
-            [10, 13, 16, 19, 22, 25, 28, 31, 34, 37, 40, 43, 46, 49, 52, 55, 58, 61, 64, 67, 70, 73]]
+            [10, 13, 16, 19, 22, 25, 28, 31, 34, 37, 40, 43, 46, 49, 52, 55, 58, 61, 64, 67, 70, 73]
+        ]
     }, {
         "Id": 1117,
         "Name": "Heaven's Delight",
@@ -6816,7 +7164,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/60/Heaven%27s_Delight.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Heaven%27s_Delight",
         "Ranks": [
-            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78]]
+            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78]
+        ]
     }, {
         "Id": 1685,
         "Name": "Holy Haste",
@@ -6838,7 +7187,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/b3/Holy_Haste.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Holy_Haste",
         "Ranks": [
-            [1, 5, 9, 13, 17, 21, 25, 29, 32, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84]]
+            [1, 5, 9, 13, 17, 21, 25, 29, 32, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84]
+        ]
     }, {
         "Id": 266,
         "Name": "Peace and Harmony",
@@ -6860,7 +7210,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f7/Peace_and_Harmony.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Peace_and_Harmony",
         "Ranks": [
-            [0, 1, 1, 2, 2, 3, 4, 4, 5, 5, 6, 7, 7, 8, 8, 9, 10, 10, 11, 11, 12, 13], [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4]]
+            [0, 1, 1, 2, 2, 3, 4, 4, 5, 5, 6, 7, 7, 8, 8, 9, 10, 10, 11, 11, 12, 13],
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4]
+        ]
     }, {
         "Id": 960,
         "Name": "Release Enchantments",
@@ -6882,7 +7234,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/8b/Release_Enchantments.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Release_Enchantments",
         "Ranks": [
-            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47]]
+            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47]
+        ]
     }, {
         "Id": 1684,
         "Name": "Scribe's Insight",
@@ -6904,7 +7257,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c6/Scribe%27s_Insight.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Scribe%27s_Insight",
         "Ranks": [
-            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45]]
+            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45]
+        ]
     }, {
         "Id": 293,
         "Name": "Signet of Devotion",
@@ -6926,7 +7280,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/b3/Signet_of_Devotion.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Signet_of_Devotion",
         "Ranks": [
-            [14, 20, 25, 31, 37, 43, 48, 54, 60, 66, 71, 77, 83, 89, 94, 100, 106, 111, 117, 123, 129, 134]]
+            [14, 20, 25, 31, 37, 43, 48, 54, 60, 66, 71, 77, 83, 89, 94, 100, 106, 111, 117, 123, 129, 134]
+        ]
     }, {
         "Id": 2005,
         "Name": "Smiter's Boon",
@@ -6948,7 +7303,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/64/Smiter%27s_Boon.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Smiter%27s_Boon",
         "Ranks": [
-            [0, 3, 6, 10, 13, 16, 19, 22, 26, 29, 32, 35, 38, 42, 45, 48, 51, 54, 58, 61, 64, 67]]
+            [0, 3, 6, 10, 13, 16, 19, 22, 26, 29, 32, 35, 38, 42, 45, 48, 51, 54, 58, 61, 64, 67]
+        ]
     }, {
         "Id": 273,
         "Name": "Spell Breaker",
@@ -6970,7 +7326,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/08/Spell_Breaker.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Spell_Breaker",
         "Ranks": [
-            [5, 6, 7, 7, 8, 9, 10, 11, 11, 12, 13, 14, 15, 15, 16, 17, 18, 19, 19, 20, 21, 22]]
+            [5, 6, 7, 7, 8, 9, 10, 11, 11, 12, 13, 14, 15, 15, 16, 17, 18, 19, 19, 20, 21, 22]
+        ]
     }, {
         "Id": 957,
         "Name": "Spell Shield",
@@ -6992,7 +7349,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/d6/Spell_Shield.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Spell_Shield",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [10, 10, 9, 9, 9, 8, 8, 8, 7, 7, 7, 6, 6, 6, 5, 5, 5, 4, 4, 4, 3, 3]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [10, 10, 9, 9, 9, 8, 8, 8, 7, 7, 7, 6, 6, 6, 5, 5, 5, 4, 4, 4, 3, 3]
+        ]
     }, {
         "Id": 268,
         "Name": "Unyielding Aura",
@@ -7014,7 +7373,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e6/Unyielding_Aura.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Unyielding_Aura",
         "Ranks": [
-            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78]]
+            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78]
+        ]
     }, {
         "Id": 1392,
         "Name": "Watchful Healing",
@@ -7036,7 +7396,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/74/Watchful_Healing.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Watchful_Healing",
         "Ranks": [
-            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5], [30, 36, 42, 48, 54, 60, 66, 72, 78, 84, 90, 96, 102, 108, 114, 120, 126, 132, 138, 144, 150, 156]]
+            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5],
+            [30, 36, 42, 48, 54, 60, 66, 72, 78, 84, 90, 96, 102, 108, 114, 120, 126, 132, 138, 144, 150, 156]
+        ]
     }, {
         "Id": 255,
         "Name": "Watchful Spirit",
@@ -7058,7 +7420,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a0/Watchful_Spirit.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Watchful_Spirit",
         "Ranks": [
-            [30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230, 240]]
+            [30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230, 240]
+        ]
     }, {
         "Id": 942,
         "Name": "Withdraw Hexes",
@@ -7080,7 +7443,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/85/Withdraw_Hexes.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Withdraw_Hexes",
         "Ranks": [
-            [20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, -1]]
+            [20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, -1]
+        ]
     }, {
         "Id": 2003,
         "Name": "Cure Hex",
@@ -7102,7 +7466,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/ca/Cure_Hex.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Cure_Hex",
         "Ranks": [
-            [30, 36, 42, 48, 54, 60, 66, 72, 78, 84, 90, 96, 102, 108, 114, 120, 126, 132, 138, 144, 150, 156]]
+            [30, 36, 42, 48, 54, 60, 66, 72, 78, 84, 90, 96, 102, 108, 114, 120, 126, 132, 138, 144, 150, 156]
+        ]
     }, {
         "Id": 283,
         "Name": "Dwayna's Kiss",
@@ -7124,7 +7489,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e5/Dwayna%27s_Kiss.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Dwayna%27s_Kiss",
         "Ranks": [
-            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78], [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45]]
+            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78],
+            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45]
+        ]
     }, {
         "Id": 838,
         "Name": "Dwayna's Sorrow",
@@ -7146,7 +7513,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/d8/Dwayna%27s_Sorrow.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Dwayna%27s_Sorrow",
         "Ranks": [
-            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]]
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]
+        ]
     }, {
         "Id": 959,
         "Name": "Ethereal Light",
@@ -7168,7 +7536,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a4/Ethereal_Light.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Ethereal_Light",
         "Ranks": [
-            [25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130]]
+            [25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130]
+        ]
     }, {
         "Id": 1121,
         "Name": "Gift of Health",
@@ -7190,7 +7559,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a7/Gift_of_Health.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Gift_of_Health",
         "Ranks": [
-            [10, 10, 9, 9, 9, 8, 8, 8, 7, 7, 7, 6, 6, 6, 5, 5, 5, 4, 4, 4, 3, 3], [15, 24, 33, 42, 51, 60, 69, 78, 87, 96, 105, 114, 123, 132, 141, 150, 159, 168, 177, 186, 195, 204]]
+            [10, 10, 9, 9, 9, 8, 8, 8, 7, 7, 7, 6, 6, 6, 5, 5, 5, 4, 4, 4, 3, 3],
+            [15, 24, 33, 42, 51, 60, 69, 78, 87, 96, 105, 114, 123, 132, 141, 150, 159, 168, 177, 186, 195, 204]
+        ]
     }, {
         "Id": 1686,
         "Name": "Glimmer of Light",
@@ -7212,7 +7583,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e8/Glimmer_of_Light.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Glimmer_of_Light",
         "Ranks": [
-            [10, 17, 24, 31, 38, 45, 52, 59, 66, 73, 80, 87, 94, 101, 108, 115, 122, 129, 136, 143, 150, 157]]
+            [10, 17, 24, 31, 38, 45, 52, 59, 66, 73, 80, 87, 94, 101, 108, 115, 122, 129, 136, 143, 150, 157]
+        ]
     }, {
         "Id": 280,
         "Name": "Heal Area",
@@ -7234,7 +7606,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/8f/Heal_Area.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Heal_Area",
         "Ranks": [
-            [30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230, 240]]
+            [30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230, 240]
+        ]
     }, {
         "Id": 286,
         "Name": "Heal Other",
@@ -7256,7 +7629,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/8e/Heal_Other.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Heal_Other",
         "Ranks": [
-            [35, 45, 54, 64, 74, 83, 93, 103, 112, 122, 132, 141, 151, 161, 170, 180, 190, 199, 209, 219, 228, 238]]
+            [35, 45, 54, 64, 74, 83, 93, 103, 112, 122, 132, 141, 151, 161, 170, 180, 190, 199, 209, 219, 228, 238]
+        ]
     }, {
         "Id": 287,
         "Name": "Heal Party",
@@ -7278,7 +7652,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f0/Heal_Party.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Heal_Party",
         "Ranks": [
-            [30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87, 90, 93]]
+            [30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87, 90, 93]
+        ]
     }, {
         "Id": 1394,
         "Name": "Healer's Covenant",
@@ -7300,7 +7675,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/9c/Healer%27s_Covenant.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Healer%27s_Covenant",
         "Ranks": [
-            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4]]
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4]
+        ]
     }, {
         "Id": 288,
         "Name": "Healing Breeze",
@@ -7322,7 +7698,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/7e/Healing_Breeze.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Healing_Breeze",
         "Ranks": [
-            [4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10, 10, 11, 11]]
+            [4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10, 10, 11, 11]
+        ]
     }, {
         "Id": 1118,
         "Name": "Healing Burst",
@@ -7344,7 +7721,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/6d/Healing_Burst.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Healing_Burst",
         "Ranks": [
-            [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220]]
+            [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220]
+        ]
     }, {
         "Id": 285,
         "Name": "Healing Hands",
@@ -7366,7 +7744,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/0b/Healing_Hands.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Healing_Hands",
         "Ranks": [
-            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47]]
+            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47]
+        ]
     }, {
         "Id": 867,
         "Name": "Healing Light",
@@ -7388,7 +7767,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/45/Healing_Light.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Healing_Light",
         "Ranks": [
-            [40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100, 104, 108, 112, 116, 120, 124], [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4]]
+            [40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100, 104, 108, 112, 116, 120, 124],
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4]
+        ]
     }, {
         "Id": 2062,
         "Name": "Healing Ribbon",
@@ -7410,7 +7791,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/78/Healing_Ribbon.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Healing_Ribbon",
         "Ranks": [
-            [20, 26, 32, 38, 44, 50, 56, 62, 68, 74, 80, 86, 92, 98, 104, 110, 116, 122, 128, 134, 140, 146], [10, 16, 22, 28, 34, 40, 46, 52, 58, 64, 70, 76, 82, 88, 94, 100, 106, 112, 118, 124, 130, 136]]
+            [20, 26, 32, 38, 44, 50, 56, 62, 68, 74, 80, 86, 92, 98, 104, 110, 116, 122, 128, 134, 140, 146],
+            [10, 16, 22, 28, 34, 40, 46, 52, 58, 64, 70, 76, 82, 88, 94, 100, 106, 112, 118, 124, 130, 136]
+        ]
     }, {
         "Id": 1262,
         "Name": "Healing Ring",
@@ -7432,7 +7815,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/95/Healing_Ring.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Healing_Ring",
         "Ranks": [
-            [30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230, 240]]
+            [30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230, 240]
+        ]
     }, {
         "Id": 274,
         "Name": "Healing Seed",
@@ -7454,7 +7838,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/eb/Healing_Seed.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Healing_Seed",
         "Ranks": [
-            [3, 5, 7, 8, 10, 12, 14, 16, 17, 19, 21, 23, 25, 26, 28, 30, 32, 34, 35, 37, 39, 41]]
+            [3, 5, 7, 8, 10, 12, 14, 16, 17, 19, 21, 23, 25, 26, 28, 30, 32, 34, 35, 37, 39, 41]
+        ]
     }, {
         "Id": 313,
         "Name": "Healing Touch",
@@ -7476,7 +7861,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/aa/Healing_Touch.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Healing_Touch",
         "Ranks": [
-            [16, 19, 22, 25, 28, 31, 34, 37, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78]]
+            [16, 19, 22, 25, 28, 31, 34, 37, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78]
+        ]
     }, {
         "Id": 958,
         "Name": "Healing Whisper",
@@ -7498,7 +7884,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/20/Healing_Whisper.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Healing_Whisper",
         "Ranks": [
-            [40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100, 104, 108, 112, 116, 120, 124]]
+            [40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100, 104, 108, 112, 116, 120, 124]
+        ]
     }, {
         "Id": 292,
         "Name": "Infuse Health",
@@ -7520,7 +7907,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/61/Infuse_Health.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Infuse_Health",
         "Ranks": [
-            [100, 102, 105, 107, 110, 112, 114, 117, 119, 122, 124, 126, 129, 131, 134, 136, 138, 141, 143, 146, 148, 150]]
+            [100, 102, 105, 107, 110, 112, 114, 117, 119, 122, 124, 126, 129, 131, 134, 136, 138, 141, 143, 146, 148, 150]
+        ]
     }, {
         "Id": 1120,
         "Name": "Jamei's Gaze",
@@ -7542,7 +7930,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/0d/Jamei%27s_Gaze.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Jamei%27s_Gaze",
         "Ranks": [
-            [35, 45, 54, 64, 74, 83, 93, 103, 112, 122, 132, 141, 151, 161, 170, 180, 190, 199, 209, 219, 228, 238]]
+            [35, 45, 54, 64, 74, 83, 93, 103, 112, 122, 132, 141, 151, 161, 170, 180, 190, 199, 209, 219, 228, 238]
+        ]
     }, {
         "Id": 1119,
         "Name": "Karei's Healing Circle",
@@ -7564,7 +7953,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f3/Karei%27s_Healing_Circle.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Karei%27s_Healing_Circle",
         "Ranks": [
-            [30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230, 240]]
+            [30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230, 240]
+        ]
     }, {
         "Id": 1397,
         "Name": "Light of Deliverance",
@@ -7586,7 +7976,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/1f/Light_of_Deliverance.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Light_of_Deliverance",
         "Ranks": [
-            [5, 9, 14, 18, 22, 27, 31, 35, 40, 44, 48, 53, 57, 61, 66, 70, 74, 79, 83, 87, 92, 96]]
+            [5, 9, 14, 18, 22, 27, 31, 35, 40, 44, 48, 53, 57, 61, 66, 70, 74, 79, 83, 87, 92, 96]
+        ]
     }, {
         "Id": 291,
         "Name": "Live Vicariously",
@@ -7608,7 +7999,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/ff/Live_Vicariously.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Live_Vicariously",
         "Ranks": [
-            [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]]
+            [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+        ]
     }, {
         "Id": 290,
         "Name": "Mending",
@@ -7630,7 +8022,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/39/Mending.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mending",
         "Ranks": [
-            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5]]
+            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5]
+        ]
     }, {
         "Id": 281,
         "Name": "Orison of Healing",
@@ -7652,7 +8045,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/5f/Orison_of_Healing.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Orison_of_Healing",
         "Ranks": [
-            [20, 23, 27, 30, 33, 37, 40, 43, 47, 50, 53, 57, 60, 63, 67, 70, 73, 77, 80, 83, 87, 90]]
+            [20, 23, 27, 30, 33, 37, 40, 43, 47, 50, 53, 57, 60, 63, 67, 70, 73, 77, 80, 83, 87, 90]
+        ]
     }, {
         "Id": 2061,
         "Name": "Patient Spirit",
@@ -7674,7 +8068,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/93/Patient_Spirit.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Patient_Spirit",
         "Ranks": [
-            [30, 36, 42, 48, 54, 60, 66, 72, 78, 84, 90, 96, 102, 108, 114, 120, 126, 132, 138, 144, 150, 156]]
+            [30, 36, 42, 48, 54, 60, 66, 72, 78, 84, 90, 96, 102, 108, 114, 120, 126, 132, 138, 144, 150, 156]
+        ]
     }, {
         "Id": 1263,
         "Name": "Renew Life",
@@ -7696,7 +8091,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/50/Renew_Life.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Renew_Life",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130, 135, 140, 145, 150, 155, 160]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130, 135, 140, 145, 150, 155, 160]
+        ]
     }, {
         "Id": 886,
         "Name": "Restful Breeze",
@@ -7718,7 +8115,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/7e/Restful_Breeze.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Restful_Breeze",
         "Ranks": [
-            [8, 9, 9, 10, 11, 11, 12, 13, 13, 14, 15, 15, 16, 17, 17, 18, 19, 19, 20, 21, 21, 22]]
+            [8, 9, 9, 10, 11, 11, 12, 13, 13, 14, 15, 15, 16, 17, 17, 18, 19, 19, 20, 21, 21, 22]
+        ]
     }, {
         "Id": 314,
         "Name": "Restore Life",
@@ -7740,7 +8138,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f9/Restore_Life.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Restore_Life",
         "Ranks": [
-            [20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68, 71, 74, 77, 80, 83], [42, 45, 48, 52, 55, 58, 61, 64, 68, 71, 74, 77, 80, 84, 87, 90, 93, 96, 100, 103, 106, 109]]
+            [20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68, 71, 74, 77, 80, 83],
+            [42, 45, 48, 52, 55, 58, 61, 64, 68, 71, 74, 77, 80, 84, 87, 90, 93, 96, 100, 103, 106, 109]
+        ]
     }, {
         "Id": 1128,
         "Name": "Resurrection Chant",
@@ -7762,7 +8162,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/86/Resurrection_Chant.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Resurrection_Chant",
         "Ranks": [
-            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47]]
+            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47]
+        ]
     }, {
         "Id": 887,
         "Name": "Signet of Rejuvenation",
@@ -7784,7 +8185,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/b9/Signet_of_Rejuvenation.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Signet_of_Rejuvenation",
         "Ranks": [
-            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99], [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]]
+            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99],
+            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]
+        ]
     }, {
         "Id": 2064,
         "Name": "Spotless Mind",
@@ -7806,7 +8209,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/55/Spotless_Mind.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Spotless_Mind",
         "Ranks": [
-            [1, 2, 3, 4, 5, 6, 7, 8, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]]
+            [1, 2, 3, 4, 5, 6, 7, 8, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+        ]
     }, {
         "Id": 2065,
         "Name": "Spotless Soul",
@@ -7828,7 +8232,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/ea/Spotless_Soul.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Spotless_Soul",
         "Ranks": [
-            [1, 2, 3, 4, 5, 6, 7, 8, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]]
+            [1, 2, 3, 4, 5, 6, 7, 8, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+        ]
     }, {
         "Id": 1391,
         "Name": "Supportive Spirit",
@@ -7850,7 +8255,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/31/Supportive_Spirit.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Supportive_Spirit",
         "Ranks": [
-            [5, 6, 7, 9, 10, 11, 12, 13, 15, 16, 17, 18, 19, 21, 22, 23, 24, 25, 27, 28, 29, 30], [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47]]
+            [5, 6, 7, 9, 10, 11, 12, 13, 15, 16, 17, 18, 19, 21, 22, 23, 24, 25, 27, 28, 29, 30],
+            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47]
+        ]
     }, {
         "Id": 254,
         "Name": "Vigorous Spirit",
@@ -7872,7 +8279,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f9/Vigorous_Spirit.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Vigorous_Spirit",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 282,
         "Name": "Word of Healing",
@@ -7894,7 +8302,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/17/Word_of_Healing.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Word_of_Healing",
         "Ranks": [
-            [5, 11, 18, 24, 30, 37, 43, 49, 56, 62, 68, 75, 81, 87, 94, 100, 106, 113, 119, 125, 132, 138], [30, 36, 41, 47, 53, 58, 64, 70, 75, 81, 87, 92, 98, 104, 109, 115, 121, 126, 132, 138, 143, 149]]
+            [5, 11, 18, 24, 30, 37, 43, 49, 56, 62, 68, 75, 81, 87, 94, 100, 106, 113, 119, 125, 132, 138],
+            [30, 36, 41, 47, 53, 58, 64, 70, 75, 81, 87, 92, 98, 104, 109, 115, 121, 126, 132, 138, 143, 149]
+        ]
     }, {
         "Id": 1396,
         "Name": "Words of Comfort",
@@ -7916,7 +8326,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/cc/Words_of_Comfort.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Words_of_Comfort",
         "Ranks": [
-            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78], [15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57]]
+            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78],
+            [15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57]
+        ]
     }, {
         "Id": 257,
         "Name": "Aegis",
@@ -7938,7 +8350,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/bf/Aegis.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Aegis",
         "Ranks": [
-            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13, 13]]
+            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13, 13]
+        ]
     }, {
         "Id": 1115,
         "Name": "Air of Enchantment",
@@ -7960,7 +8373,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/bb/Air_of_Enchantment.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Air_of_Enchantment",
         "Ranks": [
-            [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 12]]
+            [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 12]
+        ]
     }, {
         "Id": 265,
         "Name": "Amity",
@@ -7982,7 +8396,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/ee/Amity.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Amity",
         "Ranks": [
-            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25]]
+            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25]
+        ]
     }, {
         "Id": 260,
         "Name": "Aura of Faith",
@@ -8004,7 +8419,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f7/Aura_of_Faith.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Aura_of_Faith",
         "Ranks": [
-            [50, 53, 57, 60, 63, 67, 70, 73, 77, 80, 83, 87, 90, 93, 97, 100, 103, 107, 110, 113, 117, 120], [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]]
+            [50, 53, 57, 60, 63, 67, 70, 73, 77, 80, 83, 87, 90, 93, 97, 100, 103, 107, 110, 113, 117, 120],
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]
+        ]
     }, {
         "Id": 2063,
         "Name": "Aura of Stability",
@@ -8026,7 +8443,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/95/Aura_of_Stability.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Aura_of_Stability",
         "Ranks": [
-            [3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10]]
+            [3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10]
+        ]
     }, {
         "Id": 303,
         "Name": "Convert Hexes",
@@ -8048,7 +8466,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/60/Convert_Hexes.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Convert_Hexes",
         "Ranks": [
-            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25]]
+            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25]
+        ]
     }, {
         "Id": 1691,
         "Name": "Dismiss Condition",
@@ -8070,7 +8489,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/de/Dismiss_Condition.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Dismiss_Condition",
         "Ranks": [
-            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]]
+            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]
+        ]
     }, {
         "Id": 1692,
         "Name": "Divert Hexes",
@@ -8092,7 +8512,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e7/Divert_Hexes.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Divert_Hexes",
         "Ranks": [
-            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4], [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]]
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4],
+            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]
+        ]
     }, {
         "Id": 311,
         "Name": "Draw Conditions",
@@ -8114,7 +8536,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/34/Draw_Conditions.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Draw_Conditions",
         "Ranks": [
-            [6, 7, 9, 10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34]]
+            [6, 7, 9, 10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34]
+        ]
     }, {
         "Id": 943,
         "Name": "Extinguish",
@@ -8136,7 +8559,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/2e/Extinguish.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Extinguish",
         "Ranks": [
-            [10, 16, 22, 28, 34, 40, 46, 52, 58, 64, 70, 76, 82, 88, 94, 100, 106, 112, 118, 124, 130, 136]]
+            [10, 16, 22, 28, 34, 40, 46, 52, 58, 64, 70, 76, 82, 88, 94, 100, 106, 112, 118, 124, 130, 136]
+        ]
     }, {
         "Id": 258,
         "Name": "Guardian",
@@ -8158,7 +8582,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/fa/Guardian.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Guardian",
         "Ranks": [
-            [2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9]]
+            [2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9]
+        ]
     }, {
         "Id": 244,
         "Name": "Life Attunement",
@@ -8180,7 +8605,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f3/Life_Attunement.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Life_Attunement",
         "Ranks": [
-            [14, 16, 19, 21, 24, 26, 28, 31, 33, 36, 38, 40, 43, 45, 48, 50, 52, 55, 57, 60, 62, 64]]
+            [14, 16, 19, 21, 24, 26, 28, 31, 33, 36, 38, 40, 43, 45, 48, 50, 52, 55, 57, 60, 62, 64]
+        ]
     }, {
         "Id": 270,
         "Name": "Life Barrier",
@@ -8202,7 +8628,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/ca/Life_Barrier.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Life_Barrier",
         "Ranks": [
-            [20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62]]
+            [20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62]
+        ]
     }, {
         "Id": 241,
         "Name": "Life Bond",
@@ -8224,7 +8651,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/84/Life_Bond.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Life_Bond",
         "Ranks": [
-            [3, 5, 7, 8, 10, 12, 14, 16, 17, 19, 21, 23, 25, 26, 28, 30, 32, 34, 35, 37, 39, 41]]
+            [3, 5, 7, 8, 10, 12, 14, 16, 17, 19, 21, 23, 25, 26, 28, 30, 32, 34, 35, 37, 39, 41]
+        ]
     }, {
         "Id": 1123,
         "Name": "Life Sheath",
@@ -8246,7 +8674,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/de/Life_Sheath.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Life_Sheath",
         "Ranks": [
-            [0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3], [20, 25, 31, 36, 41, 47, 52, 57, 63, 68, 73, 79, 84, 89, 95, 100, 105, 111, 116, 121, 127, 132]]
+            [0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3],
+            [20, 25, 31, 36, 41, 47, 52, 57, 63, 68, 73, 79, 84, 89, 95, 100, 105, 111, 116, 121, 127, 132]
+        ]
     }, {
         "Id": 269,
         "Name": "Mark of Protection",
@@ -8268,7 +8698,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/1b/Mark_of_Protection.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mark_of_Protection",
         "Ranks": [
-            [6, 10, 13, 17, 20, 24, 28, 31, 35, 38, 42, 46, 49, 53, 56, 60, 64, 67, 71, 74, 78, 82]]
+            [6, 10, 13, 17, 20, 24, 28, 31, 35, 38, 42, 46, 49, 53, 56, 60, 64, 67, 71, 74, 78, 82]
+        ]
     }, {
         "Id": 277,
         "Name": "Mend Ailment",
@@ -8290,7 +8721,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a5/Mend_Ailment.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mend_Ailment",
         "Ranks": [
-            [5, 9, 14, 18, 22, 27, 31, 35, 40, 44, 48, 53, 57, 61, 66, 70, 74, 79, 83, 87, 92, 96]]
+            [5, 9, 14, 18, 22, 27, 31, 35, 40, 44, 48, 53, 57, 61, 66, 70, 74, 79, 83, 87, 92, 96]
+        ]
     }, {
         "Id": 275,
         "Name": "Mend Condition",
@@ -8312,7 +8744,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e0/Mend_Condition.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mend_Condition",
         "Ranks": [
-            [5, 9, 14, 18, 22, 27, 31, 35, 40, 44, 48, 53, 57, 61, 66, 70, 74, 79, 83, 87, 92, 96]]
+            [5, 9, 14, 18, 22, 27, 31, 35, 40, 44, 48, 53, 57, 61, 66, 70, 74, 79, 83, 87, 92, 96]
+        ]
     }, {
         "Id": 1401,
         "Name": "Mending Touch",
@@ -8334,7 +8767,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/8a/Mending_Touch.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mending_Touch",
         "Ranks": [
-            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78]]
+            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78]
+        ]
     }, {
         "Id": 264,
         "Name": "Pacifism",
@@ -8356,7 +8790,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/49/Pacifism.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Pacifism",
         "Ranks": [
-            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25]]
+            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25]
+        ]
     }, {
         "Id": 1683,
         "Name": "Pensive Guardian",
@@ -8378,7 +8813,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/5e/Pensive_Guardian.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Pensive_Guardian",
         "Ranks": [
-            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13, 13]]
+            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13, 13]
+        ]
     }, {
         "Id": 263,
         "Name": "Protective Bond",
@@ -8400,7 +8836,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/fa/Protective_Bond.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Protective_Bond",
         "Ranks": [
-            [6, 6, 6, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 3, 3, 3, 3, 3, 2, 2, 2, 2]]
+            [6, 6, 6, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 3, 3, 3, 3, 3, 2, 2, 2, 2]
+        ]
     }, {
         "Id": 245,
         "Name": "Protective Spirit",
@@ -8422,7 +8859,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/b1/Protective_Spirit.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Protective_Spirit",
         "Ranks": [
-            [5, 6, 7, 9, 10, 11, 12, 13, 15, 16, 17, 18, 19, 21, 22, 23, 24, 25, 27, 28, 29, 30]]
+            [5, 6, 7, 9, 10, 11, 12, 13, 15, 16, 17, 18, 19, 21, 22, 23, 24, 25, 27, 28, 29, 30]
+        ]
     }, {
         "Id": 2007,
         "Name": "Purifying Veil",
@@ -8444,7 +8882,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/60/Purifying_Veil.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Purifying_Veil",
         "Ranks": [
-            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]]
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]
+        ]
     }, {
         "Id": 306,
         "Name": "Rebirth",
@@ -8466,7 +8905,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/97/Rebirth.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Rebirth",
         "Ranks": [
-            [10, 10, 9, 9, 8, 8, 7, 7, 6, 6, 5, 5, 4, 4, 3, 3, 3, 2, 2, 1, 1, 0]]
+            [10, 10, 9, 9, 8, 8, 7, 7, 6, 6, 5, 5, 4, 4, 3, 3, 3, 2, 2, 1, 1, 0]
+        ]
     }, {
         "Id": 276,
         "Name": "Restore Condition",
@@ -8488,7 +8928,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/ac/Restore_Condition.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Restore_Condition",
         "Ranks": [
-            [10, 14, 18, 22, 26, 30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94]]
+            [10, 14, 18, 22, 26, 30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94]
+        ]
     }, {
         "Id": 307,
         "Name": "Reversal of Fortune",
@@ -8510,7 +8951,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/64/Reversal_of_Fortune.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Reversal_of_Fortune",
         "Ranks": [
-            [15, 19, 24, 28, 32, 37, 41, 45, 50, 54, 58, 63, 67, 71, 76, 80, 84, 89, 93, 97, 102, 106]]
+            [15, 19, 24, 28, 32, 37, 41, 45, 50, 54, 58, 63, 67, 71, 76, 80, 84, 89, 93, 97, 102, 106]
+        ]
     }, {
         "Id": 848,
         "Name": "Reverse Hex",
@@ -8532,7 +8974,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/02/Reverse_Hex.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Reverse_Hex",
         "Ranks": [
-            [5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10, 10, 11, 11, 11, 12, 12], [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]]
+            [5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10, 10, 11, 11, 11, 12, 12],
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]
+        ]
     }, {
         "Id": 885,
         "Name": "Shield Guardian",
@@ -8554,7 +8998,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/59/Shield_Guardian.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Shield_Guardian",
         "Ranks": [
-            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5], [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]]
+            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5],
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]
+        ]
     }, {
         "Id": 1399,
         "Name": "Shield of Absorption",
@@ -8576,7 +9022,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/bf/Shield_of_Absorption.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Shield_of_Absorption",
         "Ranks": [
-            [3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 8, 8, 8, 8, 9]]
+            [3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 8, 8, 8, 8, 9]
+        ]
     }, {
         "Id": 259,
         "Name": "Shield of Deflection",
@@ -8598,7 +9045,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/1a/Shield_of_Deflection.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Shield_of_Deflection",
         "Ranks": [
-            [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 13], [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36]]
+            [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 13],
+            [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36]
+        ]
     }, {
         "Id": 261,
         "Name": "Shield of Regeneration",
@@ -8620,7 +9069,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/eb/Shield_of_Regeneration.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Shield_of_Regeneration",
         "Ranks": [
-            [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 14, 14, 15, 15, 16, 16], [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 13]]
+            [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 14, 14, 15, 15, 16, 16],
+            [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 13]
+        ]
     }, {
         "Id": 299,
         "Name": "Shielding Hands",
@@ -8642,7 +9093,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/42/Shielding_Hands.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Shielding_Hands",
         "Ranks": [
-            [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24], [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]]
+            [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]
+        ]
     }, {
         "Id": 1114,
         "Name": "Spirit Bond",
@@ -8664,7 +9117,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/0f/Spirit_Bond.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Spirit_Bond",
         "Ranks": [
-            [30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 98, 102, 106, 110, 114]]
+            [30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 98, 102, 106, 110, 114]
+        ]
     }, {
         "Id": 289,
         "Name": "Vital Blessing",
@@ -8686,7 +9140,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/90/Vital_Blessing.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Vital_Blessing",
         "Ranks": [
-            [40, 51, 61, 72, 83, 93, 104, 115, 125, 136, 147, 157, 168, 179, 189, 200, 211, 221, 232, 243, 253, 264]]
+            [40, 51, 61, 72, 83, 93, 104, 115, 125, 136, 147, 157, 168, 179, 189, 200, 211, 221, 232, 243, 253, 264]
+        ]
     }, {
         "Id": 1687,
         "Name": "Zealous Benediction",
@@ -8708,7 +9163,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/ea/Zealous_Benediction.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Zealous_Benediction",
         "Ranks": [
-            [30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230, 240]]
+            [30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230, 240]
+        ]
     }, {
         "Id": 272,
         "Name": "Balthazar's Aura",
@@ -8730,7 +9186,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e3/Balthazar%27s_Aura.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Balthazar%27s_Aura",
         "Ranks": [
-            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]]
+            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
+        ]
     }, {
         "Id": 1395,
         "Name": "Balthazar's Pendulum",
@@ -8752,7 +9209,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/ec/Balthazar%27s_Pendulum.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Balthazar%27s_Pendulum",
         "Ranks": [
-            [5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10, 10, 11, 11, 11, 12, 12]]
+            [5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10, 10, 11, 11, 11, 12, 12]
+        ]
     }, {
         "Id": 242,
         "Name": "Balthazar's Spirit",
@@ -8774,7 +9232,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/54/Balthazar%27s_Spirit.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Balthazar%27s_Spirit",
         "Ranks": [
-            [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 6, 6, 6, 6]]
+            [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 6, 6, 6, 6]
+        ]
     }, {
         "Id": 296,
         "Name": "Bane Signet",
@@ -8796,7 +9255,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/23/Bane_Signet.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Bane_Signet",
         "Ranks": [
-            [26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68]]
+            [26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68]
+        ]
     }, {
         "Id": 252,
         "Name": "Banish",
@@ -8818,7 +9278,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/91/Banish.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Banish",
         "Ranks": [
-            [20, 22, 25, 27, 30, 32, 34, 37, 39, 42, 44, 46, 49, 51, 54, 56, 58, 61, 63, 66, 68, 70]]
+            [20, 22, 25, 27, 30, 32, 34, 37, 39, 42, 44, 46, 49, 51, 54, 56, 58, 61, 63, 66, 68, 70]
+        ]
     }, {
         "Id": 2006,
         "Name": "Castigation Signet",
@@ -8840,7 +9301,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e1/Castigation_Signet.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Castigation_Signet",
         "Ranks": [
-            [26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68], [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]]
+            [26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68],
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]
+        ]
     }, {
         "Id": 1688,
         "Name": "Defender's Zeal",
@@ -8862,7 +9325,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/b8/Defender%27s_Zeal.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Defender%27s_Zeal",
         "Ranks": [
-            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32, 33]]
+            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32, 33]
+        ]
     }, {
         "Id": 312,
         "Name": "Holy Strike",
@@ -8884,7 +9348,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/19/Holy_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Holy_Strike",
         "Ranks": [
-            [10, 13, 16, 19, 22, 25, 28, 31, 34, 37, 40, 43, 46, 49, 52, 55, 58, 61, 64, 67, 70, 73], [10, 13, 16, 19, 22, 25, 28, 31, 34, 37, 40, 43, 46, 49, 52, 55, 58, 61, 64, 67, 70, 73]]
+            [10, 13, 16, 19, 22, 25, 28, 31, 34, 37, 40, 43, 46, 49, 52, 55, 58, 61, 64, 67, 70, 73],
+            [10, 13, 16, 19, 22, 25, 28, 31, 34, 37, 40, 43, 46, 49, 52, 55, 58, 61, 64, 67, 70, 73]
+        ]
     }, {
         "Id": 249,
         "Name": "Holy Wrath",
@@ -8906,7 +9372,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/65/Holy_Wrath.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Holy_Wrath",
         "Ranks": [
-            [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38], [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14], [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]]
+            [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38],
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14],
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]
+        ]
     }, {
         "Id": 267,
         "Name": "Judge's Insight",
@@ -8928,7 +9397,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/07/Judge%27s_Insight.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Judge%27s_Insight",
         "Ranks": [
-            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25]]
+            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25]
+        ]
     }, {
         "Id": 1390,
         "Name": "Judge's Intervention",
@@ -8950,7 +9420,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/4f/Judge%27s_Intervention.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Judge%27s_Intervention",
         "Ranks": [
-            [30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230, 240]]
+            [30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230, 240]
+        ]
     }, {
         "Id": 1113,
         "Name": "Kirin's Wrath",
@@ -8972,7 +9443,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/70/Kirin%27s_Wrath.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Kirin%27s_Wrath",
         "Ranks": [
-            [8, 10, 11, 13, 14, 16, 18, 19, 21, 22, 24, 26, 27, 29, 30, 32, 34, 35, 37, 38, 40, 42]]
+            [8, 10, 11, 13, 14, 16, 18, 19, 21, 22, 24, 26, 27, 29, 30, 32, 34, 35, 37, 38, 40, 42]
+        ]
     }, {
         "Id": 830,
         "Name": "Ray of Judgment",
@@ -8994,7 +9466,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e4/Ray_of_Judgment.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Ray_of_Judgment",
         "Ranks": [
-            [5, 8, 10, 13, 16, 18, 21, 24, 26, 29, 32, 34, 37, 40, 42, 45, 48, 50, 53, 56, 58, 61], [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4]]
+            [5, 8, 10, 13, 16, 18, 21, 24, 26, 29, 32, 34, 37, 40, 42, 45, 48, 50, 53, 56, 58, 61],
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4]
+        ]
     }, {
         "Id": 248,
         "Name": "Retribution",
@@ -9016,7 +9490,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/fe/Retribution.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Retribution",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1400,
         "Name": "Reversal of Damage",
@@ -9038,7 +9513,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/32/Reversal_of_Damage.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Reversal_of_Damage",
         "Ranks": [
-            [5, 10, 14, 19, 24, 28, 33, 38, 42, 47, 52, 56, 61, 66, 70, 75, 80, 84, 89, 94, 98, 103]]
+            [5, 10, 14, 19, 24, 28, 33, 38, 42, 47, 52, 56, 61, 66, 70, 75, 80, 84, 89, 94, 98, 103]
+        ]
     }, {
         "Id": 1398,
         "Name": "Scourge Enchantment",
@@ -9060,7 +9536,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/91/Scourge_Enchantment.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Scourge_Enchantment",
         "Ranks": [
-            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]]
+            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]
+        ]
     }, {
         "Id": 251,
         "Name": "Scourge Healing",
@@ -9082,7 +9559,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/36/Scourge_Healing.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Scourge_Healing",
         "Ranks": [
-            [15, 19, 24, 28, 32, 37, 41, 45, 50, 54, 58, 63, 67, 71, 76, 80, 84, 89, 93, 97, 102, 106]]
+            [15, 19, 24, 28, 32, 37, 41, 45, 50, 54, 58, 63, 67, 71, 76, 80, 84, 89, 93, 97, 102, 106]
+        ]
     }, {
         "Id": 253,
         "Name": "Scourge Sacrifice",
@@ -9104,7 +9582,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c6/Scourge_Sacrifice.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Scourge_Sacrifice",
         "Ranks": [
-            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25]]
+            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25]
+        ]
     }, {
         "Id": 262,
         "Name": "Shield of Judgment",
@@ -9126,7 +9605,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e8/Shield_of_Judgment.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Shield_of_Judgment",
         "Ranks": [
-            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25], [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]]
+            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25],
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]
+        ]
     }, {
         "Id": 294,
         "Name": "Signet of Judgment",
@@ -9148,7 +9629,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/aa/Signet_of_Judgment.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Signet_of_Judgment",
         "Ranks": [
-            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]]
+            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]
+        ]
     }, {
         "Id": 1689,
         "Name": "Signet of Mystic Wrath",
@@ -9170,7 +9652,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/04/Signet_of_Mystic_Wrath.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Signet_of_Mystic_Wrath",
         "Ranks": [
-            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47]]
+            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47]
+        ]
     }, {
         "Id": 1269,
         "Name": "Signet of Rage",
@@ -9192,7 +9675,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/0f/Signet_of_Rage.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Signet_of_Rage",
         "Ranks": [
-            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68], [5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10, 10, 11, 11, 11, 12, 12]]
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68],
+            [5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10, 10, 11, 11, 11, 12, 12]
+        ]
     }, {
         "Id": 240,
         "Name": "Smite",
@@ -9214,7 +9699,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/75/Smite.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Smite",
         "Ranks": [
-            [10, 13, 16, 19, 22, 25, 28, 31, 34, 37, 40, 43, 46, 49, 52, 55, 58, 61, 64, 67, 70, 73], [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45]]
+            [10, 13, 16, 19, 22, 25, 28, 31, 34, 37, 40, 43, 46, 49, 52, 55, 58, 61, 64, 67, 70, 73],
+            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45]
+        ]
     }, {
         "Id": 2004,
         "Name": "Smite Condition",
@@ -9236,7 +9723,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/2e/Smite_Condition.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Smite_Condition",
         "Ranks": [
-            [10, 13, 17, 20, 23, 27, 30, 33, 37, 40, 43, 47, 50, 53, 57, 60, 63, 67, 70, 73, 77, 80]]
+            [10, 13, 17, 20, 23, 27, 30, 33, 37, 40, 43, 47, 50, 53, 57, 60, 63, 67, 70, 73, 77, 80]
+        ]
     }, {
         "Id": 302,
         "Name": "Smite Hex",
@@ -9258,7 +9746,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/41/Smite_Hex.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Smite_Hex",
         "Ranks": [
-            [10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115]]
+            [10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115]
+        ]
     }, {
         "Id": 1130,
         "Name": "Spear of Light",
@@ -9280,7 +9769,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/05/Spear_of_Light.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Spear_of_Light",
         "Ranks": [
-            [26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68], [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78]]
+            [26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68],
+            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78]
+        ]
     }, {
         "Id": 1131,
         "Name": "Stonesoul Strike",
@@ -9302,7 +9793,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/25/Stonesoul_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Stonesoul_Strike",
         "Ranks": [
-            [10, 13, 16, 19, 22, 25, 28, 31, 34, 37, 40, 43, 46, 49, 52, 55, 58, 61, 64, 67, 70, 73], [10, 13, 16, 19, 22, 25, 28, 31, 34, 37, 40, 43, 46, 49, 52, 55, 58, 61, 64, 67, 70, 73]]
+            [10, 13, 16, 19, 22, 25, 28, 31, 34, 37, 40, 43, 46, 49, 52, 55, 58, 61, 64, 67, 70, 73],
+            [10, 13, 16, 19, 22, 25, 28, 31, 34, 37, 40, 43, 46, 49, 52, 55, 58, 61, 64, 67, 70, 73]
+        ]
     }, {
         "Id": 243,
         "Name": "Strength of Honor",
@@ -9324,7 +9817,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/42/Strength_of_Honor.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Strength_of_Honor",
         "Ranks": [
-            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32, 33]]
+            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32, 33]
+        ]
     }, {
         "Id": 247,
         "Name": "Symbol of Wrath",
@@ -9346,7 +9840,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e1/Symbol_of_Wrath.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Symbol_of_Wrath",
         "Ranks": [
-            [8, 10, 11, 13, 14, 16, 18, 19, 21, 22, 24, 26, 27, 29, 30, 32, 34, 35, 37, 38, 40, 42]]
+            [8, 10, 11, 13, 14, 16, 18, 19, 21, 22, 24, 26, 27, 29, 30, 32, 34, 35, 37, 38, 40, 42]
+        ]
     }, {
         "Id": 1129,
         "Name": "Word of Censure",
@@ -9368,7 +9863,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/6b/Word_of_Censure.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Word_of_Censure",
         "Ranks": [
-            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]]
+            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]
+        ]
     }, {
         "Id": 271,
         "Name": "Zealot's Fire",
@@ -9390,7 +9886,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/37/Zealot%27s_Fire.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Zealot%27s_Fire",
         "Ranks": [
-            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47]]
+            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47]
+        ]
     }, {
         "Id": 2683,
         "Name": "Castigation Signet (Saul D'Alessio)",
@@ -9412,7 +9909,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/9d/Castigation_Signet_%28Saul_D%27Alessio%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Castigation_Signet_(Saul_D%27Alessio)",
         "Ranks": [
-            [56, 58, 60], [10, 11, 11]]
+            [56, 58, 60],
+            [10, 11, 11]
+        ]
     }, {
         "Id": 1126,
         "Name": "Empathic Removal",
@@ -9433,8 +9932,7 @@ var skillTable = [
         "Campaign": "Factions",
         "Image": "https://wiki.guildwars.com/images/2/20/Empathic_Removal.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Empathic_Removal",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 250,
         "Name": "Essence Bond",
@@ -9455,8 +9953,7 @@ var skillTable = [
         "Campaign": "Prophecies",
         "Image": "https://wiki.guildwars.com/images/1/1f/Essence_Bond.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Essence_Bond",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 309,
         "Name": "Holy Veil",
@@ -9477,8 +9974,7 @@ var skillTable = [
         "Campaign": "Core",
         "Image": "https://wiki.guildwars.com/images/8/85/Holy_Veil.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Holy_Veil",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 304,
         "Name": "Light of Dwayna",
@@ -9499,8 +9995,7 @@ var skillTable = [
         "Campaign": "Prophecies",
         "Image": "https://wiki.guildwars.com/images/3/31/Light_of_Dwayna.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Light_of_Dwayna",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 298,
         "Name": "Martyr",
@@ -9521,8 +10016,7 @@ var skillTable = [
         "Campaign": "Core",
         "Image": "https://wiki.guildwars.com/images/a/a9/Martyr.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Martyr",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 278,
         "Name": "Purge Conditions",
@@ -9543,8 +10037,7 @@ var skillTable = [
         "Campaign": "Core",
         "Image": "https://wiki.guildwars.com/images/b/b6/Purge_Conditions.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Purge_Conditions",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 295,
         "Name": "Purge Signet",
@@ -9565,8 +10058,7 @@ var skillTable = [
         "Campaign": "Core",
         "Image": "https://wiki.guildwars.com/images/f/f2/Purge_Signet.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Purge_Signet",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 301,
         "Name": "Remove Hex",
@@ -9587,8 +10079,7 @@ var skillTable = [
         "Campaign": "Core",
         "Image": "https://wiki.guildwars.com/images/0/0f/Remove_Hex.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Remove_Hex",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 305,
         "Name": "Resurrect",
@@ -9609,8 +10100,7 @@ var skillTable = [
         "Campaign": "Core",
         "Image": "https://wiki.guildwars.com/images/c/c1/Resurrect.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Resurrect",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 1690,
         "Name": "Signet of Removal",
@@ -9631,8 +10121,7 @@ var skillTable = [
         "Campaign": "Nightfall",
         "Image": "https://wiki.guildwars.com/images/a/af/Signet_of_Removal.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Signet_of_Removal",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 308,
         "Name": "Succor",
@@ -9653,8 +10142,7 @@ var skillTable = [
         "Campaign": "Prophecies",
         "Image": "https://wiki.guildwars.com/images/f/f8/Succor.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Succor",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 315,
         "Name": "Vengeance",
@@ -9675,8 +10163,7 @@ var skillTable = [
         "Campaign": "Prophecies",
         "Image": "https://wiki.guildwars.com/images/1/17/Vengeance.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Vengeance",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 111,
         "Name": "Awaken the Blood",
@@ -9698,7 +10185,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e4/Awaken_the_Blood.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Awaken_the_Blood",
         "Ranks": [
-            [20, 22, 23, 25, 26, 28, 30, 31, 33, 34, 36, 38, 39, 41, 42, 44, 46, 47, 49, 50, 52, 54]]
+            [20, 22, 23, 25, 26, 28, 30, 31, 33, 34, 36, 38, 39, 41, 42, 44, 46, 47, 49, 50, 52, 54]
+        ]
     }, {
         "Id": 131,
         "Name": "Barbed Signet",
@@ -9720,7 +10208,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/d1/Barbed_Signet.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Barbed_Signet",
         "Ranks": [
-            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19, 20]]
+            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19, 20]
+        ]
     }, {
         "Id": 835,
         "Name": "Blood Bond",
@@ -9742,7 +10231,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/66/Blood_Bond.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Blood_Bond",
         "Ranks": [
-            [3, 4, 4, 5, 5, 6, 7, 7, 8, 8, 9, 10, 10, 11, 11, 12, 13, 13, 14, 14, 15, 16], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [20, 25, 31, 36, 41, 47, 52, 57, 63, 68, 73, 79, 84, 89, 95, 100, 105, 111, 116, 121, 127, 132]]
+            [3, 4, 4, 5, 5, 6, 7, 7, 8, 8, 9, 10, 10, 11, 11, 12, 13, 13, 14, 14, 15, 16],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [20, 25, 31, 36, 41, 47, 52, 57, 63, 68, 73, 79, 84, 89, 95, 100, 105, 111, 116, 121, 127, 132]
+        ]
     }, {
         "Id": 1076,
         "Name": "Blood Drinker",
@@ -9764,7 +10256,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/72/Blood_Drinker.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Blood_Drinker",
         "Ranks": [
-            [20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68, 71, 74, 77, 80, 83]]
+            [20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68, 71, 74, 77, 80, 83]
+        ]
     }, {
         "Id": 119,
         "Name": "Blood is Power",
@@ -9786,7 +10279,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/28/Blood_is_Power.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Blood_is_Power",
         "Ranks": [
-            [3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 7, 7, 7, 7]]
+            [3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 7, 7, 7, 7]
+        ]
     }, {
         "Id": 902,
         "Name": "Blood of the Aggressor",
@@ -9808,7 +10302,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/55/Blood_of_the_Aggressor.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Blood_of_the_Aggressor",
         "Ranks": [
-            [5, 8, 10, 13, 16, 18, 21, 24, 26, 29, 32, 34, 37, 40, 42, 45, 48, 50, 53, 56, 58, 61], [3, 4, 4, 5, 5, 6, 7, 7, 8, 8, 9, 10, 10, 11, 11, 12, 13, 13, 14, 14, 15, 16]]
+            [5, 8, 10, 13, 16, 18, 21, 24, 26, 29, 32, 34, 37, 40, 42, 45, 48, 50, 53, 56, 58, 61],
+            [3, 4, 4, 5, 5, 6, 7, 7, 8, 8, 9, 10, 10, 11, 11, 12, 13, 13, 14, 14, 15, 16]
+        ]
     }, {
         "Id": 115,
         "Name": "Blood Renewal",
@@ -9830,7 +10326,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/cd/Blood_Renewal.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Blood_Renewal",
         "Ranks": [
-            [3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 7, 7, 7, 7], [40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230, 240, 250]]
+            [3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 7, 7, 7, 7],
+            [40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230, 240, 250]
+        ]
     }, {
         "Id": 157,
         "Name": "Blood Ritual",
@@ -9852,7 +10350,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/83/Blood_Ritual.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Blood_Ritual",
         "Ranks": [
-            [8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 12, 13, 13, 14, 14, 14, 15, 15, 16, 16, 16]]
+            [8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 12, 13, 13, 14, 14, 14, 15, 15, 16, 16, 16]
+        ]
     }, {
         "Id": 806,
         "Name": "Cultist's Fervor",
@@ -9874,7 +10373,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/bc/Cultist%27s_Fervor.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Cultist%27s_Fervor",
         "Ranks": [
-            [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8]]
+            [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8]
+        ]
     }, {
         "Id": 138,
         "Name": "Dark Bond",
@@ -9896,7 +10396,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c9/Dark_Bond.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Dark_Bond",
         "Ranks": [
-            [30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72]]
+            [30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72]
+        ]
     }, {
         "Id": 147,
         "Name": "Dark Fury",
@@ -9917,8 +10418,7 @@ var skillTable = [
         "Campaign": "Prophecies",
         "Image": "https://wiki.guildwars.com/images/d/d4/Dark_Fury.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Dark_Fury",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 133,
         "Name": "Dark Pact",
@@ -9940,7 +10440,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/af/Dark_Pact.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Dark_Pact",
         "Ranks": [
-            [10, 13, 15, 18, 20, 23, 25, 28, 30, 33, 35, 38, 40, 43, 45, 48, 51, 53, 56, 58, 61, 63]]
+            [10, 13, 15, 18, 20, 23, 25, 28, 30, 33, 35, 38, 40, 43, 45, 48, 51, 53, 56, 58, 61, 63]
+        ]
     }, {
         "Id": 130,
         "Name": "Demonic Flesh",
@@ -9962,7 +10463,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/01/Demonic_Flesh.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Demonic_Flesh",
         "Ranks": [
-            [30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 763,
         "Name": "Jaundiced Gaze",
@@ -9984,7 +10487,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/9d/Jaundiced_Gaze.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Jaundiced_Gaze",
         "Ranks": [
-            [1, 2, 3, 4, 5, 6, 7, 8, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21], [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]]
+            [1, 2, 3, 4, 5, 6, 7, 8, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+            [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]
+        ]
     }, {
         "Id": 109,
         "Name": "Life Siphon",
@@ -10006,7 +10512,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/8a/Life_Siphon.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Life_Siphon",
         "Ranks": [
-            [12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25, 26, 26, 27, 28, 29], [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4], [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4]]
+            [12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25, 26, 26, 27, 28, 29],
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4],
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4]
+        ]
     }, {
         "Id": 126,
         "Name": "Life Transfer",
@@ -10028,7 +10537,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/49/Life_Transfer.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Life_Transfer",
         "Ranks": [
-            [6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 12, 13, 13, 14, 14, 14], [3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10]]
+            [6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 12, 13, 13, 14, 14, 14],
+            [3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10]
+        ]
     }, {
         "Id": 1067,
         "Name": "Lifebane Strike",
@@ -10050,7 +10561,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c5/Lifebane_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Lifebane_Strike",
         "Ranks": [
-            [12, 14, 17, 19, 22, 24, 26, 29, 31, 34, 36, 38, 41, 43, 46, 48, 50, 53, 55, 58, 60, 62], [12, 14, 17, 19, 22, 24, 26, 29, 31, 34, 36, 38, 41, 43, 46, 48, 50, 53, 55, 58, 60, 62]]
+            [12, 14, 17, 19, 22, 24, 26, 29, 31, 34, 36, 38, 41, 43, 46, 48, 50, 53, 55, 58, 60, 62],
+            [12, 14, 17, 19, 22, 24, 26, 29, 31, 34, 36, 38, 41, 43, 46, 48, 50, 53, 55, 58, 60, 62]
+        ]
     }, {
         "Id": 1360,
         "Name": "Mark of Fury",
@@ -10072,7 +10585,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e0/Mark_of_Fury.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mark_of_Fury",
         "Ranks": [
-            [0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3], [1, 2, 3, 4, 5, 6, 7, 8, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]]
+            [0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3],
+            [1, 2, 3, 4, 5, 6, 7, 8, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+        ]
     }, {
         "Id": 127,
         "Name": "Mark of Subversion",
@@ -10094,7 +10609,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/2a/Mark_of_Subversion.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mark_of_Subversion",
         "Ranks": [
-            [10, 15, 21, 26, 32, 37, 43, 48, 54, 59, 65, 70, 76, 81, 87, 92, 97, 103, 108, 114, 119, 125]]
+            [10, 15, 21, 26, 32, 37, 43, 48, 54, 59, 65, 70, 76, 81, 87, 92, 97, 103, 108, 114, 119, 125]
+        ]
     }, {
         "Id": 146,
         "Name": "Offering of Blood",
@@ -10116,7 +10632,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e6/Offering_of_Blood.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Offering_of_Blood",
         "Ranks": [
-            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25]]
+            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25]
+        ]
     }, {
         "Id": 864,
         "Name": "Oppressive Gaze",
@@ -10138,7 +10655,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/2e/Oppressive_Gaze.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Oppressive_Gaze",
         "Ranks": [
-            [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38], [3, 4, 4, 5, 5, 6, 7, 7, 8, 8, 9, 10, 10, 11, 11, 12, 13, 13, 14, 14, 15, 16]]
+            [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38],
+            [3, 4, 4, 5, 5, 6, 7, 7, 8, 8, 9, 10, 10, 11, 11, 12, 13, 13, 14, 14, 15, 16]
+        ]
     }, {
         "Id": 134,
         "Name": "Order of Pain",
@@ -10160,7 +10679,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/7c/Order_of_Pain.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Order_of_Pain",
         "Ranks": [
-            [3, 4, 5, 6, 6, 7, 8, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 18, 19, 19, 20, 21]]
+            [3, 4, 5, 6, 6, 7, 8, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 18, 19, 19, 20, 21]
+        ]
     }, {
         "Id": 148,
         "Name": "Order of the Vampire",
@@ -10182,7 +10702,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/39/Order_of_the_Vampire.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Order_of_the_Vampire",
         "Ranks": [
-            [3, 4, 5, 6, 6, 7, 8, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 18, 19, 19, 20, 21]]
+            [3, 4, 5, 6, 6, 7, 8, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 18, 19, 19, 20, 21]
+        ]
     }, {
         "Id": 862,
         "Name": "Ravenous Gaze",
@@ -10204,7 +10725,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/40/Ravenous_Gaze.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Ravenous_Gaze",
         "Ranks": [
-            [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36], [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36]]
+            [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36],
+            [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36]
+        ]
     }, {
         "Id": 102,
         "Name": "Shadow Strike",
@@ -10226,7 +10749,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/08/Shadow_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Shadow_Strike",
         "Ranks": [
-            [12, 14, 17, 19, 22, 24, 26, 29, 31, 34, 36, 38, 41, 43, 46, 48, 50, 53, 55, 58, 60, 62], [12, 14, 17, 19, 22, 24, 26, 29, 31, 34, 36, 38, 41, 43, 46, 48, 50, 53, 55, 58, 60, 62]]
+            [12, 14, 17, 19, 22, 24, 26, 29, 31, 34, 36, 38, 41, 43, 46, 48, 50, 53, 55, 58, 60, 62],
+            [12, 14, 17, 19, 22, 24, 26, 29, 31, 34, 36, 38, 41, 43, 46, 48, 50, 53, 55, 58, 60, 62]
+        ]
     }, {
         "Id": 145,
         "Name": "Signet of Agony",
@@ -10248,7 +10773,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/46/Signet_of_Agony.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Signet_of_Agony",
         "Ranks": [
-            [10, 14, 18, 22, 26, 30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94]]
+            [10, 14, 18, 22, 26, 30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94]
+        ]
     }, {
         "Id": 1364,
         "Name": "Signet of Suffering",
@@ -10270,7 +10796,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e8/Signet_of_Suffering.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Signet_of_Suffering",
         "Ranks": [
-            [2, 3, 4, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]]
+            [2, 3, 4, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]
+        ]
     }, {
         "Id": 128,
         "Name": "Soul Leech",
@@ -10292,7 +10819,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/0b/Soul_Leech.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Soul_Leech",
         "Ranks": [
-            [16, 20, 25, 29, 33, 37, 42, 46, 50, 54, 59, 63, 67, 71, 76, 80, 84, 89, 93, 97, 101, 106]]
+            [16, 20, 25, 29, 33, 37, 42, 46, 50, 54, 59, 63, 67, 71, 76, 80, 84, 89, 93, 97, 101, 106]
+        ]
     }, {
         "Id": 1066,
         "Name": "Spoil Victor",
@@ -10314,7 +10842,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/76/Spoil_Victor.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Spoil_Victor",
         "Ranks": [
-            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19, 20], [25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130]]
+            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19, 20],
+            [25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130]
+        ]
     }, {
         "Id": 143,
         "Name": "Strip Enchantment",
@@ -10336,7 +10866,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/91/Strip_Enchantment.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Strip_Enchantment",
         "Ranks": [
-            [0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3], [5, 9, 13, 17, 21, 25, 29, 33, 37, 41, 45, 49, 53, 57, 61, 65, 69, 73, 77, 81, 85, 89]]
+            [0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3],
+            [5, 9, 13, 17, 21, 25, 29, 33, 37, 41, 45, 49, 53, 57, 61, 65, 69, 73, 77, 81, 85, 89]
+        ]
     }, {
         "Id": 158,
         "Name": "Touch of Agony",
@@ -10358,7 +10890,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/6a/Touch_of_Agony.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Touch_of_Agony",
         "Ranks": [
-            [20, 23, 25, 28, 30, 33, 35, 38, 40, 43, 45, 48, 50, 53, 55, 58, 61, 63, 66, 68, 71, 73]]
+            [20, 23, 25, 28, 30, 33, 35, 38, 40, 43, 45, 48, 50, 53, 55, 58, 61, 63, 66, 68, 71, 73]
+        ]
     }, {
         "Id": 110,
         "Name": "Unholy Feast",
@@ -10380,7 +10913,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/bd/Unholy_Feast.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Unholy_Feast",
         "Ranks": [
-            [10, 14, 17, 21, 25, 28, 32, 36, 39, 43, 47, 50, 54, 58, 61, 65, 69, 72, 76, 80, 83, 87], [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5]]
+            [10, 14, 17, 21, 25, 28, 32, 36, 39, 43, 47, 50, 54, 58, 61, 65, 69, 72, 76, 80, 83, 87],
+            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5]
+        ]
     }, {
         "Id": 1077,
         "Name": "Vampiric Bite",
@@ -10402,7 +10937,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/b1/Vampiric_Bite.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Vampiric_Bite",
         "Ranks": [
-            [29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68, 71, 74, 77, 80, 83, 86, 89, 92]]
+            [29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68, 71, 74, 77, 80, 83, 86, 89, 92]
+        ]
     }, {
         "Id": 153,
         "Name": "Vampiric Gaze",
@@ -10424,7 +10960,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/2f/Vampiric_Gaze.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Vampiric_Gaze",
         "Ranks": [
-            [18, 21, 24, 26, 29, 32, 35, 38, 40, 43, 46, 49, 52, 54, 57, 60, 63, 66, 68, 71, 74, 77]]
+            [18, 21, 24, 26, 29, 32, 35, 38, 40, 43, 46, 49, 52, 54, 57, 60, 63, 66, 68, 71, 74, 77]
+        ]
     }, {
         "Id": 819,
         "Name": "Vampiric Spirit",
@@ -10446,7 +10983,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/51/Vampiric_Spirit.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Vampiric_Spirit",
         "Ranks": [
-            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68], [5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10, 10, 11, 11, 11, 12, 12]]
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68],
+            [5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10, 10, 11, 11, 11, 12, 12]
+        ]
     }, {
         "Id": 1075,
         "Name": "Vampiric Swarm",
@@ -10468,7 +11007,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c2/Vampiric_Swarm.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Vampiric_Swarm",
         "Ranks": [
-            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78]]
+            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78]
+        ]
     }, {
         "Id": 156,
         "Name": "Vampiric Touch",
@@ -10490,7 +11030,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/dd/Vampiric_Touch.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Vampiric_Touch",
         "Ranks": [
-            [29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68, 71, 74, 77, 80, 83, 86, 89, 92]]
+            [29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68, 71, 74, 77, 80, 83, 86, 89, 92]
+        ]
     }, {
         "Id": 1078,
         "Name": "Wallow's Bite",
@@ -10512,7 +11053,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/03/Wallow%27s_Bite.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Wallow%27s_Bite",
         "Ranks": [
-            [20, 23, 25, 28, 30, 33, 35, 38, 40, 43, 45, 48, 50, 53, 55, 58, 61, 63, 66, 68, 71, 73]]
+            [20, 23, 25, 28, 30, 33, 35, 38, 40, 43, 45, 48, 50, 53, 55, 58, 61, 63, 66, 68, 71, 73]
+        ]
     }, {
         "Id": 92,
         "Name": "Well of Blood",
@@ -10534,7 +11076,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/02/Well_of_Blood.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Well_of_Blood",
         "Ranks": [
-            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25], [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8]]
+            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25],
+            [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8]
+        ]
     }, {
         "Id": 91,
         "Name": "Well of Power",
@@ -10556,7 +11100,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/74/Well_of_Power.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Well_of_Power",
         "Ranks": [
-            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25], [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8]]
+            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25],
+            [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8]
+        ]
     }, {
         "Id": 2237,
         "Name": "Atrophy",
@@ -10578,7 +11124,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e9/Atrophy.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Atrophy",
         "Ranks": [
-            [3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 8, 8, 8, 8, 9]]
+            [3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 8, 8, 8, 8, 9]
+        ]
     }, {
         "Id": 101,
         "Name": "Barbs",
@@ -10600,7 +11147,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c1/Barbs.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Barbs",
         "Ranks": [
-            [1, 2, 3, 4, 5, 6, 7, 8, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]]
+            [1, 2, 3, 4, 5, 6, 7, 8, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+        ]
     }, {
         "Id": 1998,
         "Name": "Cacophony",
@@ -10622,7 +11170,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/af/Cacophony.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Cacophony",
         "Ranks": [
-            [35, 40, 44, 49, 54, 58, 63, 68, 72, 77, 82, 86, 91, 96, 100, 105, 110, 114, 119, 124, 128, 133]]
+            [35, 40, 44, 49, 54, 58, 63, 68, 72, 77, 82, 86, 91, 96, 100, 105, 110, 114, 119, 124, 128, 133]
+        ]
     }, {
         "Id": 144,
         "Name": "Chilblains",
@@ -10644,7 +11193,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/0a/Chilblains.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Chilblains",
         "Ranks": [
-            [10, 12, 15, 17, 19, 21, 24, 26, 28, 30, 33, 35, 37, 39, 42, 44, 46, 49, 51, 53, 55, 58], [1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]]
+            [10, 12, 15, 17, 19, 21, 24, 26, 28, 30, 33, 35, 37, 39, 42, 44, 46, 49, 51, 53, 55, 58],
+            [1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+        ]
     }, {
         "Id": 1362,
         "Name": "Corrupt Enchantment",
@@ -10666,7 +11217,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/bd/Corrupt_Enchantment.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Corrupt_Enchantment",
         "Ranks": [
-            [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 11]]
+            [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 11]
+        ]
     }, {
         "Id": 2188,
         "Name": "Defile Defenses",
@@ -10688,7 +11240,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e7/Defile_Defenses.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Defile_Defenses",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [30, 36, 42, 48, 54, 60, 66, 72, 78, 84, 90, 96, 102, 108, 114, 120, 126, 132, 138, 144, 150, 156]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [30, 36, 42, 48, 54, 60, 66, 72, 78, 84, 90, 96, 102, 108, 114, 120, 126, 132, 138, 144, 150, 156]
+        ]
     }, {
         "Id": 1070,
         "Name": "Defile Enchantments",
@@ -10710,7 +11264,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c3/Defile_Enchantments.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Defile_Enchantments",
         "Ranks": [
-            [6, 10, 13, 17, 20, 24, 28, 31, 35, 38, 42, 46, 49, 53, 56, 60, 64, 67, 71, 74, 78, 82], [4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [6, 10, 13, 17, 20, 24, 28, 31, 35, 38, 42, 46, 49, 53, 56, 60, 64, 67, 71, 74, 78, 82],
+            [4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 129,
         "Name": "Defile Flesh",
@@ -10732,7 +11288,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c7/Defile_Flesh.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Defile_Flesh",
         "Ranks": [
-            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47]]
+            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47]
+        ]
     }, {
         "Id": 820,
         "Name": "Depravity",
@@ -10754,7 +11311,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/ae/Depravity.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Depravity",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]
+        ]
     }, {
         "Id": 112,
         "Name": "Desecrate Enchantments",
@@ -10776,7 +11335,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/0a/Desecrate_Enchantments.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Desecrate_Enchantments",
         "Ranks": [
-            [6, 10, 13, 17, 20, 24, 28, 31, 35, 38, 42, 46, 49, 53, 56, 60, 64, 67, 71, 74, 78, 82], [4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [6, 10, 13, 17, 20, 24, 28, 31, 35, 38, 42, 46, 49, 53, 56, 60, 64, 67, 71, 74, 78, 82],
+            [4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 117,
         "Name": "Enfeeble",
@@ -10798,7 +11359,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/28/Enfeeble.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Enfeeble",
         "Ranks": [
-            [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38]]
+            [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38]
+        ]
     }, {
         "Id": 118,
         "Name": "Enfeebling Blood",
@@ -10820,7 +11382,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/58/Enfeebling_Blood.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Enfeebling_Blood",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1079,
         "Name": "Enfeebling Touch",
@@ -10842,7 +11405,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/90/Enfeebling_Touch.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Enfeebling_Touch",
         "Ranks": [
-            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 936,
         "Name": "Envenom Enchantments",
@@ -10864,7 +11429,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/05/Envenom_Enchantments.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Envenom_Enchantments",
         "Ranks": [
-            [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 13]]
+            [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 13]
+        ]
     }, {
         "Id": 135,
         "Name": "Faintheartedness",
@@ -10886,7 +11452,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/61/Faintheartedness.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Faintheartedness",
         "Ranks": [
-            [3, 4, 5, 6, 6, 7, 8, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 18, 19, 19, 20, 21], [0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4]]
+            [3, 4, 5, 6, 6, 7, 8, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 18, 19, 19, 20, 21],
+            [0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4]
+        ]
     }, {
         "Id": 151,
         "Name": "Feast of Corruption",
@@ -10908,7 +11476,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/47/Feast_of_Corruption.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Feast_of_Corruption",
         "Ranks": [
-            [16, 20, 25, 29, 33, 37, 42, 46, 50, 54, 59, 63, 67, 71, 76, 80, 84, 89, 93, 97, 101, 106], [8, 10, 12, 14, 17, 19, 21, 23, 25, 27, 29, 31, 34, 36, 38, 40, 42, 44, 46, 49, 51, 53]]
+            [16, 20, 25, 29, 33, 37, 42, 46, 50, 54, 59, 63, 67, 71, 76, 80, 84, 89, 93, 97, 101, 106],
+            [8, 10, 12, 14, 17, 19, 21, 23, 25, 27, 29, 31, 34, 36, 38, 40, 42, 44, 46, 49, 51, 53]
+        ]
     }, {
         "Id": 123,
         "Name": "Insidious Parasite",
@@ -10930,7 +11500,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/48/Insidious_Parasite.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Insidious_Parasite",
         "Ranks": [
-            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19], [15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57]]
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19],
+            [15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57]
+        ]
     }, {
         "Id": 142,
         "Name": "Lingering Curse",
@@ -10952,7 +11524,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a6/Lingering_Curse.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Lingering_Curse",
         "Ranks": [
-            [6, 8, 9, 11, 12, 14, 16, 17, 19, 20, 22, 24, 25, 27, 28, 30, 32, 33, 35, 36, 38, 40], [0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4]]
+            [6, 8, 9, 11, 12, 14, 16, 17, 19, 20, 22, 24, 25, 27, 28, 30, 32, 33, 35, 36, 38, 40],
+            [0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4]
+        ]
     }, {
         "Id": 140,
         "Name": "Malaise",
@@ -10974,7 +11548,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/37/Malaise.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Malaise",
         "Ranks": [
-            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47], [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]]
+            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47],
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]
+        ]
     }, {
         "Id": 150,
         "Name": "Mark of Pain",
@@ -10996,7 +11572,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/b0/Mark_of_Pain.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mark_of_Pain",
         "Ranks": [
-            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]]
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]
+        ]
     }, {
         "Id": 1260,
         "Name": "Meekness",
@@ -11018,7 +11595,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/05/Meekness.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Meekness",
         "Ranks": [
-            [5, 7, 8, 10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40]]
+            [5, 7, 8, 10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40]
+        ]
     }, {
         "Id": 863,
         "Name": "Order of Apostasy",
@@ -11040,7 +11618,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/91/Order_of_Apostasy.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Order_of_Apostasy",
         "Ranks": [
-            [25, 24, 24, 23, 22, 22, 21, 20, 20, 19, 18, 18, 17, 16, 16, 15, 14, 14, 13, 12, 12, 11]]
+            [25, 24, 24, 23, 22, 22, 21, 20, 20, 19, 18, 18, 17, 16, 16, 15, 14, 14, 13, 12, 12, 11]
+        ]
     }, {
         "Id": 1359,
         "Name": "Pain of Disenchantment",
@@ -11062,7 +11641,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/11/Pain_of_Disenchantment.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Pain_of_Disenchantment",
         "Ranks": [
-            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4], [10, 16, 22, 28, 34, 40, 46, 52, 58, 64, 70, 76, 82, 88, 94, 100, 106, 112, 118, 124, 130, 136]]
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4],
+            [10, 16, 22, 28, 34, 40, 46, 52, 58, 64, 70, 76, 82, 88, 94, 100, 106, 112, 118, 124, 130, 136]
+        ]
     }, {
         "Id": 99,
         "Name": "Parasitic Bond",
@@ -11084,7 +11665,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/1d/Parasitic_Bond.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Parasitic_Bond",
         "Ranks": [
-            [30, 36, 42, 48, 54, 60, 66, 72, 78, 84, 90, 96, 102, 108, 114, 120, 126, 132, 138, 144, 150, 156]]
+            [30, 36, 42, 48, 54, 60, 66, 72, 78, 84, 90, 96, 102, 108, 114, 120, 126, 132, 138, 144, 150, 156]
+        ]
     }, {
         "Id": 149,
         "Name": "Plague Sending",
@@ -11106,7 +11688,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/16/Plague_Sending.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Plague_Sending",
         "Ranks": [
-            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4]]
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4]
+        ]
     }, {
         "Id": 132,
         "Name": "Plague Signet",
@@ -11128,7 +11711,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/b1/Plague_Signet.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Plague_Signet",
         "Ranks": [
-            [100, 107, 113, 120, 127, 133, 140, 147, 153, 160, 167, 173, 180, 187, 193, 200, 207, 213, 220, 227, 233, 240]]
+            [100, 107, 113, 120, 127, 133, 140, 147, 153, 160, 167, 173, 180, 187, 193, 200, 207, 213, 220, 227, 233, 240]
+        ]
     }, {
         "Id": 154,
         "Name": "Plague Touch",
@@ -11150,7 +11734,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/7e/Plague_Touch.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Plague_Touch",
         "Ranks": [
-            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4]]
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4]
+        ]
     }, {
         "Id": 840,
         "Name": "Poisoned Heart",
@@ -11172,7 +11757,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/18/Poisoned_Heart.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Poisoned_Heart",
         "Ranks": [
-            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19]]
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19]
+        ]
     }, {
         "Id": 103,
         "Name": "Price of Failure",
@@ -11194,7 +11780,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/17/Price_of_Failure.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Price_of_Failure",
         "Ranks": [
-            [1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34, 37, 40, 43, 46, 49, 52, 55, 58, 61, 64]]
+            [1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34, 37, 40, 43, 46, 49, 52, 55, 58, 61, 64]
+        ]
     }, {
         "Id": 834,
         "Name": "Reckless Haste",
@@ -11216,7 +11803,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/2e/Reckless_Haste.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Reckless_Haste",
         "Ranks": [
-            [6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 12, 13, 13, 14, 14, 14]]
+            [6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 12, 13, 13, 14, 14, 14]
+        ]
     }, {
         "Id": 141,
         "Name": "Rend Enchantments",
@@ -11238,7 +11826,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/d9/Rend_Enchantments.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Rend_Enchantments",
         "Ranks": [
-            [5, 5, 6, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 8, 9, 9, 9, 10, 10, 10, 10, 11], [55, 53, 51, 49, 47, 45, 43, 41, 39, 37, 35, 33, 31, 29, 27, 25, 23, 21, 19, 17, 15, 13]]
+            [5, 5, 6, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 8, 9, 9, 9, 10, 10, 10, 10, 11],
+            [55, 53, 51, 49, 47, 45, 43, 41, 39, 37, 35, 33, 31, 29, 27, 25, 23, 21, 19, 17, 15, 13]
+        ]
     }, {
         "Id": 137,
         "Name": "Rigor Mortis",
@@ -11260,7 +11850,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/90/Rigor_Mortis.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Rigor_Mortis",
         "Ranks": [
-            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25]]
+            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25]
+        ]
     }, {
         "Id": 955,
         "Name": "Rip Enchantment",
@@ -11282,7 +11873,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/50/Rip_Enchantment.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Rip_Enchantment",
         "Ranks": [
-            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32, 33]]
+            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32, 33]
+        ]
     }, {
         "Id": 136,
         "Name": "Shadow of Fear",
@@ -11304,7 +11896,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a8/Shadow_of_Fear.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Shadow_of_Fear",
         "Ranks": [
-            [5, 7, 8, 10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40]]
+            [5, 7, 8, 10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40]
+        ]
     }, {
         "Id": 1071,
         "Name": "Shivers of Dread",
@@ -11326,7 +11919,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/6f/Shivers_of_Dread.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Shivers_of_Dread",
         "Ranks": [
-            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52], [10, 10, 9, 9, 9, 8, 8, 8, 7, 7, 7, 6, 6, 6, 5, 5, 5, 4, 4, 4, 3, 3]]
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52],
+            [10, 10, 9, 9, 9, 8, 8, 8, 7, 7, 7, 6, 6, 6, 5, 5, 5, 4, 4, 4, 3, 3]
+        ]
     }, {
         "Id": 100,
         "Name": "Soul Barbs",
@@ -11348,7 +11943,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c5/Soul_Barbs.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Soul_Barbs",
         "Ranks": [
-            [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36]]
+            [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36]
+        ]
     }, {
         "Id": 901,
         "Name": "Soul Bind",
@@ -11370,7 +11966,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/6c/Soul_Bind.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Soul_Bind",
         "Ranks": [
-            [20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100, 104]]
+            [20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100, 104]
+        ]
     }, {
         "Id": 124,
         "Name": "Spinal Shivers",
@@ -11392,7 +11989,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/6f/Spinal_Shivers.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Spinal_Shivers",
         "Ranks": [
-            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52], [10, 10, 9, 9, 9, 8, 8, 8, 7, 7, 7, 6, 6, 6, 5, 5, 5, 4, 4, 4, 3, 3]]
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52],
+            [10, 10, 9, 9, 9, 8, 8, 8, 7, 7, 7, 6, 6, 6, 5, 5, 5, 4, 4, 4, 3, 3]
+        ]
     }, {
         "Id": 121,
         "Name": "Spiteful Spirit",
@@ -11414,7 +12013,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/00/Spiteful_Spirit.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Spiteful_Spirit",
         "Ranks": [
-            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25], [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47]]
+            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25],
+            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47]
+        ]
     }, {
         "Id": 108,
         "Name": "Suffering",
@@ -11436,7 +12037,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e4/Suffering.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Suffering",
         "Ranks": [
-            [6, 8, 9, 11, 12, 14, 16, 17, 19, 20, 22, 24, 25, 27, 28, 30, 32, 33, 35, 36, 38, 40], [0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4]]
+            [6, 8, 9, 11, 12, 14, 16, 17, 19, 20, 22, 24, 25, 27, 28, 30, 32, 33, 35, 36, 38, 40],
+            [0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4]
+        ]
     }, {
         "Id": 1358,
         "Name": "Ulcerous Lungs",
@@ -11458,7 +12061,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/63/Ulcerous_Lungs.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Ulcerous_Lungs",
         "Ranks": [
-            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19, 20]]
+            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19, 20]
+        ]
     }, {
         "Id": 883,
         "Name": "Vocal Minority",
@@ -11480,7 +12085,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f3/Vocal_Minority.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Vocal_Minority",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 159,
         "Name": "Weaken Armor",
@@ -11502,7 +12108,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/8d/Weaken_Armor.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Weaken_Armor",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 822,
         "Name": "Weaken Knees",
@@ -11524,7 +12131,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/6b/Weaken_Knees.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Weaken_Knees",
         "Ranks": [
-            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22], [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5], [5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10, 10, 11, 11, 11, 12, 12]]
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22],
+            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5],
+            [5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10, 10, 11, 11, 11, 12, 12]
+        ]
     }, {
         "Id": 1366,
         "Name": "Well of Darkness",
@@ -11546,7 +12156,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/58/Well_of_Darkness.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Well_of_Darkness",
         "Ranks": [
-            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]]
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]
+        ]
     }, {
         "Id": 2236,
         "Name": "Well of Ruin",
@@ -11568,7 +12179,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/19/Well_of_Ruin.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Well_of_Ruin",
         "Ranks": [
-            [5, 7, 8, 10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 7, 8, 10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1660,
         "Name": "Well of Silence",
@@ -11590,7 +12203,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a4/Well_of_Silence.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Well_of_Silence",
         "Ranks": [
-            [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38], [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5]]
+            [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38],
+            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5]
+        ]
     }, {
         "Id": 818,
         "Name": "Well of Weariness",
@@ -11612,7 +12227,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/97/Well_of_Weariness.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Well_of_Weariness",
         "Ranks": [
-            [10, 13, 16, 19, 22, 25, 28, 31, 34, 37, 40, 43, 46, 49, 52, 55, 58, 61, 64, 67, 70, 73]]
+            [10, 13, 16, 19, 22, 25, 28, 31, 34, 37, 40, 43, 46, 49, 52, 55, 58, 61, 64, 67, 70, 73]
+        ]
     }, {
         "Id": 125,
         "Name": "Wither",
@@ -11634,7 +12250,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a0/Wither.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Wither",
         "Ranks": [
-            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47], [2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5], [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]]
+            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47],
+            [2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5],
+            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]
+        ]
     }, {
         "Id": 84,
         "Name": "Animate Bone Fiend",
@@ -11656,7 +12275,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/0b/Animate_Bone_Fiend.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Animate_Bone_Fiend",
         "Ranks": [
-            [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]]
+            [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+        ]
     }, {
         "Id": 83,
         "Name": "Animate Bone Horror",
@@ -11678,7 +12298,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/22/Animate_Bone_Horror.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Animate_Bone_Horror",
         "Ranks": [
-            [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]]
+            [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+        ]
     }, {
         "Id": 85,
         "Name": "Animate Bone Minions",
@@ -11700,7 +12321,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/ab/Animate_Bone_Minions.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Animate_Bone_Minions",
         "Ranks": [
-            [0, 1, 2, 2, 3, 4, 5, 6, 6, 7, 8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17]]
+            [0, 1, 2, 2, 3, 4, 5, 6, 6, 7, 8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17]
+        ]
     }, {
         "Id": 832,
         "Name": "Animate Flesh Golem",
@@ -11722,7 +12344,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/71/Animate_Flesh_Golem.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Animate_Flesh_Golem",
         "Ranks": [
-            [3, 4, 6, 7, 9, 10, 12, 13, 15, 16, 18, 19, 21, 22, 24, 25, 26, 28, 29, 31, 32, 34]]
+            [3, 4, 6, 7, 9, 10, 12, 13, 15, 16, 18, 19, 21, 22, 24, 25, 26, 28, 29, 31, 32, 34]
+        ]
     }, {
         "Id": 1351,
         "Name": "Animate Shambling Horror",
@@ -11744,7 +12367,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/ac/Animate_Shambling_Horror.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Animate_Shambling_Horror",
         "Ranks": [
-            [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]]
+            [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+        ]
     }, {
         "Id": 805,
         "Name": "Animate Vampiric Horror",
@@ -11766,7 +12391,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/01/Animate_Vampiric_Horror.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Animate_Vampiric_Horror",
         "Ranks": [
-            [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]]
+            [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+        ]
     }, {
         "Id": 114,
         "Name": "Aura of the Lich",
@@ -11788,7 +12414,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/5e/Aura_of_the_Lich.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Aura_of_the_Lich",
         "Ranks": [
-            [5, 8, 10, 13, 16, 18, 21, 24, 26, 29, 32, 34, 37, 40, 42, 45, 48, 50, 53, 56, 58, 61], [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]]
+            [5, 8, 10, 13, 16, 18, 21, 24, 26, 29, 32, 34, 37, 40, 42, 45, 48, 50, 53, 56, 58, 61],
+            [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+        ]
     }, {
         "Id": 1068,
         "Name": "Bitter Chill",
@@ -11810,7 +12438,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/2c/Bitter_Chill.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Bitter_Chill",
         "Ranks": [
-            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78]]
+            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78]
+        ]
     }, {
         "Id": 120,
         "Name": "Blood of the Master",
@@ -11832,7 +12461,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/d5/Blood_of_the_Master.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Blood_of_the_Master",
         "Ranks": [
-            [30, 36, 41, 47, 53, 59, 64, 70, 76, 82, 87, 93, 99, 105, 110, 116, 122, 127, 133, 139, 145, 150]]
+            [30, 36, 41, 47, 53, 59, 64, 70, 76, 82, 87, 93, 99, 105, 110, 116, 122, 127, 133, 139, 145, 150]
+        ]
     }, {
         "Id": 98,
         "Name": "Consume Corpse",
@@ -11854,7 +12484,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/ca/Consume_Corpse.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Consume_Corpse",
         "Ranks": [
-            [25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1356,
         "Name": "Contagion",
@@ -11876,7 +12508,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/14/Contagion.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Contagion",
         "Ranks": [
-            [10, 10, 9, 9, 9, 8, 8, 8, 7, 7, 7, 6, 6, 6, 5, 5, 5, 4, 4, 4, 3, 3]]
+            [10, 10, 9, 9, 9, 8, 8, 8, 7, 7, 7, 6, 6, 6, 5, 5, 5, 4, 4, 4, 3, 3]
+        ]
     }, {
         "Id": 116,
         "Name": "Dark Aura",
@@ -11898,7 +12531,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/ee/Dark_Aura.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Dark_Aura",
         "Ranks": [
-            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 104,
         "Name": "Death Nova",
@@ -11920,7 +12555,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/be/Death_Nova.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Death_Nova",
         "Ranks": [
-            [26, 31, 36, 41, 46, 51, 56, 61, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130]]
+            [26, 31, 36, 41, 46, 51, 56, 61, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130]
+        ]
     }, {
         "Id": 89,
         "Name": "Deathly Chill",
@@ -11942,7 +12578,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/4a/Deathly_Chill.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Deathly_Chill",
         "Ranks": [
-            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68], [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]]
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68],
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]
+        ]
     }, {
         "Id": 105,
         "Name": "Deathly Swarm",
@@ -11964,7 +12602,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/93/Deathly_Swarm.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Deathly_Swarm",
         "Ranks": [
-            [30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 98, 102, 106, 110, 114]]
+            [30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 98, 102, 106, 110, 114]
+        ]
     }, {
         "Id": 817,
         "Name": "Discord",
@@ -11986,7 +12625,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/64/Discord.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Discord",
         "Ranks": [
-            [30, 35, 41, 46, 51, 57, 62, 67, 73, 78, 83, 89, 94, 99, 105, 110, 115, 121, 126, 131, 137, 142]]
+            [30, 35, 41, 46, 51, 57, 62, 67, 73, 78, 83, 89, 94, 99, 105, 110, 115, 121, 126, 131, 137, 142]
+        ]
     }, {
         "Id": 1354,
         "Name": "Feast for the Dead",
@@ -12008,7 +12648,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/fa/Feast_for_the_Dead.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Feast_for_the_Dead",
         "Ranks": [
-            [10, 16, 22, 28, 34, 40, 46, 52, 58, 64, 70, 76, 82, 88, 94, 100, 106, 112, 118, 124, 130, 136]]
+            [10, 16, 22, 28, 34, 40, 46, 52, 58, 64, 70, 76, 82, 88, 94, 100, 106, 112, 118, 124, 130, 136]
+        ]
     }, {
         "Id": 841,
         "Name": "Fetid Ground",
@@ -12030,7 +12671,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/52/Fetid_Ground.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Fetid_Ground",
         "Ranks": [
-            [15, 18, 22, 25, 28, 32, 35, 38, 42, 45, 48, 52, 55, 58, 62, 65, 68, 72, 75, 78, 82, 85], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [15, 18, 22, 25, 28, 32, 35, 38, 42, 45, 48, 52, 55, 58, 62, 65, 68, 72, 75, 78, 82, 85],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 139,
         "Name": "Infuse Condition",
@@ -12052,7 +12695,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/4e/Infuse_Condition.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Infuse_Condition",
         "Ranks": [
-            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78]]
+            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78]
+        ]
     }, {
         "Id": 1355,
         "Name": "Jagged Bones",
@@ -12074,7 +12718,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/85/Jagged_Bones.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Jagged_Bones",
         "Ranks": [
-            [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]]
+            [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+        ]
     }, {
         "Id": 122,
         "Name": "Malign Intervention",
@@ -12096,7 +12741,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/66/Malign_Intervention.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Malign_Intervention",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+        ]
     }, {
         "Id": 97,
         "Name": "Necrotic Traversal",
@@ -12118,7 +12765,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/63/Necrotic_Traversal.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Necrotic_Traversal",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1352,
         "Name": "Order of Undeath",
@@ -12140,7 +12788,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/6e/Order_of_Undeath.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Order_of_Undeath",
         "Ranks": [
-            [3, 4, 5, 6, 6, 7, 8, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 18, 19, 19, 20, 21]]
+            [3, 4, 5, 6, 6, 7, 8, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 18, 19, 19, 20, 21]
+        ]
     }, {
         "Id": 2058,
         "Name": "Putrid Bile",
@@ -12162,7 +12811,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/38/Putrid_Bile.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Putrid_Bile",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4], [25, 29, 33, 37, 41, 45, 49, 53, 57, 61, 65, 69, 73, 77, 81, 85, 89, 93, 97, 101, 105, 109]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4],
+            [25, 29, 33, 37, 41, 45, 49, 53, 57, 61, 65, 69, 73, 77, 81, 85, 89, 93, 97, 101, 105, 109]
+        ]
     }, {
         "Id": 95,
         "Name": "Putrid Explosion",
@@ -12184,7 +12836,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/6d/Putrid_Explosion.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Putrid_Explosion",
         "Ranks": [
-            [24, 30, 37, 43, 50, 56, 62, 69, 75, 82, 88, 94, 101, 107, 114, 120, 126, 133, 139, 146, 152, 158]]
+            [24, 30, 37, 43, 50, 56, 62, 69, 75, 82, 88, 94, 101, 107, 114, 120, 126, 133, 139, 146, 152, 158]
+        ]
     }, {
         "Id": 1353,
         "Name": "Putrid Flesh",
@@ -12206,7 +12859,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/9f/Putrid_Flesh.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Putrid_Flesh",
         "Ranks": [
-            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19]]
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19]
+        ]
     }, {
         "Id": 935,
         "Name": "Rising Bile",
@@ -12227,8 +12881,7 @@ var skillTable = [
         "Campaign": "Factions",
         "Image": "https://wiki.guildwars.com/images/5/5a/Rising_Bile.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Rising_Bile",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 106,
         "Name": "Rotting Flesh",
@@ -12250,7 +12903,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/dd/Rotting_Flesh.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Rotting_Flesh",
         "Ranks": [
-            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]]
+            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
+        ]
     }, {
         "Id": 96,
         "Name": "Soul Feast",
@@ -12272,7 +12926,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/29/Soul_Feast.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Soul_Feast",
         "Ranks": [
-            [50, 65, 81, 96, 111, 127, 142, 157, 173, 188, 203, 219, 234, 249, 265, 280, 295, 311, 326, 341, 357, 372]]
+            [50, 65, 81, 96, 111, 127, 142, 157, 173, 188, 203, 219, 234, 249, 265, 280, 295, 311, 326, 341, 357, 372]
+        ]
     }, {
         "Id": 113,
         "Name": "Tainted Flesh",
@@ -12294,7 +12949,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/26/Tainted_Flesh.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Tainted_Flesh",
         "Ranks": [
-            [20, 22, 23, 25, 26, 28, 30, 31, 33, 34, 36, 38, 39, 41, 42, 44, 46, 47, 49, 50, 52, 54], [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19, 20]]
+            [20, 22, 23, 25, 26, 28, 30, 31, 33, 34, 36, 38, 39, 41, 42, 44, 46, 47, 49, 50, 52, 54],
+            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19, 20]
+        ]
     }, {
         "Id": 152,
         "Name": "Taste of Death",
@@ -12316,7 +12973,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/ca/Taste_of_Death.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Taste_of_Death",
         "Ranks": [
-            [100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300, 320, 340, 360, 380, 400, 420, 440, 460, 480, 500, 520]]
+            [100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300, 320, 340, 360, 380, 400, 420, 440, 460, 480, 500, 520]
+        ]
     }, {
         "Id": 1069,
         "Name": "Taste of Pain",
@@ -12338,7 +12996,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/96/Taste_of_Pain.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Taste_of_Pain",
         "Ranks": [
-            [30, 38, 46, 54, 62, 70, 78, 86, 94, 102, 110, 118, 126, 134, 142, 150, 158, 166, 174, 182, 190, 198]]
+            [30, 38, 46, 54, 62, 70, 78, 86, 94, 102, 110, 118, 126, 134, 142, 150, 158, 166, 174, 182, 190, 198]
+        ]
     }, {
         "Id": 1659,
         "Name": "Toxic Chill",
@@ -12360,7 +13019,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/d4/Toxic_Chill.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Toxic_Chill",
         "Ranks": [
-            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99], [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]]
+            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99],
+            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
+        ]
     }, {
         "Id": 88,
         "Name": "Verata's Aura",
@@ -12382,7 +13043,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f4/Verata%27s_Aura.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Verata%27s_Aura",
         "Ranks": [
-            [120, 132, 144, 156, 168, 180, 192, 204, 216, 228, 240, 252, 264, 276, 288, 300, 312, 324, 336, 348, 360, 372]]
+            [120, 132, 144, 156, 168, 180, 192, 204, 216, 228, 240, 252, 264, 276, 288, 300, 312, 324, 336, 348, 360, 372]
+        ]
     }, {
         "Id": 87,
         "Name": "Verata's Gaze",
@@ -12403,8 +13065,7 @@ var skillTable = [
         "Campaign": "Prophecies",
         "Image": "https://wiki.guildwars.com/images/b/b6/Verata%27s_Gaze.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Verata%27s_Gaze",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 90,
         "Name": "Verata's Sacrifice",
@@ -12426,7 +13087,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/41/Verata%27s_Sacrifice.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Verata%27s_Sacrifice",
         "Ranks": [
-            [5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10, 10, 11, 11, 11, 12, 12]]
+            [5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10, 10, 11, 11, 11, 12, 12]
+        ]
     }, {
         "Id": 828,
         "Name": "Vile Miasma",
@@ -12448,7 +13110,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/6a/Vile_Miasma.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Vile_Miasma",
         "Ranks": [
-            [10, 14, 17, 21, 25, 28, 32, 36, 39, 43, 47, 50, 54, 58, 61, 65, 69, 72, 76, 80, 83, 87], [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]]
+            [10, 14, 17, 21, 25, 28, 32, 36, 39, 43, 47, 50, 54, 58, 61, 65, 69, 72, 76, 80, 83, 87],
+            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]
+        ]
     }, {
         "Id": 155,
         "Name": "Vile Touch",
@@ -12470,7 +13134,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/82/Vile_Touch.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Vile_Touch",
         "Ranks": [
-            [20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68, 71, 74, 77, 80, 83]]
+            [20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68, 71, 74, 77, 80, 83]
+        ]
     }, {
         "Id": 107,
         "Name": "Virulence",
@@ -12492,7 +13157,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/4a/Virulence.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Virulence",
         "Ranks": [
-            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19, 20]]
+            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19, 20]
+        ]
     }, {
         "Id": 93,
         "Name": "Well of Suffering",
@@ -12514,7 +13180,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/31/Well_of_Suffering.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Well_of_Suffering",
         "Ranks": [
-            [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38], [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8]]
+            [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38],
+            [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8]
+        ]
     }, {
         "Id": 94,
         "Name": "Well of the Profane",
@@ -12536,7 +13204,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/74/Well_of_the_Profane.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Well_of_the_Profane",
         "Ranks": [
-            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25]]
+            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25]
+        ]
     }, {
         "Id": 1997,
         "Name": "Withering Aura",
@@ -12558,7 +13227,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/84/Withering_Aura.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Withering_Aura",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 2189,
         "Name": "Angorodon's Gaze",
@@ -12580,7 +13251,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/ee/Angorodon%27s_Gaze.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Angorodon%27s_Gaze",
         "Ranks": [
-            [10, 13, 15, 18, 21, 23, 26, 29, 31, 34, 37, 39, 42, 45, 47, 50, 53, 55, 58, 61, 63, 66], [3, 4, 4, 5, 5, 6, 7, 7, 8, 8, 9, 10, 10, 11, 11, 12, 13, 13, 14, 14, 15, 16]]
+            [10, 13, 15, 18, 21, 23, 26, 29, 31, 34, 37, 39, 42, 45, 47, 50, 53, 55, 58, 61, 63, 66],
+            [3, 4, 4, 5, 5, 6, 7, 7, 8, 8, 9, 10, 10, 11, 11, 12, 13, 13, 14, 14, 15, 16]
+        ]
     }, {
         "Id": 2057,
         "Name": "Foul Feast",
@@ -12602,7 +13275,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/02/Foul_Feast.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Foul_Feast",
         "Ranks": [
-            [0, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63], [0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3]]
+            [0, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63],
+            [0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3]
+        ]
     }, {
         "Id": 2138,
         "Name": "Hexer's Vigor",
@@ -12624,7 +13299,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/43/Hexer%27s_Vigor.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Hexer%27s_Vigor",
         "Ranks": [
-            [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 11]]
+            [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 11]
+        ]
     }, {
         "Id": 821,
         "Name": "Icy Veins",
@@ -12646,7 +13322,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/89/Icy_Veins.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Icy_Veins",
         "Ranks": [
-            [10, 15, 21, 26, 31, 37, 42, 47, 53, 58, 63, 69, 74, 79, 85, 90, 95, 101, 106, 111, 117, 122], [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45], [20, 26, 32, 38, 44, 50, 56, 62, 68, 74, 80, 86, 92, 98, 104, 110, 116, 122, 128, 134, 140, 146]]
+            [10, 15, 21, 26, 31, 37, 42, 47, 53, 58, 63, 69, 74, 79, 85, 90, 95, 101, 106, 111, 117, 122],
+            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45],
+            [20, 26, 32, 38, 44, 50, 56, 62, 68, 74, 80, 86, 92, 98, 104, 110, 116, 122, 128, 134, 140, 146]
+        ]
     }, {
         "Id": 2139,
         "Name": "Masochism",
@@ -12668,7 +13347,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/13/Masochism.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Masochism",
         "Ranks": [
-            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52], [5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 3, 2, 2, 2]]
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52],
+            [5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 3, 2, 2, 2]
+        ]
     }, {
         "Id": 808,
         "Name": "Reaper's Mark",
@@ -12690,7 +13371,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c8/Reaper%27s_Mark.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Reaper%27s_Mark",
         "Ranks": [
-            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7], [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19]]
+            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7],
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19]
+        ]
     }, {
         "Id": 1365,
         "Name": "Signet of Lost Souls",
@@ -12712,7 +13395,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/ff/Signet_of_Lost_Souls.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Signet_of_Lost_Souls",
         "Ranks": [
-            [10, 16, 22, 28, 34, 40, 46, 52, 58, 64, 70, 76, 82, 88, 94, 100, 106, 112, 118, 124, 130, 136], [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]]
+            [10, 16, 22, 28, 34, 40, 46, 52, 58, 64, 70, 76, 82, 88, 94, 100, 106, 112, 118, 124, 130, 136],
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]
+        ]
     }, {
         "Id": 1363,
         "Name": "Signet of Sorrow",
@@ -12734,7 +13419,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/32/Signet_of_Sorrow.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Signet_of_Sorrow",
         "Ranks": [
-            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]]
+            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]
+        ]
     }, {
         "Id": 764,
         "Name": "Wail of Doom",
@@ -12756,7 +13442,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/d8/Wail_of_Doom.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Wail_of_Doom",
         "Ranks": [
-            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5]]
+            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5]
+        ]
     }, {
         "Id": 766,
         "Name": "Gaze of Contempt",
@@ -12777,8 +13464,7 @@ var skillTable = [
         "Campaign": "Factions",
         "Image": "https://wiki.guildwars.com/images/4/45/Gaze_of_Contempt.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Gaze_of_Contempt",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 86,
         "Name": "Grenth's Balance",
@@ -12799,8 +13485,7 @@ var skillTable = [
         "Campaign": "Core",
         "Image": "https://wiki.guildwars.com/images/5/5e/Grenth%27s_Balance.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Grenth%27s_Balance",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 2055,
         "Name": "Aneurysm",
@@ -12822,7 +13507,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/55/Aneurysm.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Aneurysm",
         "Ranks": [
-            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4], [1, 3, 5, 7, 9, 11, 13, 15, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42]]
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4],
+            [1, 3, 5, 7, 9, 11, 13, 15, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42]
+        ]
     }, {
         "Id": 1062,
         "Name": "Arcane Larceny",
@@ -12844,7 +13531,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/fb/Arcane_Larceny.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Arcane_Larceny",
         "Ranks": [
-            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47]]
+            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47]
+        ]
     }, {
         "Id": 81,
         "Name": "Arcane Thievery",
@@ -12866,7 +13554,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a6/Arcane_Thievery.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Arcane_Thievery",
         "Ranks": [
-            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47]]
+            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47]
+        ]
     }, {
         "Id": 28,
         "Name": "Backfire",
@@ -12888,7 +13577,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a1/Backfire.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Backfire",
         "Ranks": [
-            [35, 42, 49, 56, 63, 70, 77, 84, 91, 98, 105, 112, 119, 126, 133, 140, 147, 154, 161, 168, 175, 182]]
+            [35, 42, 49, 56, 63, 70, 77, 84, 91, 98, 105, 112, 119, 126, 133, 140, 147, 154, 161, 168, 175, 182]
+        ]
     }, {
         "Id": 29,
         "Name": "Blackout",
@@ -12910,7 +13600,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/84/Blackout.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Blackout",
         "Ranks": [
-            [2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 7, 7, 7, 7, 8]]
+            [2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 7, 7, 7, 7, 8]
+        ]
     }, {
         "Id": 77,
         "Name": "Chaos Storm",
@@ -12932,7 +13623,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/88/Chaos_Storm.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Chaos_Storm",
         "Ranks": [
-            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32, 33], [0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3]]
+            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32, 33],
+            [0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3]
+        ]
     }, {
         "Id": 932,
         "Name": "Complicate",
@@ -12954,7 +13647,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/93/Complicate.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Complicate",
         "Ranks": [
-            [5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 12, 13, 13, 14, 14, 15]]
+            [5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 12, 13, 13, 14, 14, 15]
+        ]
     }, {
         "Id": 57,
         "Name": "Cry of Frustration",
@@ -12976,7 +13670,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e7/Cry_of_Frustration.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Cry_of_Frustration",
         "Ranks": [
-            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]]
+            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]
+        ]
     }, {
         "Id": 30,
         "Name": "Diversion",
@@ -12998,7 +13693,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/62/Diversion.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Diversion",
         "Ranks": [
-            [10, 13, 16, 19, 22, 25, 28, 31, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68, 71, 74]]
+            [10, 13, 16, 19, 22, 25, 28, 31, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68, 71, 74]
+        ]
     }, {
         "Id": 26,
         "Name": "Empathy",
@@ -13020,7 +13716,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/7d/Empathy.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Empathy",
         "Ranks": [
-            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19], [10, 13, 16, 19, 22, 25, 28, 31, 34, 37, 40, 43, 46, 49, 52, 55, 58, 61, 64, 67, 70, 73], [1, 2, 3, 4, 5, 6, 7, 8, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]]
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19],
+            [10, 13, 16, 19, 22, 25, 28, 31, 34, 37, 40, 43, 46, 49, 52, 55, 58, 61, 64, 67, 70, 73],
+            [1, 2, 3, 4, 5, 6, 7, 8, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+        ]
     }, {
         "Id": 1345,
         "Name": "Enchanter's Conundrum",
@@ -13042,7 +13741,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/d1/Enchanter%27s_Conundrum.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Enchanter%27s_Conundrum",
         "Ranks": [
-            [100, 107, 113, 120, 127, 133, 140, 147, 153, 160, 167, 173, 180, 187, 193, 200, 207, 213, 220, 227, 233, 240], [10, 16, 22, 28, 34, 40, 46, 52, 58, 64, 70, 76, 82, 88, 94, 100, 106, 112, 118, 124, 130, 136]]
+            [100, 107, 113, 120, 127, 133, 140, 147, 153, 160, 167, 173, 180, 187, 193, 200, 207, 213, 220, 227, 233, 240],
+            [10, 16, 22, 28, 34, 40, 46, 52, 58, 64, 70, 76, 82, 88, 94, 100, 106, 112, 118, 124, 130, 136]
+        ]
     }, {
         "Id": 42,
         "Name": "Energy Burn",
@@ -13064,7 +13765,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a6/Energy_Burn.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Energy_Burn",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14], [9, 18, 18, 27, 27, 36, 45, 45, 54, 54, 63, 72, 72, 81, 81, 90, 99, 99, 108, 108, 117, 126]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14],
+            [9, 18, 18, 27, 27, 36, 45, 45, 54, 54, 63, 72, 72, 81, 81, 90, 99, 99, 108, 108, 117, 126]
+        ]
     }, {
         "Id": 39,
         "Name": "Energy Surge",
@@ -13086,7 +13789,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f6/Energy_Surge.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Energy_Surge",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14], [9, 18, 18, 27, 27, 36, 45, 45, 54, 54, 63, 72, 72, 81, 81, 90, 99, 99, 108, 108, 117, 126]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14],
+            [9, 18, 18, 27, 27, 36, 45, 45, 54, 54, 63, 72, 72, 81, 81, 90, 99, 99, 108, 108, 117, 126]
+        ]
     }, {
         "Id": 46,
         "Name": "Guilt",
@@ -13108,7 +13813,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c7/Guilt.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Guilt",
         "Ranks": [
-            [5, 6, 6, 7, 7, 8, 9, 9, 10, 10, 11, 12, 12, 13, 13, 14, 15, 15, 16, 16, 17, 18]]
+            [5, 6, 6, 7, 7, 8, 9, 9, 10, 10, 11, 12, 12, 13, 13, 14, 15, 15, 16, 16, 17, 18]
+        ]
     }, {
         "Id": 10,
         "Name": "Hex Breaker",
@@ -13130,7 +13836,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/3d/Hex_Breaker.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Hex_Breaker",
         "Ranks": [
-            [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110], [10, 12, 15, 17, 20, 22, 24, 27, 29, 32, 34, 36, 39, 41, 44, 46, 48, 51, 53, 56, 58, 60]]
+            [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110],
+            [10, 12, 15, 17, 20, 22, 24, 27, 29, 32, 34, 36, 39, 41, 44, 46, 48, 51, 53, 56, 58, 60]
+        ]
     }, {
         "Id": 1348,
         "Name": "Hex Eater Vortex",
@@ -13152,7 +13860,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/7e/Hex_Eater_Vortex.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Hex_Eater_Vortex",
         "Ranks": [
-            [30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 98, 102, 106, 110, 114]]
+            [30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 98, 102, 106, 110, 114]
+        ]
     }, {
         "Id": 35,
         "Name": "Ignorance",
@@ -13174,7 +13883,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/5c/Ignorance.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Ignorance",
         "Ranks": [
-            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25]]
+            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25]
+        ]
     }, {
         "Id": 49,
         "Name": "Mind Wrack",
@@ -13196,7 +13906,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/92/Mind_Wrack.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mind_Wrack",
         "Ranks": [
-            [5, 7, 10, 12, 14, 17, 19, 21, 24, 26, 28, 31, 33, 35, 38, 40, 42, 45, 47, 49, 52, 54], [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32, 33], [15, 21, 26, 32, 38, 43, 49, 55, 60, 66, 72, 77, 83, 89, 94, 100, 106, 111, 117, 123, 128, 134]]
+            [5, 7, 10, 12, 14, 17, 19, 21, 24, 26, 28, 31, 33, 35, 38, 40, 42, 45, 47, 49, 52, 54],
+            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32, 33],
+            [15, 21, 26, 32, 38, 43, 49, 55, 60, 66, 72, 77, 83, 89, 94, 100, 106, 111, 117, 123, 128, 134]
+        ]
     }, {
         "Id": 979,
         "Name": "Mistrust",
@@ -13218,7 +13931,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/d9/Mistrust.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mistrust",
         "Ranks": [
-            [10, 16, 22, 28, 34, 40, 46, 52, 58, 64, 70, 76, 82, 88, 94, 100, 106, 112, 118, 124, 130, 136]]
+            [10, 16, 22, 28, 34, 40, 46, 52, 58, 64, 70, 76, 82, 88, 94, 100, 106, 112, 118, 124, 130, 136]
+        ]
     }, {
         "Id": 898,
         "Name": "Overload",
@@ -13240,7 +13954,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/24/Overload.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Overload",
         "Ranks": [
-            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99], [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4]]
+            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99],
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4]
+        ]
     }, {
         "Id": 52,
         "Name": "Panic",
@@ -13262,7 +13978,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f7/Panic.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Panic",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]
+        ]
     }, {
         "Id": 5,
         "Name": "Power Block",
@@ -13284,7 +14001,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/5e/Power_Block.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Power_Block",
         "Ranks": [
-            [1, 2, 2, 3, 4, 5, 5, 6, 7, 8, 8, 9, 10, 11, 11, 12, 13, 13, 14, 15, 16, 16]]
+            [1, 2, 2, 3, 4, 5, 5, 6, 7, 8, 8, 9, 10, 11, 11, 12, 13, 13, 14, 15, 16, 16]
+        ]
     }, {
         "Id": 953,
         "Name": "Power Flux",
@@ -13306,7 +14024,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/03/Power_Flux.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Power_Flux",
         "Ranks": [
-            [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 12]]
+            [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 12]
+        ]
     }, {
         "Id": 24,
         "Name": "Power Leak",
@@ -13328,7 +14047,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/07/Power_Leak.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Power_Leak",
         "Ranks": [
-            [3, 4, 5, 6, 7, 8, 9, 10, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]]
+            [3, 4, 5, 6, 7, 8, 9, 10, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+        ]
     }, {
         "Id": 1994,
         "Name": "Power Lock",
@@ -13350,7 +14070,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/94/Power_Lock.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Power_Lock",
         "Ranks": [
-            [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 14, 14, 15, 15, 16, 16]]
+            [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 14, 14, 15, 15, 16, 16]
+        ]
     }, {
         "Id": 23,
         "Name": "Power Spike",
@@ -13372,7 +14093,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/48/Power_Spike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Power_Spike",
         "Ranks": [
-            [30, 36, 42, 48, 54, 60, 66, 72, 78, 84, 90, 96, 102, 108, 114, 120, 126, 132, 138, 144, 150, 156]]
+            [30, 36, 42, 48, 54, 60, 66, 72, 78, 84, 90, 96, 102, 108, 114, 120, 126, 132, 138, 144, 150, 156]
+        ]
     }, {
         "Id": 1655,
         "Name": "Price of Pride",
@@ -13394,7 +14116,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/17/Price_of_Pride.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Price_of_Pride",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [1, 1, 2, 2, 3, 3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [1, 1, 2, 2, 3, 3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9]
+        ]
     }, {
         "Id": 1053,
         "Name": "Psychic Distraction",
@@ -13416,7 +14140,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/70/Psychic_Distraction.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Psychic_Distraction",
         "Ranks": [
-            [5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 12, 13, 13, 14, 14, 15]]
+            [5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 12, 13, 13, 14, 14, 15]
+        ]
     }, {
         "Id": 51,
         "Name": "Shame",
@@ -13438,7 +14163,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/fb/Shame.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Shame",
         "Ranks": [
-            [5, 6, 6, 7, 7, 8, 9, 9, 10, 10, 11, 12, 12, 13, 13, 14, 15, 15, 16, 16, 17, 18]]
+            [5, 6, 6, 7, 7, 8, 9, 9, 10, 10, 11, 12, 12, 13, 13, 14, 15, 15, 16, 16, 17, 18]
+        ]
     }, {
         "Id": 27,
         "Name": "Shatter Delusions",
@@ -13460,7 +14186,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f1/Shatter_Delusions.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Shatter_Delusions",
         "Ranks": [
-            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]]
+            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]
+        ]
     }, {
         "Id": 69,
         "Name": "Shatter Enchantment",
@@ -13482,7 +14209,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/4c/Shatter_Enchantment.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Shatter_Enchantment",
         "Ranks": [
-            [14, 20, 25, 31, 37, 43, 48, 54, 60, 66, 71, 77, 83, 89, 94, 100, 106, 111, 117, 123, 129, 134]]
+            [14, 20, 25, 31, 37, 43, 48, 54, 60, 66, 71, 77, 83, 89, 94, 100, 106, 111, 117, 123, 129, 134]
+        ]
     }, {
         "Id": 67,
         "Name": "Shatter Hex",
@@ -13504,7 +14232,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/d2/Shatter_Hex.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Shatter_Hex",
         "Ranks": [
-            [30, 36, 42, 48, 54, 60, 66, 72, 78, 84, 90, 96, 102, 108, 114, 120, 126, 132, 138, 144, 150, 156]]
+            [30, 36, 42, 48, 54, 60, 66, 72, 78, 84, 90, 96, 102, 108, 114, 120, 126, 132, 138, 144, 150, 156]
+        ]
     }, {
         "Id": 860,
         "Name": "Signet of Disruption",
@@ -13526,7 +14255,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/87/Signet_of_Disruption.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Signet_of_Disruption",
         "Ranks": [
-            [10, 13, 15, 18, 21, 24, 26, 29, 32, 35, 37, 40, 43, 46, 48, 51, 54, 56, 59, 62, 65, 67]]
+            [10, 13, 15, 18, 21, 24, 26, 29, 32, 35, 37, 40, 43, 46, 48, 51, 54, 56, 59, 62, 65, 67]
+        ]
     }, {
         "Id": 1992,
         "Name": "Signet of Distraction",
@@ -13548,7 +14278,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/db/Signet_of_Distraction.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Signet_of_Distraction",
         "Ranks": [
-            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]]
+            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]
+        ]
     }, {
         "Id": 59,
         "Name": "Signet of Weariness",
@@ -13570,7 +14301,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/fd/Signet_of_Weariness.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Signet_of_Weariness",
         "Ranks": [
-            [3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10], [1, 2, 2, 3, 4, 5, 5, 6, 7, 8, 8, 9, 10, 11, 11, 12, 13, 13, 14, 15, 16, 16]]
+            [3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10],
+            [1, 2, 2, 3, 4, 5, 5, 6, 7, 8, 8, 9, 10, 11, 11, 12, 13, 13, 14, 15, 16, 16]
+        ]
     }, {
         "Id": 1350,
         "Name": "Simple Thievery",
@@ -13592,7 +14325,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/11/Simple_Thievery.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Simple_Thievery",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1336,
         "Name": "Spiritual Pain",
@@ -13614,7 +14348,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/21/Spiritual_Pain.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Spiritual_Pain",
         "Ranks": [
-            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99], [25, 32, 38, 45, 52, 58, 65, 72, 78, 85, 92, 98, 105, 112, 118, 125, 132, 138, 145, 152, 158, 165]]
+            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99],
+            [25, 32, 38, 45, 52, 58, 65, 72, 78, 85, 92, 98, 105, 112, 118, 125, 132, 138, 145, 152, 158, 165]
+        ]
     }, {
         "Id": 934,
         "Name": "Unnatural Signet",
@@ -13636,7 +14372,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/10/Unnatural_Signet.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Unnatural_Signet",
         "Ranks": [
-            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99], [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]]
+            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99],
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]
+        ]
     }, {
         "Id": 878,
         "Name": "Visions of Regret",
@@ -13658,7 +14396,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/93/Visions_of_Regret.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Visions_of_Regret",
         "Ranks": [
-            [15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57], [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68], [20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125]]
+            [15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57],
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68],
+            [20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125]
+        ]
     }, {
         "Id": 1335,
         "Name": "Wastrel's Demise",
@@ -13679,8 +14420,7 @@ var skillTable = [
         "Campaign": "Nightfall",
         "Image": "https://wiki.guildwars.com/images/4/4b/Wastrel%27s_Demise.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Wastrel%27s_Demise",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 50,
         "Name": "Wastrel's Worry",
@@ -13702,7 +14442,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f3/Wastrel%27s_Worry.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Wastrel%27s_Worry",
         "Ranks": [
-            [20, 25, 31, 36, 41, 47, 52, 57, 63, 68, 73, 79, 84, 89, 95, 100, 105, 111, 116, 121, 127, 132]]
+            [20, 25, 31, 36, 41, 47, 52, 57, 63, 68, 73, 79, 84, 89, 95, 100, 105, 111, 116, 121, 127, 132]
+        ]
     }, {
         "Id": 2684,
         "Name": "Unnatural Signet (Saul D'Alessio)",
@@ -13724,7 +14465,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/2f/Unnatural_Signet_%28Saul_D%27Alessio%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Unnatural_Signet_(Saul_D%27Alessio)",
         "Ranks": [
-            [43, 47], [26, 29]]
+            [43, 47],
+            [26, 29]
+        ]
     }, {
         "Id": 804,
         "Name": "Arcane Languor",
@@ -13746,7 +14489,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/d5/Arcane_Languor.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Arcane_Languor",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]
+        ]
     }, {
         "Id": 63,
         "Name": "Keystone Signet",
@@ -13768,7 +14512,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/31/Keystone_Signet.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Keystone_Signet",
         "Ranks": [
-            [0, 0, 1, 1, 2, 2, 2, 3, 3, 4, 4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8], [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78]]
+            [0, 0, 1, 1, 2, 2, 2, 3, 3, 4, 4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8],
+            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78]
+        ]
     }, {
         "Id": 13,
         "Name": "Mantra of Recovery",
@@ -13790,7 +14536,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/00/Mantra_of_Recovery.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mantra_of_Recovery",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [33, 36, 38, 41, 44, 46, 49, 52, 54, 57, 60, 62, 65, 68, 70, 73, 76, 78, 81, 84, 86, 89]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [33, 36, 38, 41, 44, 46, 49, 52, 54, 57, 60, 62, 65, 68, 70, 73, 76, 78, 81, 84, 86, 89]
+        ]
     }, {
         "Id": 1338,
         "Name": "Persistence of Memory",
@@ -13812,7 +14560,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/26/Persistence_of_Memory.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Persistence_of_Memory",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 931,
         "Name": "Power Return",
@@ -13834,7 +14583,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e1/Power_Return.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Power_Return",
         "Ranks": [
-            [10, 10, 9, 9, 9, 8, 8, 8, 7, 7, 7, 6, 6, 6, 5, 5, 5, 4, 4, 4, 3, 3]]
+            [10, 10, 9, 9, 9, 8, 8, 8, 7, 7, 7, 6, 6, 6, 5, 5, 5, 4, 4, 4, 3, 3]
+        ]
     }, {
         "Id": 1057,
         "Name": "Psychic Instability",
@@ -13856,7 +14606,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/db/Psychic_Instability.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Psychic_Instability",
         "Ranks": [
-            [2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5]]
+            [2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5]
+        ]
     }, {
         "Id": 880,
         "Name": "Stolen Speed",
@@ -13878,7 +14629,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f0/Stolen_Speed.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Stolen_Speed",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]
+        ]
     }, {
         "Id": 1340,
         "Name": "Symbolic Celerity",
@@ -13900,7 +14652,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f0/Symbolic_Celerity.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Symbolic_Celerity",
         "Ranks": [
-            [36, 38, 39, 41, 42, 44, 46, 47, 49, 50, 52, 54, 55, 57, 58, 60, 62, 63, 65, 66, 68, 70]]
+            [36, 38, 39, 41, 42, 44, 46, 47, 49, 50, 52, 54, 55, 57, 58, 60, 62, 63, 65, 66, 68, 70]
+        ]
     }, {
         "Id": 1658,
         "Name": "Symbolic Posture",
@@ -13922,7 +14675,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/71/Symbolic_Posture.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Symbolic_Posture",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100, 104]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100, 104]
+        ]
     }, {
         "Id": 1339,
         "Name": "Symbols of Inspiration",
@@ -13944,7 +14699,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a4/Symbols_of_Inspiration.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Symbols_of_Inspiration",
         "Ranks": [
-            [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43]]
+            [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43]
+        ]
     }, {
         "Id": 1052,
         "Name": "Accumulated Pain",
@@ -13966,7 +14722,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/30/Accumulated_Pain.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Accumulated_Pain",
         "Ranks": [
-            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1656,
         "Name": "Air of Disenchantment",
@@ -13988,7 +14746,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/89/Air_of_Disenchantment.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Air_of_Disenchantment",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [150, 160, 170, 180, 190, 200, 210, 220, 230, 240, 250, 260, 270, 280, 290, 300, 310, 320, 330, 340, 350, 360]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [150, 160, 170, 180, 190, 200, 210, 220, 230, 240, 250, 260, 270, 280, 290, 300, 310, 320, 330, 340, 350, 360]
+        ]
     }, {
         "Id": 1054,
         "Name": "Ancestor's Visage",
@@ -14010,7 +14770,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c0/Ancestor%27s_Visage.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Ancestor%27s_Visage",
         "Ranks": [
-            [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 12]]
+            [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 12]
+        ]
     }, {
         "Id": 36,
         "Name": "Arcane Conundrum",
@@ -14032,7 +14793,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/6a/Arcane_Conundrum.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Arcane_Conundrum",
         "Ranks": [
-            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19], [1, 1, 2, 2, 3, 3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9]]
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19],
+            [1, 1, 2, 2, 3, 3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9]
+        ]
     }, {
         "Id": 2053,
         "Name": "Calculated Risk",
@@ -14054,7 +14817,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/87/Calculated_Risk.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Calculated_Risk",
         "Ranks": [
-            [3, 4, 6, 7, 9, 10, 11, 13, 14, 16, 17, 18, 20, 21, 23, 24, 25, 27, 28, 30, 31, 32], [15, 21, 26, 32, 38, 43, 49, 55, 60, 66, 72, 77, 83, 89, 94, 100, 106, 111, 117, 123, 128, 134]]
+            [3, 4, 6, 7, 9, 10, 11, 13, 14, 16, 17, 18, 20, 21, 23, 24, 25, 27, 28, 30, 31, 32],
+            [15, 21, 26, 32, 38, 43, 49, 55, 60, 66, 72, 77, 83, 89, 94, 100, 106, 111, 117, 123, 128, 134]
+        ]
     }, {
         "Id": 43,
         "Name": "Clumsiness",
@@ -14076,7 +14841,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e9/Clumsiness.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Clumsiness",
         "Ranks": [
-            [10, 15, 21, 26, 32, 37, 43, 48, 54, 59, 65, 70, 76, 81, 87, 92, 97, 103, 108, 114, 119, 125]]
+            [10, 15, 21, 26, 32, 37, 43, 48, 54, 59, 65, 70, 76, 81, 87, 92, 97, 103, 108, 114, 119, 125]
+        ]
     }, {
         "Id": 2137,
         "Name": "Confusing Images",
@@ -14098,7 +14864,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/fd/Confusing_Images.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Confusing_Images",
         "Ranks": [
-            [2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 13]]
+            [2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 13]
+        ]
     }, {
         "Id": 859,
         "Name": "Conjure Nightmare",
@@ -14120,7 +14887,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/76/Conjure_Nightmare.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Conjure_Nightmare",
         "Ranks": [
-            [2, 3, 4, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]]
+            [2, 3, 4, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]
+        ]
     }, {
         "Id": 31,
         "Name": "Conjure Phantasm",
@@ -14142,7 +14910,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/d7/Conjure_Phantasm.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Conjure_Phantasm",
         "Ranks": [
-            [2, 3, 4, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]]
+            [2, 3, 4, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]
+        ]
     }, {
         "Id": 54,
         "Name": "Crippling Anguish",
@@ -14164,7 +14933,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e4/Crippling_Anguish.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Crippling_Anguish",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 11]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 11]
+        ]
     }, {
         "Id": 11,
         "Name": "Distortion",
@@ -14186,7 +14957,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/8f/Distortion.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Distortion",
         "Ranks": [
-            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]]
+            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]
+        ]
     }, {
         "Id": 45,
         "Name": "Ethereal Burden",
@@ -14208,7 +14980,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f4/Ethereal_Burden.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Ethereal_Burden",
         "Ranks": [
-            [10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15, 16, 16, 17, 17, 18, 19, 19, 20, 20, 21, 21]]
+            [10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15, 16, 16, 17, 17, 18, 19, 19, 20, 20, 21, 21]
+        ]
     }, {
         "Id": 55,
         "Name": "Fevered Dreams",
@@ -14230,7 +15003,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/72/Fevered_Dreams.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Fevered_Dreams",
         "Ranks": [
-            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4]]
+            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4]
+        ]
     }, {
         "Id": 19,
         "Name": "Fragility",
@@ -14252,7 +15027,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/42/Fragility.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Fragility",
         "Ranks": [
-            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1341,
         "Name": "Frustration",
@@ -14274,7 +15051,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/3f/Frustration.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Frustration",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]
+        ]
     }, {
         "Id": 37,
         "Name": "Illusion of Haste",
@@ -14296,7 +15075,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/cf/Illusion_of_Haste.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Illusion_of_Haste",
         "Ranks": [
-            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13, 13]]
+            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13, 13]
+        ]
     }, {
         "Id": 879,
         "Name": "Illusion of Pain",
@@ -14318,7 +15098,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/46/Illusion_of_Pain.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Illusion_of_Pain",
         "Ranks": [
-            [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 13], [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 13], [36, 42, 47, 53, 58, 64, 70, 75, 81, 86, 92, 98, 103, 109, 114, 120, 126, 131, 137, 142, 148, 154]]
+            [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 13],
+            [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 13],
+            [36, 42, 47, 53, 58, 64, 70, 75, 81, 86, 92, 98, 103, 109, 114, 120, 126, 131, 137, 142, 148, 154]
+        ]
     }, {
         "Id": 32,
         "Name": "Illusion of Weakness",
@@ -14340,7 +15123,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/1a/Illusion_of_Weakness.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Illusion_of_Weakness",
         "Ranks": [
-            [50, 63, 75, 88, 101, 113, 126, 139, 151, 164, 177, 189, 202, 215, 227, 240, 253, 265, 278, 291, 303, 316], [50, 63, 75, 88, 101, 113, 126, 139, 151, 164, 177, 189, 202, 215, 227, 240, 253, 265, 278, 291, 303, 316]]
+            [50, 63, 75, 88, 101, 113, 126, 139, 151, 164, 177, 189, 202, 215, 227, 240, 253, 265, 278, 291, 303, 316],
+            [50, 63, 75, 88, 101, 113, 126, 139, 151, 164, 177, 189, 202, 215, 227, 240, 253, 265, 278, 291, 303, 316]
+        ]
     }, {
         "Id": 33,
         "Name": "Illusionary Weaponry",
@@ -14362,7 +15147,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/ab/Illusionary_Weaponry.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Illusionary_Weaponry",
         "Ranks": [
-            [8, 10, 12, 14, 17, 19, 21, 23, 25, 27, 29, 31, 34, 36, 38, 40, 42, 44, 46, 49, 51, 53]]
+            [8, 10, 12, 14, 17, 19, 21, 23, 25, 27, 29, 31, 34, 36, 38, 40, 42, 44, 46, 49, 51, 53]
+        ]
     }, {
         "Id": 899,
         "Name": "Images of Remorse",
@@ -14384,7 +15170,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/aa/Images_of_Remorse.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Images_of_Remorse",
         "Ranks": [
-            [5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10, 10, 11, 11, 11, 12, 12], [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4], [10, 13, 16, 18, 21, 24, 27, 30, 32, 35, 38, 41, 44, 46, 49, 52, 55, 58, 60, 63, 66, 69]]
+            [5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10, 10, 11, 11, 11, 12, 12],
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4],
+            [10, 13, 16, 18, 21, 24, 27, 30, 32, 35, 38, 41, 44, 46, 49, 52, 55, 58, 60, 63, 66, 69]
+        ]
     }, {
         "Id": 76,
         "Name": "Imagined Burden",
@@ -14406,7 +15195,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/5b/Imagined_Burden.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Imagined_Burden",
         "Ranks": [
-            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25]]
+            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25]
+        ]
     }, {
         "Id": 47,
         "Name": "Ineptitude",
@@ -14428,7 +15218,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/6d/Ineptitude.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Ineptitude",
         "Ranks": [
-            [30, 37, 44, 51, 58, 65, 72, 79, 86, 93, 100, 107, 114, 121, 128, 135, 142, 149, 156, 163, 170, 177]]
+            [30, 37, 44, 51, 58, 65, 72, 79, 86, 93, 100, 107, 114, 121, 128, 135, 142, 149, 156, 163, 170, 177]
+        ]
     }, {
         "Id": 1056,
         "Name": "Kitah's Burden",
@@ -14450,7 +15241,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/d3/Kitah%27s_Burden.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Kitah%27s_Burden",
         "Ranks": [
-            [10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15, 16, 16, 17, 17, 18, 19, 19, 20, 20, 21, 21]]
+            [10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15, 16, 16, 17, 17, 18, 19, 19, 20, 20, 21, 21]
+        ]
     }, {
         "Id": 53,
         "Name": "Migraine",
@@ -14472,7 +15264,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/ad/Migraine.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Migraine",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 11]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 11]
+        ]
     }, {
         "Id": 44,
         "Name": "Phantom Pain",
@@ -14494,7 +15288,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e7/Phantom_Pain.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Phantom_Pain",
         "Ranks": [
-            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1055,
         "Name": "Recurring Insecurity",
@@ -14516,7 +15312,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/42/Recurring_Insecurity.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Recurring_Insecurity",
         "Ranks": [
-            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]]
+            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]
+        ]
     }, {
         "Id": 900,
         "Name": "Shared Burden",
@@ -14538,7 +15335,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/72/Shared_Burden.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Shared_Burden",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 2054,
         "Name": "Shrinking Armor",
@@ -14560,7 +15358,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e9/Shrinking_Armor.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Shrinking_Armor",
         "Ranks": [
-            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1657,
         "Name": "Signet of Clumsiness",
@@ -14582,7 +15382,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/7e/Signet_of_Clumsiness.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Signet_of_Clumsiness",
         "Ranks": [
-            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78]]
+            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78]
+        ]
     }, {
         "Id": 1346,
         "Name": "Signet of Illusions",
@@ -14604,7 +15405,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/1f/Signet_of_Illusions.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Signet_of_Illusions",
         "Ranks": [
-            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4]]
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4]
+        ]
     }, {
         "Id": 56,
         "Name": "Soothing Images",
@@ -14626,7 +15428,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/97/Soothing_Images.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Soothing_Images",
         "Ranks": [
-            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25]]
+            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25]
+        ]
     }, {
         "Id": 1996,
         "Name": "Sum of All Fears",
@@ -14648,7 +15451,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/dc/Sum_of_All_Fears.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Sum_of_All_Fears",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]
+        ]
     }, {
         "Id": 34,
         "Name": "Sympathetic Visage",
@@ -14670,7 +15474,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/63/Sympathetic_Visage.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Sympathetic_Visage",
         "Ranks": [
-            [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 12]]
+            [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 12]
+        ]
     }, {
         "Id": 2056,
         "Name": "Wandering Eye",
@@ -14692,7 +15497,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/37/Wandering_Eye.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Wandering_Eye",
         "Ranks": [
-            [30, 35, 41, 46, 51, 57, 62, 67, 73, 78, 83, 89, 94, 99, 105, 110, 115, 121, 126, 131, 137, 142]]
+            [30, 35, 41, 46, 51, 57, 62, 67, 73, 78, 83, 89, 94, 99, 105, 110, 115, 121, 126, 131, 137, 142]
+        ]
     }, {
         "Id": 930,
         "Name": "Auspicious Incantation",
@@ -14714,7 +15520,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/ae/Auspicious_Incantation.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Auspicious_Incantation",
         "Ranks": [
-            [10, 10, 9, 9, 9, 8, 8, 8, 7, 7, 7, 6, 6, 6, 5, 5, 5, 4, 4, 4, 3, 3], [110, 116, 122, 128, 134, 140, 146, 152, 158, 164, 170, 176, 182, 188, 194, 200, 206, 212, 218, 224, 230, 236]]
+            [10, 10, 9, 9, 9, 8, 8, 8, 7, 7, 7, 6, 6, 6, 5, 5, 5, 4, 4, 4, 3, 3],
+            [110, 116, 122, 128, 134, 140, 146, 152, 158, 164, 170, 176, 182, 188, 194, 200, 206, 212, 218, 224, 230, 236]
+        ]
     }, {
         "Id": 38,
         "Name": "Channeling",
@@ -14736,7 +15544,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/1e/Channeling.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Channeling",
         "Ranks": [
-            [8, 11, 14, 18, 21, 24, 27, 30, 34, 37, 40, 43, 46, 50, 53, 56, 59, 62, 66, 69, 72, 75]]
+            [8, 11, 14, 18, 21, 24, 27, 30, 34, 37, 40, 43, 46, 50, 53, 56, 59, 62, 66, 69, 72, 75]
+        ]
     }, {
         "Id": 1347,
         "Name": "Discharge Enchantment",
@@ -14758,7 +15567,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/ad/Discharge_Enchantment.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Discharge_Enchantment",
         "Ranks": [
-            [20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62]]
+            [20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62]
+        ]
     }, {
         "Id": 1337,
         "Name": "Drain Delusions",
@@ -14780,7 +15590,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/2b/Drain_Delusions.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Drain_Delusions",
         "Ranks": [
-            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7], [4, 4, 8, 8, 8, 8, 12, 12, 12, 12, 16, 16, 16, 16, 20, 20, 20, 24, 24, 24, 24, 28]]
+            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7],
+            [4, 4, 8, 8, 8, 8, 12, 12, 12, 12, 16, 16, 16, 16, 20, 20, 20, 24, 24, 24, 24, 28]
+        ]
     }, {
         "Id": 68,
         "Name": "Drain Enchantment",
@@ -14802,7 +15614,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/13/Drain_Enchantment.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Drain_Enchantment",
         "Ranks": [
-            [8, 9, 9, 10, 10, 11, 12, 12, 13, 13, 14, 15, 15, 16, 16, 17, 18, 18, 19, 19, 20, 21], [40, 45, 51, 56, 61, 67, 72, 77, 83, 88, 93, 99, 104, 109, 115, 120, 125, 131, 136, 141, 147, 152]]
+            [8, 9, 9, 10, 10, 11, 12, 12, 13, 13, 14, 15, 15, 16, 16, 17, 18, 18, 19, 19, 20, 21],
+            [40, 45, 51, 56, 61, 67, 72, 77, 83, 88, 93, 99, 104, 109, 115, 120, 125, 131, 136, 141, 147, 152]
+        ]
     }, {
         "Id": 72,
         "Name": "Elemental Resistance",
@@ -14824,7 +15638,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/fc/Elemental_Resistance.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Elemental_Resistance",
         "Ranks": [
-            [30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 98, 102, 106, 110, 114], [24, 23, 22, 22, 21, 20, 19, 18, 18, 17, 16, 15, 14, 14, 13, 12, 11, 10, 10, 9, 8, 7]]
+            [30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 98, 102, 106, 110, 114],
+            [24, 23, 22, 22, 21, 20, 19, 18, 18, 17, 16, 15, 14, 14, 13, 12, 11, 10, 10, 9, 8, 7]
+        ]
     }, {
         "Id": 79,
         "Name": "Energy Drain",
@@ -14846,7 +15662,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/8c/Energy_Drain.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Energy_Drain",
         "Ranks": [
-            [2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 12], [6, 6, 9, 9, 12, 12, 15, 15, 18, 18, 21, 21, 24, 24, 27, 27, 27, 30, 30, 33, 33, 36]]
+            [2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 12],
+            [6, 6, 9, 9, 12, 12, 15, 15, 18, 18, 21, 21, 24, 24, 27, 27, 27, 30, 30, 33, 33, 36]
+        ]
     }, {
         "Id": 80,
         "Name": "Energy Tap",
@@ -14868,7 +15686,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/67/Energy_Tap.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Energy_Tap",
         "Ranks": [
-            [4, 4, 4, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 8, 8, 8, 8], [8, 8, 8, 10, 10, 10, 10, 10, 12, 12, 12, 12, 12, 14, 14, 14, 14, 14, 16, 16, 16, 16]]
+            [4, 4, 4, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 8, 8, 8, 8],
+            [8, 8, 8, 10, 10, 10, 10, 10, 12, 12, 12, 12, 12, 14, 14, 14, 14, 14, 16, 16, 16, 16]
+        ]
     }, {
         "Id": 40,
         "Name": "Ether Feast",
@@ -14890,7 +15710,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/03/Ether_Feast.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Ether_Feast",
         "Ranks": [
-            [20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68, 71, 74, 77, 80, 83], [60, 69, 78, 87, 96, 105, 114, 123, 132, 141, 150, 159, 168, 177, 186, 195, 204, 213, 222, 231, 240, 249]]
+            [20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68, 71, 74, 77, 80, 83],
+            [60, 69, 78, 87, 96, 105, 114, 123, 132, 141, 150, 159, 168, 177, 186, 195, 204, 213, 222, 231, 240, 249]
+        ]
     }, {
         "Id": 41,
         "Name": "Ether Lord",
@@ -14912,7 +15734,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/1a/Ether_Lord.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Ether_Lord",
         "Ranks": [
-            [5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10, 10, 11, 11, 11, 12, 12], [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4], [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4]]
+            [5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10, 10, 11, 11, 11, 12, 12],
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4],
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4]
+        ]
     }, {
         "Id": 1343,
         "Name": "Ether Phantom",
@@ -14934,7 +15759,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/2e/Ether_Phantom.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Ether_Phantom",
         "Ranks": [
-            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]]
+            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]
+        ]
     }, {
         "Id": 881,
         "Name": "Ether Signet",
@@ -14956,7 +15782,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/09/Ether_Signet.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Ether_Signet",
         "Ranks": [
-            [5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10, 10, 11, 11, 11, 12, 12], [10, 11, 11, 12, 13, 13, 14, 15, 15, 16, 17, 17, 18, 19, 19, 20, 21, 21, 22, 23, 23, 24]]
+            [5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10, 10, 11, 11, 11, 12, 12],
+            [10, 11, 11, 12, 13, 13, 14, 15, 15, 16, 17, 17, 18, 19, 19, 20, 21, 21, 22, 23, 23, 24]
+        ]
     }, {
         "Id": 1333,
         "Name": "Extend Conditions",
@@ -14978,7 +15806,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/59/Extend_Conditions.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Extend_Conditions",
         "Ranks": [
-            [5, 11, 18, 24, 30, 37, 43, 49, 56, 62, 68, 75, 81, 87, 94, 100, 106, 113, 119, 125, 132, 138]]
+            [5, 11, 18, 24, 30, 37, 43, 49, 56, 62, 68, 75, 81, 87, 94, 100, 106, 113, 119, 125, 132, 138]
+        ]
     }, {
         "Id": 1061,
         "Name": "Feedback",
@@ -15000,7 +15829,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/5a/Feedback.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Feedback",
         "Ranks": [
-            [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 12]]
+            [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 12]
+        ]
     }, {
         "Id": 1059,
         "Name": "Hex Eater Signet",
@@ -15022,7 +15852,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/35/Hex_Eater_Signet.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Hex_Eater_Signet",
         "Ranks": [
-            [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 6, 6, 6, 6], [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5]]
+            [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 6, 6, 6, 6],
+            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5]
+        ]
     }, {
         "Id": 21,
         "Name": "Inspired Enchantment",
@@ -15044,7 +15876,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/12/Inspired_Enchantment.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Inspired_Enchantment",
         "Ranks": [
-            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19, 20]]
+            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19, 20]
+        ]
     }, {
         "Id": 22,
         "Name": "Inspired Hex",
@@ -15066,7 +15899,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/34/Inspired_Hex.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Inspired_Hex",
         "Ranks": [
-            [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 12]]
+            [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 12]
+        ]
     }, {
         "Id": 61,
         "Name": "Leech Signet",
@@ -15088,7 +15922,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/53/Leech_Signet.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Leech_Signet",
         "Ranks": [
-            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19, 20]]
+            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19, 20]
+        ]
     }, {
         "Id": 813,
         "Name": "Lyssa's Aura",
@@ -15110,7 +15945,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c1/Lyssa%27s_Aura.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Lyssa%27s_Aura",
         "Ranks": [
-            [0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7]]
+            [0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7]
+        ]
     }, {
         "Id": 16,
         "Name": "Mantra of Concentration",
@@ -15132,7 +15968,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/2a/Mantra_of_Concentration.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mantra_of_Concentration",
         "Ranks": [
-            [1, 3, 6, 8, 11, 13, 16, 18, 21, 23, 26, 28, 31, 33, 36, 38, 40, 43, 45, 48, 50, 53]]
+            [1, 3, 6, 8, 11, 13, 16, 18, 21, 23, 26, 28, 31, 33, 36, 38, 40, 43, 45, 48, 50, 53]
+        ]
     }, {
         "Id": 6,
         "Name": "Mantra of Earth",
@@ -15154,7 +15991,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/00/Mantra_of_Earth.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mantra_of_Earth",
         "Ranks": [
-            [30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 98, 102, 106, 110, 114], [26, 28, 29, 31, 32, 34, 36, 37, 39, 40, 42, 44, 45, 47, 48, 50, 52, 53, 55, 56, 58, 60]]
+            [30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 98, 102, 106, 110, 114],
+            [26, 28, 29, 31, 32, 34, 36, 37, 39, 40, 42, 44, 45, 47, 48, 50, 52, 53, 55, 56, 58, 60]
+        ]
     }, {
         "Id": 7,
         "Name": "Mantra of Flame",
@@ -15176,7 +16015,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f8/Mantra_of_Flame.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mantra_of_Flame",
         "Ranks": [
-            [30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 98, 102, 106, 110, 114], [26, 28, 29, 31, 32, 34, 36, 37, 39, 40, 42, 44, 45, 47, 48, 50, 52, 53, 55, 56, 58, 60]]
+            [30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 98, 102, 106, 110, 114],
+            [26, 28, 29, 31, 32, 34, 36, 37, 39, 40, 42, 44, 45, 47, 48, 50, 52, 53, 55, 56, 58, 60]
+        ]
     }, {
         "Id": 8,
         "Name": "Mantra of Frost",
@@ -15198,7 +16039,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/6a/Mantra_of_Frost.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mantra_of_Frost",
         "Ranks": [
-            [30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 98, 102, 106, 110, 114], [26, 28, 29, 31, 32, 34, 36, 37, 39, 40, 42, 44, 45, 47, 48, 50, 52, 53, 55, 56, 58, 60]]
+            [30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 98, 102, 106, 110, 114],
+            [26, 28, 29, 31, 32, 34, 36, 37, 39, 40, 42, 44, 45, 47, 48, 50, 52, 53, 55, 56, 58, 60]
+        ]
     }, {
         "Id": 15,
         "Name": "Mantra of Inscriptions",
@@ -15220,7 +16063,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/da/Mantra_of_Inscriptions.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mantra_of_Inscriptions",
         "Ranks": [
-            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32, 33], [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]]
+            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32, 33],
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]
+        ]
     }, {
         "Id": 9,
         "Name": "Mantra of Lightning",
@@ -15242,7 +16087,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/d4/Mantra_of_Lightning.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mantra_of_Lightning",
         "Ranks": [
-            [30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 98, 102, 106, 110, 114], [26, 28, 29, 31, 32, 34, 36, 37, 39, 40, 42, 44, 45, 47, 48, 50, 52, 53, 55, 56, 58, 60]]
+            [30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 98, 102, 106, 110, 114],
+            [26, 28, 29, 31, 32, 34, 36, 37, 39, 40, 42, 44, 45, 47, 48, 50, 52, 53, 55, 56, 58, 60]
+        ]
     }, {
         "Id": 14,
         "Name": "Mantra of Persistence",
@@ -15264,7 +16111,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e7/Mantra_of_Persistence.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mantra_of_Persistence",
         "Ranks": [
-            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32, 33], [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]]
+            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32, 33],
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]
+        ]
     }, {
         "Id": 82,
         "Name": "Mantra of Recall",
@@ -15286,7 +16135,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a0/Mantra_of_Recall.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mantra_of_Recall",
         "Ranks": [
-            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]]
+            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
+        ]
     }, {
         "Id": 17,
         "Name": "Mantra of Resolve",
@@ -15308,7 +16158,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/22/Mantra_of_Resolve.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mantra_of_Resolve",
         "Ranks": [
-            [30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 98, 102, 106, 110, 114], [10, 10, 9, 9, 8, 8, 8, 7, 7, 6, 6, 6, 5, 5, 4, 4, 4, 3, 3, 2, 2, 2]]
+            [30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 98, 102, 106, 110, 114],
+            [10, 10, 9, 9, 8, 8, 8, 7, 7, 6, 6, 6, 5, 5, 4, 4, 4, 3, 3, 2, 2, 2]
+        ]
     }, {
         "Id": 18,
         "Name": "Mantra of Signets",
@@ -15330,7 +16182,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c4/Mantra_of_Signets.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mantra_of_Signets",
         "Ranks": [
-            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52], [5, 9, 12, 16, 20, 23, 27, 31, 34, 38, 42, 45, 49, 53, 56, 60, 64, 67, 71, 75, 78, 82]]
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52],
+            [5, 9, 12, 16, 20, 23, 27, 31, 34, 38, 42, 45, 49, 53, 56, 60, 64, 67, 71, 75, 78, 82]
+        ]
     }, {
         "Id": 73,
         "Name": "Physical Resistance",
@@ -15352,7 +16206,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/1e/Physical_Resistance.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Physical_Resistance",
         "Ranks": [
-            [30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 98, 102, 106, 110, 114], [24, 23, 22, 22, 21, 20, 19, 18, 18, 17, 16, 15, 14, 14, 13, 12, 11, 10, 10, 9, 8, 7]]
+            [30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 98, 102, 106, 110, 114],
+            [24, 23, 22, 22, 21, 20, 19, 18, 18, 17, 16, 15, 14, 14, 13, 12, 11, 10, 10, 9, 8, 7]
+        ]
     }, {
         "Id": 25,
         "Name": "Power Drain",
@@ -15374,7 +16230,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/86/Power_Drain.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Power_Drain",
         "Ranks": [
-            [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43], [-4, -2, 0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38], [-1, 0, 0, 0, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 5, 6]]
+            [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43],
+            [-4, -2, 0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38],
+            [-1, 0, 0, 0, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 5, 6]
+        ]
     }, {
         "Id": 803,
         "Name": "Power Leech",
@@ -15396,7 +16255,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/b8/Power_Leech.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Power_Leech",
         "Ranks": [
-            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19]]
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19]
+        ]
     }, {
         "Id": 1048,
         "Name": "Revealed Enchantment",
@@ -15418,7 +16278,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/5d/Revealed_Enchantment.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Revealed_Enchantment",
         "Ranks": [
-            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19, 20]]
+            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19, 20]
+        ]
     }, {
         "Id": 1049,
         "Name": "Revealed Hex",
@@ -15440,7 +16301,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/74/Revealed_Hex.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Revealed_Hex",
         "Ranks": [
-            [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 12]]
+            [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 12]
+        ]
     }, {
         "Id": 62,
         "Name": "Signet of Humility",
@@ -15462,7 +16324,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/7d/Signet_of_Humility.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Signet_of_Humility",
         "Ranks": [
-            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]]
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]
+        ]
     }, {
         "Id": 1993,
         "Name": "Signet of Recall",
@@ -15484,7 +16347,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/47/Signet_of_Recall.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Signet_of_Recall",
         "Ranks": [
-            [13, 13, 14, 14, 15, 15, 16, 16, 17, 17, 18, 18, 19, 19, 20, 20, 20, 21, 21, 22, 22, 23]]
+            [13, 13, 14, 14, 15, 15, 16, 16, 17, 17, 18, 18, 19, 19, 20, 20, 20, 21, 21, 22, 22, 23]
+        ]
     }, {
         "Id": 48,
         "Name": "Spirit of Failure",
@@ -15506,7 +16370,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/ba/Spirit_of_Failure.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Spirit_of_Failure",
         "Ranks": [
-            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4]]
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4]
+        ]
     }, {
         "Id": 66,
         "Name": "Spirit Shackles",
@@ -15528,7 +16393,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/25/Spirit_Shackles.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Spirit_Shackles",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1342,
         "Name": "Tease",
@@ -15550,7 +16416,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/5d/Tease.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Tease",
         "Ranks": [
-            [0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7]]
+            [0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7]
+        ]
     }, {
         "Id": 1995,
         "Name": "Waste Not, Want Not",
@@ -15572,7 +16439,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/5c/Waste_Not%2C_Want_Not.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Waste_Not,_Want_Not",
         "Ranks": [
-            [8, 8, 9, 9, 9, 10, 10, 10, 11, 11, 11, 12, 12, 12, 13, 13, 13, 14, 14, 14, 15, 15], [3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10], [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2]]
+            [8, 8, 9, 9, 9, 10, 10, 10, 11, 11, 11, 12, 12, 12, 13, 13, 13, 14, 14, 14, 15, 15],
+            [3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10],
+            [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2]
+        ]
     }, {
         "Id": 75,
         "Name": "Arcane Echo",
@@ -15593,8 +16463,7 @@ var skillTable = [
         "Campaign": "Core",
         "Image": "https://wiki.guildwars.com/images/b/b2/Arcane_Echo.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Arcane_Echo",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 65,
         "Name": "Arcane Mimicry",
@@ -15615,8 +16484,7 @@ var skillTable = [
         "Campaign": "Core",
         "Image": "https://wiki.guildwars.com/images/d/d4/Arcane_Mimicry.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Arcane_Mimicry",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 74,
         "Name": "Echo",
@@ -15637,8 +16505,7 @@ var skillTable = [
         "Campaign": "Core",
         "Image": "https://wiki.guildwars.com/images/a/a0/Echo.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Echo",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 78,
         "Name": "Epidemic",
@@ -15659,8 +16526,7 @@ var skillTable = [
         "Campaign": "Core",
         "Image": "https://wiki.guildwars.com/images/3/3b/Epidemic.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Epidemic",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 954,
         "Name": "Expel Hexes",
@@ -15681,8 +16547,7 @@ var skillTable = [
         "Campaign": "Factions",
         "Image": "https://wiki.guildwars.com/images/4/44/Expel_Hexes.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Expel_Hexes",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 1334,
         "Name": "Hypochondria",
@@ -15703,8 +16568,7 @@ var skillTable = [
         "Campaign": "Nightfall",
         "Image": "https://wiki.guildwars.com/images/d/d1/Hypochondria.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Hypochondria",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 877,
         "Name": "Lyssa's Balance",
@@ -15725,8 +16589,7 @@ var skillTable = [
         "Campaign": "Factions",
         "Image": "https://wiki.guildwars.com/images/e/eb/Lyssa%27s_Balance.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Lyssa%27s_Balance",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 1349,
         "Name": "Mirror of Disenchantment",
@@ -15747,8 +16610,7 @@ var skillTable = [
         "Campaign": "Nightfall",
         "Image": "https://wiki.guildwars.com/images/f/f2/Mirror_of_Disenchantment.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mirror_of_Disenchantment",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 933,
         "Name": "Shatter Storm",
@@ -15769,8 +16631,7 @@ var skillTable = [
         "Campaign": "Factions",
         "Image": "https://wiki.guildwars.com/images/5/5e/Shatter_Storm.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Shatter_Storm",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 882,
         "Name": "Signet of Disenchantment",
@@ -15791,8 +16652,7 @@ var skillTable = [
         "Campaign": "Factions",
         "Image": "https://wiki.guildwars.com/images/e/ea/Signet_of_Disenchantment.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Signet_of_Disenchantment",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 58,
         "Name": "Signet of Midnight",
@@ -15813,8 +16673,7 @@ var skillTable = [
         "Campaign": "Prophecies",
         "Image": "https://wiki.guildwars.com/images/e/eb/Signet_of_Midnight.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Signet_of_Midnight",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 1344,
         "Name": "Web of Disruption",
@@ -15835,8 +16694,7 @@ var skillTable = [
         "Campaign": "Nightfall",
         "Image": "https://wiki.guildwars.com/images/d/d1/Web_of_Disruption.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Web_of_Disruption",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 225,
         "Name": "Air Attunement",
@@ -15858,7 +16716,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/32/Air_Attunement.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Air_Attunement",
         "Ranks": [
-            [36, 38, 39, 41, 42, 44, 46, 47, 49, 50, 52, 54, 55, 57, 58, 60, 62, 63, 65, 66, 68, 70]]
+            [36, 38, 39, 41, 42, 44, 46, 47, 49, 50, 52, 54, 55, 57, 58, 60, 62, 63, 65, 66, 68, 70]
+        ]
     }, {
         "Id": 842,
         "Name": "Arc Lightning",
@@ -15880,7 +16739,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a9/Arc_Lightning.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Arc_Lightning",
         "Ranks": [
-            [5, 7, 10, 12, 14, 17, 19, 21, 24, 26, 28, 31, 33, 35, 38, 40, 42, 45, 47, 49, 52, 54], [15, 20, 24, 29, 34, 38, 43, 48, 52, 57, 62, 66, 71, 76, 80, 85, 90, 94, 99, 104, 108, 113]]
+            [5, 7, 10, 12, 14, 17, 19, 21, 24, 26, 28, 31, 33, 35, 38, 40, 42, 45, 47, 49, 52, 54],
+            [15, 20, 24, 29, 34, 38, 43, 48, 52, 57, 62, 66, 71, 76, 80, 85, 90, 94, 99, 104, 108, 113]
+        ]
     }, {
         "Id": 220,
         "Name": "Blinding Flash",
@@ -15902,7 +16763,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/eb/Blinding_Flash.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Blinding_Flash",
         "Ranks": [
-            [3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10]]
+            [3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10]
+        ]
     }, {
         "Id": 1367,
         "Name": "Blinding Surge",
@@ -15924,7 +16786,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a4/Blinding_Surge.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Blinding_Surge",
         "Ranks": [
-            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68], [3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10]]
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68],
+            [3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10]
+        ]
     }, {
         "Id": 223,
         "Name": "Chain Lightning",
@@ -15946,7 +16810,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/aa/Chain_Lightning.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Chain_Lightning",
         "Ranks": [
-            [10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115]]
+            [10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115]
+        ]
     }, {
         "Id": 1368,
         "Name": "Chilling Winds",
@@ -15968,7 +16833,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/17/Chilling_Winds.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Chilling_Winds",
         "Ranks": [
-            [30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72], [25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130]]
+            [30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72],
+            [25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130]
+        ]
     }, {
         "Id": 221,
         "Name": "Conjure Lightning",
@@ -15990,7 +16857,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/54/Conjure_Lightning.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Conjure_Lightning",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 224,
         "Name": "Enervating Charge",
@@ -16012,7 +16880,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/63/Enervating_Charge.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Enervating_Charge",
         "Ranks": [
-            [25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45, 47, 48, 50, 52, 53, 55, 57, 58, 60], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45, 47, 48, 50, 52, 53, 55, 57, 58, 60],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 162,
         "Name": "Gale",
@@ -16033,8 +16903,7 @@ var skillTable = [
         "Campaign": "Core",
         "Image": "https://wiki.guildwars.com/images/c/cf/Gale.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Gale",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 227,
         "Name": "Glimmering Mark",
@@ -16056,7 +16925,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/82/Glimmering_Mark.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Glimmering_Mark",
         "Ranks": [
-            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32, 33]]
+            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32, 33]
+        ]
     }, {
         "Id": 2002,
         "Name": "Glyph of Swiftness",
@@ -16078,7 +16948,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/b0/Glyph_of_Swiftness.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Glyph_of_Swiftness",
         "Ranks": [
-            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]]
+            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]
+        ]
     }, {
         "Id": 843,
         "Name": "Gust",
@@ -16100,7 +16971,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a1/Gust.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Gust",
         "Ranks": [
-            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13, 13], [15, 19, 22, 26, 30, 33, 37, 41, 44, 48, 52, 55, 59, 63, 66, 70, 74, 77, 81, 85, 88, 92]]
+            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13, 13],
+            [15, 19, 22, 26, 30, 33, 37, 41, 44, 48, 52, 55, 59, 63, 66, 70, 74, 77, 81, 85, 88, 92]
+        ]
     }, {
         "Id": 1664,
         "Name": "Invoke Lightning",
@@ -16122,7 +16995,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/93/Invoke_Lightning.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Invoke_Lightning",
         "Ranks": [
-            [10, 15, 21, 26, 31, 37, 42, 47, 53, 58, 63, 69, 74, 79, 85, 90, 95, 101, 106, 111, 117, 122]]
+            [10, 15, 21, 26, 31, 37, 42, 47, 53, 58, 63, 69, 74, 79, 85, 90, 95, 101, 106, 111, 117, 122]
+        ]
     }, {
         "Id": 1369,
         "Name": "Lightning Bolt",
@@ -16144,7 +17018,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/fb/Lightning_Bolt.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Lightning_Bolt",
         "Ranks": [
-            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68], [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]]
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68],
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]
+        ]
     }, {
         "Id": 865,
         "Name": "Lightning Hammer",
@@ -16166,7 +17042,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/ac/Lightning_Hammer.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Lightning_Hammer",
         "Ranks": [
-            [10, 16, 22, 28, 34, 40, 46, 52, 58, 64, 70, 76, 82, 88, 94, 100, 106, 112, 118, 124, 130, 136], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [10, 16, 22, 28, 34, 40, 46, 52, 58, 64, 70, 76, 82, 88, 94, 100, 106, 112, 118, 124, 130, 136],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 230,
         "Name": "Lightning Javelin",
@@ -16188,7 +17066,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/35/Lightning_Javelin.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Lightning_Javelin",
         "Ranks": [
-            [15, 17, 20, 22, 24, 27, 29, 31, 34, 36, 38, 41, 43, 45, 48, 50, 52, 55, 57, 59, 62, 64]]
+            [15, 17, 20, 22, 24, 27, 29, 31, 34, 36, 38, 41, 43, 45, 48, 50, 52, 55, 57, 59, 62, 64]
+        ]
     }, {
         "Id": 229,
         "Name": "Lightning Orb",
@@ -16210,7 +17089,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/03/Lightning_Orb.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Lightning_Orb",
         "Ranks": [
-            [10, 16, 22, 28, 34, 40, 46, 52, 58, 64, 70, 76, 82, 88, 94, 100, 106, 112, 118, 124, 130, 136]]
+            [10, 16, 22, 28, 34, 40, 46, 52, 58, 64, 70, 76, 82, 88, 94, 100, 106, 112, 118, 124, 130, 136]
+        ]
     }, {
         "Id": 222,
         "Name": "Lightning Strike",
@@ -16232,7 +17112,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/9f/Lightning_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Lightning_Strike",
         "Ranks": [
-            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]]
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]
+        ]
     }, {
         "Id": 205,
         "Name": "Lightning Surge",
@@ -16254,7 +17135,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a1/Lightning_Surge.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Lightning_Surge",
         "Ranks": [
-            [14, 20, 25, 31, 37, 43, 48, 54, 60, 66, 71, 77, 83, 89, 94, 100, 106, 111, 117, 123, 129, 134], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [14, 20, 25, 31, 37, 43, 48, 54, 60, 66, 71, 77, 83, 89, 94, 100, 106, 111, 117, 123, 129, 134],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 232,
         "Name": "Lightning Touch",
@@ -16276,7 +17159,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/ac/Lightning_Touch.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Lightning_Touch",
         "Ranks": [
-            [10, 13, 17, 20, 23, 27, 30, 33, 37, 40, 43, 47, 50, 53, 57, 60, 63, 67, 70, 73, 77, 80], [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5], [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]]
+            [10, 13, 17, 20, 23, 27, 30, 33, 37, 40, 43, 47, 50, 53, 57, 60, 63, 67, 70, 73, 77, 80],
+            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5],
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]
+        ]
     }, {
         "Id": 226,
         "Name": "Mind Shock",
@@ -16298,7 +17184,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/29/Mind_Shock.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mind_Shock",
         "Ranks": [
-            [10, 13, 15, 18, 21, 23, 26, 29, 31, 34, 37, 39, 42, 45, 47, 50, 53, 55, 58, 61, 63, 66], [10, 13, 15, 18, 21, 23, 26, 29, 31, 34, 37, 39, 42, 45, 47, 50, 53, 55, 58, 61, 63, 66]]
+            [10, 13, 15, 18, 21, 23, 26, 29, 31, 34, 37, 39, 42, 45, 47, 50, 53, 55, 58, 61, 63, 66],
+            [10, 13, 15, 18, 21, 23, 26, 29, 31, 34, 37, 39, 42, 45, 47, 50, 53, 55, 58, 61, 63, 66]
+        ]
     }, {
         "Id": 836,
         "Name": "Ride the Lightning",
@@ -16320,7 +17208,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/fc/Ride_the_Lightning.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Ride_the_Lightning",
         "Ranks": [
-            [10, 14, 18, 22, 26, 30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94], [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]]
+            [10, 14, 18, 22, 26, 30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94],
+            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]
+        ]
     }, {
         "Id": 2059,
         "Name": "Shell Shock",
@@ -16342,7 +17232,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/ac/Shell_Shock.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Shell_Shock",
         "Ranks": [
-            [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 231,
         "Name": "Shock",
@@ -16364,7 +17256,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/61/Shock.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Shock",
         "Ranks": [
-            [10, 13, 17, 20, 23, 27, 30, 33, 37, 40, 43, 47, 50, 53, 57, 60, 63, 67, 70, 73, 77, 80]]
+            [10, 13, 17, 20, 23, 27, 30, 33, 37, 40, 43, 47, 50, 53, 57, 60, 63, 67, 70, 73, 77, 80]
+        ]
     }, {
         "Id": 1082,
         "Name": "Shock Arrow",
@@ -16386,7 +17279,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/97/Shock_Arrow.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Shock_Arrow",
         "Ranks": [
-            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]]
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]
+        ]
     }, {
         "Id": 1370,
         "Name": "Storm Djinn's Haste",
@@ -16408,7 +17302,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/5d/Storm_Djinn%27s_Haste.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Storm_Djinn%27s_Haste",
         "Ranks": [
-            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]]
+            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
+        ]
     }, {
         "Id": 1081,
         "Name": "Teinai's Wind",
@@ -16430,7 +17325,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/ba/Teinai%27s_Wind.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Teinai%27s_Wind",
         "Ranks": [
-            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52], [40, 43, 45, 48, 51, 53, 56, 59, 61, 64, 67, 69, 72, 75, 77, 80, 83, 85, 88, 91, 93, 96], [50, 55, 59, 64, 69, 73, 78, 83, 87, 92, 97, 101, 106, 111, 115, 120, 125, 129, 134, 139, 143, 148]]
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52],
+            [40, 43, 45, 48, 51, 53, 56, 59, 61, 64, 67, 69, 72, 75, 77, 80, 83, 85, 88, 91, 93, 96],
+            [50, 55, 59, 64, 69, 73, 78, 83, 87, 92, 97, 101, 106, 111, 115, 120, 125, 129, 134, 139, 143, 148]
+        ]
     }, {
         "Id": 228,
         "Name": "Thunderclap",
@@ -16452,7 +17350,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/bc/Thunderclap.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Thunderclap",
         "Ranks": [
-            [10, 13, 15, 18, 21, 23, 26, 29, 31, 34, 37, 39, 42, 45, 47, 50, 53, 55, 58, 61, 63, 66], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [10, 13, 15, 18, 21, 23, 26, 29, 31, 34, 37, 39, 42, 45, 47, 50, 53, 55, 58, 61, 63, 66],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 163,
         "Name": "Whirlwind",
@@ -16474,7 +17374,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/59/Whirlwind.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Whirlwind",
         "Ranks": [
-            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]]
+            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]
+        ]
     }, {
         "Id": 160,
         "Name": "Windborne Speed",
@@ -16496,7 +17397,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c4/Windborne_Speed.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Windborne_Speed",
         "Ranks": [
-            [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 14, 14, 15, 15, 16, 16]]
+            [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 14, 14, 15, 15, 16, 16]
+        ]
     }, {
         "Id": 174,
         "Name": "Aftershock",
@@ -16518,7 +17420,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/af/Aftershock.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Aftershock",
         "Ranks": [
-            [26, 31, 36, 41, 46, 51, 56, 61, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130], [10, 14, 18, 22, 25, 29, 33, 37, 41, 45, 49, 53, 56, 60, 64, 68, 72, 76, 80, 83, 87, 91]]
+            [26, 31, 36, 41, 46, 51, 56, 61, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130],
+            [10, 14, 18, 22, 25, 29, 33, 37, 41, 45, 49, 53, 56, 60, 64, 68, 72, 76, 80, 83, 87, 91]
+        ]
     }, {
         "Id": 165,
         "Name": "Armor of Earth",
@@ -16540,7 +17444,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/8e/Armor_of_Earth.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Armor_of_Earth",
         "Ranks": [
-            [24, 26, 29, 31, 34, 36, 38, 41, 43, 46, 48, 50, 53, 55, 58, 60, 62, 65, 67, 70, 72, 74], [50, 48, 45, 43, 40, 38, 36, 33, 31, 28, 26, 24, 21, 19, 16, 14, 12, 9, 7, 4, 2, 0]]
+            [24, 26, 29, 31, 34, 36, 38, 41, 43, 46, 48, 50, 53, 55, 58, 60, 62, 65, 67, 70, 72, 74],
+            [50, 48, 45, 43, 40, 38, 36, 33, 31, 28, 26, 24, 21, 19, 16, 14, 12, 9, 7, 4, 2, 0]
+        ]
     }, {
         "Id": 1085,
         "Name": "Ash Blast",
@@ -16562,7 +17468,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/3c/Ash_Blast.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Ash_Blast",
         "Ranks": [
-            [35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 73, 75, 77], [20, 24, 27, 31, 35, 38, 42, 46, 49, 53, 57, 60, 64, 68, 71, 75, 79, 82, 86, 90, 93, 97]]
+            [35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 73, 75, 77],
+            [20, 24, 27, 31, 35, 38, 42, 46, 49, 53, 57, 60, 64, 68, 71, 75, 79, 82, 86, 90, 93, 97]
+        ]
     }, {
         "Id": 844,
         "Name": "Churning Earth",
@@ -16584,7 +17492,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/51/Churning_Earth.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Churning_Earth",
         "Ranks": [
-            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]]
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]
+        ]
     }, {
         "Id": 217,
         "Name": "Crystal Wave",
@@ -16606,7 +17515,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/60/Crystal_Wave.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Crystal_Wave",
         "Ranks": [
-            [10, 14, 18, 22, 26, 30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94], [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19]]
+            [10, 14, 18, 22, 26, 30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94],
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19]
+        ]
     }, {
         "Id": 1086,
         "Name": "Dragon's Stomp",
@@ -16628,7 +17539,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/1f/Dragon%27s_Stomp.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Dragon%27s_Stomp",
         "Ranks": [
-            [26, 31, 36, 41, 46, 51, 56, 61, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130]]
+            [26, 31, 36, 41, 46, 51, 56, 61, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130]
+        ]
     }, {
         "Id": 169,
         "Name": "Earth Attunement",
@@ -16650,7 +17562,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/78/Earth_Attunement.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Earth_Attunement",
         "Ranks": [
-            [36, 38, 39, 41, 42, 44, 46, 47, 49, 50, 52, 54, 55, 57, 58, 60, 62, 63, 65, 66, 68, 70]]
+            [36, 38, 39, 41, 42, 44, 46, 47, 49, 50, 52, 54, 55, 57, 58, 60, 62, 63, 65, 66, 68, 70]
+        ]
     }, {
         "Id": 2000,
         "Name": "Earthen Shackles",
@@ -16672,7 +17585,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/b2/Earthen_Shackles.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Earthen_Shackles",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 170,
         "Name": "Earthquake",
@@ -16694,7 +17608,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/b9/Earthquake.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Earthquake",
         "Ranks": [
-            [26, 31, 36, 41, 46, 51, 56, 61, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130]]
+            [26, 31, 36, 41, 46, 51, 56, 61, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130]
+        ]
     }, {
         "Id": 1374,
         "Name": "Ebon Hawk",
@@ -16716,7 +17631,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/7b/Ebon_Hawk.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Ebon_Hawk",
         "Ranks": [
-            [10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115], [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19]]
+            [10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115],
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19]
+        ]
     }, {
         "Id": 167,
         "Name": "Eruption",
@@ -16738,7 +17655,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/3f/Eruption.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Eruption",
         "Ranks": [
-            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]]
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]
+        ]
     }, {
         "Id": 1661,
         "Name": "Glowstone",
@@ -16760,7 +17678,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/30/Glowstone.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Glowstone",
         "Ranks": [
-            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]]
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]
+        ]
     }, {
         "Id": 173,
         "Name": "Grasping Earth",
@@ -16782,7 +17701,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/0c/Grasping_Earth.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Grasping_Earth",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 216,
         "Name": "Iron Mist",
@@ -16804,7 +17724,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/fe/Iron_Mist.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Iron_Mist",
         "Ranks": [
-            [8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15, 15, 16, 16, 17, 17, 18]]
+            [8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15, 15, 16, 16, 17, 17, 18]
+        ]
     }, {
         "Id": 166,
         "Name": "Kinetic Armor",
@@ -16826,7 +17747,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/fc/Kinetic_Armor.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Kinetic_Armor",
         "Ranks": [
-            [20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100, 104]]
+            [20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100, 104]
+        ]
     }, {
         "Id": 168,
         "Name": "Magnetic Aura",
@@ -16848,7 +17770,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/dc/Magnetic_Aura.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Magnetic_Aura",
         "Ranks": [
-            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7], [10, 13, 15, 18, 21, 23, 26, 29, 31, 34, 37, 39, 42, 45, 47, 50, 53, 55, 58, 61, 63, 66]]
+            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7],
+            [10, 13, 15, 18, 21, 23, 26, 29, 31, 34, 37, 39, 42, 45, 47, 50, 53, 55, 58, 61, 63, 66]
+        ]
     }, {
         "Id": 2190,
         "Name": "Magnetic Surge",
@@ -16870,7 +17794,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/4a/Magnetic_Surge.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Magnetic_Surge",
         "Ranks": [
-            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99], [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]]
+            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99],
+            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]
+        ]
     }, {
         "Id": 219,
         "Name": "Obsidian Flame",
@@ -16892,7 +17818,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/21/Obsidian_Flame.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Obsidian_Flame",
         "Ranks": [
-            [22, 28, 34, 40, 46, 52, 58, 64, 70, 76, 82, 88, 94, 100, 106, 112, 118, 124, 130, 136, 142, 148]]
+            [22, 28, 34, 40, 46, 52, 58, 64, 70, 76, 82, 88, 94, 100, 106, 112, 118, 124, 130, 136, 142, 148]
+        ]
     }, {
         "Id": 218,
         "Name": "Obsidian Flesh",
@@ -16914,7 +17841,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c2/Obsidian_Flesh.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Obsidian_Flesh",
         "Ranks": [
-            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25]]
+            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25]
+        ]
     }, {
         "Id": 1372,
         "Name": "Sandstorm",
@@ -16936,7 +17864,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/75/Sandstorm.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Sandstorm",
         "Ranks": [
-            [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38], [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38]]
+            [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38],
+            [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38]
+        ]
     }, {
         "Id": 937,
         "Name": "Shockwave",
@@ -16958,7 +17888,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/18/Shockwave.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Shockwave",
         "Ranks": [
-            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78], [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]]
+            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78],
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]
+        ]
     }, {
         "Id": 1084,
         "Name": "Sliver Armor",
@@ -16980,7 +17912,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e5/Sliver_Armor.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Sliver_Armor",
         "Ranks": [
-            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13, 13], [25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45, 47, 48, 50, 52, 53, 55, 57, 58, 60], [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47]]
+            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13, 13],
+            [25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45, 47, 48, 50, 52, 53, 55, 57, 58, 60],
+            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47]
+        ]
     }, {
         "Id": 172,
         "Name": "Stone Daggers",
@@ -17002,7 +17937,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/3e/Stone_Daggers.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Stone_Daggers",
         "Ranks": [
-            [8, 10, 11, 13, 15, 16, 18, 20, 21, 23, 25, 26, 28, 30, 31, 33, 35, 36, 38, 40, 41, 43], [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]]
+            [8, 10, 11, 13, 15, 16, 18, 20, 21, 23, 25, 26, 28, 30, 31, 33, 35, 36, 38, 40, 41, 43],
+            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]
+        ]
     }, {
         "Id": 1373,
         "Name": "Stone Sheath",
@@ -17024,7 +17961,11 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/9e/Stone_Sheath.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Stone_Sheath",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [1, 3, 5, 7, 9, 11, 13, 15, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42], [15, 19, 22, 26, 30, 33, 37, 41, 44, 48, 52, 55, 59, 63, 66, 70, 74, 77, 81, 85, 88, 92], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [1, 3, 5, 7, 9, 11, 13, 15, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42],
+            [15, 19, 22, 26, 30, 33, 37, 41, 44, 48, 52, 55, 59, 63, 66, 70, 74, 77, 81, 85, 88, 92],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1371,
         "Name": "Stone Striker",
@@ -17046,7 +17987,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/14/Stone_Striker.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Stone_Striker",
         "Ranks": [
-            [5, 7, 8, 10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40]]
+            [5, 7, 8, 10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40]
+        ]
     }, {
         "Id": 1375,
         "Name": "Stoneflesh Aura",
@@ -17068,7 +18010,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/15/Stoneflesh_Aura.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Stoneflesh_Aura",
         "Ranks": [
-            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19], [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43]]
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19],
+            [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43]
+        ]
     }, {
         "Id": 171,
         "Name": "Stoning",
@@ -17090,7 +18034,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/8d/Stoning.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Stoning",
         "Ranks": [
-            [45, 49, 53, 57, 61, 65, 69, 73, 77, 81, 85, 89, 93, 97, 101, 105, 109, 113, 117, 121, 125, 129]]
+            [45, 49, 53, 57, 61, 65, 69, 73, 77, 81, 85, 89, 93, 97, 101, 105, 109, 113, 117, 121, 125, 129]
+        ]
     }, {
         "Id": 1099,
         "Name": "Teinai's Crystals",
@@ -17112,7 +18057,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/24/Teinai%27s_Crystals.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Teinai%27s_Crystals",
         "Ranks": [
-            [20, 21, 23, 24, 25, 27, 28, 29, 31, 32, 33, 35, 36, 37, 39, 40, 41, 43, 44, 45, 47, 48], [20, 21, 23, 24, 25, 27, 28, 29, 31, 32, 33, 35, 36, 37, 39, 40, 41, 43, 44, 45, 47, 48], [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19]]
+            [20, 21, 23, 24, 25, 27, 28, 29, 31, 32, 33, 35, 36, 37, 39, 40, 41, 43, 44, 45, 47, 48],
+            [20, 21, 23, 24, 25, 27, 28, 29, 31, 32, 33, 35, 36, 37, 39, 40, 41, 43, 44, 45, 47, 48],
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19]
+        ]
     }, {
         "Id": 1083,
         "Name": "Unsteady Ground",
@@ -17134,7 +18082,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/bf/Unsteady_Ground.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Unsteady_Ground",
         "Ranks": [
-            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]]
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]
+        ]
     }, {
         "Id": 175,
         "Name": "Ward Against Elements",
@@ -17156,7 +18105,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/be/Ward_Against_Elements.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Ward_Against_Elements",
         "Ranks": [
-            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25]]
+            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25]
+        ]
     }, {
         "Id": 177,
         "Name": "Ward Against Foes",
@@ -17178,7 +18128,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/8e/Ward_Against_Foes.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Ward_Against_Foes",
         "Ranks": [
-            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25]]
+            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25]
+        ]
     }, {
         "Id": 176,
         "Name": "Ward Against Melee",
@@ -17200,7 +18151,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e0/Ward_Against_Melee.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Ward_Against_Melee",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 938,
         "Name": "Ward of Stability",
@@ -17222,7 +18174,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/ab/Ward_of_Stability.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Ward_of_Stability",
         "Ranks": [
-            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]]
+            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
+        ]
     }, {
         "Id": 2001,
         "Name": "Ward of Weakness",
@@ -17244,7 +18197,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/97/Ward_of_Weakness.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Ward_of_Weakness",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 180,
         "Name": "Aura of Restoration",
@@ -17266,7 +18221,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c3/Aura_of_Restoration.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Aura_of_Restoration",
         "Ranks": [
-            [200, 220, 240, 260, 280, 300, 320, 340, 360, 380, 400, 420, 440, 460, 480, 500, 520, 540, 560, 580, 600, 620], [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]]
+            [200, 220, 240, 260, 280, 300, 320, 340, 360, 380, 400, 420, 440, 460, 480, 500, 520, 540, 560, 580, 600, 620],
+            [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+        ]
     }, {
         "Id": 164,
         "Name": "Elemental Attunement",
@@ -17288,7 +18245,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/34/Elemental_Attunement.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Elemental_Attunement",
         "Ranks": [
-            [25, 27, 30, 32, 34, 37, 39, 41, 44, 46, 48, 51, 53, 55, 58, 60, 62, 65, 67, 69, 72, 74], [1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]]
+            [25, 27, 30, 32, 34, 37, 39, 41, 44, 46, 48, 51, 53, 55, 58, 60, 62, 65, 67, 69, 72, 74],
+            [1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+        ]
     }, {
         "Id": 2193,
         "Name": "Energy Blast",
@@ -17310,7 +18269,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/1f/Energy_Blast.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Energy_Blast",
         "Ranks": [
-            [1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]]
+            [1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+        ]
     }, {
         "Id": 837,
         "Name": "Energy Boon",
@@ -17332,7 +18292,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/00/Energy_Boon.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Energy_Boon",
         "Ranks": [
-            [36, 38, 39, 41, 42, 44, 46, 47, 49, 50, 52, 54, 55, 57, 58, 60, 62, 63, 65, 66, 68, 70], [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4], [1, 2, 2, 3, 4, 5, 5, 6, 7, 8, 8, 9, 10, 11, 11, 12, 13, 13, 14, 15, 16, 16]]
+            [36, 38, 39, 41, 42, 44, 46, 47, 49, 50, 52, 54, 55, 57, 58, 60, 62, 63, 65, 66, 68, 70],
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4],
+            [1, 2, 2, 3, 4, 5, 5, 6, 7, 8, 8, 9, 10, 11, 11, 12, 13, 13, 14, 15, 16, 16]
+        ]
     }, {
         "Id": 1377,
         "Name": "Ether Prism",
@@ -17354,7 +18317,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/39/Ether_Prism.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Ether_Prism",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 178,
         "Name": "Ether Prodigy",
@@ -17376,7 +18340,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/30/Ether_Prodigy.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Ether_Prodigy",
         "Ranks": [
-            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25], [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52], [0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2]]
+            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25],
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52],
+            [0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2]
+        ]
     }, {
         "Id": 181,
         "Name": "Ether Renewal",
@@ -17398,7 +18365,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/97/Ether_Renewal.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Ether_Renewal",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 199,
         "Name": "Glyph of Energy",
@@ -17420,7 +18390,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c1/Glyph_of_Energy.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Glyph_of_Energy",
         "Ranks": [
-            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4], [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], [1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]]
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4],
+            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+            [1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+        ]
     }, {
         "Id": 200,
         "Name": "Glyph of Lesser Energy",
@@ -17442,7 +18415,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/53/Glyph_of_Lesser_Energy.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Glyph_of_Lesser_Energy",
         "Ranks": [
-            [10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15, 16, 16, 17, 17, 18, 19, 19, 20, 20, 21, 21]]
+            [10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15, 16, 16, 17, 17, 18, 19, 19, 20, 20, 21, 21]
+        ]
     }, {
         "Id": 1376,
         "Name": "Glyph of Restoration",
@@ -17464,7 +18438,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/7f/Glyph_of_Restoration.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Glyph_of_Restoration",
         "Ranks": [
-            [30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130, 135], [150, 167, 183, 200, 217, 233, 250, 267, 283, 300, 317, 333, 350, 367, 383, 400, 417, 433, 450, 467, 483, 500]]
+            [30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130, 135],
+            [150, 167, 183, 200, 217, 233, 250, 267, 283, 300, 317, 333, 350, 367, 383, 400, 417, 433, 450, 467, 483, 500]
+        ]
     }, {
         "Id": 1378,
         "Name": "Master of Magic",
@@ -17486,7 +18462,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/35/Master_of_Magic.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Master_of_Magic",
         "Ranks": [
-            [1, 5, 9, 13, 17, 21, 25, 29, 33, 37, 41, 45, 49, 53, 57, 61, 65, 69, 73, 77, 81, 85], [8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 12, 13, 13, 14, 14, 14, 15, 15, 16, 16, 16]]
+            [1, 5, 9, 13, 17, 21, 25, 29, 33, 37, 41, 45, 49, 53, 57, 61, 65, 69, 73, 77, 81, 85],
+            [8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 12, 13, 13, 14, 14, 14, 15, 15, 16, 16, 16]
+        ]
     }, {
         "Id": 825,
         "Name": "Bed of Coals",
@@ -17508,7 +18486,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/fa/Bed_of_Coals.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Bed_of_Coals",
         "Ranks": [
-            [5, 7, 8, 10, 11, 13, 15, 16, 18, 19, 21, 23, 24, 26, 27, 29, 31, 32, 34, 35, 37, 39], [3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 8, 8, 8, 8, 9]]
+            [5, 7, 8, 10, 11, 13, 15, 16, 18, 19, 21, 23, 24, 26, 27, 29, 31, 32, 34, 35, 37, 39],
+            [3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 8, 8, 8, 8, 9]
+        ]
     }, {
         "Id": 1094,
         "Name": "Breath of Fire",
@@ -17530,7 +18510,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/4e/Breath_of_Fire.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Breath_of_Fire",
         "Ranks": [
-            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]]
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]
+        ]
     }, {
         "Id": 823,
         "Name": "Burning Speed",
@@ -17552,7 +18533,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/89/Burning_Speed.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Burning_Speed",
         "Ranks": [
-            [30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51], [3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11]]
+            [30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51],
+            [3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11]
+        ]
     }, {
         "Id": 182,
         "Name": "Conjure Flame",
@@ -17574,7 +18557,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a6/Conjure_Flame.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Conjure_Flame",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1091,
         "Name": "Double Dragon",
@@ -17596,7 +18580,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/7a/Double_Dragon.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Double_Dragon",
         "Ranks": [
-            [5, 7, 8, 10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40], [0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4]]
+            [5, 7, 8, 10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40],
+            [0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4]
+        ]
     }, {
         "Id": 1663,
         "Name": "Elemental Flame",
@@ -17618,7 +18604,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e3/Elemental_Flame.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Elemental_Flame",
         "Ranks": [
-            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45], [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]]
+            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45],
+            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]
+        ]
     }, {
         "Id": 184,
         "Name": "Fire Attunement",
@@ -17640,7 +18628,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e5/Fire_Attunement.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Fire_Attunement",
         "Ranks": [
-            [36, 38, 39, 41, 42, 44, 46, 47, 49, 50, 52, 54, 55, 57, 58, 60, 62, 63, 65, 66, 68, 70]]
+            [36, 38, 39, 41, 42, 44, 46, 47, 49, 50, 52, 54, 55, 57, 58, 60, 62, 63, 65, 66, 68, 70]
+        ]
     }, {
         "Id": 197,
         "Name": "Fire Storm",
@@ -17662,7 +18651,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/2c/Fire_Storm.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Fire_Storm",
         "Ranks": [
-            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47]]
+            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47]
+        ]
     }, {
         "Id": 186,
         "Name": "Fireball",
@@ -17684,7 +18674,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/44/Fireball.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Fireball",
         "Ranks": [
-            [7, 14, 21, 28, 35, 42, 49, 56, 63, 70, 77, 84, 91, 98, 105, 112, 119, 126, 133, 140, 147, 154]]
+            [7, 14, 21, 28, 35, 42, 49, 56, 63, 70, 77, 84, 91, 98, 105, 112, 119, 126, 133, 140, 147, 154]
+        ]
     }, {
         "Id": 188,
         "Name": "Flame Burst",
@@ -17706,7 +18697,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/85/Flame_Burst.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Flame_Burst",
         "Ranks": [
-            [15, 22, 29, 36, 43, 50, 57, 64, 71, 78, 85, 92, 99, 106, 113, 120, 127, 134, 141, 148, 155, 162]]
+            [15, 22, 29, 36, 43, 50, 57, 64, 71, 78, 85, 92, 99, 106, 113, 120, 127, 134, 141, 148, 155, 162]
+        ]
     }, {
         "Id": 1381,
         "Name": "Flame Djinn's Haste",
@@ -17728,7 +18720,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/bf/Flame_Djinn%27s_Haste.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Flame_Djinn%27s_Haste",
         "Ranks": [
-            [15, 22, 29, 36, 43, 50, 57, 64, 71, 78, 85, 92, 99, 106, 113, 120, 127, 134, 141, 148, 155, 162], [8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 12, 13, 13, 14, 14, 14, 15, 15, 16, 16, 16]]
+            [15, 22, 29, 36, 43, 50, 57, 64, 71, 78, 85, 92, 99, 106, 113, 120, 127, 134, 141, 148, 155, 162],
+            [8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 12, 13, 13, 14, 14, 14, 15, 15, 16, 16, 16]
+        ]
     }, {
         "Id": 194,
         "Name": "Flare",
@@ -17750,7 +18744,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/31/Flare.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Flare",
         "Ranks": [
-            [20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68, 71, 74, 77, 80, 83]]
+            [20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68, 71, 74, 77, 80, 83]
+        ]
     }, {
         "Id": 1379,
         "Name": "Glowing Gaze",
@@ -17772,7 +18767,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/bf/Glowing_Gaze.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Glowing_Gaze",
         "Ranks": [
-            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]]
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]
+        ]
     }, {
         "Id": 2060,
         "Name": "Glyph of Immolation",
@@ -17794,7 +18790,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/51/Glyph_of_Immolation.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Glyph_of_Immolation",
         "Ranks": [
-            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5], [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5]]
+            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5],
+            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5]
+        ]
     }, {
         "Id": 191,
         "Name": "Immolate",
@@ -17816,7 +18814,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/4a/Immolate.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Immolate",
         "Ranks": [
-            [20, 24, 27, 31, 35, 38, 42, 46, 49, 53, 57, 60, 64, 68, 71, 75, 79, 82, 86, 90, 93, 97], [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4]]
+            [20, 24, 27, 31, 35, 38, 42, 46, 49, 53, 57, 60, 64, 68, 71, 75, 79, 82, 86, 90, 93, 97],
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4]
+        ]
     }, {
         "Id": 179,
         "Name": "Incendiary Bonds",
@@ -17838,7 +18838,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/d5/Incendiary_Bonds.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Incendiary_Bonds",
         "Ranks": [
-            [20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100, 104], [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4]]
+            [20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100, 104],
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4]
+        ]
     }, {
         "Id": 183,
         "Name": "Inferno",
@@ -17860,7 +18862,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f0/Inferno.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Inferno",
         "Ranks": [
-            [30, 37, 44, 51, 58, 65, 72, 79, 86, 93, 100, 107, 114, 121, 128, 135, 142, 149, 156, 163, 170, 177]]
+            [30, 37, 44, 51, 58, 65, 72, 79, 86, 93, 100, 107, 114, 121, 128, 135, 142, 149, 156, 163, 170, 177]
+        ]
     }, {
         "Id": 824,
         "Name": "Lava Arrows",
@@ -17882,7 +18885,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/8b/Lava_Arrows.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Lava_Arrows",
         "Ranks": [
-            [20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68, 71, 74, 77, 80, 83]]
+            [20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68, 71, 74, 77, 80, 83]
+        ]
     }, {
         "Id": 195,
         "Name": "Lava Font",
@@ -17904,7 +18908,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a3/Lava_Font.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Lava_Font",
         "Ranks": [
-            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]]
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]
+        ]
     }, {
         "Id": 845,
         "Name": "Liquid Flame",
@@ -17926,7 +18931,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/bb/Liquid_Flame.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Liquid_Flame",
         "Ranks": [
-            [7, 14, 21, 28, 35, 42, 49, 56, 63, 70, 77, 84, 91, 98, 105, 112, 119, 126, 133, 140, 147, 154]]
+            [7, 14, 21, 28, 35, 42, 49, 56, 63, 70, 77, 84, 91, 98, 105, 112, 119, 126, 133, 140, 147, 154]
+        ]
     }, {
         "Id": 190,
         "Name": "Mark of Rodgort",
@@ -17948,7 +18954,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f3/Mark_of_Rodgort.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mark_of_Rodgort",
         "Ranks": [
-            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45], [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5]]
+            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45],
+            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5]
+        ]
     }, {
         "Id": 187,
         "Name": "Meteor",
@@ -17970,7 +18978,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/cf/Meteor.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Meteor",
         "Ranks": [
-            [7, 14, 21, 28, 35, 42, 49, 56, 63, 70, 77, 84, 91, 98, 105, 112, 119, 126, 133, 140, 147, 154]]
+            [7, 14, 21, 28, 35, 42, 49, 56, 63, 70, 77, 84, 91, 98, 105, 112, 119, 126, 133, 140, 147, 154]
+        ]
     }, {
         "Id": 192,
         "Name": "Meteor Shower",
@@ -17992,7 +19001,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/30/Meteor_Shower.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Meteor_Shower",
         "Ranks": [
-            [7, 14, 21, 28, 35, 42, 49, 56, 63, 70, 77, 84, 91, 98, 105, 112, 119, 126, 133, 140, 147, 154]]
+            [7, 14, 21, 28, 35, 42, 49, 56, 63, 70, 77, 84, 91, 98, 105, 112, 119, 126, 133, 140, 147, 154]
+        ]
     }, {
         "Id": 1662,
         "Name": "Mind Blast",
@@ -18014,7 +19024,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/3d/Mind_Blast.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mind_Blast",
         "Ranks": [
-            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78], [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 11]]
+            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78],
+            [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 11]
+        ]
     }, {
         "Id": 185,
         "Name": "Mind Burn",
@@ -18036,7 +19048,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/4f/Mind_Burn.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mind_Burn",
         "Ranks": [
-            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78], [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78], [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]]
+            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78],
+            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78],
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]
+        ]
     }, {
         "Id": 193,
         "Name": "Phoenix",
@@ -18058,7 +19073,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/ac/Phoenix.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Phoenix",
         "Ranks": [
-            [10, 13, 17, 20, 23, 27, 30, 33, 37, 40, 43, 47, 50, 53, 57, 60, 63, 67, 70, 73, 77, 80], [20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100, 104]]
+            [10, 13, 17, 20, 23, 27, 30, 33, 37, 40, 43, 47, 50, 53, 57, 60, 63, 67, 70, 73, 77, 80],
+            [20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100, 104]
+        ]
     }, {
         "Id": 189,
         "Name": "Rodgort's Invocation",
@@ -18080,7 +19097,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/39/Rodgort%27s_Invocation.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Rodgort%27s_Invocation",
         "Ranks": [
-            [15, 22, 29, 36, 43, 50, 57, 64, 71, 78, 85, 92, 99, 106, 113, 120, 127, 134, 141, 148, 155, 162], [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4]]
+            [15, 22, 29, 36, 43, 50, 57, 64, 71, 78, 85, 92, 99, 106, 113, 120, 127, 134, 141, 148, 155, 162],
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4]
+        ]
     }, {
         "Id": 1380,
         "Name": "Savannah Heat",
@@ -18102,7 +19121,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/50/Savannah_Heat.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Savannah_Heat",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [75, 90, 105, 120, 135, 150, 165, 180, 195, 210, 225, 240, 255, 270, 285, 300, 315, 330, 345, 360, 375, 390]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [75, 90, 105, 120, 135, 150, 165, 180, 195, 210, 225, 240, 255, 270, 285, 300, 315, 330, 345, 360, 375, 390]
+        ]
     }, {
         "Id": 884,
         "Name": "Searing Flames",
@@ -18124,7 +19146,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/39/Searing_Flames.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Searing_Flames",
         "Ranks": [
-            [10, 16, 22, 28, 34, 40, 46, 52, 58, 64, 70, 76, 82, 88, 94, 100, 106, 112, 118, 124, 130, 136], [1, 1, 2, 2, 3, 3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9]]
+            [10, 16, 22, 28, 34, 40, 46, 52, 58, 64, 70, 76, 82, 88, 94, 100, 106, 112, 118, 124, 130, 136],
+            [1, 1, 2, 2, 3, 3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9]
+        ]
     }, {
         "Id": 196,
         "Name": "Searing Heat",
@@ -18146,7 +19170,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/87/Searing_Heat.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Searing_Heat",
         "Ranks": [
-            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]]
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]
+        ]
     }, {
         "Id": 1090,
         "Name": "Smoldering Embers",
@@ -18168,7 +19193,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/de/Smoldering_Embers.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Smoldering_Embers",
         "Ranks": [
-            [10, 14, 18, 22, 26, 30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94], [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32, 33]]
+            [10, 14, 18, 22, 26, 30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94],
+            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32, 33]
+        ]
     }, {
         "Id": 1095,
         "Name": "Star Burst",
@@ -18190,7 +19217,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/5a/Star_Burst.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Star_Burst",
         "Ranks": [
-            [7, 14, 21, 28, 35, 42, 49, 56, 63, 70, 77, 84, 91, 98, 105, 112, 119, 126, 133, 140, 147, 154], [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5]]
+            [7, 14, 21, 28, 35, 42, 49, 56, 63, 70, 77, 84, 91, 98, 105, 112, 119, 126, 133, 140, 147, 154],
+            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5]
+        ]
     }, {
         "Id": 1093,
         "Name": "Teinai's Heat",
@@ -18212,7 +19241,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/51/Teinai%27s_Heat.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Teinai%27s_Heat",
         "Ranks": [
-            [10, 10, 11, 11, 11, 12, 12, 12, 13, 13, 13, 14, 14, 14, 15, 15, 15, 16, 16, 16, 17, 17], [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 6, 6, 6, 6]]
+            [10, 10, 11, 11, 11, 12, 12, 12, 13, 13, 13, 14, 14, 14, 15, 15, 15, 16, 16, 16, 17, 17],
+            [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 6, 6, 6, 6]
+        ]
     }, {
         "Id": 206,
         "Name": "Armor of Frost",
@@ -18234,7 +19265,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/29/Armor_of_Frost.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Armor_of_Frost",
         "Ranks": [
-            [10, 12, 13, 15, 16, 18, 20, 21, 23, 24, 26, 28, 29, 31, 32, 34, 36, 37, 39, 40, 42, 44]]
+            [10, 12, 13, 15, 16, 18, 20, 21, 23, 24, 26, 28, 29, 31, 32, 34, 36, 37, 39, 40, 42, 44]
+        ]
     }, {
         "Id": 238,
         "Name": "Armor of Mist",
@@ -18256,7 +19288,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/ad/Armor_of_Mist.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Armor_of_Mist",
         "Ranks": [
-            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25], [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]]
+            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25],
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]
+        ]
     }, {
         "Id": 235,
         "Name": "Blurred Vision",
@@ -18278,7 +19312,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/5f/Blurred_Vision.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Blurred_Vision",
         "Ranks": [
-            [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 12]]
+            [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 12]
+        ]
     }, {
         "Id": 207,
         "Name": "Conjure Frost",
@@ -18300,7 +19335,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/fc/Conjure_Frost.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Conjure_Frost",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 234,
         "Name": "Deep Freeze",
@@ -18322,7 +19358,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/22/Deep_Freeze.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Deep_Freeze",
         "Ranks": [
-            [10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115]]
+            [10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115]
+        ]
     }, {
         "Id": 1382,
         "Name": "Freezing Gust",
@@ -18344,7 +19381,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/5a/Freezing_Gust.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Freezing_Gust",
         "Ranks": [
-            [20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100, 104], [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]]
+            [20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100, 104],
+            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]
+        ]
     }, {
         "Id": 1261,
         "Name": "Frigid Armor",
@@ -18366,7 +19405,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/7b/Frigid_Armor.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Frigid_Armor",
         "Ranks": [
-            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]]
+            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]
+        ]
     }, {
         "Id": 212,
         "Name": "Frozen Burst",
@@ -18388,7 +19429,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/22/Frozen_Burst.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Frozen_Burst",
         "Ranks": [
-            [10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115], [3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10]]
+            [10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115],
+            [3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10]
+        ]
     }, {
         "Id": 2192,
         "Name": "Glowing Ice",
@@ -18410,7 +19453,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/01/Glowing_Ice.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Glowing_Ice",
         "Ranks": [
-            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]]
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]
+        ]
     }, {
         "Id": 210,
         "Name": "Ice Prison",
@@ -18432,7 +19476,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/eb/Ice_Prison.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Ice_Prison",
         "Ranks": [
-            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25]]
+            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25]
+        ]
     }, {
         "Id": 214,
         "Name": "Ice Spear",
@@ -18454,7 +19499,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e1/Ice_Spear.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Ice_Spear",
         "Ranks": [
-            [10, 13, 17, 20, 23, 27, 30, 33, 37, 40, 43, 47, 50, 53, 57, 60, 63, 67, 70, 73, 77, 80], [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5]]
+            [10, 13, 17, 20, 23, 27, 30, 33, 37, 40, 43, 47, 50, 53, 57, 60, 63, 67, 70, 73, 77, 80],
+            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5]
+        ]
     }, {
         "Id": 211,
         "Name": "Ice Spikes",
@@ -18476,7 +19523,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/0b/Ice_Spikes.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Ice_Spikes",
         "Ranks": [
-            [20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100, 104], [2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 7, 7, 7, 7, 8]]
+            [20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100, 104],
+            [2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 7, 7, 7, 7, 8]
+        ]
     }, {
         "Id": 903,
         "Name": "Icy Prism",
@@ -18498,7 +19547,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/55/Icy_Prism.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Icy_Prism",
         "Ranks": [
-            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99], [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]]
+            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99],
+            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]
+        ]
     }, {
         "Id": 939,
         "Name": "Icy Shackles",
@@ -18520,7 +19571,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/d1/Icy_Shackles.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Icy_Shackles",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]
+        ]
     }, {
         "Id": 215,
         "Name": "Maelstrom",
@@ -18542,7 +19594,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/dd/Maelstrom.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Maelstrom",
         "Ranks": [
-            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]]
+            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
+        ]
     }, {
         "Id": 209,
         "Name": "Mind Freeze",
@@ -18564,7 +19617,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/be/Mind_Freeze.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mind_Freeze",
         "Ranks": [
-            [10, 13, 17, 20, 23, 27, 30, 33, 37, 40, 43, 47, 50, 53, 57, 60, 63, 67, 70, 73, 77, 80], [10, 13, 17, 20, 23, 27, 30, 33, 37, 40, 43, 47, 50, 53, 57, 60, 63, 67, 70, 73, 77, 80], [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]]
+            [10, 13, 17, 20, 23, 27, 30, 33, 37, 40, 43, 47, 50, 53, 57, 60, 63, 67, 70, 73, 77, 80],
+            [10, 13, 17, 20, 23, 27, 30, 33, 37, 40, 43, 47, 50, 53, 57, 60, 63, 67, 70, 73, 77, 80],
+            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]
+        ]
     }, {
         "Id": 1098,
         "Name": "Mirror of Ice",
@@ -18586,7 +19642,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/33/Mirror_of_Ice.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mirror_of_Ice",
         "Ranks": [
-            [15, 19, 22, 26, 30, 33, 37, 41, 44, 48, 52, 55, 59, 63, 66, 70, 74, 77, 81, 85, 88, 92], [2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 7, 7, 7, 7, 8]]
+            [15, 19, 22, 26, 30, 33, 37, 41, 44, 48, 52, 55, 59, 63, 66, 70, 74, 77, 81, 85, 88, 92],
+            [2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 7, 7, 7, 7, 8]
+        ]
     }, {
         "Id": 236,
         "Name": "Mist Form",
@@ -18608,7 +19666,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f3/Mist_Form.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mist_Form",
         "Ranks": [
-            [10, 12, 15, 17, 19, 22, 24, 26, 29, 31, 33, 36, 38, 40, 43, 45, 47, 50, 52, 54, 57, 59], [50, 63, 77, 90, 103, 117, 130, 143, 157, 170, 183, 197, 210, 223, 237, 250, 263, 277, 290, 303, 317, 330]]
+            [10, 12, 15, 17, 19, 22, 24, 26, 29, 31, 33, 36, 38, 40, 43, 45, 47, 50, 52, 54, 57, 59],
+            [50, 63, 77, 90, 103, 117, 130, 143, 157, 170, 183, 197, 210, 223, 237, 250, 263, 277, 290, 303, 317, 330]
+        ]
     }, {
         "Id": 204,
         "Name": "Rust",
@@ -18630,7 +19690,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/33/Rust.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Rust",
         "Ranks": [
-            [10, 14, 18, 22, 26, 30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]]
+            [10, 14, 18, 22, 26, 30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]
+        ]
     }, {
         "Id": 213,
         "Name": "Shard Storm",
@@ -18652,7 +19715,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/0b/Shard_Storm.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Shard_Storm",
         "Ranks": [
-            [10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115], [2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 7, 7, 7, 7, 8]]
+            [10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115],
+            [2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 7, 7, 7, 7, 8]
+        ]
     }, {
         "Id": 809,
         "Name": "Shatterstone",
@@ -18674,7 +19739,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/36/Shatterstone.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Shatterstone",
         "Ranks": [
-            [25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130], [25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130]]
+            [25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130],
+            [25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130]
+        ]
     }, {
         "Id": 2191,
         "Name": "Slippery Ground",
@@ -18695,8 +19762,7 @@ var skillTable = [
         "Campaign": "Eye of the North",
         "Image": "https://wiki.guildwars.com/images/4/4b/Slippery_Ground.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Slippery_Ground",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 846,
         "Name": "Steam",
@@ -18718,7 +19784,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/04/Steam.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Steam",
         "Ranks": [
-            [20, 23, 25, 28, 31, 33, 36, 39, 41, 44, 47, 49, 52, 55, 57, 60, 63, 65, 68, 71, 73, 76], [5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10, 10, 11, 11, 11, 12, 12]]
+            [20, 23, 25, 28, 31, 33, 36, 39, 41, 44, 47, 49, 52, 55, 57, 60, 63, 65, 68, 71, 73, 76],
+            [5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10, 10, 11, 11, 11, 12, 12]
+        ]
     }, {
         "Id": 233,
         "Name": "Swirling Aura",
@@ -18740,7 +19808,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/88/Swirling_Aura.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Swirling_Aura",
         "Ranks": [
-            [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8]]
+            [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8]
+        ]
     }, {
         "Id": 1097,
         "Name": "Teinai's Prison",
@@ -18762,7 +19831,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/ad/Teinai%27s_Prison.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Teinai%27s_Prison",
         "Ranks": [
-            [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8], [5, 5, 6, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 8, 9, 9, 9, 10, 10, 10, 10, 11]]
+            [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8],
+            [5, 5, 6, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 8, 9, 9, 9, 10, 10, 10, 10, 11]
+        ]
     }, {
         "Id": 866,
         "Name": "Vapor Blade",
@@ -18784,7 +19855,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/ed/Vapor_Blade.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Vapor_Blade",
         "Ranks": [
-            [15, 23, 31, 39, 47, 55, 63, 71, 79, 87, 95, 103, 111, 119, 127, 135, 143, 151, 159, 167, 175, 183]]
+            [15, 23, 31, 39, 47, 55, 63, 71, 79, 87, 95, 103, 111, 119, 127, 135, 143, 151, 159, 167, 175, 183]
+        ]
     }, {
         "Id": 239,
         "Name": "Ward Against Harm",
@@ -18806,7 +19878,11 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/3f/Ward_Against_Harm.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Ward_Against_Harm",
         "Ranks": [
-            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19], [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4], [12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25, 26, 26, 27, 28, 29], [12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25, 26, 26, 27, 28, 29]]
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19],
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4],
+            [12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25, 26, 26, 27, 28, 29],
+            [12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25, 26, 26, 27, 28, 29]
+        ]
     }, {
         "Id": 208,
         "Name": "Water Attunement",
@@ -18828,7 +19904,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/43/Water_Attunement.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Water_Attunement",
         "Ranks": [
-            [36, 38, 39, 41, 42, 44, 46, 47, 49, 50, 52, 54, 55, 57, 58, 60, 62, 63, 65, 66, 68, 70]]
+            [36, 38, 39, 41, 42, 44, 46, 47, 49, 50, 52, 54, 55, 57, 58, 60, 62, 63, 65, 66, 68, 70]
+        ]
     }, {
         "Id": 237,
         "Name": "Water Trident",
@@ -18850,7 +19927,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/ee/Water_Trident.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Water_Trident",
         "Ranks": [
-            [10, 15, 21, 26, 31, 37, 42, 47, 53, 58, 63, 69, 74, 79, 85, 90, 95, 101, 106, 111, 117, 122]]
+            [10, 15, 21, 26, 31, 37, 42, 47, 53, 58, 63, 69, 74, 79, 85, 90, 95, 101, 106, 111, 117, 122]
+        ]
     }, {
         "Id": 1999,
         "Name": "Winter's Embrace",
@@ -18872,7 +19950,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/78/Winter%27s_Embrace.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Winter%27s_Embrace",
         "Ranks": [
-            [2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 7, 7, 7, 7, 8], [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19]]
+            [2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 7, 7, 7, 7, 8],
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19]
+        ]
     }, {
         "Id": 201,
         "Name": "Glyph of Concentration",
@@ -18893,8 +19973,7 @@ var skillTable = [
         "Campaign": "Prophecies",
         "Image": "https://wiki.guildwars.com/images/9/91/Glyph_of_Concentration.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Glyph_of_Concentration",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 198,
         "Name": "Glyph of Elemental Power",
@@ -18915,8 +19994,7 @@ var skillTable = [
         "Campaign": "Core",
         "Image": "https://wiki.guildwars.com/images/e/e9/Glyph_of_Elemental_Power.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Glyph_of_Elemental_Power",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 1096,
         "Name": "Glyph of Essence",
@@ -18937,8 +20015,7 @@ var skillTable = [
         "Campaign": "Factions",
         "Image": "https://wiki.guildwars.com/images/3/30/Glyph_of_Essence.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Glyph_of_Essence",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 203,
         "Name": "Glyph of Renewal",
@@ -18959,8 +20036,7 @@ var skillTable = [
         "Campaign": "Prophecies",
         "Image": "https://wiki.guildwars.com/images/8/8a/Glyph_of_Renewal.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Glyph_of_Renewal",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 202,
         "Name": "Glyph of Sacrifice",
@@ -18981,8 +20057,7 @@ var skillTable = [
         "Campaign": "Prophecies",
         "Image": "https://wiki.guildwars.com/images/1/10/Glyph_of_Sacrifice.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Glyph_of_Sacrifice",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 1088,
         "Name": "Second Wind",
@@ -19003,8 +20078,7 @@ var skillTable = [
         "Campaign": "Factions",
         "Image": "https://wiki.guildwars.com/images/f/f9/Second_Wind.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Second_Wind",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 1639,
         "Name": "Assassin's Remedy",
@@ -19026,7 +20100,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/25/Assassin%27s_Remedy.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Assassin%27s_Remedy",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13]
+        ]
     }, {
         "Id": 779,
         "Name": "Black Lotus Strike",
@@ -19048,7 +20123,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/60/Black_Lotus_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Black_Lotus_Strike",
         "Ranks": [
-            [10, 11, 13, 14, 16, 17, 18, 20, 21, 23, 24, 25, 27, 28, 30, 31, 32, 34, 35, 37, 38], [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 14, 14, 15, 15, 16]]
+            [10, 11, 13, 14, 16, 17, 18, 20, 21, 23, 24, 25, 27, 28, 30, 31, 32, 34, 35, 37, 38],
+            [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 14, 14, 15, 15, 16]
+        ]
     }, {
         "Id": 1027,
         "Name": "Critical Defenses",
@@ -19070,7 +20147,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/19/Critical_Defenses.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Critical_Defenses",
         "Ranks": [
-            [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12]]
+            [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12]
+        ]
     }, {
         "Id": 1018,
         "Name": "Critical Eye",
@@ -19092,7 +20170,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/57/Critical_Eye.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Critical_Eye",
         "Ranks": [
-            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43], [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19]]
+            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43],
+            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19]
+        ]
     }, {
         "Id": 1019,
         "Name": "Critical Strike",
@@ -19114,7 +20194,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/ff/Critical_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Critical_Strike",
         "Ranks": [
-            [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37], [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4]]
+            [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37],
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4]
+        ]
     }, {
         "Id": 1029,
         "Name": "Dark Apostasy",
@@ -19136,7 +20218,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/ad/Dark_Apostasy.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Dark_Apostasy",
         "Ranks": [
-            [3, 4, 5, 6, 7, 8, 9, 10, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22], [10, 10, 9, 9, 8, 8, 8, 7, 7, 6, 6, 6, 5, 5, 4, 4, 4, 3, 3, 2, 2]]
+            [3, 4, 5, 6, 7, 8, 9, 10, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22],
+            [10, 10, 9, 9, 8, 8, 8, 7, 7, 6, 6, 6, 5, 5, 4, 4, 4, 3, 3, 2, 2]
+        ]
     }, {
         "Id": 1638,
         "Name": "Deadly Haste",
@@ -19158,7 +20242,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/d4/Deadly_Haste.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Deadly_Haste",
         "Ranks": [
-            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43], [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65], [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65]]
+            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43],
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65],
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65]
+        ]
     }, {
         "Id": 1030,
         "Name": "Locust's Fury",
@@ -19180,7 +20267,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/5d/Locust%27s_Fury.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Locust%27s_Fury",
         "Ranks": [
-            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43]]
+            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43]
+        ]
     }, {
         "Id": 1633,
         "Name": "Malicious Strike",
@@ -19202,7 +20290,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/54/Malicious_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Malicious_Strike",
         "Ranks": [
-            [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37]]
+            [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37]
+        ]
     }, {
         "Id": 1045,
         "Name": "Palm Strike",
@@ -19224,7 +20313,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c5/Palm_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Palm_Strike",
         "Ranks": [
-            [10, 14, 17, 21, 25, 28, 32, 36, 39, 43, 47, 50, 54, 58, 61, 65, 69, 72, 76, 80, 83], [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6]]
+            [10, 14, 17, 21, 25, 28, 32, 36, 39, 43, 47, 50, 54, 58, 61, 65, 69, 72, 76, 80, 83],
+            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6]
+        ]
     }, {
         "Id": 1034,
         "Name": "Seeping Wound",
@@ -19246,7 +20337,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/96/Seeping_Wound.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Seeping_Wound",
         "Ranks": [
-            [1, 1, 2, 2, 3, 3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9], [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32]]
+            [1, 1, 2, 2, 3, 3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9],
+            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32]
+        ]
     }, {
         "Id": 926,
         "Name": "Sharpen Daggers",
@@ -19268,7 +20361,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/1c/Sharpen_Daggers.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Sharpen_Daggers",
         "Ranks": [
-            [5, 7, 8, 10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38], [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18]]
+            [5, 7, 8, 10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38],
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18]
+        ]
     }, {
         "Id": 1634,
         "Name": "Shattering Assault",
@@ -19290,7 +20385,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/d4/Shattering_Assault.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Shattering_Assault",
         "Ranks": [
-            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65]]
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65]
+        ]
     }, {
         "Id": 776,
         "Name": "Twisting Fangs",
@@ -19312,7 +20408,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/8e/Twisting_Fangs.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Twisting_Fangs",
         "Ranks": [
-            [10, 11, 11, 12, 13, 13, 14, 15, 15, 16, 17, 17, 18, 19, 19, 20, 21, 21, 22, 23, 23], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]]
+            [10, 11, 11, 12, 13, 13, 14, 15, 15, 16, 17, 17, 18, 19, 19, 20, 21, 21, 22, 23, 23],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+        ]
     }, {
         "Id": 783,
         "Name": "Unsuspecting Strike",
@@ -19334,7 +20432,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/64/Unsuspecting_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Unsuspecting_Strike",
         "Ranks": [
-            [19, 20, 21, 21, 22, 23, 24, 25, 25, 26, 27, 28, 29, 29, 30, 31, 32, 33, 33, 34, 35], [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95]]
+            [19, 20, 21, 21, 22, 23, 24, 25, 25, 26, 27, 28, 29, 29, 30, 31, 32, 33, 33, 34, 35],
+            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95]
+        ]
     }, {
         "Id": 1649,
         "Name": "Way of the Assassin",
@@ -19356,7 +20456,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/74/Way_of_the_Assassin.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Way_of_the_Assassin",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25], [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
+            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45]
+        ]
     }, {
         "Id": 2187,
         "Name": "Way of the Master",
@@ -19378,7 +20480,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/27/Way_of_the_Master.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Way_of_the_Master",
         "Ranks": [
-            [3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43]]
+            [3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43]
+        ]
     }, {
         "Id": 1024,
         "Name": "Black Mantis Thrust",
@@ -19400,7 +20503,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/4e/Black_Mantis_Thrust.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Black_Mantis_Thrust",
         "Ranks": [
-            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25], [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19, 20]]
+            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25],
+            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19, 20]
+        ]
     }, {
         "Id": 1636,
         "Name": "Black Spider Strike",
@@ -19422,7 +20527,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/62/Black_Spider_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Black_Spider_Strike",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1020,
         "Name": "Blades of Steel",
@@ -19444,7 +20551,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/1e/Blades_of_Steel.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Blades_of_Steel",
         "Ranks": [
-            [5, 6, 6, 7, 8, 9, 9, 10, 11, 12, 12, 13, 14, 15, 15, 16, 17, 17, 18, 19, 20, 20]]
+            [5, 6, 6, 7, 8, 9, 9, 10, 11, 12, 12, 13, 14, 15, 15, 16, 17, 17, 18, 19, 20, 20]
+        ]
     }, {
         "Id": 775,
         "Name": "Death Blossom",
@@ -19466,7 +20574,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/04/Death_Blossom.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Death_Blossom",
         "Ranks": [
-            [20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45, 47, 48, 50, 52, 53, 55], [20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45, 47, 48, 50, 52, 53, 55]]
+            [20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45, 47, 48, 50, 52, 53, 55],
+            [20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45, 47, 48, 50, 52, 53, 55]
+        ]
     }, {
         "Id": 948,
         "Name": "Desperate Strike",
@@ -19488,7 +20598,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/bb/Desperate_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Desperate_Strike",
         "Ranks": [
-            [50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92], [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78]]
+            [50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92],
+            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78]
+        ]
     }, {
         "Id": 1025,
         "Name": "Disrupting Stab",
@@ -19510,7 +20622,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/8e/Disrupting_Stab.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Disrupting_Stab",
         "Ranks": [
-            [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 13]]
+            [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 13]
+        ]
     }, {
         "Id": 975,
         "Name": "Exhausting Assault",
@@ -19531,8 +20644,7 @@ var skillTable = [
         "Campaign": "Factions",
         "Image": "https://wiki.guildwars.com/images/2/26/Exhausting_Assault.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Exhausting_Assault",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 1990,
         "Name": "Falling Lotus Strike",
@@ -19554,7 +20666,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f6/Falling_Lotus_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Falling_Lotus_Strike",
         "Ranks": [
-            [15, 16, 18, 19, 20, 22, 23, 24, 26, 27, 28, 30, 31, 32, 34, 35, 36, 38, 39, 40, 42, 43], [1, 2, 2, 3, 4, 5, 5, 6, 7, 8, 8, 9, 10, 11, 11, 12, 13, 13, 14, 15, 16, 16]]
+            [15, 16, 18, 19, 20, 22, 23, 24, 26, 27, 28, 30, 31, 32, 34, 35, 36, 38, 39, 40, 42, 43],
+            [1, 2, 2, 3, 4, 5, 5, 6, 7, 8, 8, 9, 10, 11, 11, 12, 13, 13, 14, 15, 16, 16]
+        ]
     }, {
         "Id": 778,
         "Name": "Falling Spider",
@@ -19576,7 +20690,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/44/Falling_Spider.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Falling_Spider",
         "Ranks": [
-            [15, 16, 18, 19, 20, 22, 23, 24, 26, 27, 28, 30, 31, 32, 34, 35, 36, 38, 39, 40, 42, 43], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [15, 16, 18, 19, 20, 22, 23, 24, 26, 27, 28, 30, 31, 32, 34, 35, 36, 38, 39, 40, 42, 43],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1042,
         "Name": "Flashing Blades",
@@ -19598,7 +20714,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/38/Flashing_Blades.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Flashing_Blades",
         "Ranks": [
-            [5, 7, 8, 10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 7, 8, 10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 780,
         "Name": "Fox Fangs",
@@ -19620,7 +20738,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/de/Fox_Fangs.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Fox_Fangs",
         "Ranks": [
-            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45]]
+            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45]
+        ]
     }, {
         "Id": 1640,
         "Name": "Fox's Promise",
@@ -19642,7 +20761,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/ed/Fox%27s_Promise.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Fox%27s_Promise",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1988,
         "Name": "Golden Fang Strike",
@@ -19664,7 +20784,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/0c/Golden_Fang_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Golden_Fang_Strike",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1637,
         "Name": "Golden Fox Strike",
@@ -19686,7 +20807,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/bb/Golden_Fox_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Golden_Fox_Strike",
         "Ranks": [
-            [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38]]
+            [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38]
+        ]
     }, {
         "Id": 1026,
         "Name": "Golden Lotus Strike",
@@ -19708,7 +20830,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/25/Golden_Lotus_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Golden_Lotus_Strike",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [5, 5, 5, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 8, 8, 8, 8, 8, 9, 9, 9, 9]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [5, 5, 5, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 8, 8, 8, 8, 8, 9, 9, 9, 9]
+        ]
     }, {
         "Id": 989,
         "Name": "Golden Phoenix Strike",
@@ -19730,7 +20854,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/b5/Golden_Phoenix_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Golden_Phoenix_Strike",
         "Ranks": [
-            [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38]]
+            [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38]
+        ]
     }, {
         "Id": 1635,
         "Name": "Golden Skull Strike",
@@ -19752,7 +20877,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/05/Golden_Skull_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Golden_Skull_Strike",
         "Ranks": [
-            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]]
+            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]
+        ]
     }, {
         "Id": 777,
         "Name": "Horns of the Ox",
@@ -19774,7 +20900,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/58/Horns_of_the_Ox.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Horns_of_the_Ox",
         "Ranks": [
-            [1, 2, 2, 3, 4, 4, 5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15]]
+            [1, 2, 2, 3, 4, 4, 5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15]
+        ]
     }, {
         "Id": 782,
         "Name": "Jagged Strike",
@@ -19796,7 +20923,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/02/Jagged_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Jagged_Strike",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1021,
         "Name": "Jungle Strike",
@@ -19818,7 +20946,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/15/Jungle_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Jungle_Strike",
         "Ranks": [
-            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43]]
+            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+            [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43]
+        ]
     }, {
         "Id": 1023,
         "Name": "Leaping Mantis Sting",
@@ -19840,7 +20970,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/ae/Leaping_Mantis_Sting.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Leaping_Mantis_Sting",
         "Ranks": [
-            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19], [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19, 20]]
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19],
+            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19, 20]
+        ]
     }, {
         "Id": 1987,
         "Name": "Lotus Strike",
@@ -19862,7 +20994,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a9/Lotus_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Lotus_Strike",
         "Ranks": [
-            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 781,
         "Name": "Moebius Strike",
@@ -19884,7 +21018,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/49/Moebius_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Moebius_Strike",
         "Ranks": [
-            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45]]
+            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45]
+        ]
     }, {
         "Id": 986,
         "Name": "Nine Tail Strike",
@@ -19906,7 +21041,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a7/Nine_Tail_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Nine_Tail_Strike",
         "Ranks": [
-            [15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45, 47, 48, 50]]
+            [15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45, 47, 48, 50]
+        ]
     }, {
         "Id": 976,
         "Name": "Repeating Strike",
@@ -19928,7 +21064,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a2/Repeating_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Repeating_Strike",
         "Ranks": [
-            [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38]]
+            [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38]
+        ]
     }, {
         "Id": 988,
         "Name": "Temple Strike",
@@ -19950,7 +21087,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/9b/Temple_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Temple_Strike",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]
+        ]
     }, {
         "Id": 2135,
         "Name": "Trampling Ox",
@@ -19972,7 +21110,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/9c/Trampling_Ox.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Trampling_Ox",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1022,
         "Name": "Wild Strike",
@@ -19994,7 +21133,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/93/Wild_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Wild_Strike",
         "Ranks": [
-            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45]]
+            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45]
+        ]
     }, {
         "Id": 1035,
         "Name": "Assassin's Promise",
@@ -20016,7 +21156,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/80/Assassin%27s_Promise.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Assassin%27s_Promise",
         "Ranks": [
-            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]]
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+        ]
     }, {
         "Id": 1646,
         "Name": "Augury of Death",
@@ -20038,7 +21180,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/84/Augury_of_Death.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Augury_of_Death",
         "Ranks": [
-            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]]
+            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+        ]
     }, {
         "Id": 1038,
         "Name": "Crippling Dagger",
@@ -20060,7 +21204,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/d8/Crippling_Dagger.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Crippling_Dagger",
         "Ranks": [
-            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75], [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19]]
+            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75],
+            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19]
+        ]
     }, {
         "Id": 858,
         "Name": "Dancing Daggers",
@@ -20082,7 +21228,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f4/Dancing_Daggers.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Dancing_Daggers",
         "Ranks": [
-            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45]]
+            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45]
+        ]
     }, {
         "Id": 1044,
         "Name": "Dark Prison",
@@ -20104,7 +21251,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/0b/Dark_Prison.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Dark_Prison",
         "Ranks": [
-            [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8]]
+            [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8]
+        ]
     }, {
         "Id": 572,
         "Name": "Deadly Paradox",
@@ -20126,7 +21274,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/8a/Deadly_Paradox.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Deadly_Paradox",
         "Ranks": [
-            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18]]
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18]
+        ]
     }, {
         "Id": 571,
         "Name": "Disrupting Dagger",
@@ -20148,7 +21297,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/3b/Disrupting_Dagger.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Disrupting_Dagger",
         "Ranks": [
-            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43]]
+            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43]
+        ]
     }, {
         "Id": 800,
         "Name": "Enduring Toxin",
@@ -20170,7 +21320,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/96/Enduring_Toxin.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Enduring_Toxin",
         "Ranks": [
-            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6]]
+            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6]
+        ]
     }, {
         "Id": 784,
         "Name": "Entangling Asp",
@@ -20192,7 +21343,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a4/Entangling_Asp.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Entangling_Asp",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+        ]
     }, {
         "Id": 802,
         "Name": "Expose Defenses",
@@ -20214,7 +21366,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/85/Expose_Defenses.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Expose_Defenses",
         "Ranks": [
-            [1, 2, 2, 3, 4, 4, 5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14]]
+            [1, 2, 2, 3, 4, 4, 5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14]
+        ]
     }, {
         "Id": 990,
         "Name": "Expunge Enchantments",
@@ -20236,7 +21389,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/29/Expunge_Enchantments.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Expunge_Enchantments",
         "Ranks": [
-            [10, 10, 9, 9, 9, 8, 8, 8, 7, 7, 7, 6, 6, 6, 5, 5, 5, 4, 4, 4, 3]]
+            [10, 10, 9, 9, 9, 8, 8, 8, 7, 7, 7, 6, 6, 6, 5, 5, 5, 4, 4, 4, 3]
+        ]
     }, {
         "Id": 1033,
         "Name": "Impale",
@@ -20258,7 +21412,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/8f/Impale.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Impale",
         "Ranks": [
-            [25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]]
+            [25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+        ]
     }, {
         "Id": 786,
         "Name": "Iron Palm",
@@ -20280,7 +21436,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/cb/Iron_Palm.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Iron_Palm",
         "Ranks": [
-            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65]]
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65]
+        ]
     }, {
         "Id": 974,
         "Name": "Mantis Touch",
@@ -20302,7 +21459,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f5/Mantis_Touch.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mantis_Touch",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+        ]
     }, {
         "Id": 785,
         "Name": "Mark of Death",
@@ -20324,7 +21482,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/bb/Mark_of_Death.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mark_of_Death",
         "Ranks": [
-            [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12]]
+            [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12]
+        ]
     }, {
         "Id": 570,
         "Name": "Mark of Insecurity",
@@ -20346,7 +21505,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/24/Mark_of_Insecurity.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mark_of_Insecurity",
         "Ranks": [
-            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32], [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4], [30, 33, 37, 40, 43, 47, 50, 53, 57, 60, 63, 67, 70, 73, 77, 80, 83, 87, 90, 93, 97]]
+            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32],
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4],
+            [30, 33, 37, 40, 43, 47, 50, 53, 57, 60, 63, 67, 70, 73, 77, 80, 83, 87, 90, 93, 97]
+        ]
     }, {
         "Id": 1991,
         "Name": "Sadist's Signet",
@@ -20368,7 +21530,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/40/Sadist%27s_Signet.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Sadist%27s_Signet",
         "Ranks": [
-            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50]]
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50]
+        ]
     }, {
         "Id": 815,
         "Name": "Scorpion Wire",
@@ -20390,7 +21553,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/fc/Scorpion_Wire.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Scorpion_Wire",
         "Ranks": [
-            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24]]
+            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24]
+        ]
     }, {
         "Id": 2052,
         "Name": "Shadow Fang",
@@ -20412,7 +21576,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/53/Shadow_Fang.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Shadow_Fang",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+        ]
     }, {
         "Id": 1652,
         "Name": "Shadow Prison",
@@ -20434,7 +21599,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/7f/Shadow_Prison.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Shadow_Prison",
         "Ranks": [
-            [1, 1, 2, 2, 3, 3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9]]
+            [1, 1, 2, 2, 3, 3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9]
+        ]
     }, {
         "Id": 927,
         "Name": "Shameful Fear",
@@ -20456,7 +21622,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f7/Shameful_Fear.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Shameful_Fear",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+        ]
     }, {
         "Id": 801,
         "Name": "Shroud of Silence",
@@ -20478,7 +21645,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/d0/Shroud_of_Silence.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Shroud_of_Silence",
         "Ranks": [
-            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4]]
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4]
+        ]
     }, {
         "Id": 2186,
         "Name": "Signet of Deadly Corruption",
@@ -20500,7 +21668,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/ef/Signet_of_Deadly_Corruption.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Signet_of_Deadly_Corruption",
         "Ranks": [
-            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45]]
+            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45]
+        ]
     }, {
         "Id": 876,
         "Name": "Signet of Shadows",
@@ -20522,7 +21691,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/1b/Signet_of_Shadows.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Signet_of_Shadows",
         "Ranks": [
-            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45], [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75]]
+            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45],
+            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75]
+        ]
     }, {
         "Id": 1647,
         "Name": "Signet of Toxic Shock",
@@ -20544,7 +21715,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/62/Signet_of_Toxic_Shock.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Signet_of_Toxic_Shock",
         "Ranks": [
-            [10, 16, 22, 28, 34, 40, 46, 52, 58, 64, 70, 76, 82, 88, 94, 100, 106, 112, 118, 124, 130]]
+            [10, 16, 22, 28, 34, 40, 46, 52, 58, 64, 70, 76, 82, 88, 94, 100, 106, 112, 118, 124, 130]
+        ]
     }, {
         "Id": 951,
         "Name": "Siphon Speed",
@@ -20566,7 +21738,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/53/Siphon_Speed.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Siphon_Speed",
         "Ranks": [
-            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18]]
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18]
+        ]
     }, {
         "Id": 827,
         "Name": "Siphon Strength",
@@ -20588,7 +21761,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/64/Siphon_Strength.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Siphon_Strength",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25], [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65]
+        ]
     }, {
         "Id": 1986,
         "Name": "Vampiric Assault",
@@ -20610,7 +21785,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a1/Vampiric_Assault.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Vampiric_Assault",
         "Ranks": [
-            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50]]
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50]
+        ]
     }, {
         "Id": 987,
         "Name": "Way of the Empty Palm",
@@ -20632,7 +21808,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/98/Way_of_the_Empty_Palm.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Way_of_the_Empty_Palm",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+        ]
     }, {
         "Id": 799,
         "Name": "Beguiling Haze",
@@ -20654,7 +21831,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/9b/Beguiling_Haze.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Beguiling_Haze",
         "Ranks": [
-            [3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11]]
+            [3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11]
+        ]
     }, {
         "Id": 973,
         "Name": "Blinding Powder",
@@ -20676,7 +21854,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/80/Blinding_Powder.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Blinding_Powder",
         "Ranks": [
-            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19]]
+            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19]
+        ]
     }, {
         "Id": 985,
         "Name": "Caltrops",
@@ -20698,7 +21877,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/93/Caltrops.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Caltrops",
         "Ranks": [
-            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18]]
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18]
+        ]
     }, {
         "Id": 1037,
         "Name": "Dark Escape",
@@ -20720,7 +21900,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/8e/Dark_Escape.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Dark_Escape",
         "Ranks": [
-            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18]]
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18]
+        ]
     }, {
         "Id": 952,
         "Name": "Death's Charge",
@@ -20742,7 +21923,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/91/Death%27s_Charge.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Death%27s_Charge",
         "Ranks": [
-            [65, 74, 83, 92, 101, 110, 119, 128, 137, 146, 155, 164, 173, 182, 191, 200, 209, 218, 227, 236, 245]]
+            [65, 74, 83, 92, 101, 110, 119, 128, 137, 146, 155, 164, 173, 182, 191, 200, 209, 218, 227, 236, 245]
+        ]
     }, {
         "Id": 1651,
         "Name": "Death's Retreat",
@@ -20764,7 +21946,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/14/Death%27s_Retreat.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Death%27s_Retreat",
         "Ranks": [
-            [40, 46, 52, 58, 64, 70, 76, 82, 88, 94, 100, 106, 112, 118, 124, 130, 136, 142, 148, 154, 160]]
+            [40, 46, 52, 58, 64, 70, 76, 82, 88, 94, 100, 106, 112, 118, 124, 130, 136, 142, 148, 154, 160]
+        ]
     }, {
         "Id": 1641,
         "Name": "Feigned Neutrality",
@@ -20786,7 +21969,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/89/Feigned_Neutrality.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Feigned_Neutrality",
         "Ranks": [
-            [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12]]
+            [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12]
+        ]
     }, {
         "Id": 1032,
         "Name": "Heart of Shadow",
@@ -20808,7 +21992,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/26/Heart_of_Shadow.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Heart_of_Shadow",
         "Ranks": [
-            [30, 38, 46, 54, 62, 70, 78, 86, 94, 102, 110, 118, 126, 134, 142, 150, 158, 166, 174, 182, 190]]
+            [30, 38, 46, 54, 62, 70, 78, 86, 94, 102, 110, 118, 126, 134, 142, 150, 158, 166, 174, 182, 190]
+        ]
     }, {
         "Id": 1642,
         "Name": "Hidden Caltrops",
@@ -20830,7 +22015,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c2/Hidden_Caltrops.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Hidden_Caltrops",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13], [1, 2, 3, 4, 5, 6, 7, 8, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13],
+            [1, 2, 3, 4, 5, 6, 7, 8, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+        ]
     }, {
         "Id": 816,
         "Name": "Mirrored Stance",
@@ -20852,7 +22039,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/05/Mirrored_Stance.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mirrored_Stance",
         "Ranks": [
-            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43]]
+            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43]
+        ]
     }, {
         "Id": 770,
         "Name": "Return",
@@ -20874,7 +22062,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/5f/Return.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Return",
         "Ranks": [
-            [3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10]]
+            [3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10]
+        ]
     }, {
         "Id": 826,
         "Name": "Shadow Form",
@@ -20896,7 +22085,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e4/Shadow_Form.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Shadow_Form",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32]
+        ]
     }, {
         "Id": 929,
         "Name": "Shadow of Haste",
@@ -20918,7 +22109,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c9/Shadow_of_Haste.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Shadow_of_Haste",
         "Ranks": [
-            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50]]
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50]
+        ]
     }, {
         "Id": 814,
         "Name": "Shadow Refuge",
@@ -20940,7 +22132,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/b5/Shadow_Refuge.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Shadow_Refuge",
         "Ranks": [
-            [5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10, 10, 11, 11, 11, 12], [40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100, 104, 108, 112, 116, 120]]
+            [5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10, 10, 11, 11, 11, 12],
+            [40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100, 104, 108, 112, 116, 120]
+        ]
     }, {
         "Id": 928,
         "Name": "Shadow Shroud",
@@ -20962,7 +22156,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/cf/Shadow_Shroud.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Shadow_Shroud",
         "Ranks": [
-            [3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11]]
+            [3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11]
+        ]
     }, {
         "Id": 950,
         "Name": "Shadowy Burden",
@@ -20984,7 +22179,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/3a/Shadowy_Burden.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Shadowy_Burden",
         "Ranks": [
-            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19]]
+            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19]
+        ]
     }, {
         "Id": 1031,
         "Name": "Shroud of Distress",
@@ -21006,7 +22202,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/85/Shroud_of_Distress.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Shroud_of_Distress",
         "Ranks": [
-            [30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70], [3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10]]
+            [30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70],
+            [3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10]
+        ]
     }, {
         "Id": 2136,
         "Name": "Smoke Powder Defense",
@@ -21028,7 +22226,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/88/Smoke_Powder_Defense.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Smoke_Powder_Defense",
         "Ranks": [
-            [2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 7, 7, 7, 7]]
+            [2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 7, 7, 7, 7]
+        ]
     }, {
         "Id": 1041,
         "Name": "Unseen Fury",
@@ -21050,7 +22249,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e2/Unseen_Fury.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Unseen_Fury",
         "Ranks": [
-            [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12], [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37]]
+            [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12],
+            [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37]
+        ]
     }, {
         "Id": 769,
         "Name": "Viper's Defense",
@@ -21072,7 +22273,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/8b/Viper%27s_Defense.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Viper%27s_Defense",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+        ]
     }, {
         "Id": 1028,
         "Name": "Way of Perfection",
@@ -21094,7 +22296,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/dd/Way_of_Perfection.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Way_of_Perfection",
         "Ranks": [
-            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50]]
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50]
+        ]
     }, {
         "Id": 949,
         "Name": "Way of the Fox",
@@ -21116,7 +22319,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/99/Way_of_the_Fox.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Way_of_the_Fox",
         "Ranks": [
-            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43], [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8]]
+            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43],
+            [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8]
+        ]
     }, {
         "Id": 977,
         "Name": "Way of the Lotus",
@@ -21138,7 +22343,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/b0/Way_of_the_Lotus.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Way_of_the_Lotus",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+        ]
     }, {
         "Id": 1643,
         "Name": "Assault Enchantments",
@@ -21159,8 +22365,7 @@ var skillTable = [
         "Campaign": "Nightfall",
         "Image": "https://wiki.guildwars.com/images/d/d7/Assault_Enchantments.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Assault_Enchantments",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 771,
         "Name": "Aura of Displacement",
@@ -21181,8 +22386,7 @@ var skillTable = [
         "Campaign": "Factions",
         "Image": "https://wiki.guildwars.com/images/b/b9/Aura_of_Displacement.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Aura_of_Displacement",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 1043,
         "Name": "Dash",
@@ -21203,8 +22407,7 @@ var skillTable = [
         "Campaign": "Factions",
         "Image": "https://wiki.guildwars.com/images/2/20/Dash.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Dash",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 1645,
         "Name": "Lift Enchantment",
@@ -21225,8 +22428,7 @@ var skillTable = [
         "Campaign": "Nightfall",
         "Image": "https://wiki.guildwars.com/images/c/c3/Lift_Enchantment.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Lift_Enchantment",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 978,
         "Name": "Mark of Instability",
@@ -21247,8 +22449,7 @@ var skillTable = [
         "Campaign": "Factions",
         "Image": "https://wiki.guildwars.com/images/f/fe/Mark_of_Instability.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mark_of_Instability",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 925,
         "Name": "Recall",
@@ -21269,8 +22470,7 @@ var skillTable = [
         "Campaign": "Factions",
         "Image": "https://wiki.guildwars.com/images/3/3f/Recall.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Recall",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 1654,
         "Name": "Shadow Meld",
@@ -21291,8 +22491,7 @@ var skillTable = [
         "Campaign": "Nightfall",
         "Image": "https://wiki.guildwars.com/images/1/10/Shadow_Meld.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Shadow_Meld",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 1650,
         "Name": "Shadow Walk",
@@ -21313,8 +22512,7 @@ var skillTable = [
         "Campaign": "Nightfall",
         "Image": "https://wiki.guildwars.com/images/e/e4/Shadow_Walk.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Shadow_Walk",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 1036,
         "Name": "Signet of Malice",
@@ -21335,8 +22533,7 @@ var skillTable = [
         "Campaign": "Factions",
         "Image": "https://wiki.guildwars.com/images/6/69/Signet_of_Malice.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Signet_of_Malice",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 1648,
         "Name": "Signet of Twilight",
@@ -21357,8 +22554,7 @@ var skillTable = [
         "Campaign": "Nightfall",
         "Image": "https://wiki.guildwars.com/images/e/e4/Signet_of_Twilight.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Signet_of_Twilight",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 1040,
         "Name": "Spirit Walk",
@@ -21379,8 +22575,7 @@ var skillTable = [
         "Campaign": "Factions",
         "Image": "https://wiki.guildwars.com/images/5/56/Spirit_Walk.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Spirit_Walk",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 1653,
         "Name": "Swap",
@@ -21401,8 +22596,7 @@ var skillTable = [
         "Campaign": "Nightfall",
         "Image": "https://wiki.guildwars.com/images/5/50/Swap.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Swap",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 1644,
         "Name": "Wastrel's Collapse",
@@ -21423,8 +22617,7 @@ var skillTable = [
         "Campaign": "Nightfall",
         "Image": "https://wiki.guildwars.com/images/5/5e/Wastrel%27s_Collapse.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Wastrel%27s_Collapse",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 2205,
         "Name": "Agony",
@@ -21446,7 +22639,11 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f8/Agony.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Agony",
         "Ranks": [
-            [1, 2, 2, 3, 4, 5, 5, 6, 7, 8, 8, 9, 10, 11, 11, 12, 13, 13, 14, 15, 16, 16], [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 13], [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 13], [30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 98, 102, 106, 110, 114]]
+            [1, 2, 2, 3, 4, 5, 5, 6, 7, 8, 8, 9, 10, 11, 11, 12, 13, 13, 14, 15, 16, 16],
+            [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 13],
+            [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 13],
+            [30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 98, 102, 106, 110, 114]
+        ]
     }, {
         "Id": 1246,
         "Name": "Ancestors' Rage",
@@ -21468,7 +22665,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/d1/Ancestors%27_Rage.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Ancestors%27_Rage",
         "Ranks": [
-            [5, 12, 19, 26, 33, 40, 47, 54, 61, 68, 75, 82, 89, 96, 103, 110, 117, 124, 131, 138, 145, 152]]
+            [5, 12, 19, 26, 33, 40, 47, 54, 61, 68, 75, 82, 89, 96, 103, 110, 117, 124, 131, 138, 145, 152]
+        ]
     }, {
         "Id": 1253,
         "Name": "Bloodsong",
@@ -21490,7 +22688,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/bc/Bloodsong.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Bloodsong",
         "Ranks": [
-            [1, 2, 2, 3, 4, 5, 5, 6, 7, 8, 8, 9, 10, 11, 11, 12, 13, 13, 14, 15, 16, 16], [30, 38, 46, 54, 62, 70, 78, 86, 94, 102, 110, 118, 126, 134, 142, 150, 158, 166, 174, 182, 190, 198], [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32, 33]]
+            [1, 2, 2, 3, 4, 5, 5, 6, 7, 8, 8, 9, 10, 11, 11, 12, 13, 13, 14, 15, 16, 16],
+            [30, 38, 46, 54, 62, 70, 78, 86, 94, 102, 110, 118, 126, 134, 142, 150, 158, 166, 174, 182, 190, 198],
+            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32, 33]
+        ]
     }, {
         "Id": 1744,
         "Name": "Caretaker's Charge",
@@ -21512,7 +22713,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/ad/Caretaker%27s_Charge.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Caretaker%27s_Charge",
         "Ranks": [
-            [20, 24, 27, 31, 35, 38, 42, 46, 49, 53, 57, 60, 64, 68, 71, 75, 79, 82, 86, 90, 93, 97], [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]]
+            [20, 24, 27, 31, 35, 38, 42, 46, 49, 53, 57, 60, 64, 68, 71, 75, 79, 82, 86, 90, 93, 97],
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]
+        ]
     }, {
         "Id": 1225,
         "Name": "Channeled Strike",
@@ -21534,7 +22737,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/6c/Channeled_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Channeled_Strike",
         "Ranks": [
-            [5, 11, 17, 23, 29, 35, 41, 47, 53, 59, 65, 71, 77, 83, 89, 95, 101, 107, 113, 119, 125, 131], [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47]]
+            [5, 11, 17, 23, 29, 35, 41, 47, 53, 59, 65, 71, 77, 83, 89, 95, 101, 107, 113, 119, 125, 131],
+            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47]
+        ]
     }, {
         "Id": 1215,
         "Name": "Clamor of Souls",
@@ -21556,7 +22761,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/4d/Clamor_of_Souls.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Clamor_of_Souls",
         "Ranks": [
-            [10, 14, 17, 21, 25, 28, 32, 36, 39, 43, 47, 50, 54, 58, 61, 65, 69, 72, 76, 80, 83, 87]]
+            [10, 14, 17, 21, 25, 28, 32, 36, 39, 43, 47, 50, 54, 58, 61, 65, 69, 72, 76, 80, 83, 87]
+        ]
     }, {
         "Id": 1218,
         "Name": "Cruel Was Daoshen",
@@ -21578,7 +22784,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a7/Cruel_Was_Daoshen.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Cruel_Was_Daoshen",
         "Ranks": [
-            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78], [15, 20, 24, 29, 34, 38, 43, 48, 52, 57, 62, 66, 71, 76, 80, 85, 90, 94, 99, 104, 108, 113]]
+            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78],
+            [15, 20, 24, 29, 34, 38, 43, 48, 52, 57, 62, 66, 71, 76, 80, 85, 90, 94, 99, 104, 108, 113]
+        ]
     }, {
         "Id": 920,
         "Name": "Destruction",
@@ -21600,7 +22808,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/57/Destruction.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Destruction",
         "Ranks": [
-            [1, 2, 3, 4, 4, 5, 6, 7, 8, 9, 10, 11, 11, 12, 13, 14, 15, 16, 17, 17, 18, 19], [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32, 33]]
+            [1, 2, 3, 4, 4, 5, 6, 7, 8, 9, 10, 11, 11, 12, 13, 14, 15, 16, 17, 17, 18, 19],
+            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32, 33]
+        ]
     }, {
         "Id": 1732,
         "Name": "Destructive Was Glaive",
@@ -21622,7 +22832,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/41/Destructive_Was_Glaive.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Destructive_Was_Glaive",
         "Ranks": [
-            [30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72], [15, 20, 24, 29, 34, 38, 43, 48, 52, 57, 62, 66, 71, 76, 80, 85, 90, 94, 99, 104, 108, 113]]
+            [30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72],
+            [15, 20, 24, 29, 34, 38, 43, 48, 52, 57, 62, 66, 71, 76, 80, 85, 90, 94, 99, 104, 108, 113]
+        ]
     }, {
         "Id": 1227,
         "Name": "Essence Strike",
@@ -21644,7 +22856,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/56/Essence_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Essence_Strike",
         "Ranks": [
-            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78], [1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 10, 10, 11, 11, 12, 12]]
+            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78],
+            [1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 10, 10, 11, 11, 12, 12]
+        ]
     }, {
         "Id": 1245,
         "Name": "Gaze from Beyond",
@@ -21666,7 +22880,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/9c/Gaze_from_Beyond.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Gaze_from_Beyond",
         "Ranks": [
-            [20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68, 71, 74, 77, 80, 83], [2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 7, 7, 7, 7, 8]]
+            [20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68, 71, 74, 77, 80, 83],
+            [2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 7, 7, 7, 7, 8]
+        ]
     }, {
         "Id": 1734,
         "Name": "Gaze of Fury",
@@ -21688,7 +22904,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/72/Gaze_of_Fury.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Gaze_of_Fury",
         "Ranks": [
-            [1, 2, 3, 4, 4, 5, 6, 7, 8, 9, 10, 11, 11, 12, 13, 14, 15, 16, 17, 17, 18, 19], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72]]
+            [1, 2, 3, 4, 4, 5, 6, 7, 8, 9, 10, 11, 11, 12, 13, 14, 15, 16, 17, 17, 18, 19],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72]
+        ]
     }, {
         "Id": 789,
         "Name": "Grasping Was Kuurong",
@@ -21710,7 +22929,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f2/Grasping_Was_Kuurong.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Grasping_Was_Kuurong",
         "Ranks": [
-            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78], [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]]
+            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78],
+            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]
+        ]
     }, {
         "Id": 916,
         "Name": "Lamentation",
@@ -21732,7 +22953,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/ea/Lamentation.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Lamentation",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4], [10, 13, 15, 18, 21, 23, 26, 29, 31, 34, 37, 39, 42, 45, 47, 50, 53, 55, 58, 61, 63, 66]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4],
+            [10, 13, 15, 18, 21, 23, 26, 29, 31, 34, 37, 39, 42, 45, 47, 50, 53, 55, 58, 61, 63, 66]
+        ]
     }, {
         "Id": 795,
         "Name": "Nightmare Weapon",
@@ -21754,7 +22978,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/39/Nightmare_Weapon.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Nightmare_Weapon",
         "Ranks": [
-            [10, 13, 15, 18, 21, 23, 26, 29, 31, 34, 37, 39, 42, 45, 47, 50, 53, 55, 58, 61, 63, 66], [10, 13, 15, 18, 21, 23, 26, 29, 31, 34, 37, 39, 42, 45, 47, 50, 53, 55, 58, 61, 63, 66]]
+            [10, 13, 15, 18, 21, 23, 26, 29, 31, 34, 37, 39, 42, 45, 47, 50, 53, 55, 58, 61, 63, 66],
+            [10, 13, 15, 18, 21, 23, 26, 29, 31, 34, 37, 39, 42, 45, 47, 50, 53, 55, 58, 61, 63, 66]
+        ]
     }, {
         "Id": 1479,
         "Name": "Offering of Spirit",
@@ -21776,7 +23002,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/14/Offering_of_Spirit.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Offering_of_Spirit",
         "Ranks": [
-            [8, 9, 9, 10, 10, 11, 12, 12, 13, 13, 14, 15, 15, 16, 16, 17, 18, 18, 19, 19, 20, 21]]
+            [8, 9, 9, 10, 10, 11, 12, 12, 13, 13, 14, 15, 15, 16, 16, 17, 18, 18, 19, 19, 20, 21]
+        ]
     }, {
         "Id": 1237,
         "Name": "Painful Bond",
@@ -21798,7 +23025,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/3f/Painful_Bond.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Painful_Bond",
         "Ranks": [
-            [10, 11, 11, 12, 13, 13, 14, 15, 15, 16, 17, 17, 18, 19, 19, 20, 21, 21, 22, 23, 23, 24], [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25]]
+            [10, 11, 11, 12, 13, 13, 14, 15, 15, 16, 17, 17, 18, 19, 19, 20, 21, 21, 22, 23, 23, 24],
+            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25]
+        ]
     }, {
         "Id": 1478,
         "Name": "Renewing Surge",
@@ -21820,7 +23049,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/cb/Renewing_Surge.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Renewing_Surge",
         "Ranks": [
-            [1, 2, 2, 3, 4, 5, 5, 6, 7, 8, 8, 9, 10, 11, 11, 12, 13, 13, 14, 15, 16, 16], [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 11]]
+            [1, 2, 2, 3, 4, 5, 5, 6, 7, 8, 8, 9, 10, 11, 11, 12, 13, 13, 14, 15, 16, 16],
+            [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 11]
+        ]
     }, {
         "Id": 1239,
         "Name": "Signet of Spirits",
@@ -21842,7 +23073,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f7/Signet_of_Spirits.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Signet_of_Spirits",
         "Ranks": [
-            [1, 2, 2, 3, 4, 5, 5, 6, 7, 8, 8, 9, 10, 11, 11, 12, 13, 13, 14, 15, 16, 16], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [1, 2, 2, 3, 4, 5, 5, 6, 7, 8, 8, 9, 10, 11, 11, 12, 13, 13, 14, 15, 16, 16],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1226,
         "Name": "Spirit Boon Strike",
@@ -21864,7 +23097,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/86/Spirit_Boon_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Spirit_Boon_Strike",
         "Ranks": [
-            [20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68, 71, 74, 77, 80, 83], [20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68, 71, 74, 77, 80, 83]]
+            [20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68, 71, 74, 77, 80, 83],
+            [20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68, 71, 74, 77, 80, 83]
+        ]
     }, {
         "Id": 919,
         "Name": "Spirit Burn",
@@ -21886,7 +23121,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/db/Spirit_Burn.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Spirit_Burn",
         "Ranks": [
-            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68], [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]]
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68],
+            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]
+        ]
     }, {
         "Id": 910,
         "Name": "Spirit Rift",
@@ -21908,7 +23145,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/53/Spirit_Rift.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Spirit_Rift",
         "Ranks": [
-            [25, 32, 38, 45, 52, 58, 65, 72, 78, 85, 92, 98, 105, 112, 118, 125, 132, 138, 145, 152, 158, 165], [1, 2, 4, 5, 6, 7, 9, 10, 11, 12, 14, 15, 16, 17, 19, 20, 21, 23, 24, 25, 26, 28]]
+            [25, 32, 38, 45, 52, 58, 65, 72, 78, 85, 92, 98, 105, 112, 118, 125, 132, 138, 145, 152, 158, 165],
+            [1, 2, 4, 5, 6, 7, 9, 10, 11, 12, 14, 15, 16, 17, 19, 20, 21, 23, 24, 25, 26, 28]
+        ]
     }, {
         "Id": 1228,
         "Name": "Spirit Siphon",
@@ -21930,7 +23169,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/43/Spirit_Siphon.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Spirit_Siphon",
         "Ranks": [
-            [15, 17, 20, 22, 24, 27, 29, 31, 34, 36, 38, 41, 43, 45, 48, 50, 52, 55, 57, 59, 62, 64], [4, 5, 6, 7, 7, 8, 9, 9, 10, 11, 11, 12, 13, 14, 14, 15, 16, 17, 17, 18, 19, 19]]
+            [15, 17, 20, 22, 24, 27, 29, 31, 34, 36, 38, 41, 43, 45, 48, 50, 52, 55, 57, 59, 62, 64],
+            [4, 5, 6, 7, 7, 8, 9, 9, 10, 11, 11, 12, 13, 14, 14, 15, 16, 17, 17, 18, 19, 19]
+        ]
     }, {
         "Id": 792,
         "Name": "Splinter Weapon",
@@ -21952,7 +23193,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/8e/Splinter_Weapon.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Splinter_Weapon",
         "Ranks": [
-            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7], [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]]
+            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7],
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]
+        ]
     }, {
         "Id": 794,
         "Name": "Wailing Weapon",
@@ -21974,7 +23217,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/99/Wailing_Weapon.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Wailing_Weapon",
         "Ranks": [
-            [3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11]]
+            [3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11]
+        ]
     }, {
         "Id": 1751,
         "Name": "Warmonger's Weapon",
@@ -21996,7 +23240,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e1/Warmonger%27s_Weapon.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Warmonger%27s_Weapon",
         "Ranks": [
-            [3, 4, 4, 5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17]]
+            [3, 4, 4, 5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17]
+        ]
     }, {
         "Id": 2073,
         "Name": "Weapon of Aggression",
@@ -22018,7 +23263,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f2/Weapon_of_Aggression.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Weapon_of_Aggression",
         "Ranks": [
-            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19]]
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19]
+        ]
     }, {
         "Id": 1749,
         "Name": "Weapon of Fury",
@@ -22040,7 +23286,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/2d/Weapon_of_Fury.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Weapon_of_Fury",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]
+        ]
     }, {
         "Id": 1733,
         "Name": "Wielder's Strike",
@@ -22062,7 +23310,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/ad/Wielder%27s_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Wielder%27s_Strike",
         "Ranks": [
-            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68], [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]]
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68],
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]
+        ]
     }, {
         "Id": 3157,
         "Name": "Destructive Was Glaive (PvP)",
@@ -22084,7 +23334,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/45/Destructive_Was_Glaive_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Destructive_Was_Glaive_(PvP)",
         "Ranks": [
-            [30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72], [15, 20, 24, 29, 34, 38, 43, 48, 52, 57, 62, 66, 71, 76, 80, 85, 90, 94, 99, 104, 108, 113]]
+            [30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72],
+            [15, 20, 24, 29, 34, 38, 43, 48, 52, 57, 62, 66, 71, 76, 80, 85, 90, 94, 99, 104, 108, 113]
+        ]
     }, {
         "Id": 1745,
         "Name": "Anguish",
@@ -22106,7 +23358,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/d2/Anguish.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Anguish",
         "Ranks": [
-            [1, 2, 2, 3, 4, 4, 5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57]]
+            [1, 2, 2, 3, 4, 4, 5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57]
+        ]
     }, {
         "Id": 1232,
         "Name": "Armor of Unfeeling",
@@ -22128,7 +23383,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f2/Armor_of_Unfeeling.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Armor_of_Unfeeling",
         "Ranks": [
-            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45]]
+            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45]
+        ]
     }, {
         "Id": 1236,
         "Name": "Binding Chains",
@@ -22150,7 +23406,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/19/Binding_Chains.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Binding_Chains",
         "Ranks": [
-            [1, 3, 5, 7, 9, 11, 13, 15, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42]]
+            [1, 3, 5, 7, 9, 11, 13, 15, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42]
+        ]
     }, {
         "Id": 1258,
         "Name": "Brutal Weapon",
@@ -22172,7 +23429,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/87/Brutal_Weapon.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Brutal_Weapon",
         "Ranks": [
-            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52], [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19]]
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52],
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19]
+        ]
     }, {
         "Id": 923,
         "Name": "Disenchantment",
@@ -22194,7 +23453,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c4/Disenchantment.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Disenchantment",
         "Ranks": [
-            [1, 2, 2, 3, 4, 5, 5, 6, 7, 8, 8, 9, 10, 11, 11, 12, 13, 13, 14, 15, 16, 16], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45]]
+            [1, 2, 2, 3, 4, 5, 5, 6, 7, 8, 8, 9, 10, 11, 11, 12, 13, 13, 14, 15, 16, 16],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45]
+        ]
     }, {
         "Id": 1249,
         "Name": "Displacement",
@@ -22216,7 +23478,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a4/Displacement.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Displacement",
         "Ranks": [
-            [1, 2, 3, 4, 4, 5, 6, 7, 8, 9, 10, 11, 11, 12, 13, 14, 15, 16, 17, 17, 18, 19], [30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72], [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]]
+            [1, 2, 3, 4, 4, 5, 6, 7, 8, 9, 10, 11, 11, 12, 13, 14, 15, 16, 17, 17, 18, 19],
+            [30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72],
+            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]
+        ]
     }, {
         "Id": 921,
         "Name": "Dissonance",
@@ -22238,7 +23503,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e0/Dissonance.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Dissonance",
         "Ranks": [
-            [1, 2, 2, 3, 4, 5, 5, 6, 7, 8, 8, 9, 10, 11, 11, 12, 13, 13, 14, 15, 16, 16], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]]
+            [1, 2, 2, 3, 4, 5, 5, 6, 7, 8, 8, 9, 10, 11, 11, 12, 13, 13, 14, 15, 16, 16],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
+        ]
     }, {
         "Id": 1235,
         "Name": "Dulled Weapon",
@@ -22260,7 +23528,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/97/Dulled_Weapon.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Dulled_Weapon",
         "Ranks": [
-            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19], [1, 2, 3, 4, 5, 6, 7, 8, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]]
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19],
+            [1, 2, 3, 4, 5, 6, 7, 8, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+        ]
     }, {
         "Id": 1252,
         "Name": "Earthbind",
@@ -22282,7 +23552,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/6f/Earthbind.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Earthbind",
         "Ranks": [
-            [1, 2, 3, 4, 4, 5, 6, 7, 8, 9, 10, 11, 11, 12, 13, 14, 15, 16, 17, 17, 18, 19], [50, 48, 47, 45, 43, 42, 40, 38, 37, 35, 33, 32, 30, 28, 27, 25, 23, 22, 20, 18, 17, 15], [15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57]]
+            [1, 2, 3, 4, 4, 5, 6, 7, 8, 9, 10, 11, 11, 12, 13, 14, 15, 16, 17, 17, 18, 19],
+            [50, 48, 47, 45, 43, 42, 40, 38, 37, 35, 33, 32, 30, 28, 27, 25, 23, 22, 20, 18, 17, 15],
+            [15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57]
+        ]
     }, {
         "Id": 2206,
         "Name": "Ghostly Weapon",
@@ -22304,7 +23577,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/9d/Ghostly_Weapon.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Ghostly_Weapon",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1259,
         "Name": "Guided Weapon",
@@ -22326,7 +23600,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c4/Guided_Weapon.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Guided_Weapon",
         "Ranks": [
-            [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 12]]
+            [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 12]
+        ]
     }, {
         "Id": 773,
         "Name": "Mighty Was Vorizun",
@@ -22348,7 +23623,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/8a/Mighty_Was_Vorizun.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mighty_Was_Vorizun",
         "Ranks": [
-            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78]]
+            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78]
+        ]
     }, {
         "Id": 1247,
         "Name": "Pain",
@@ -22370,7 +23646,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/1a/Pain.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Pain",
         "Ranks": [
-            [1, 2, 2, 3, 4, 5, 5, 6, 7, 8, 8, 9, 10, 11, 11, 12, 13, 13, 14, 15, 16, 16], [5, 7, 8, 10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40], [30, 38, 46, 54, 62, 70, 78, 86, 94, 102, 110, 118, 126, 134, 142, 150, 158, 166, 174, 182, 190, 198]]
+            [1, 2, 2, 3, 4, 5, 5, 6, 7, 8, 8, 9, 10, 11, 11, 12, 13, 13, 14, 15, 16, 16],
+            [5, 7, 8, 10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40],
+            [30, 38, 46, 54, 62, 70, 78, 86, 94, 102, 110, 118, 126, 134, 142, 150, 158, 166, 174, 182, 190, 198]
+        ]
     }, {
         "Id": 963,
         "Name": "Restoration",
@@ -22392,7 +23671,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f8/Restoration.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Restoration",
         "Ranks": [
-            [1, 2, 3, 4, 4, 5, 6, 7, 8, 9, 10, 11, 11, 12, 13, 14, 15, 16, 17, 17, 18, 19], [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]]
+            [1, 2, 3, 4, 4, 5, 6, 7, 8, 9, 10, 11, 11, 12, 13, 14, 15, 16, 17, 17, 18, 19],
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]
+        ]
     }, {
         "Id": 871,
         "Name": "Shadowsong",
@@ -22414,7 +23695,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/34/Shadowsong.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Shadowsong",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14], [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14],
+            [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 982,
         "Name": "Shelter",
@@ -22436,7 +23720,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/cf/Shelter.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Shelter",
         "Ranks": [
-            [1, 2, 2, 3, 4, 5, 5, 6, 7, 8, 8, 9, 10, 11, 11, 12, 13, 13, 14, 15, 16, 16], [75, 73, 71, 69, 67, 65, 63, 61, 59, 57, 55, 53, 51, 49, 47, 45, 43, 41, 39, 37, 35, 33], [30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72]]
+            [1, 2, 2, 3, 4, 5, 5, 6, 7, 8, 8, 9, 10, 11, 11, 12, 13, 13, 14, 15, 16, 16],
+            [75, 73, 71, 69, 67, 65, 63, 61, 59, 57, 55, 53, 51, 49, 47, 45, 43, 41, 39, 37, 35, 33],
+            [30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72]
+        ]
     }, {
         "Id": 1742,
         "Name": "Signet of Ghostly Might",
@@ -22458,7 +23745,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/bf/Signet_of_Ghostly_Might.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Signet_of_Ghostly_Might",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10, 10, 11, 11, 11, 12, 12]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10, 10, 11, 11, 11, 12, 12]
+        ]
     }, {
         "Id": 1266,
         "Name": "Soothing",
@@ -22480,7 +23769,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/cf/Soothing.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Soothing",
         "Ranks": [
-            [1, 2, 2, 3, 4, 5, 5, 6, 7, 8, 8, 9, 10, 11, 11, 12, 13, 13, 14, 15, 16, 16], [15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57]]
+            [1, 2, 2, 3, 4, 5, 5, 6, 7, 8, 8, 9, 10, 11, 11, 12, 13, 13, 14, 15, 16, 16],
+            [15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57]
+        ]
     }, {
         "Id": 2148,
         "Name": "Sundering Weapon",
@@ -22502,7 +23793,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/20/Sundering_Weapon.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Sundering_Weapon",
         "Ranks": [
-            [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 12], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 12],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 911,
         "Name": "Union",
@@ -22524,7 +23817,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/28/Union.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Union",
         "Ranks": [
-            [1, 2, 2, 3, 4, 5, 5, 6, 7, 8, 8, 9, 10, 11, 11, 12, 13, 13, 14, 15, 16, 16], [30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72]]
+            [1, 2, 2, 3, 4, 5, 5, 6, 7, 8, 8, 9, 10, 11, 11, 12, 13, 13, 14, 15, 16, 16],
+            [30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72]
+        ]
     }, {
         "Id": 1267,
         "Name": "Vital Weapon",
@@ -22546,7 +23841,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/6c/Vital_Weapon.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Vital_Weapon",
         "Ranks": [
-            [5, 7, 8, 10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40], [40, 49, 58, 67, 76, 85, 94, 103, 112, 121, 130, 139, 148, 157, 166, 175, 184, 193, 202, 211, 220, 229]]
+            [5, 7, 8, 10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40],
+            [40, 49, 58, 67, 76, 85, 94, 103, 112, 121, 130, 139, 148, 157, 166, 175, 184, 193, 202, 211, 220, 229]
+        ]
     }, {
         "Id": 1255,
         "Name": "Wanderlust",
@@ -22568,7 +23865,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/cb/Wanderlust.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Wanderlust",
         "Ranks": [
-            [1, 2, 2, 3, 4, 5, 5, 6, 7, 8, 8, 9, 10, 11, 11, 12, 13, 13, 14, 15, 16, 16], [70, 69, 67, 66, 65, 63, 62, 61, 59, 58, 57, 55, 54, 53, 51, 50, 49, 47, 46, 45, 43, 42], [30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72]]
+            [1, 2, 2, 3, 4, 5, 5, 6, 7, 8, 8, 9, 10, 11, 11, 12, 13, 13, 14, 15, 16, 16],
+            [70, 69, 67, 66, 65, 63, 62, 61, 59, 58, 57, 55, 54, 53, 51, 50, 49, 47, 46, 45, 43, 42],
+            [30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72]
+        ]
     }, {
         "Id": 1268,
         "Name": "Weapon of Quickening",
@@ -22590,7 +23890,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/78/Weapon_of_Quickening.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Weapon_of_Quickening",
         "Ranks": [
-            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32, 33]]
+            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32, 33]
+        ]
     }, {
         "Id": 788,
         "Name": "Blind Was Mingson",
@@ -22612,7 +23913,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/06/Blind_Was_Mingson.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Blind_Was_Mingson",
         "Ranks": [
-            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78], [3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10]]
+            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78],
+            [3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10]
+        ]
     }, {
         "Id": 1481,
         "Name": "Death Pact Signet",
@@ -22634,7 +23937,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/fe/Death_Pact_Signet.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Death_Pact_Signet",
         "Ranks": [
-            [15, 21, 26, 32, 38, 43, 49, 55, 60, 66, 72, 77, 83, 89, 94, 100, 106, 111, 117, 123, 128, 134]]
+            [15, 21, 26, 32, 38, 43, 49, 55, 60, 66, 72, 77, 83, 89, 94, 100, 106, 111, 117, 123, 128, 134]
+        ]
     }, {
         "Id": 812,
         "Name": "Defiant Was Xinrae",
@@ -22656,7 +23960,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/3c/Defiant_Was_Xinrae.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Defiant_Was_Xinrae",
         "Ranks": [
-            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78], [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]]
+            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78],
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]
+        ]
     }, {
         "Id": 791,
         "Name": "Flesh of My Flesh",
@@ -22678,7 +23984,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c3/Flesh_of_My_Flesh.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Flesh_of_My_Flesh",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 772,
         "Name": "Generous Was Tsungrai",
@@ -22700,7 +24007,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/59/Generous_Was_Tsungrai.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Generous_Was_Tsungrai",
         "Ranks": [
-            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78], [50, 56, 62, 68, 74, 80, 86, 92, 98, 104, 110, 116, 122, 128, 134, 140, 146, 152, 158, 164, 170, 176], [100, 112, 124, 136, 148, 160, 172, 184, 196, 208, 220, 232, 244, 256, 268, 280, 292, 304, 316, 328, 340, 352]]
+            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78],
+            [50, 56, 62, 68, 74, 80, 86, 92, 98, 104, 110, 116, 122, 128, 134, 140, 146, 152, 158, 164, 170, 176],
+            [100, 112, 124, 136, 148, 160, 172, 184, 196, 208, 220, 232, 244, 256, 268, 280, 292, 304, 316, 328, 340, 352]
+        ]
     }, {
         "Id": 1741,
         "Name": "Ghostmirror Light",
@@ -22722,7 +24032,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/d5/Ghostmirror_Light.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Ghostmirror_Light",
         "Ranks": [
-            [15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120], [15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120]]
+            [15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120],
+            [15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120]
+        ]
     }, {
         "Id": 1251,
         "Name": "Life",
@@ -22744,7 +24056,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/5e/Life.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Life",
         "Ranks": [
-            [1, 2, 3, 4, 4, 5, 6, 7, 8, 9, 10, 11, 11, 12, 13, 14, 15, 16, 17, 17, 18, 19], [1, 1, 2, 2, 3, 3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9]]
+            [1, 2, 3, 4, 4, 5, 6, 7, 8, 9, 10, 11, 11, 12, 13, 14, 15, 16, 17, 17, 18, 19],
+            [1, 1, 2, 2, 3, 3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9]
+        ]
     }, {
         "Id": 1222,
         "Name": "Lively Was Naomei",
@@ -22766,7 +24080,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/d3/Lively_Was_Naomei.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Lively_Was_Naomei",
         "Ranks": [
-            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]]
+            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]
+        ]
     }, {
         "Id": 1234,
         "Name": "Mend Body and Soul",
@@ -22788,7 +24103,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/84/Mend_Body_and_Soul.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mend_Body_and_Soul",
         "Ranks": [
-            [20, 26, 33, 39, 45, 52, 58, 64, 71, 77, 83, 90, 96, 102, 109, 115, 121, 128, 134, 140, 147, 153]]
+            [20, 26, 33, 39, 45, 52, 58, 64, 71, 77, 83, 90, 96, 102, 109, 115, 121, 128, 134, 140, 147, 153]
+        ]
     }, {
         "Id": 2202,
         "Name": "Mending Grip",
@@ -22810,7 +24126,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/eb/Mending_Grip.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mending_Grip",
         "Ranks": [
-            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]]
+            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]
+        ]
     }, {
         "Id": 1250,
         "Name": "Preservation",
@@ -22832,7 +24149,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/b9/Preservation.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Preservation",
         "Ranks": [
-            [1, 2, 3, 4, 4, 5, 6, 7, 8, 9, 10, 11, 11, 12, 13, 14, 15, 16, 17, 17, 18, 19], [10, 17, 24, 31, 38, 45, 52, 59, 66, 73, 80, 87, 94, 101, 108, 115, 122, 129, 136, 143, 150, 157]]
+            [1, 2, 3, 4, 4, 5, 6, 7, 8, 9, 10, 11, 11, 12, 13, 14, 15, 16, 17, 17, 18, 19],
+            [10, 17, 24, 31, 38, 45, 52, 59, 66, 73, 80, 87, 94, 101, 108, 115, 122, 129, 136, 143, 150, 157]
+        ]
     }, {
         "Id": 1219,
         "Name": "Protective Was Kaolai",
@@ -22854,7 +24173,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/ed/Protective_Was_Kaolai.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Protective_Was_Kaolai",
         "Ranks": [
-            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78], [10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115]]
+            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78],
+            [10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115]
+        ]
     }, {
         "Id": 2072,
         "Name": "Pure Was Li Ming",
@@ -22876,7 +24197,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/35/Pure_Was_Li_Ming.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Pure_Was_Li_Ming",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [10, 13, 15, 18, 21, 23, 26, 29, 31, 34, 37, 39, 42, 45, 47, 50, 53, 55, 58, 61, 63, 66], [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [10, 13, 15, 18, 21, 23, 26, 29, 31, 34, 37, 39, 42, 45, 47, 50, 53, 55, 58, 61, 63, 66],
+            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5]
+        ]
     }, {
         "Id": 1748,
         "Name": "Recovery",
@@ -22898,7 +24222,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/6d/Recovery.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Recovery",
         "Ranks": [
-            [1, 2, 3, 4, 4, 5, 6, 7, 8, 9, 10, 11, 11, 12, 13, 14, 15, 16, 17, 17, 18, 19], [20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62], [30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72]]
+            [1, 2, 3, 4, 4, 5, 6, 7, 8, 9, 10, 11, 11, 12, 13, 14, 15, 16, 17, 17, 18, 19],
+            [20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62],
+            [30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72]
+        ]
     }, {
         "Id": 981,
         "Name": "Recuperation",
@@ -22920,7 +24247,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a2/Recuperation.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Recuperation",
         "Ranks": [
-            [1, 2, 3, 4, 4, 5, 6, 7, 8, 9, 10, 11, 11, 12, 13, 14, 15, 16, 17, 17, 18, 19], [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4], [15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57]]
+            [1, 2, 3, 4, 4, 5, 6, 7, 8, 9, 10, 11, 11, 12, 13, 14, 15, 16, 17, 17, 18, 19],
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4],
+            [15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57]
+        ]
     }, {
         "Id": 2204,
         "Name": "Rejuvenation",
@@ -22942,7 +24272,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/97/Rejuvenation.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Rejuvenation",
         "Ranks": [
-            [1, 2, 4, 5, 6, 7, 9, 10, 11, 12, 14, 15, 16, 17, 19, 20, 21, 23, 24, 25, 26, 28], [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 13], [30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 98, 102, 106, 110, 114]]
+            [1, 2, 4, 5, 6, 7, 9, 10, 11, 12, 14, 15, 16, 17, 19, 20, 21, 23, 24, 25, 26, 28],
+            [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 13],
+            [30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 98, 102, 106, 110, 114]
+        ]
     }, {
         "Id": 1221,
         "Name": "Resilient Was Xiko",
@@ -22964,7 +24297,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e5/Resilient_Was_Xiko.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Resilient_Was_Xiko",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5]
+        ]
     }, {
         "Id": 787,
         "Name": "Resilient Weapon",
@@ -22986,7 +24321,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/1e/Resilient_Weapon.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Resilient_Weapon",
         "Ranks": [
-            [3, 4, 4, 5, 5, 6, 7, 7, 8, 8, 9, 10, 10, 11, 11, 12, 13, 13, 14, 14, 15, 16], [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8]]
+            [3, 4, 4, 5, 5, 6, 7, 7, 8, 8, 9, 10, 10, 11, 11, 12, 13, 13, 14, 14, 15, 16],
+            [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8]
+        ]
     }, {
         "Id": 1233,
         "Name": "Soothing Memories",
@@ -23008,7 +24345,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f3/Soothing_Memories.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Soothing_Memories",
         "Ranks": [
-            [10, 16, 22, 28, 34, 40, 46, 52, 58, 64, 70, 76, 82, 88, 94, 100, 106, 112, 118, 124, 130, 136]]
+            [10, 16, 22, 28, 34, 40, 46, 52, 58, 64, 70, 76, 82, 88, 94, 100, 106, 112, 118, 124, 130, 136]
+        ]
     }, {
         "Id": 915,
         "Name": "Spirit Light",
@@ -23030,7 +24368,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/ca/Spirit_Light.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Spirit_Light",
         "Ranks": [
-            [60, 68, 76, 84, 92, 100, 108, 116, 124, 132, 140, 148, 156, 164, 172, 180, 188, 196, 204, 212, 220, 228]]
+            [60, 68, 76, 84, 92, 100, 108, 116, 124, 132, 140, 148, 156, 164, 172, 180, 188, 196, 204, 212, 220, 228]
+        ]
     }, {
         "Id": 1257,
         "Name": "Spirit Light Weapon",
@@ -23052,7 +24391,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a3/Spirit_Light_Weapon.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Spirit_Light_Weapon",
         "Ranks": [
-            [1, 2, 3, 4, 5, 6, 7, 8, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21], [1, 2, 3, 4, 5, 6, 7, 8, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]]
+            [1, 2, 3, 4, 5, 6, 7, 8, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+            [1, 2, 3, 4, 5, 6, 7, 8, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+        ]
     }, {
         "Id": 962,
         "Name": "Spirit Transfer",
@@ -23074,7 +24415,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/16/Spirit_Transfer.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Spirit_Transfer",
         "Ranks": [
-            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68], [25, 40, 55, 70, 85, 100, 115, 130, 145, 160, 175, 190, 205, 220, 235, 250, 265, 280, 295, 310, 325, 340]]
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68],
+            [25, 40, 55, 70, 85, 100, 115, 130, 145, 160, 175, 190, 205, 220, 235, 250, 265, 280, 295, 310, 325, 340]
+        ]
     }, {
         "Id": 2203,
         "Name": "Spiritleech Aura",
@@ -23096,7 +24439,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/98/Spiritleech_Aura.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Spiritleech_Aura",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 913,
         "Name": "Tranquil Was Tanasen",
@@ -23118,7 +24463,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/34/Tranquil_Was_Tanasen.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Tranquil_Was_Tanasen",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
+        ]
     }, {
         "Id": 790,
         "Name": "Vengeful Was Khanhei",
@@ -23140,7 +24487,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/36/Vengeful_Was_Khanhei.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Vengeful_Was_Khanhei",
         "Ranks": [
-            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13, 13], [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47]]
+            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13, 13],
+            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47]
+        ]
     }, {
         "Id": 964,
         "Name": "Vengeful Weapon",
@@ -23162,7 +24511,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/d8/Vengeful_Weapon.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Vengeful_Weapon",
         "Ranks": [
-            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78]]
+            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78]
+        ]
     }, {
         "Id": 1731,
         "Name": "Vocal Was Sogolon",
@@ -23184,7 +24534,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/44/Vocal_Was_Sogolon.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Vocal_Was_Sogolon",
         "Ranks": [
-            [20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62]]
+            [20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62]
+        ]
     }, {
         "Id": 1752,
         "Name": "Weapon of Remedy",
@@ -23206,7 +24557,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/18/Weapon_of_Remedy.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Weapon_of_Remedy",
         "Ranks": [
-            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]]
+            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]
+        ]
     }, {
         "Id": 983,
         "Name": "Weapon of Shadow",
@@ -23228,7 +24580,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/7b/Weapon_of_Shadow.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Weapon_of_Shadow",
         "Ranks": [
-            [1, 1, 2, 2, 3, 3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9], [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4]]
+            [1, 1, 2, 2, 3, 3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9],
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4]
+        ]
     }, {
         "Id": 793,
         "Name": "Weapon of Warding",
@@ -23250,7 +24604,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f9/Weapon_of_Warding.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Weapon_of_Warding",
         "Ranks": [
-            [3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10], [2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5]]
+            [3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10],
+            [2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5]
+        ]
     }, {
         "Id": 1265,
         "Name": "Wielder's Boon",
@@ -23272,7 +24628,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/ca/Wielder%27s_Boon.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Wielder%27s_Boon",
         "Ranks": [
-            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78], [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]]
+            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78],
+            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]
+        ]
     }, {
         "Id": 1750,
         "Name": "Xinrae's Weapon",
@@ -23294,7 +24652,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/33/Xinrae%27s_Weapon.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Xinrae%27s_Weapon",
         "Ranks": [
-            [20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100, 104]]
+            [20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100, 104]
+        ]
     }, {
         "Id": 1223,
         "Name": "Anguished Was Lingwah",
@@ -23316,7 +24675,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a2/Anguished_Was_Lingwah.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Anguished_Was_Lingwah",
         "Ranks": [
-            [10, 13, 17, 20, 23, 27, 30, 33, 37, 40, 43, 47, 50, 53, 57, 60, 63, 67, 70, 73, 77, 80], [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]]
+            [10, 13, 17, 20, 23, 27, 30, 33, 37, 40, 43, 47, 50, 53, 57, 60, 63, 67, 70, 73, 77, 80],
+            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]
+        ]
     }, {
         "Id": 1220,
         "Name": "Attuned Was Songkai",
@@ -23338,7 +24699,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/24/Attuned_Was_Songkai.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Attuned_Was_Songkai",
         "Ranks": [
-            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]]
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]
+        ]
     }, {
         "Id": 1230,
         "Name": "Boon of Creation",
@@ -23360,7 +24722,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/1a/Boon_of_Creation.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Boon_of_Creation",
         "Ranks": [
-            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78], [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68], [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8]]
+            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78],
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68],
+            [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8]
+        ]
     }, {
         "Id": 914,
         "Name": "Consume Soul",
@@ -23382,7 +24747,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/70/Consume_Soul.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Consume_Soul",
         "Ranks": [
-            [5, 9, 12, 16, 20, 23, 27, 31, 34, 38, 42, 45, 49, 53, 56, 60, 64, 67, 71, 75, 78, 82], [25, 32, 38, 45, 52, 58, 65, 72, 78, 85, 92, 98, 105, 112, 118, 125, 132, 138, 145, 152, 158, 165]]
+            [5, 9, 12, 16, 20, 23, 27, 31, 34, 38, 42, 45, 49, 53, 56, 60, 64, 67, 71, 75, 78, 82],
+            [25, 32, 38, 45, 52, 58, 65, 72, 78, 85, 92, 98, 105, 112, 118, 125, 132, 138, 145, 152, 158, 165]
+        ]
     }, {
         "Id": 1264,
         "Name": "Doom",
@@ -23404,7 +24771,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/85/Doom.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Doom",
         "Ranks": [
-            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]]
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]
+        ]
     }, {
         "Id": 1747,
         "Name": "Empowerment",
@@ -23426,7 +24794,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/64/Empowerment.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Empowerment",
         "Ranks": [
-            [1, 2, 3, 4, 4, 5, 6, 7, 8, 9, 10, 11, 11, 12, 13, 14, 15, 16, 17, 17, 18, 19], [15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57], [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78]]
+            [1, 2, 3, 4, 4, 5, 6, 7, 8, 9, 10, 11, 11, 12, 13, 14, 15, 16, 17, 17, 18, 19],
+            [15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57],
+            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78]
+        ]
     }, {
         "Id": 2016,
         "Name": "Energetic Was Lee Sa",
@@ -23448,7 +24819,11 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/96/Energetic_Was_Lee_Sa.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Energetic_Was_Lee_Sa",
         "Ranks": [
-            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19], [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14], [4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [-6, -5, -4, -3, -2, -1, 0, 1, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]]
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19],
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14],
+            [4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [-6, -5, -4, -3, -2, -1, 0, 1, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+        ]
     }, {
         "Id": 1229,
         "Name": "Explosive Growth",
@@ -23470,7 +24845,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/77/Explosive_Growth.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Explosive_Growth",
         "Ranks": [
-            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78], [20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68, 71, 74, 77, 80, 83]]
+            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78],
+            [20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68, 71, 74, 77, 80, 83]
+        ]
     }, {
         "Id": 980,
         "Name": "Feast of Souls",
@@ -23492,7 +24869,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e7/Feast_of_Souls.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Feast_of_Souls",
         "Ranks": [
-            [50, 53, 57, 60, 63, 67, 70, 73, 77, 80, 83, 87, 90, 93, 97, 100, 103, 107, 110, 113, 117, 120]]
+            [50, 53, 57, 60, 63, 67, 70, 73, 77, 80, 83, 87, 90, 93, 97, 100, 103, 107, 110, 113, 117, 120]
+        ]
     }, {
         "Id": 1244,
         "Name": "Ghostly Haste",
@@ -23514,7 +24892,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/95/Ghostly_Haste.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Ghostly_Haste",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1482,
         "Name": "Reclaim Essence",
@@ -23536,7 +24915,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/bb/Reclaim_Essence.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Reclaim_Essence",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1739,
         "Name": "Renewing Memories",
@@ -23558,7 +24938,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/14/Renewing_Memories.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Renewing_Memories",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47]
+        ]
     }, {
         "Id": 1217,
         "Name": "Ritual Lord",
@@ -23580,7 +24962,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/15/Ritual_Lord.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Ritual_Lord",
         "Ranks": [
-            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47], [2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5], [10, 13, 17, 20, 23, 27, 30, 33, 37, 40, 43, 47, 50, 53, 57, 60, 63, 67, 70, 73, 77, 80]]
+            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47],
+            [2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5],
+            [10, 13, 17, 20, 23, 27, 30, 33, 37, 40, 43, 47, 50, 53, 57, 60, 63, 67, 70, 73, 77, 80]
+        ]
     }, {
         "Id": 917,
         "Name": "Rupture Soul",
@@ -23602,7 +24987,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/31/Rupture_Soul.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Rupture_Soul",
         "Ranks": [
-            [50, 56, 62, 68, 74, 80, 86, 92, 98, 104, 110, 116, 122, 128, 134, 140, 146, 152, 158, 164, 170, 176], [3, 4, 4, 5, 5, 6, 7, 7, 8, 8, 9, 10, 10, 11, 11, 12, 13, 13, 14, 14, 15, 16]]
+            [50, 56, 62, 68, 74, 80, 86, 92, 98, 104, 110, 116, 122, 128, 134, 140, 146, 152, 158, 164, 170, 176],
+            [3, 4, 4, 5, 5, 6, 7, 7, 8, 8, 9, 10, 10, 11, 11, 12, 13, 13, 14, 14, 15, 16]
+        ]
     }, {
         "Id": 1738,
         "Name": "Sight Beyond Sight",
@@ -23624,7 +25011,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/12/Sight_Beyond_Sight.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Sight_Beyond_Sight",
         "Ranks": [
-            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25]]
+            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25]
+        ]
     }, {
         "Id": 1743,
         "Name": "Signet of Binding",
@@ -23646,7 +25034,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/20/Signet_of_Binding.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Signet_of_Binding",
         "Ranks": [
-            [200, 190, 180, 170, 160, 150, 140, 130, 120, 110, 100, 90, 80, 70, 60, 50, 40, 30, 20, 10, 0, 0]]
+            [200, 190, 180, 170, 160, 150, 140, 130, 120, 110, 100, 90, 80, 70, 60, 50, 40, 30, 20, 10, 0, 0]
+        ]
     }, {
         "Id": 1238,
         "Name": "Signet of Creation",
@@ -23668,7 +25057,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/1c/Signet_of_Creation.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Signet_of_Creation",
         "Ranks": [
-            [3, 4, 4, 5, 5, 6, 7, 7, 8, 8, 9, 10, 10, 11, 11, 12, 13, 13, 14, 14, 15, 16]]
+            [3, 4, 4, 5, 5, 6, 7, 7, 8, 8, 9, 10, 10, 11, 11, 12, 13, 13, 14, 14, 15, 16]
+        ]
     }, {
         "Id": 1240,
         "Name": "Soul Twisting",
@@ -23690,7 +25080,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/24/Soul_Twisting.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Soul_Twisting",
         "Ranks": [
-            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4], [5, 8, 10, 13, 16, 18, 21, 24, 26, 29, 32, 34, 37, 40, 42, 45, 48, 50, 53, 56, 58, 61]]
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4],
+            [5, 8, 10, 13, 16, 18, 21, 24, 26, 29, 32, 34, 37, 40, 42, 45, 48, 50, 53, 56, 58, 61]
+        ]
     }, {
         "Id": 1231,
         "Name": "Spirit Channeling",
@@ -23712,7 +25104,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/0b/Spirit_Channeling.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Spirit_Channeling",
         "Ranks": [
-            [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8], [3, 4, 4, 5, 5, 6, 7, 7, 8, 8, 9, 10, 10, 11, 11, 12, 13, 13, 14, 14, 15, 16]]
+            [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8],
+            [3, 4, 4, 5, 5, 6, 7, 7, 8, 8, 9, 10, 10, 11, 11, 12, 13, 13, 14, 14, 15, 16]
+        ]
     }, {
         "Id": 918,
         "Name": "Spirit to Flesh",
@@ -23734,7 +25128,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/bc/Spirit_to_Flesh.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Spirit_to_Flesh",
         "Ranks": [
-            [30, 44, 58, 72, 86, 100, 114, 128, 142, 156, 170, 184, 198, 212, 226, 240, 254, 268, 282, 296, 310, 324]]
+            [30, 44, 58, 72, 86, 100, 114, 128, 142, 156, 170, 184, 198, 212, 226, 240, 254, 268, 282, 296, 310, 324]
+        ]
     }, {
         "Id": 1480,
         "Name": "Spirit's Gift",
@@ -23756,7 +25151,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/fd/Spirit%27s_Gift.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Spirit%27s_Gift",
         "Ranks": [
-            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]]
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]
+        ]
     }, {
         "Id": 1736,
         "Name": "Spirit's Strength",
@@ -23778,7 +25174,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f9/Spirit%27s_Strength.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Spirit%27s_Strength",
         "Ranks": [
-            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78], [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47]]
+            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78],
+            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47]
+        ]
     }, {
         "Id": 2149,
         "Name": "Weapon of Renewal",
@@ -23800,7 +25198,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/4c/Weapon_of_Renewal.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Weapon_of_Renewal",
         "Ranks": [
-            [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 12], [1, 1, 2, 2, 3, 3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9]]
+            [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 12],
+            [1, 1, 2, 2, 3, 3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9]
+        ]
     }, {
         "Id": 1740,
         "Name": "Wielder's Remedy",
@@ -23822,7 +25222,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a8/Wielder%27s_Remedy.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Wielder%27s_Remedy",
         "Ranks": [
-            [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38]]
+            [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38]
+        ]
     }, {
         "Id": 1737,
         "Name": "Wielder's Zeal",
@@ -23844,7 +25245,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/47/Wielder%27s_Zeal.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Wielder%27s_Zeal",
         "Ranks": [
-            [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38], [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]]
+            [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38],
+            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]
+        ]
     }, {
         "Id": 1224,
         "Name": "Draw Spirit",
@@ -23865,8 +25268,7 @@ var skillTable = [
         "Campaign": "Factions",
         "Image": "https://wiki.guildwars.com/images/1/1d/Draw_Spirit.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Draw_Spirit",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 1572,
         "Name": "\"Brace Yourself!\"",
@@ -23888,7 +25290,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/3f/%22Brace_Yourself%21%22.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22Brace_Yourself!%22",
         "Ranks": [
-            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19], [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]]
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19],
+            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]
+        ]
     }, {
         "Id": 1780,
         "Name": "\"Can't Touch This!\"",
@@ -23910,7 +25314,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/3d/%22Can%27t_Touch_This%21%22.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22Can%27t_Touch_This!%22",
         "Ranks": [
-            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]]
+            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]
+        ]
     }, {
         "Id": 1595,
         "Name": "\"Fall Back!\"",
@@ -23932,7 +25337,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/39/%22Fall_Back%21%22.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22Fall_Back!%22",
         "Ranks": [
-            [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 12], [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19]]
+            [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 12],
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19]
+        ]
     }, {
         "Id": 1781,
         "Name": "\"Find Their Weakness!\"",
@@ -23954,7 +25361,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/cb/%22Find_Their_Weakness%21%22.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22Find_Their_Weakness!%22",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1558,
         "Name": "\"Go for the Eyes!\"",
@@ -23976,7 +25386,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c7/%22Go_for_the_Eyes%21%22.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22Go_for_the_Eyes!%22",
         "Ranks": [
-            [30, 35, 39, 44, 49, 53, 58, 63, 67, 72, 77, 81, 86, 91, 95, 100, 105, 109, 114, 119, 123, 128]]
+            [30, 35, 39, 44, 49, 53, 58, 63, 67, 72, 77, 81, 86, 91, 95, 100, 105, 109, 114, 119, 123, 128]
+        ]
     }, {
         "Id": 1594,
         "Name": "\"Help Me!\"",
@@ -23998,7 +25409,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e2/%22Help_Me%21%22.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22Help_Me!%22",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14], [15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14],
+            [15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120]
+        ]
     }, {
         "Id": 1596,
         "Name": "\"Incoming!\"",
@@ -24020,7 +25433,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/d5/%22Incoming%21%22.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22Incoming!%22",
         "Ranks": [
-            [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 12], [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19]]
+            [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 12],
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19]
+        ]
     }, {
         "Id": 1591,
         "Name": "\"Make Haste!\"",
@@ -24042,7 +25457,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/ed/%22Make_Haste%21%22.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22Make_Haste!%22",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1593,
         "Name": "\"Never Give Up!\"",
@@ -24064,7 +25480,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/7c/%22Never_Give_Up%21%22.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22Never_Give_Up!%22",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]
+        ]
     }, {
         "Id": 1598,
         "Name": "\"Never Surrender!\"",
@@ -24086,7 +25503,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/51/%22Never_Surrender%21%22.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22Never_Surrender!%22",
         "Ranks": [
-            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]]
+            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]
+        ]
     }, {
         "Id": 1589,
         "Name": "\"Stand Your Ground!\"",
@@ -24108,7 +25526,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/af/%22Stand_Your_Ground%21%22.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22Stand_Your_Ground!%22",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1592,
         "Name": "\"We Shall Return!\"",
@@ -24130,7 +25549,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/39/%22We_Shall_Return%21%22.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22We_Shall_Return!%22",
         "Ranks": [
-            [25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45, 47, 48, 50, 52, 53, 55, 57, 58, 60], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45, 47, 48, 50, 52, 53, 55, 57, 58, 60],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 2018,
         "Name": "Anthem of Disruption",
@@ -24152,7 +25573,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/43/Anthem_of_Disruption.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Anthem_of_Disruption",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]
+        ]
     }, {
         "Id": 1559,
         "Name": "Anthem of Envy",
@@ -24174,7 +25596,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f0/Anthem_of_Envy.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Anthem_of_Envy",
         "Ranks": [
-            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]]
+            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
+        ]
     }, {
         "Id": 1568,
         "Name": "Anthem of Guidance",
@@ -24195,8 +25618,7 @@ var skillTable = [
         "Campaign": "Nightfall",
         "Image": "https://wiki.guildwars.com/images/4/4e/Anthem_of_Guidance.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Anthem_of_Guidance",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 2017,
         "Name": "Anthem of Weariness",
@@ -24218,7 +25640,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a2/Anthem_of_Weariness.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Anthem_of_Weariness",
         "Ranks": [
-            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]]
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]
+        ]
     }, {
         "Id": 1580,
         "Name": "Bladeturn Refrain",
@@ -24240,7 +25663,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a0/Bladeturn_Refrain.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Bladeturn_Refrain",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1554,
         "Name": "Crippling Anthem",
@@ -24262,7 +25686,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/23/Crippling_Anthem.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Crippling_Anthem",
         "Ranks": [
-            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19]]
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19]
+        ]
     }, {
         "Id": 1556,
         "Name": "Godspeed",
@@ -24284,7 +25709,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/df/Godspeed.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Godspeed",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1590,
         "Name": "\"Lead the Way!\"",
@@ -24306,7 +25732,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/8c/%22Lead_the_Way%21%22.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22Lead_the_Way!%22",
         "Ranks": [
-            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6]]
+            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6]
+        ]
     }, {
         "Id": 1779,
         "Name": "\"Make Your Time!\"",
@@ -24328,7 +25755,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/ea/%22Make_Your_Time%21%22.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22Make_Your_Time!%22",
         "Ranks": [
-            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6]]
+            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6]
+        ]
     }, {
         "Id": 1597,
         "Name": "\"They're on Fire!\"",
@@ -24350,7 +25778,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/0f/%22They%27re_on_Fire%21%22.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22They%27re_on_Fire!%22",
         "Ranks": [
-            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45]]
+            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45]
+        ]
     }, {
         "Id": 1774,
         "Name": "Aggressive Refrain",
@@ -24372,7 +25801,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/27/Aggressive_Refrain.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Aggressive_Refrain",
         "Ranks": [
-            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32]]
+            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32]
+        ]
     }, {
         "Id": 1587,
         "Name": "Angelic Bond",
@@ -24394,7 +25824,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/6e/Angelic_Bond.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Angelic_Bond",
         "Ranks": [
-            [20, 32, 44, 56, 68, 80, 92, 104, 116, 128, 140, 152, 164, 176, 188, 200, 212, 224, 236, 248, 260]]
+            [20, 32, 44, 56, 68, 80, 92, 104, 116, 128, 140, 152, 164, 176, 188, 200, 212, 224, 236, 248, 260]
+        ]
     }, {
         "Id": 1586,
         "Name": "Angelic Protection",
@@ -24416,7 +25847,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/ba/Angelic_Protection.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Angelic_Protection",
         "Ranks": [
-            [250, 240, 230, 220, 210, 200, 190, 180, 170, 160, 150, 140, 130, 120, 110, 100, 90, 80, 70, 60, 50]]
+            [250, 240, 230, 220, 210, 200, 190, 180, 170, 160, 150, 140, 130, 120, 110, 100, 90, 80, 70, 60, 50]
+        ]
     }, {
         "Id": 1557,
         "Name": "Anthem of Flame",
@@ -24438,7 +25870,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c8/Anthem_of_Flame.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Anthem_of_Flame",
         "Ranks": [
-            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4]]
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4]
+        ]
     }, {
         "Id": 1553,
         "Name": "Anthem of Fury",
@@ -24460,7 +25893,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/49/Anthem_of_Fury.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Anthem_of_Fury",
         "Ranks": [
-            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5]]
+            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5]
+        ]
     }, {
         "Id": 1573,
         "Name": "Awe",
@@ -24482,7 +25916,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/fd/Awe.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Awe",
         "Ranks": [
-            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18]]
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18]
+        ]
     }, {
         "Id": 1575,
         "Name": "Blazing Finale",
@@ -24504,7 +25939,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c5/Blazing_Finale.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Blazing_Finale",
         "Ranks": [
-            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43], [1, 1, 2, 2, 3, 3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9]]
+            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43],
+            [1, 1, 2, 2, 3, 3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9]
+        ]
     }, {
         "Id": 1576,
         "Name": "Burning Refrain",
@@ -24526,7 +25963,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/79/Burning_Refrain.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Burning_Refrain",
         "Ranks": [
-            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4]]
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4]
+        ]
     }, {
         "Id": 2208,
         "Name": "Burning Shield",
@@ -24548,7 +25986,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/8d/Burning_Shield.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Burning_Shield",
         "Ranks": [
-            [3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11], [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8]]
+            [3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11],
+            [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8]
+        ]
     }, {
         "Id": 1555,
         "Name": "Defensive Anthem",
@@ -24570,7 +26010,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/58/Defensive_Anthem.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Defensive_Anthem",
         "Ranks": [
-            [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12]]
+            [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12]
+        ]
     }, {
         "Id": 1574,
         "Name": "Enduring Harmony",
@@ -24592,7 +26033,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/ae/Enduring_Harmony.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Enduring_Harmony",
         "Ranks": [
-            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43]]
+            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43]
+        ]
     }, {
         "Id": 1769,
         "Name": "Focused Anger",
@@ -24614,7 +26056,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c0/Focused_Anger.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Focused_Anger",
         "Ranks": [
-            [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200]]
+            [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200]
+        ]
     }, {
         "Id": 1581,
         "Name": "Glowing Signet",
@@ -24636,7 +26079,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/fa/Glowing_Signet.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Glowing_Signet",
         "Ranks": [
-            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18]]
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18]
+        ]
     }, {
         "Id": 2075,
         "Name": "Hasty Refrain",
@@ -24658,7 +26102,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a5/Hasty_Refrain.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Hasty_Refrain",
         "Ranks": [
-            [3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 12, 12, 13, 13, 14]]
+            [3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 12, 12, 13, 13, 14]
+        ]
     }, {
         "Id": 1584,
         "Name": "Leader's Comfort",
@@ -24680,7 +26125,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/af/Leader%27s_Comfort.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Leader%27s_Comfort",
         "Ranks": [
-            [30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87, 90], [10, 11, 11, 12, 13, 13, 14, 15, 15, 16, 17, 17, 18, 19, 19, 20, 21, 21, 22, 23, 23]]
+            [30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87, 90],
+            [10, 11, 11, 12, 13, 13, 14, 15, 15, 16, 17, 17, 18, 19, 19, 20, 21, 21, 22, 23, 23]
+        ]
     }, {
         "Id": 1770,
         "Name": "Natural Temper",
@@ -24702,7 +26149,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/ea/Natural_Temper.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Natural_Temper",
         "Ranks": [
-            [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12]]
+            [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12]
+        ]
     }, {
         "Id": 1778,
         "Name": "Signet of Return",
@@ -24724,7 +26172,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/63/Signet_of_Return.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Signet_of_Return",
         "Ranks": [
-            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18], [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5]]
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18],
+            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5]
+        ]
     }, {
         "Id": 1773,
         "Name": "Soldier's Fury",
@@ -24746,7 +26196,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/ca/Soldier%27s_Fury.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Soldier%27s_Fury",
         "Ranks": [
-            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43]]
+            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43]
+        ]
     }, {
         "Id": 2210,
         "Name": "Spear Swipe",
@@ -24768,7 +26219,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/98/Spear_Swipe.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Spear_Swipe",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25], [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
+            [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12]
+        ]
     }, {
         "Id": 1599,
         "Name": "\"It's Just a Flesh Wound.\"",
@@ -24790,7 +26243,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/69/%22It%27s_Just_a_Flesh_Wound.%22.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22It%27s_Just_a_Flesh_Wound.%22",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]
+        ]
     }, {
         "Id": 1782,
         "Name": "\"The Power Is Yours!\"",
@@ -24812,7 +26266,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/05/%22The_Power_Is_Yours%21%22.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22The_Power_Is_Yours!%22",
         "Ranks": [
-            [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]]
+            [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+        ]
     }, {
         "Id": 1566,
         "Name": "Aria of Restoration",
@@ -24834,7 +26289,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/71/Aria_of_Restoration.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Aria_of_Restoration",
         "Ranks": [
-            [30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 98, 102, 106, 110, 114]]
+            [30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 98, 102, 106, 110, 114]
+        ]
     }, {
         "Id": 1562,
         "Name": "Aria of Zeal",
@@ -24856,7 +26312,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/32/Aria_of_Zeal.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Aria_of_Zeal",
         "Ranks": [
-            [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8]]
+            [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8]
+        ]
     }, {
         "Id": 1564,
         "Name": "Ballad of Restoration",
@@ -24878,7 +26335,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/fb/Ballad_of_Restoration.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Ballad_of_Restoration",
         "Ranks": [
-            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]]
+            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]
+        ]
     }, {
         "Id": 1565,
         "Name": "Chorus of Restoration",
@@ -24900,7 +26358,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/b2/Chorus_of_Restoration.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Chorus_of_Restoration",
         "Ranks": [
-            [30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 98, 102, 106, 110, 114]]
+            [30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 98, 102, 106, 110, 114]
+        ]
     }, {
         "Id": 1569,
         "Name": "Energizing Chorus",
@@ -24922,7 +26381,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/28/Energizing_Chorus.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Energizing_Chorus",
         "Ranks": [
-            [3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 8, 8, 8, 8, 9]]
+            [3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 8, 8, 8, 8, 9]
+        ]
     }, {
         "Id": 1775,
         "Name": "Energizing Finale",
@@ -24944,7 +26404,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/89/Energizing_Finale.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Energizing_Finale",
         "Ranks": [
-            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45]]
+            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45]
+        ]
     }, {
         "Id": 1577,
         "Name": "Finale of Restoration",
@@ -24966,7 +26427,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/56/Finale_of_Restoration.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Finale_of_Restoration",
         "Ranks": [
-            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45], [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]]
+            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45],
+            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]
+        ]
     }, {
         "Id": 2207,
         "Name": "Inspirational Speech",
@@ -24988,7 +26451,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/ee/Inspirational_Speech.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Inspirational_Speech",
         "Ranks": [
-            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5]]
+            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5]
+        ]
     }, {
         "Id": 1583,
         "Name": "Leader's Zeal",
@@ -25010,7 +26474,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/4b/Leader%27s_Zeal.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Leader%27s_Zeal",
         "Ranks": [
-            [8, 8, 9, 9, 9, 9, 10, 10, 10, 10, 11, 11, 11, 11, 12, 12, 12, 13, 13, 13, 13, 14]]
+            [8, 8, 9, 9, 9, 9, 10, 10, 10, 10, 11, 11, 11, 11, 12, 12, 12, 13, 13, 13, 13, 14]
+        ]
     }, {
         "Id": 1772,
         "Name": "Lyric of Purification",
@@ -25032,7 +26497,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/7d/Lyric_of_Purification.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Lyric_of_Purification",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1563,
         "Name": "Lyric of Zeal",
@@ -25054,7 +26520,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/b0/Lyric_of_Zeal.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Lyric_of_Zeal",
         "Ranks": [
-            [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 11]]
+            [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 11]
+        ]
     }, {
         "Id": 1578,
         "Name": "Mending Refrain",
@@ -25076,7 +26543,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/2e/Mending_Refrain.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mending_Refrain",
         "Ranks": [
-            [2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]]
+            [2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+        ]
     }, {
         "Id": 1579,
         "Name": "Purifying Finale",
@@ -25098,7 +26566,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/ce/Purifying_Finale.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Purifying_Finale",
         "Ranks": [
-            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45]]
+            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45]
+        ]
     }, {
         "Id": 1585,
         "Name": "Signet of Synergy",
@@ -25120,7 +26589,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/fe/Signet_of_Synergy.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Signet_of_Synergy",
         "Ranks": [
-            [40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100, 104, 108, 112, 116, 120, 124], [40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100, 104, 108, 112, 116, 120, 124]]
+            [40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100, 104, 108, 112, 116, 120, 124],
+            [40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100, 104, 108, 112, 116, 120, 124]
+        ]
     }, {
         "Id": 1560,
         "Name": "Song of Power",
@@ -25142,7 +26613,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/af/Song_of_Power.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Song_of_Power",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1570,
         "Name": "Song of Purification",
@@ -25164,7 +26636,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/57/Song_of_Purification.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Song_of_Purification",
         "Ranks": [
-            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4]]
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4]
+        ]
     }, {
         "Id": 1771,
         "Name": "Song of Restoration",
@@ -25186,7 +26659,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/9b/Song_of_Restoration.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Song_of_Restoration",
         "Ranks": [
-            [45, 49, 54, 58, 62, 67, 71, 75, 80, 84, 88, 93, 97, 101, 106, 110, 114, 119, 123, 127, 132, 136]]
+            [45, 49, 54, 58, 62, 67, 71, 75, 80, 84, 88, 93, 97, 101, 106, 110, 114, 119, 123, 127, 132, 136]
+        ]
     }, {
         "Id": 1561,
         "Name": "Zealous Anthem",
@@ -25208,7 +26682,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/37/Zealous_Anthem.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Zealous_Anthem",
         "Ranks": [
-            [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 11]]
+            [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 11]
+        ]
     }, {
         "Id": 1548,
         "Name": "Cruel Spear",
@@ -25230,7 +26705,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/9b/Cruel_Spear.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Cruel_Spear",
         "Ranks": [
-            [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1600,
         "Name": "Barbed Spear",
@@ -25252,7 +26729,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/5e/Barbed_Spear.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Barbed_Spear",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1546,
         "Name": "Blazing Spear",
@@ -25274,7 +26752,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c8/Blazing_Spear.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Blazing_Spear",
         "Ranks": [
-            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32, 33], [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4]]
+            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32, 33],
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4]
+        ]
     }, {
         "Id": 2074,
         "Name": "Chest Thumper",
@@ -25296,7 +26776,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/5d/Chest_Thumper.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Chest_Thumper",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1604,
         "Name": "Disrupting Throw",
@@ -25317,8 +26798,7 @@ var skillTable = [
         "Campaign": "Nightfall",
         "Image": "https://wiki.guildwars.com/images/9/92/Disrupting_Throw.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Disrupting_Throw",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 1549,
         "Name": "Harrier's Toss",
@@ -25340,7 +26820,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/11/Harrier%27s_Toss.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Harrier%27s_Toss",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [5, 7, 8, 10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [5, 7, 8, 10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40]
+        ]
     }, {
         "Id": 2209,
         "Name": "Holy Spear",
@@ -25362,7 +26844,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/b6/Holy_Spear.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Holy_Spear",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120]
+        ]
     }, {
         "Id": 2150,
         "Name": "Maiming Spear",
@@ -25384,7 +26868,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/7d/Maiming_Spear.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Maiming_Spear",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1603,
         "Name": "Merciless Spear",
@@ -25406,7 +26891,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/01/Merciless_Spear.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Merciless_Spear",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1547,
         "Name": "Mighty Throw",
@@ -25428,7 +26914,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a9/Mighty_Throw.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mighty_Throw",
         "Ranks": [
-            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]]
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]
+        ]
     }, {
         "Id": 1783,
         "Name": "Slayer's Spear",
@@ -25450,7 +26937,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a2/Slayer%27s_Spear.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Slayer%27s_Spear",
         "Ranks": [
-            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32, 33], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32, 33],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1551,
         "Name": "Spear of Lightning",
@@ -25472,7 +26961,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/37/Spear_of_Lightning.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Spear_of_Lightning",
         "Ranks": [
-            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25]]
+            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25]
+        ]
     }, {
         "Id": 2238,
         "Name": "Spear of Redemption",
@@ -25494,7 +26984,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/7b/Spear_of_Redemption.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Spear_of_Redemption",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1602,
         "Name": "Stunning Strike",
@@ -25516,7 +27007,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a6/Stunning_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Stunning_Strike",
         "Ranks": [
-            [5, 7, 8, 10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40], [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 12]]
+            [5, 7, 8, 10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40],
+            [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 12]
+        ]
     }, {
         "Id": 1784,
         "Name": "Swift Javelin",
@@ -25538,7 +27031,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c4/Swift_Javelin.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Swift_Javelin",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1550,
         "Name": "Unblockable Throw",
@@ -25560,7 +27054,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/cd/Unblockable_Throw.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Unblockable_Throw",
         "Ranks": [
-            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]]
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]
+        ]
     }, {
         "Id": 1601,
         "Name": "Vicious Attack",
@@ -25582,7 +27077,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c4/Vicious_Attack.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Vicious_Attack",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19]
+        ]
     }, {
         "Id": 1552,
         "Name": "Wearying Spear",
@@ -25604,7 +27101,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/4e/Wearying_Spear.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Wearying_Spear",
         "Ranks": [
-            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]]
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]
+        ]
     }, {
         "Id": 1605,
         "Name": "Wild Throw",
@@ -25626,7 +27124,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/94/Wild_Throw.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Wild_Throw",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1588,
         "Name": "Cautery Signet",
@@ -25647,8 +27146,7 @@ var skillTable = [
         "Campaign": "Nightfall",
         "Image": "https://wiki.guildwars.com/images/1/17/Cautery_Signet.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Cautery_Signet",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 1571,
         "Name": "Hexbreaker Aria",
@@ -25669,8 +27167,7 @@ var skillTable = [
         "Campaign": "Nightfall",
         "Image": "https://wiki.guildwars.com/images/e/e8/Hexbreaker_Aria.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Hexbreaker_Aria",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 1777,
         "Name": "Remedy Signet",
@@ -25691,8 +27188,7 @@ var skillTable = [
         "Campaign": "Nightfall",
         "Image": "https://wiki.guildwars.com/images/0/0d/Remedy_Signet.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Remedy_Signet",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 1776,
         "Name": "Signet of Aggression",
@@ -25713,8 +27209,7 @@ var skillTable = [
         "Campaign": "Nightfall",
         "Image": "https://wiki.guildwars.com/images/a/a9/Signet_of_Aggression.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Signet_of_Aggression",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 1567,
         "Name": "Song of Concentration",
@@ -25735,8 +27230,7 @@ var skillTable = [
         "Campaign": "Nightfall",
         "Image": "https://wiki.guildwars.com/images/d/d0/Song_of_Concentration.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Song_of_Concentration",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 1515,
         "Name": "Armor of Sanctity",
@@ -25758,7 +27252,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/1a/Armor_of_Sanctity.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Armor_of_Sanctity",
         "Ranks": [
-            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]]
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+        ]
     }, {
         "Id": 1495,
         "Name": "Aura of Thorns",
@@ -25780,7 +27276,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f4/Aura_of_Thorns.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Aura_of_Thorns",
         "Ranks": [
-            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18], [3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10]]
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18],
+            [3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10]
+        ]
     }, {
         "Id": 1540,
         "Name": "Conviction",
@@ -25802,7 +27300,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/d3/Conviction.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Conviction",
         "Ranks": [
-            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4], [1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]]
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4],
+            [1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+        ]
     }, {
         "Id": 1497,
         "Name": "Dust Cloak",
@@ -25824,7 +27324,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/2f/Dust_Cloak.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Dust_Cloak",
         "Ranks": [
-            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50], [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5]]
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50],
+            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5]
+        ]
     }, {
         "Id": 1760,
         "Name": "Ebon Dust Aura",
@@ -25846,7 +27348,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/39/Ebon_Dust_Aura.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Ebon_Dust_Aura",
         "Ranks": [
-            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19], [1, 1, 2, 2, 3, 3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9]]
+            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19],
+            [1, 1, 2, 2, 3, 3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9]
+        ]
     }, {
         "Id": 1514,
         "Name": "Fleeting Stability",
@@ -25868,7 +27372,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/ef/Fleeting_Stability.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Fleeting_Stability",
         "Ranks": [
-            [2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 7, 7, 7, 7]]
+            [2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 7, 7, 7, 7]
+        ]
     }, {
         "Id": 1500,
         "Name": "Mirage Cloak",
@@ -25890,7 +27395,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/0c/Mirage_Cloak.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mirage_Cloak",
         "Ranks": [
-            [1, 1, 2, 2, 3, 3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9], [40, 43, 45, 48, 51, 53, 56, 59, 61, 64, 67, 69, 72, 75, 77, 80, 83, 85, 88, 91, 93], [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50]]
+            [1, 1, 2, 2, 3, 3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9],
+            [40, 43, 45, 48, 51, 53, 56, 59, 61, 64, 67, 69, 72, 75, 77, 80, 83, 85, 88, 91, 93],
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50]
+        ]
     }, {
         "Id": 1516,
         "Name": "Mystic Regeneration",
@@ -25912,7 +27420,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/55/Mystic_Regeneration.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mystic_Regeneration",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25], [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
+            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5]
+        ]
     }, {
         "Id": 1532,
         "Name": "Mystic Sandstorm",
@@ -25934,7 +27444,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e6/Mystic_Sandstorm.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mystic_Sandstorm",
         "Ranks": [
-            [10, 11, 11, 12, 13, 13, 14, 15, 15, 16, 17, 17, 18, 19, 19, 20, 21, 21, 22, 23, 23]]
+            [10, 11, 11, 12, 13, 13, 14, 15, 15, 16, 17, 17, 18, 19, 19, 20, 21, 21, 22, 23, 23]
+        ]
     }, {
         "Id": 1542,
         "Name": "Pious Concentration",
@@ -25956,7 +27467,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/76/Pious_Concentration.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Pious_Concentration",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+        ]
     }, {
         "Id": 1510,
         "Name": "Sand Shards",
@@ -25978,7 +27490,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/53/Sand_Shards.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Sand_Shards",
         "Ranks": [
-            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6], [10, 13, 17, 20, 23, 27, 30, 33, 37, 40, 43, 47, 50, 53, 57, 60, 63, 67, 70, 73, 77]]
+            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6],
+            [10, 13, 17, 20, 23, 27, 30, 33, 37, 40, 43, 47, 50, 53, 57, 60, 63, 67, 70, 73, 77]
+        ]
     }, {
         "Id": 2201,
         "Name": "Shield of Force",
@@ -26000,7 +27514,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/7b/Shield_of_Force.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Shield_of_Force",
         "Ranks": [
-            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]]
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+        ]
     }, {
         "Id": 1530,
         "Name": "Signet of Pious Light",
@@ -26022,7 +27538,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/84/Signet_of_Pious_Light.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Signet_of_Pious_Light",
         "Ranks": [
-            [30, 38, 46, 54, 62, 70, 78, 86, 94, 102, 110, 118, 126, 134, 142, 150, 158, 166, 174, 182, 190]]
+            [30, 38, 46, 54, 62, 70, 78, 86, 94, 102, 110, 118, 126, 134, 142, 150, 158, 166, 174, 182, 190]
+        ]
     }, {
         "Id": 1498,
         "Name": "Staggering Force",
@@ -26044,7 +27561,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/43/Staggering_Force.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Staggering_Force",
         "Ranks": [
-            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50], [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13]]
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50],
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13]
+        ]
     }, {
         "Id": 1757,
         "Name": "Veil of Thorns",
@@ -26066,7 +27585,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/2d/Veil_of_Thorns.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Veil_of_Thorns",
         "Ranks": [
-            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32], [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65], [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45]]
+            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32],
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65],
+            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45]
+        ]
     }, {
         "Id": 1506,
         "Name": "Vital Boon",
@@ -26088,7 +27610,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/72/Vital_Boon.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Vital_Boon",
         "Ranks": [
-            [40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100, 104, 108, 112, 116, 120], [75, 83, 92, 100, 108, 117, 125, 133, 142, 150, 158, 167, 175, 183, 192, 200, 208, 217, 225, 233, 242]]
+            [40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100, 104, 108, 112, 116, 120],
+            [75, 83, 92, 100, 108, 117, 125, 133, 142, 150, 158, 167, 175, 183, 192, 200, 208, 217, 225, 233, 242]
+        ]
     }, {
         "Id": 1759,
         "Name": "Vow of Strength",
@@ -26110,7 +27634,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/b9/Vow_of_Strength.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Vow_of_Strength",
         "Ranks": [
-            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]]
+            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
+        ]
     }, {
         "Id": 1502,
         "Name": "Arcane Zeal",
@@ -26132,7 +27657,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/ad/Arcane_Zeal.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Arcane_Zeal",
         "Ranks": [
-            [1, 1, 2, 2, 3, 3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9]]
+            [1, 1, 2, 2, 3, 3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9]
+        ]
     }, {
         "Id": 2070,
         "Name": "Aura Slicer",
@@ -26154,7 +27680,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/24/Aura_Slicer.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Aura_Slicer",
         "Ranks": [
-            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18], [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13]]
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18],
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13]
+        ]
     }, {
         "Id": 1518,
         "Name": "Avatar of Balthazar",
@@ -26176,7 +27704,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/93/Avatar_of_Balthazar.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Avatar_of_Balthazar",
         "Ranks": [
-            [10, 15, 21, 26, 31, 37, 42, 47, 53, 58, 63, 69, 74, 79, 85, 90, 95, 101, 106, 111, 117], [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4]]
+            [10, 15, 21, 26, 31, 37, 42, 47, 53, 58, 63, 69, 74, 79, 85, 90, 95, 101, 106, 111, 117],
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4]
+        ]
     }, {
         "Id": 1519,
         "Name": "Avatar of Dwayna",
@@ -26198,7 +27728,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e0/Avatar_of_Dwayna.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Avatar_of_Dwayna",
         "Ranks": [
-            [10, 15, 21, 26, 31, 37, 42, 47, 53, 58, 63, 69, 74, 79, 85, 90, 95, 101, 106, 111, 117], [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65]]
+            [10, 15, 21, 26, 31, 37, 42, 47, 53, 58, 63, 69, 74, 79, 85, 90, 95, 101, 106, 111, 117],
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65]
+        ]
     }, {
         "Id": 1520,
         "Name": "Avatar of Grenth",
@@ -26220,7 +27752,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/13/Avatar_of_Grenth.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Avatar_of_Grenth",
         "Ranks": [
-            [10, 15, 21, 26, 31, 37, 42, 47, 53, 58, 63, 69, 74, 79, 85, 90, 95, 101, 106, 111, 117], [0, 1, 2, 2, 3, 4, 5, 6, 6, 7, 8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16]]
+            [10, 15, 21, 26, 31, 37, 42, 47, 53, 58, 63, 69, 74, 79, 85, 90, 95, 101, 106, 111, 117],
+            [0, 1, 2, 2, 3, 4, 5, 6, 6, 7, 8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16]
+        ]
     }, {
         "Id": 1521,
         "Name": "Avatar of Lyssa",
@@ -26242,7 +27776,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e5/Avatar_of_Lyssa.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Avatar_of_Lyssa",
         "Ranks": [
-            [10, 15, 21, 26, 31, 37, 42, 47, 53, 58, 63, 69, 74, 79, 85, 90, 95, 101, 106, 111, 117]]
+            [10, 15, 21, 26, 31, 37, 42, 47, 53, 58, 63, 69, 74, 79, 85, 90, 95, 101, 106, 111, 117]
+        ]
     }, {
         "Id": 1522,
         "Name": "Avatar of Melandru",
@@ -26264,7 +27799,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/ff/Avatar_of_Melandru.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Avatar_of_Melandru",
         "Ranks": [
-            [10, 15, 21, 26, 31, 37, 42, 47, 53, 58, 63, 69, 74, 79, 85, 90, 95, 101, 106, 111, 117]]
+            [10, 15, 21, 26, 31, 37, 42, 47, 53, 58, 63, 69, 74, 79, 85, 90, 95, 101, 106, 111, 117]
+        ]
     }, {
         "Id": 1496,
         "Name": "Balthazar's Rage",
@@ -26286,7 +27822,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/0a/Balthazar%27s_Rage.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Balthazar%27s_Rage",
         "Ranks": [
-            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4], [1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]]
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4],
+            [1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+        ]
     }, {
         "Id": 1483,
         "Name": "Banishing Strike",
@@ -26308,7 +27846,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a3/Banishing_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Banishing_Strike",
         "Ranks": [
-            [10, 13, 17, 20, 23, 27, 30, 33, 37, 40, 43, 47, 50, 53, 57, 60, 63, 67, 70, 73, 77]]
+            [10, 13, 17, 20, 23, 27, 30, 33, 37, 40, 43, 47, 50, 53, 57, 60, 63, 67, 70, 73, 77]
+        ]
     }, {
         "Id": 1524,
         "Name": "Eremite's Zeal",
@@ -26330,7 +27869,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/15/Eremite%27s_Zeal.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Eremite%27s_Zeal",
         "Ranks": [
-            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4]]
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4]
+        ]
     }, {
         "Id": 1508,
         "Name": "Extend Enchantments",
@@ -26352,7 +27892,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/14/Extend_Enchantments.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Extend_Enchantments",
         "Ranks": [
-            [10, 19, 29, 38, 47, 57, 66, 75, 85, 94, 103, 113, 122, 131, 141, 150, 159, 169, 178, 187, 197]]
+            [10, 19, 29, 38, 47, 57, 66, 75, 85, 94, 103, 113, 122, 131, 141, 150, 159, 169, 178, 187, 197]
+        ]
     }, {
         "Id": 1509,
         "Name": "Faithful Intervention",
@@ -26374,7 +27915,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c1/Faithful_Intervention.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Faithful_Intervention",
         "Ranks": [
-            [30, 38, 46, 54, 62, 70, 78, 86, 94, 102, 110, 118, 126, 134, 142, 150, 158, 166, 174, 182, 190]]
+            [30, 38, 46, 54, 62, 70, 78, 86, 94, 102, 110, 118, 126, 134, 142, 150, 158, 166, 174, 182, 190]
+        ]
     }, {
         "Id": 1762,
         "Name": "Heart of Fury",
@@ -26396,7 +27938,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/03/Heart_of_Fury.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Heart_of_Fury",
         "Ranks": [
-            [2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13]]
+            [2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13]
+        ]
     }, {
         "Id": 1507,
         "Name": "Heart of Holy Flame",
@@ -26418,7 +27961,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/1b/Heart_of_Holy_Flame.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Heart_of_Holy_Flame",
         "Ranks": [
-            [5, 7, 8, 10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38], [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 6, 6, 6]]
+            [5, 7, 8, 10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38],
+            [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 6, 6, 6]
+        ]
     }, {
         "Id": 1526,
         "Name": "Imbue Health",
@@ -26440,7 +27985,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/ad/Imbue_Health.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Imbue_Health",
         "Ranks": [
-            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65]]
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65]
+        ]
     }, {
         "Id": 1531,
         "Name": "Intimidating Aura",
@@ -26462,7 +28008,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/dc/Intimidating_Aura.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Intimidating_Aura",
         "Ranks": [
-            [40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100, 104, 108, 112, 116, 120], [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13]]
+            [40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100, 104, 108, 112, 116, 120],
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13]
+        ]
     }, {
         "Id": 1523,
         "Name": "Meditation",
@@ -26484,7 +28032,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e0/Meditation.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Meditation",
         "Ranks": [
-            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5]]
+            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5]
+        ]
     }, {
         "Id": 1755,
         "Name": "Mystic Corruption",
@@ -26506,7 +28055,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/5c/Mystic_Corruption.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mystic_Corruption",
         "Ranks": [
-            [1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]]
+            [1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+        ]
     }, {
         "Id": 1484,
         "Name": "Mystic Sweep",
@@ -26528,7 +28078,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/90/Mystic_Sweep.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mystic_Sweep",
         "Ranks": [
-            [3, 4, 4, 5, 5, 6, 7, 7, 8, 8, 9, 10, 10, 11, 11, 12, 13, 13, 14, 14, 15]]
+            [3, 4, 4, 5, 5, 6, 7, 7, 8, 8, 9, 10, 10, 11, 11, 12, 13, 13, 14, 14, 15]
+        ]
     }, {
         "Id": 1503,
         "Name": "Mystic Vigor",
@@ -26550,7 +28101,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/57/Mystic_Vigor.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mystic_Vigor",
         "Ranks": [
-            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19]]
+            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19]
+        ]
     }, {
         "Id": 2146,
         "Name": "Pious Fury",
@@ -26572,7 +28124,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/fc/Pious_Fury.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Pious_Fury",
         "Ranks": [
-            [1, 1, 2, 2, 3, 3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9]]
+            [1, 1, 2, 2, 3, 3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9]
+        ]
     }, {
         "Id": 1543,
         "Name": "Pious Haste",
@@ -26594,7 +28147,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/56/Pious_Haste.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Pious_Haste",
         "Ranks": [
-            [1, 1, 2, 2, 3, 3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9]]
+            [1, 1, 2, 2, 3, 3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9]
+        ]
     }, {
         "Id": 1499,
         "Name": "Pious Renewal",
@@ -26616,7 +28170,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/36/Pious_Renewal.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Pious_Renewal",
         "Ranks": [
-            [0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7], [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40]]
+            [0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7],
+            [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40]
+        ]
     }, {
         "Id": 1534,
         "Name": "Rending Touch",
@@ -26638,7 +28194,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/7c/Rending_Touch.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Rending_Touch",
         "Ranks": [
-            [15, 18, 22, 25, 28, 32, 35, 38, 42, 45, 48, 52, 55, 58, 62, 65, 68, 72, 75, 78, 82]]
+            [15, 18, 22, 25, 28, 32, 35, 38, 42, 45, 48, 52, 55, 58, 62, 65, 68, 72, 75, 78, 82]
+        ]
     }, {
         "Id": 1517,
         "Name": "Vow of Silence",
@@ -26660,7 +28217,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f6/Vow_of_Silence.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Vow_of_Silence",
         "Ranks": [
-            [5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10, 10, 11, 11, 11, 12]]
+            [5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10, 10, 11, 11, 11, 12]
+        ]
     }, {
         "Id": 1504,
         "Name": "Watchful Intervention",
@@ -26682,7 +28240,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/5e/Watchful_Intervention.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Watchful_Intervention",
         "Ranks": [
-            [50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230, 240, 250]]
+            [50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230, 240, 250]
+        ]
     }, {
         "Id": 1763,
         "Name": "Zealous Renewal",
@@ -26704,7 +28263,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/0f/Zealous_Renewal.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Zealous_Renewal",
         "Ranks": [
-            [5, 7, 8, 10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38], [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32], [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6]]
+            [5, 7, 8, 10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38],
+            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32],
+            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6]
+        ]
     }, {
         "Id": 1538,
         "Name": "Lyssa's Assault",
@@ -26726,7 +28288,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/70/Lyssa%27s_Assault.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Lyssa%27s_Assault",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]
+        ]
     }, {
         "Id": 1539,
         "Name": "Chilling Victory",
@@ -26748,7 +28311,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/32/Chilling_Victory.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Chilling_Victory",
         "Ranks": [
-            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19, 20], [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38]]
+            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19, 20],
+            [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38]
+        ]
     }, {
         "Id": 1535,
         "Name": "Crippling Sweep",
@@ -26770,7 +28335,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/d0/Crippling_Sweep.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Crippling_Sweep",
         "Ranks": [
-            [3, 4, 4, 5, 5, 6, 7, 7, 8, 8, 9, 10, 10, 11, 11, 12, 13, 13, 14, 14, 15, 16], [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19, 20]]
+            [3, 4, 4, 5, 5, 6, 7, 7, 8, 8, 9, 10, 10, 11, 11, 12, 13, 13, 14, 14, 15, 16],
+            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19, 20]
+        ]
     }, {
         "Id": 2147,
         "Name": "Crippling Victory",
@@ -26792,7 +28359,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/7f/Crippling_Victory.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Crippling_Victory",
         "Ranks": [
-            [3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10], [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38]]
+            [3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10],
+            [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38]
+        ]
     }, {
         "Id": 1485,
         "Name": "Eremite's Attack",
@@ -26814,7 +28383,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/6d/Eremite%27s_Attack.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Eremite%27s_Attack",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]
+        ]
     }, {
         "Id": 2015,
         "Name": "Farmer's Scythe",
@@ -26836,7 +28406,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/37/Farmer%27s_Scythe.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Farmer%27s_Scythe",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1489,
         "Name": "Irresistible Sweep",
@@ -26858,7 +28429,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/9e/Irresistible_Sweep.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Irresistible_Sweep",
         "Ranks": [
-            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19, 20]]
+            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19, 20]
+        ]
     }, {
         "Id": 1490,
         "Name": "Pious Assault",
@@ -26880,7 +28452,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/27/Pious_Assault.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Pious_Assault",
         "Ranks": [
-            [10, 11, 11, 12, 13, 13, 14, 15, 15, 16, 17, 17, 18, 19, 19, 20, 21, 21, 22, 23, 23, 24], [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38]]
+            [10, 11, 11, 12, 13, 13, 14, 15, 15, 16, 17, 17, 18, 19, 19, 20, 21, 21, 22, 23, 23, 24],
+            [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38]
+        ]
     }, {
         "Id": 2012,
         "Name": "Radiant Scythe",
@@ -26902,7 +28476,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/0a/Radiant_Scythe.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Radiant_Scythe",
         "Ranks": [
-            [5, 7, 8, 10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40], [1, 1, 2, 2, 3, 3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9]]
+            [5, 7, 8, 10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40],
+            [1, 1, 2, 2, 3, 3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9]
+        ]
     }, {
         "Id": 1486,
         "Name": "Reap Impurities",
@@ -26924,7 +28500,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/d4/Reap_Impurities.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Reap_Impurities",
         "Ranks": [
-            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19, 20], [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]]
+            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19, 20],
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]
+        ]
     }, {
         "Id": 1767,
         "Name": "Reaper's Sweep",
@@ -26946,7 +28524,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e6/Reaper%27s_Sweep.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Reaper%27s_Sweep",
         "Ranks": [
-            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19, 20], [2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]]
+            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19, 20],
+            [2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+        ]
     }, {
         "Id": 1753,
         "Name": "Rending Sweep",
@@ -26968,7 +28548,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/50/Rending_Sweep.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Rending_Sweep",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1487,
         "Name": "Twin Moon Sweep",
@@ -26990,7 +28571,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/d8/Twin_Moon_Sweep.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Twin_Moon_Sweep",
         "Ranks": [
-            [10, 13, 15, 18, 21, 23, 26, 29, 31, 34, 37, 39, 42, 45, 47, 50, 53, 55, 58, 61, 63, 66], [10, 14, 18, 22, 26, 30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94]]
+            [10, 13, 15, 18, 21, 23, 26, 29, 31, 34, 37, 39, 42, 45, 47, 50, 53, 55, 58, 61, 63, 66],
+            [10, 14, 18, 22, 26, 30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94]
+        ]
     }, {
         "Id": 1488,
         "Name": "Victorious Sweep",
@@ -27012,7 +28595,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/07/Victorious_Sweep.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Victorious_Sweep",
         "Ranks": [
-            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32, 33], [30, 33, 37, 40, 43, 47, 50, 53, 57, 60, 63, 67, 70, 73, 77, 80, 83, 87, 90, 93, 97, 100]]
+            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32, 33],
+            [30, 33, 37, 40, 43, 47, 50, 53, 57, 60, 63, 67, 70, 73, 77, 80, 83, 87, 90, 93, 97, 100]
+        ]
     }, {
         "Id": 1537,
         "Name": "Wearying Strike",
@@ -27034,7 +28619,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/11/Wearying_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Wearying_Strike",
         "Ranks": [
-            [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 13]]
+            [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 13]
+        ]
     }, {
         "Id": 1536,
         "Name": "Wounding Strike",
@@ -27056,7 +28642,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/35/Wounding_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Wounding_Strike",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 2071,
         "Name": "Zealous Sweep",
@@ -27078,7 +28666,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/5d/Zealous_Sweep.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Zealous_Sweep",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 1764,
         "Name": "Attacker's Insight",
@@ -27100,7 +28689,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/48/Attacker%27s_Insight.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Attacker%27s_Insight",
         "Ranks": [
-            [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12], [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19]]
+            [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12],
+            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19]
+        ]
     }, {
         "Id": 1528,
         "Name": "Dwayna's Touch",
@@ -27122,7 +28713,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/0c/Dwayna%27s_Touch.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Dwayna%27s_Touch",
         "Ranks": [
-            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75]]
+            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75]
+        ]
     }, {
         "Id": 1766,
         "Name": "Featherfoot Grace",
@@ -27144,7 +28736,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/b0/Featherfoot_Grace.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Featherfoot_Grace",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+        ]
     }, {
         "Id": 2013,
         "Name": "Grenth's Aura",
@@ -27166,7 +28759,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/87/Grenth%27s_Aura.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Grenth%27s_Aura",
         "Ranks": [
-            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32]]
+            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32]
+        ]
     }, {
         "Id": 1493,
         "Name": "Grenth's Fingers",
@@ -27188,7 +28782,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/7e/Grenth%27s_Fingers.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Grenth%27s_Fingers",
         "Ranks": [
-            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50], [1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]]
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50],
+            [1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+        ]
     }, {
         "Id": 1756,
         "Name": "Grenth's Grasp",
@@ -27210,7 +28806,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/4a/Grenth%27s_Grasp.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Grenth%27s_Grasp",
         "Ranks": [
-            [1, 2, 2, 3, 4, 4, 5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14]]
+            [1, 2, 2, 3, 4, 4, 5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14]
+        ]
     }, {
         "Id": 1513,
         "Name": "Guiding Hands",
@@ -27232,7 +28829,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/38/Guiding_Hands.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Guiding_Hands",
         "Ranks": [
-            [0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4]]
+            [0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4]
+        ]
     }, {
         "Id": 1758,
         "Name": "Harrier's Grasp",
@@ -27254,7 +28852,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/84/Harrier%27s_Grasp.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Harrier%27s_Grasp",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25], [2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11], [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
+            [2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11],
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4]
+        ]
     }, {
         "Id": 1768,
         "Name": "Harrier's Haste",
@@ -27276,7 +28877,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/84/Harrier%27s_Haste.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Harrier%27s_Haste",
         "Ranks": [
-            [2, 2, 3, 3, 4, 4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10], [3, 4, 4, 5, 5, 6, 7, 7, 8, 8, 9, 10, 10, 11, 11, 12, 13, 13, 14, 14, 15]]
+            [2, 2, 3, 3, 4, 4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10],
+            [3, 4, 4, 5, 5, 6, 7, 7, 8, 8, 9, 10, 10, 11, 11, 12, 13, 13, 14, 14, 15]
+        ]
     }, {
         "Id": 1512,
         "Name": "Lyssa's Haste",
@@ -27298,7 +28901,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/0e/Lyssa%27s_Haste.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Lyssa%27s_Haste",
         "Ranks": [
-            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19]]
+            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19]
+        ]
     }, {
         "Id": 1527,
         "Name": "Mystic Healing",
@@ -27320,7 +28924,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e0/Mystic_Healing.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mystic_Healing",
         "Ranks": [
-            [5, 9, 13, 17, 21, 25, 29, 33, 37, 41, 45, 49, 53, 57, 61, 65, 69, 73, 77, 81, 85]]
+            [5, 9, 13, 17, 21, 25, 29, 33, 37, 41, 45, 49, 53, 57, 61, 65, 69, 73, 77, 81, 85]
+        ]
     }, {
         "Id": 1491,
         "Name": "Mystic Twister",
@@ -27342,7 +28947,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/2e/Mystic_Twister.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mystic_Twister",
         "Ranks": [
-            [10, 13, 17, 20, 23, 27, 30, 33, 37, 40, 43, 47, 50, 53, 57, 60, 63, 67, 70, 73, 77], [10, 13, 17, 20, 23, 27, 30, 33, 37, 40, 43, 47, 50, 53, 57, 60, 63, 67, 70, 73, 77]]
+            [10, 13, 17, 20, 23, 27, 30, 33, 37, 40, 43, 47, 50, 53, 57, 60, 63, 67, 70, 73, 77],
+            [10, 13, 17, 20, 23, 27, 30, 33, 37, 40, 43, 47, 50, 53, 57, 60, 63, 67, 70, 73, 77]
+        ]
     }, {
         "Id": 1525,
         "Name": "Natural Healing",
@@ -27364,7 +28971,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/0a/Natural_Healing.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Natural_Healing",
         "Ranks": [
-            [50, 58, 66, 74, 82, 90, 98, 106, 114, 122, 130, 138, 146, 154, 162, 170, 178, 186, 194, 202, 210]]
+            [50, 58, 66, 74, 82, 90, 98, 106, 114, 122, 130, 138, 146, 154, 162, 170, 178, 186, 194, 202, 210]
+        ]
     }, {
         "Id": 1754,
         "Name": "Onslaught",
@@ -27386,7 +28994,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/d8/Onslaught.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Onslaught",
         "Ranks": [
-            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19]]
+            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19]
+        ]
     }, {
         "Id": 1529,
         "Name": "Pious Restoration",
@@ -27408,7 +29017,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/03/Pious_Restoration.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Pious_Restoration",
         "Ranks": [
-            [80, 85, 89, 94, 99, 103, 108, 113, 117, 122, 127, 131, 136, 141, 145, 150, 155, 159, 164, 169, 173], [1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]]
+            [80, 85, 89, 94, 99, 103, 108, 113, 117, 122, 127, 131, 136, 141, 145, 150, 155, 159, 164, 169, 173],
+            [1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+        ]
     }, {
         "Id": 1765,
         "Name": "Rending Aura",
@@ -27430,7 +29041,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/85/Rending_Aura.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Rending_Aura",
         "Ranks": [
-            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50], [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13]]
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50],
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13]
+        ]
     }, {
         "Id": 2200,
         "Name": "Signet of Mystic Speed",
@@ -27452,7 +29065,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/59/Signet_of_Mystic_Speed.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Signet_of_Mystic_Speed",
         "Ranks": [
-            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4]]
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4]
+        ]
     }, {
         "Id": 2014,
         "Name": "Signet of Pious Restraint",
@@ -27474,7 +29088,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/9c/Signet_of_Pious_Restraint.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Signet_of_Pious_Restraint",
         "Ranks": [
-            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18]]
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18]
+        ]
     }, {
         "Id": 1545,
         "Name": "Test of Faith",
@@ -27496,7 +29111,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/fd/Test_of_Faith.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Test_of_Faith",
         "Ranks": [
-            [15, 18, 22, 25, 28, 32, 35, 38, 42, 45, 48, 52, 55, 58, 62, 65, 68, 72, 75, 78, 82], [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5]]
+            [15, 18, 22, 25, 28, 32, 35, 38, 42, 45, 48, 52, 55, 58, 62, 65, 68, 72, 75, 78, 82],
+            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5]
+        ]
     }, {
         "Id": 1505,
         "Name": "Vow of Piety",
@@ -27518,7 +29135,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e0/Vow_of_Piety.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Vow_of_Piety",
         "Ranks": [
-            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5]]
+            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5]
+        ]
     }, {
         "Id": 1544,
         "Name": "Whirling Charge",
@@ -27540,7 +29158,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/63/Whirling_Charge.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Whirling_Charge",
         "Ranks": [
-            [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8], [10, 13, 17, 20, 23, 27, 30, 33, 37, 40, 43, 47, 50, 53, 57, 60, 63, 67, 70, 73, 77]]
+            [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8],
+            [10, 13, 17, 20, 23, 27, 30, 33, 37, 40, 43, 47, 50, 53, 57, 60, 63, 67, 70, 73, 77]
+        ]
     }, {
         "Id": 1533,
         "Name": "Winds of Disenchantment",
@@ -27562,7 +29182,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/4b/Winds_of_Disenchantment.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Winds_of_Disenchantment",
         "Ranks": [
-            [20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100]]
+            [20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100]
+        ]
     }, {
         "Id": 1761,
         "Name": "Zealous Vow",
@@ -27584,7 +29205,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/03/Zealous_Vow.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Zealous_Vow",
         "Ranks": [
-            [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8]]
+            [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8]
+        ]
     }, {
         "Id": 1541,
         "Name": "Enchanted Haste",
@@ -27605,8 +29227,7 @@ var skillTable = [
         "Campaign": "Nightfall",
         "Image": "https://wiki.guildwars.com/images/1/1f/Enchanted_Haste.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Enchanted_Haste",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 2107,
         "Name": "Whirlwind Attack",
@@ -27628,7 +29249,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/2c/Whirlwind_Attack.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Whirlwind_Attack",
         "Ranks": [
-            [13, 14, 16, 17, 19, 20, 20, 20, 20, 20, 20]]
+            [13, 14, 16, 17, 19, 20, 20, 20, 20, 20, 20]
+        ]
     }, {
         "Id": 2108,
         "Name": "Never Rampage Alone",
@@ -27650,7 +29272,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/d1/Never_Rampage_Alone.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Never_Rampage_Alone",
         "Ranks": [
-            [18, 19, 21, 22, 24, 25, 25, 25, 25, 25, 25], [1, 1, 2, 2, 3, 3, 3, 3, 3, 3, 3]]
+            [18, 19, 21, 22, 24, 25, 25, 25, 25, 25, 25],
+            [1, 1, 2, 2, 3, 3, 3, 3, 3, 3, 3]
+        ]
     }, {
         "Id": 2105,
         "Name": "Seed of Life",
@@ -27672,7 +29296,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/74/Seed_of_Life.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Seed_of_Life",
         "Ranks": [
-            [2, 3, 3, 4, 4, 5, 5, 5, 5, 5, 5]]
+            [2, 3, 3, 4, 4, 5, 5, 5, 5, 5, 5]
+        ]
     }, {
         "Id": 2103,
         "Name": "Necrosis",
@@ -27694,7 +29319,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/99/Necrosis.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Necrosis",
         "Ranks": [
-            [60, 66, 72, 78, 84, 90, 90, 90, 90, 90, 90]]
+            [60, 66, 72, 78, 84, 90, 90, 90, 90, 90, 90]
+        ]
     }, {
         "Id": 2102,
         "Name": "Cry of Pain",
@@ -27716,7 +29342,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/93/Cry_of_Pain.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Cry_of_Pain",
         "Ranks": [
-            [25, 30, 35, 40, 45, 50, 50, 50, 50, 50, 50], [3, 3, 4, 4, 5, 5, 5, 5, 5, 5, 5]]
+            [25, 30, 35, 40, 45, 50, 50, 50, 50, 50, 50],
+            [3, 3, 4, 4, 5, 5, 5, 5, 5, 5, 5]
+        ]
     }, {
         "Id": 2104,
         "Name": "Intensity",
@@ -27738,7 +29366,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/dc/Intensity.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Intensity",
         "Ranks": [
-            [60, 62, 64, 66, 68, 70, 70, 70, 70, 70, 70]]
+            [60, 62, 64, 66, 68, 70, 70, 70, 70, 70, 70]
+        ]
     }, {
         "Id": 2101,
         "Name": "Critical Agility",
@@ -27760,7 +29389,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e8/Critical_Agility.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Critical_Agility",
         "Ranks": [
-            [15, 17, 19, 21, 23, 25, 25, 25, 25, 25, 25]]
+            [15, 17, 19, 21, 23, 25, 25, 25, 25, 25, 25]
+        ]
     }, {
         "Id": 2110,
         "Name": "Vampirism",
@@ -27782,7 +29412,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/59/Vampirism.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Vampirism",
         "Ranks": [
-            [4, 6, 8, 10, 12, 14, 14, 14, 14, 14, 14], [75, 90, 105, 120, 135, 150, 150, 150, 150, 150, 150], [10, 12, 14, 16, 18, 20, 20, 20, 20, 20, 20]]
+            [4, 6, 8, 10, 12, 14, 14, 14, 14, 14, 14],
+            [75, 90, 105, 120, 135, 150, 150, 150, 150, 150, 150],
+            [10, 12, 14, 16, 18, 20, 20, 20, 20, 20, 20]
+        ]
     }, {
         "Id": 2112,
         "Name": "\"There's Nothing to Fear!\"",
@@ -27804,7 +29437,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e6/%22There%27s_Nothing_to_Fear%21%22.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22There%27s_Nothing_to_Fear!%22",
         "Ranks": [
-            [20, 23, 26, 29, 32, 35, 35, 35, 35, 35, 35], [35, 40, 45, 50, 55, 60, 60, 60, 60, 60, 60]]
+            [20, 23, 26, 29, 32, 35, 35, 35, 35, 35, 35],
+            [35, 40, 45, 50, 55, 60, 60, 60, 60, 60, 60]
+        ]
     }, {
         "Id": 2109,
         "Name": "Eternal Aura",
@@ -27826,7 +29461,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/ab/Eternal_Aura.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Eternal_Aura",
         "Ranks": [
-            [40, 42, 44, 46, 48, 50, 50, 50, 50, 50, 50], [20, 22, 24, 26, 28, 30, 30, 30, 30, 30, 30]]
+            [40, 42, 44, 46, 48, 50, 50, 50, 50, 50, 50],
+            [20, 22, 24, 26, 28, 30, 30, 30, 30, 30, 30]
+        ]
     }, {
         "Id": 1816,
         "Name": "Sunspear Rebirth Signet",
@@ -27847,8 +29484,7 @@ var skillTable = [
         "Campaign": "Nightfall",
         "Image": "https://wiki.guildwars.com/images/e/e0/Sunspear_Rebirth_Signet.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Sunspear_Rebirth_Signet",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 1815,
         "Name": "Lightbringer Signet",
@@ -27869,8 +29505,7 @@ var skillTable = [
         "Campaign": "Nightfall",
         "Image": "https://wiki.guildwars.com/images/4/43/Lightbringer_Signet.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Lightbringer_Signet",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 1814,
         "Name": "Lightbringer's Gaze",
@@ -27891,8 +29526,7 @@ var skillTable = [
         "Campaign": "Nightfall",
         "Image": "https://wiki.guildwars.com/images/c/c6/Lightbringer%27s_Gaze.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Lightbringer%27s_Gaze",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 2414,
         "Name": "Radiation Field",
@@ -27914,7 +29548,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/31/Radiation_Field.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Radiation_Field",
         "Ranks": [
-            [4, 4, 5, 5, 6, 6, 6, 6, 6, 6, 6], [12, 14, 15, 17, 18, 20, 20, 20, 20, 20, 20]]
+            [4, 4, 5, 5, 6, 6, 6, 6, 6, 6, 6],
+            [12, 14, 15, 17, 18, 20, 20, 20, 20, 20, 20]
+        ]
     }, {
         "Id": 2416,
         "Name": "Air of Superiority",
@@ -27936,7 +29572,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/9f/Air_of_Superiority.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Air_of_Superiority",
         "Ranks": [
-            [20, 22, 24, 26, 28, 30, 30, 30, 30, 30, 30]]
+            [20, 22, 24, 26, 28, 30, 30, 30, 30, 30, 30]
+        ]
     }, {
         "Id": 2415,
         "Name": "Asuran Scan",
@@ -27958,7 +29595,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a0/Asuran_Scan.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Asuran_Scan",
         "Ranks": [
-            [9, 10, 10, 11, 11, 12, 12, 12, 12, 12, 12]]
+            [9, 10, 10, 11, 11, 12, 12, 12, 12, 12, 12]
+        ]
     }, {
         "Id": 2417,
         "Name": "Mental Block",
@@ -27980,7 +29618,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/ed/Mental_Block.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mental_Block",
         "Ranks": [
-            [5, 6, 7, 9, 10, 11, 11, 11, 11, 11, 11]]
+            [5, 6, 7, 9, 10, 11, 11, 11, 11, 11, 11]
+        ]
     }, {
         "Id": 2411,
         "Name": "Mindbender",
@@ -28002,7 +29641,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c0/Mindbender.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mindbender",
         "Ranks": [
-            [10, 11, 12, 14, 15, 16, 16, 16, 16, 16, 16], [20, 23, 25, 28, 30, 33, 33, 33, 33, 33, 33]]
+            [10, 11, 12, 14, 15, 16, 16, 16, 16, 16, 16],
+            [20, 23, 25, 28, 30, 33, 33, 33, 33, 33, 33]
+        ]
     }, {
         "Id": 2418,
         "Name": "Pain Inverter",
@@ -28024,7 +29665,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/91/Pain_Inverter.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Pain_Inverter",
         "Ranks": [
-            [6, 7, 8, 8, 9, 10, 10, 10, 10, 10, 10], [100, 108, 116, 124, 132, 140, 140, 140, 140, 140, 140], [80, 75, 71, 66, 62, 57, 57, 57, 57, 57, 57]]
+            [6, 7, 8, 8, 9, 10, 10, 10, 10, 10, 10],
+            [100, 108, 116, 124, 132, 140, 140, 140, 140, 140, 140],
+            [80, 75, 71, 66, 62, 57, 57, 57, 57, 57, 57]
+        ]
     }, {
         "Id": 2412,
         "Name": "Smooth Criminal",
@@ -28046,7 +29690,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/33/Smooth_Criminal.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Smooth_Criminal",
         "Ranks": [
-            [10, 12, 14, 16, 18, 20, 20, 20, 20, 20, 20], [5, 6, 7, 8, 9, 10, 10, 10, 10, 10, 10]]
+            [10, 12, 14, 16, 18, 20, 20, 20, 20, 20, 20],
+            [5, 6, 7, 8, 9, 10, 10, 10, 10, 10, 10]
+        ]
     }, {
         "Id": 2226,
         "Name": "Summon Ice Imp",
@@ -28068,7 +29714,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/2a/Summon_Ice_Imp.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Summon_Ice_Imp",
         "Ranks": [
-            [14, 15, 16, 18, 19, 20, 20, 20, 20, 20, 20], [40, 44, 48, 52, 56, 60, 60, 60, 60, 60, 60]]
+            [14, 15, 16, 18, 19, 20, 20, 20, 20, 20, 20],
+            [40, 44, 48, 52, 56, 60, 60, 60, 60, 60, 60]
+        ]
     }, {
         "Id": 2224,
         "Name": "Summon Mursaat",
@@ -28090,7 +29738,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/61/Summon_Mursaat.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Summon_Mursaat",
         "Ranks": [
-            [14, 15, 16, 18, 19, 20, 20, 20, 20, 20, 20], [40, 44, 48, 52, 56, 60, 60, 60, 60, 60, 60]]
+            [14, 15, 16, 18, 19, 20, 20, 20, 20, 20, 20],
+            [40, 44, 48, 52, 56, 60, 60, 60, 60, 60, 60]
+        ]
     }, {
         "Id": 2227,
         "Name": "Summon Naga Shaman",
@@ -28112,7 +29762,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f0/Summon_Naga_Shaman.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Summon_Naga_Shaman",
         "Ranks": [
-            [14, 15, 16, 18, 19, 20, 20, 20, 20, 20, 20], [40, 44, 48, 52, 56, 60, 60, 60, 60, 60, 60]]
+            [14, 15, 16, 18, 19, 20, 20, 20, 20, 20, 20],
+            [40, 44, 48, 52, 56, 60, 60, 60, 60, 60, 60]
+        ]
     }, {
         "Id": 2225,
         "Name": "Summon Ruby Djinn",
@@ -28134,7 +29786,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a0/Summon_Ruby_Djinn.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Summon_Ruby_Djinn",
         "Ranks": [
-            [14, 15, 16, 18, 19, 20, 20, 20, 20, 20, 20], [40, 44, 48, 52, 56, 60, 60, 60, 60, 60, 60]]
+            [14, 15, 16, 18, 19, 20, 20, 20, 20, 20, 20],
+            [40, 44, 48, 52, 56, 60, 60, 60, 60, 60, 60]
+        ]
     }, {
         "Id": 2413,
         "Name": "Technobabble",
@@ -28156,7 +29810,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/0a/Technobabble.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Technobabble",
         "Ranks": [
-            [30, 32, 34, 36, 38, 40, 40, 40, 40, 40, 40], [3, 3, 4, 4, 5, 5, 5, 5, 5, 5, 5]]
+            [30, 32, 34, 36, 38, 40, 40, 40, 40, 40, 40],
+            [3, 3, 4, 4, 5, 5, 5, 5, 5, 5, 5]
+        ]
     }, {
         "Id": 2217,
         "Name": "\"By Ural's Hammer!\"",
@@ -28178,7 +29834,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/df/%22By_Ural%27s_Hammer%21%22.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22By_Ural%27s_Hammer!%22",
         "Ranks": [
-            [25, 27, 28, 30, 31, 33, 33, 33, 33, 33, 33]]
+            [25, 27, 28, 30, 31, 33, 33, 33, 33, 33, 33]
+        ]
     }, {
         "Id": 2216,
         "Name": "\"Don't Trip!\"",
@@ -28200,7 +29857,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c1/%22Don%27t_Trip%21%22.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22Don%27t_Trip!%22",
         "Ranks": [
-            [3, 3, 4, 4, 5, 5, 5, 5, 5, 5, 5]]
+            [3, 3, 4, 4, 5, 5, 5, 5, 5, 5, 5]
+        ]
     }, {
         "Id": 2211,
         "Name": "Alkar's Alchemical Acid",
@@ -28222,7 +29880,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/43/Alkar%27s_Alchemical_Acid.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Alkar%27s_Alchemical_Acid",
         "Ranks": [
-            [40, 42, 44, 46, 48, 50, 50, 50, 50, 50, 50], [45, 50, 55, 60, 65, 70, 70, 70, 70, 70, 70], [14, 15, 16, 18, 19, 20, 20, 20, 20, 20, 20]]
+            [40, 42, 44, 46, 48, 50, 50, 50, 50, 50, 50],
+            [45, 50, 55, 60, 65, 70, 70, 70, 70, 70, 70],
+            [14, 15, 16, 18, 19, 20, 20, 20, 20, 20, 20]
+        ]
     }, {
         "Id": 2223,
         "Name": "Black Powder Mine",
@@ -28244,7 +29905,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/50/Black_Powder_Mine.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Black_Powder_Mine",
         "Ranks": [
-            [20, 22, 24, 26, 28, 30, 30, 30, 30, 30, 30], [7, 8, 8, 9, 9, 10, 10, 10, 10, 10, 10]]
+            [20, 22, 24, 26, 28, 30, 30, 30, 30, 30, 30],
+            [7, 8, 8, 9, 9, 10, 10, 10, 10, 10, 10]
+        ]
     }, {
         "Id": 2215,
         "Name": "Brawling Headbutt",
@@ -28266,7 +29929,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/be/Brawling_Headbutt.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Brawling_Headbutt",
         "Ranks": [
-            [45, 50, 55, 60, 65, 70, 70, 70, 70, 70, 70]]
+            [45, 50, 55, 60, 65, 70, 70, 70, 70, 70, 70]
+        ]
     }, {
         "Id": 2221,
         "Name": "Breath of the Great Dwarf",
@@ -28288,7 +29952,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/0e/Breath_of_the_Great_Dwarf.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Breath_of_the_Great_Dwarf",
         "Ranks": [
-            [50, 52, 54, 56, 58, 60, 60, 60, 60, 60, 60]]
+            [50, 52, 54, 56, 58, 60, 60, 60, 60, 60, 60]
+        ]
     }, {
         "Id": 2218,
         "Name": "Drunken Master",
@@ -28310,7 +29975,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/b3/Drunken_Master.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Drunken_Master",
         "Ranks": [
-            [72, 76, 79, 83, 86, 90, 90, 90, 90, 90, 90], [10, 11, 12, 13, 14, 15, 15, 15, 15, 15, 15], [25, 27, 28, 30, 31, 33, 33, 33, 33, 33, 33]]
+            [72, 76, 79, 83, 86, 90, 90, 90, 90, 90, 90],
+            [10, 11, 12, 13, 14, 15, 15, 15, 15, 15, 15],
+            [25, 27, 28, 30, 31, 33, 33, 33, 33, 33, 33]
+        ]
     }, {
         "Id": 2423,
         "Name": "Dwarven Stability",
@@ -28332,7 +30000,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/4c/Dwarven_Stability.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Dwarven_Stability",
         "Ranks": [
-            [24, 25, 26, 28, 29, 30, 30, 30, 30, 30, 30], [55, 64, 73, 82, 91, 100, 100, 100, 100, 100, 100]]
+            [24, 25, 26, 28, 29, 30, 30, 30, 30, 30, 30],
+            [55, 64, 73, 82, 91, 100, 100, 100, 100, 100, 100]
+        ]
     }, {
         "Id": 2213,
         "Name": "Ear Bite",
@@ -28354,7 +30024,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c6/Ear_Bite.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Ear_Bite",
         "Ranks": [
-            [50, 54, 58, 62, 66, 70, 70, 70, 70, 70, 70], [15, 17, 19, 21, 23, 25, 25, 25, 25, 25, 25]]
+            [50, 54, 58, 62, 66, 70, 70, 70, 70, 70, 70],
+            [15, 17, 19, 21, 23, 25, 25, 25, 25, 25, 25]
+        ]
     }, {
         "Id": 2220,
         "Name": "Great Dwarf Armor",
@@ -28376,7 +30048,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e5/Great_Dwarf_Armor.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Great_Dwarf_Armor",
         "Ranks": [
-            [22, 26, 29, 33, 36, 40, 40, 40, 40, 40, 40]]
+            [22, 26, 29, 33, 36, 40, 40, 40, 40, 40, 40]
+        ]
     }, {
         "Id": 2219,
         "Name": "Great Dwarf Weapon",
@@ -28398,7 +30071,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/ab/Great_Dwarf_Weapon.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Great_Dwarf_Weapon",
         "Ranks": [
-            [15, 16, 17, 18, 19, 20, 20, 20, 20, 20, 20], [28, 30, 33, 35, 38, 40, 40, 40, 40, 40, 40]]
+            [15, 16, 17, 18, 19, 20, 20, 20, 20, 20, 20],
+            [28, 30, 33, 35, 38, 40, 40, 40, 40, 40, 40]
+        ]
     }, {
         "Id": 2212,
         "Name": "Light of Deldrimor",
@@ -28420,7 +30095,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/11/Light_of_Deldrimor.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Light_of_Deldrimor",
         "Ranks": [
-            [55, 60, 65, 70, 75, 80, 80, 80, 80, 80, 80]]
+            [55, 60, 65, 70, 75, 80, 80, 80, 80, 80, 80]
+        ]
     }, {
         "Id": 2214,
         "Name": "Low Blow",
@@ -28442,7 +30118,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/86/Low_Blow.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Low_Blow",
         "Ranks": [
-            [45, 50, 55, 60, 65, 70, 70, 70, 70, 70, 70], [30, 34, 38, 42, 46, 50, 50, 50, 50, 50, 50], [14, 15, 16, 18, 19, 20, 20, 20, 20, 20, 20]]
+            [45, 50, 55, 60, 65, 70, 70, 70, 70, 70, 70],
+            [30, 34, 38, 42, 46, 50, 50, 50, 50, 50, 50],
+            [14, 15, 16, 18, 19, 20, 20, 20, 20, 20, 20]
+        ]
     }, {
         "Id": 2222,
         "Name": "Snow Storm",
@@ -28464,7 +30143,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a0/Snow_Storm.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Snow_Storm",
         "Ranks": [
-            [30, 32, 34, 36, 38, 40, 40, 40, 40, 40, 40]]
+            [30, 32, 34, 36, 38, 40, 40, 40, 40, 40, 40]
+        ]
     }, {
         "Id": 2228,
         "Name": "Deft Strike",
@@ -28486,7 +30166,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/62/Deft_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Deft_Strike",
         "Ranks": [
-            [18, 20, 23, 25, 28, 30, 30, 30, 30, 30, 30], [18, 20, 23, 25, 28, 30, 30, 30, 30, 30, 30]]
+            [18, 20, 23, 25, 28, 30, 30, 30, 30, 30, 30],
+            [18, 20, 23, 25, 28, 30, 30, 30, 30, 30, 30]
+        ]
     }, {
         "Id": 2231,
         "Name": "Ebon Battle Standard of Courage",
@@ -28508,7 +30190,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/53/Ebon_Battle_Standard_of_Courage.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Ebon_Battle_Standard_of_Courage",
         "Ranks": [
-            [14, 15, 16, 18, 19, 20, 20, 20, 20, 20, 20]]
+            [14, 15, 16, 18, 19, 20, 20, 20, 20, 20, 20]
+        ]
     }, {
         "Id": 2233,
         "Name": "Ebon Battle Standard of Honor",
@@ -28530,7 +30213,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/51/Ebon_Battle_Standard_of_Honor.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Ebon_Battle_Standard_of_Honor",
         "Ranks": [
-            [14, 15, 16, 18, 19, 20, 20, 20, 20, 20, 20], [8, 9, 11, 12, 14, 15, 15, 15, 15, 15, 15], [7, 8, 8, 9, 9, 10, 10, 10, 10, 10, 10]]
+            [14, 15, 16, 18, 19, 20, 20, 20, 20, 20, 20],
+            [8, 9, 11, 12, 14, 15, 15, 15, 15, 15, 15],
+            [7, 8, 8, 9, 9, 10, 10, 10, 10, 10, 10]
+        ]
     }, {
         "Id": 2232,
         "Name": "Ebon Battle Standard of Wisdom",
@@ -28552,7 +30238,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/eb/Ebon_Battle_Standard_of_Wisdom.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Ebon_Battle_Standard_of_Wisdom",
         "Ranks": [
-            [14, 15, 16, 18, 19, 20, 20, 20, 20, 20, 20], [44, 47, 50, 54, 57, 60, 60, 60, 60, 60, 60]]
+            [14, 15, 16, 18, 19, 20, 20, 20, 20, 20, 20],
+            [44, 47, 50, 54, 57, 60, 60, 60, 60, 60, 60]
+        ]
     }, {
         "Id": 2420,
         "Name": "Ebon Escape",
@@ -28574,7 +30262,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/bb/Ebon_Escape.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Ebon_Escape",
         "Ranks": [
-            [70, 78, 86, 94, 102, 110, 110, 110, 110, 110, 110]]
+            [70, 78, 86, 94, 102, 110, 110, 110, 110, 110, 110]
+        ]
     }, {
         "Id": 2235,
         "Name": "Ebon Vanguard Assassin Support",
@@ -28596,7 +30285,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/03/Ebon_Vanguard_Assassin_Support.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Ebon_Vanguard_Assassin_Support",
         "Ranks": [
-            [14, 15, 16, 18, 19, 20, 20, 20, 20, 20, 20], [24, 25, 26, 28, 29, 30, 30, 30, 30, 30, 30], [12, 13, 13, 14, 14, 15, 15, 15, 15, 15, 15]]
+            [14, 15, 16, 18, 19, 20, 20, 20, 20, 20, 20],
+            [24, 25, 26, 28, 29, 30, 30, 30, 30, 30, 30],
+            [12, 13, 13, 14, 14, 15, 15, 15, 15, 15, 15]
+        ]
     }, {
         "Id": 2234,
         "Name": "Ebon Vanguard Sniper Support",
@@ -28618,7 +30310,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/16/Ebon_Vanguard_Sniper_Support.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Ebon_Vanguard_Sniper_Support",
         "Ranks": [
-            [54, 61, 68, 76, 83, 90, 90, 90, 90, 90, 90], [540, 612, 684, 756, 828, 900, 900, 900, 900, 900, 900], [5, 9, 13, 17, 21, 25, 25, 25, 25, 25, 25]]
+            [54, 61, 68, 76, 83, 90, 90, 90, 90, 90, 90],
+            [540, 612, 684, 756, 828, 900, 900, 900, 900, 900, 900],
+            [5, 9, 13, 17, 21, 25, 25, 25, 25, 25, 25]
+        ]
     }, {
         "Id": 2229,
         "Name": "Signet of Infection",
@@ -28640,7 +30335,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/66/Signet_of_Infection.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Signet_of_Infection",
         "Ranks": [
-            [13, 14, 16, 17, 19, 20, 20, 20, 20, 20, 20]]
+            [13, 14, 16, 17, 19, 20, 20, 20, 20, 20, 20]
+        ]
     }, {
         "Id": 2116,
         "Name": "Sneak Attack",
@@ -28662,7 +30358,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/87/Sneak_Attack.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Sneak_Attack",
         "Ranks": [
-            [5, 6, 6, 7, 7, 8, 8, 8, 8, 8, 8]]
+            [5, 6, 6, 7, 7, 8, 8, 8, 8, 8, 8]
+        ]
     }, {
         "Id": 2230,
         "Name": "Tryptophan Signet",
@@ -28684,7 +30381,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/70/Tryptophan_Signet.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Tryptophan_Signet",
         "Ranks": [
-            [14, 15, 16, 18, 19, 20, 20, 20, 20, 20, 20], [23, 26, 30, 33, 37, 40, 40, 40, 40, 40, 40]]
+            [14, 15, 16, 18, 19, 20, 20, 20, 20, 20, 20],
+            [23, 26, 30, 33, 37, 40, 40, 40, 40, 40, 40]
+        ]
     }, {
         "Id": 2421,
         "Name": "Weakness Trap",
@@ -28706,7 +30405,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/0d/Weakness_Trap.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Weakness_Trap",
         "Ranks": [
-            [10, 12, 14, 16, 18, 20, 20, 20, 20, 20, 20], [24, 29, 34, 40, 45, 50, 50, 50, 50, 50, 50]]
+            [10, 12, 14, 16, 18, 20, 20, 20, 20, 20, 20],
+            [24, 29, 34, 40, 45, 50, 50, 50, 50, 50, 50]
+        ]
     }, {
         "Id": 2422,
         "Name": "Winds",
@@ -28728,7 +30429,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/0e/Winds.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Winds",
         "Ranks": [
-            [4, 5, 6, 8, 9, 10, 10, 10, 10, 10, 10], [54, 61, 68, 76, 83, 90, 90, 90, 90, 90, 90]]
+            [4, 5, 6, 8, 9, 10, 10, 10, 10, 10, 10],
+            [54, 61, 68, 76, 83, 90, 90, 90, 90, 90, 90]
+        ]
     }, {
         "Id": 2354,
         "Name": "\"Dodge This!\"",
@@ -28750,7 +30453,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/4b/%22Dodge_This%21%22.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22Dodge_This!%22",
         "Ranks": [
-            [16, 17, 18, 18, 19, 20, 20, 20, 20, 20, 20], [14, 15, 16, 18, 19, 20, 20, 20, 20, 20, 20]]
+            [16, 17, 18, 18, 19, 20, 20, 20, 20, 20, 20],
+            [14, 15, 16, 18, 19, 20, 20, 20, 20, 20, 20]
+        ]
     }, {
         "Id": 2353,
         "Name": "\"Finish Him!\"",
@@ -28772,7 +30477,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/61/%22Finish_Him%21%22.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22Finish_Him!%22",
         "Ranks": [
-            [44, 51, 58, 66, 73, 80, 80, 80, 80, 80, 80], [12, 14, 15, 17, 18, 20, 20, 20, 20, 20, 20]]
+            [44, 51, 58, 66, 73, 80, 80, 80, 80, 80, 80],
+            [12, 14, 15, 17, 18, 20, 20, 20, 20, 20, 20]
+        ]
     }, {
         "Id": 2355,
         "Name": "\"I Am the Strongest!\"",
@@ -28794,7 +30501,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/ec/%22I_Am_the_Strongest%21%22.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22I_Am_the_Strongest!%22",
         "Ranks": [
-            [5, 6, 6, 7, 7, 8, 8, 8, 8, 8, 8], [14, 15, 16, 18, 19, 20, 20, 20, 20, 20, 20]]
+            [5, 6, 6, 7, 7, 8, 8, 8, 8, 8, 8],
+            [14, 15, 16, 18, 19, 20, 20, 20, 20, 20, 20]
+        ]
     }, {
         "Id": 2356,
         "Name": "\"I Am Unstoppable!\"",
@@ -28816,7 +30525,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/ed/%22I_Am_Unstoppable%21%22.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22I_Am_Unstoppable!%22",
         "Ranks": [
-            [16, 17, 18, 18, 19, 20, 20, 20, 20, 20, 20]]
+            [16, 17, 18, 18, 19, 20, 20, 20, 20, 20, 20]
+        ]
     }, {
         "Id": 2359,
         "Name": "\"You Are All Weaklings!\"",
@@ -28838,7 +30548,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a4/%22You_Are_All_Weaklings%21%22.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22You_Are_All_Weaklings!%22",
         "Ranks": [
-            [8, 9, 10, 10, 11, 12, 12, 12, 12, 12, 12]]
+            [8, 9, 10, 10, 11, 12, 12, 12, 12, 12, 12]
+        ]
     }, {
         "Id": 2358,
         "Name": "\"You Move Like a Dwarf!\"",
@@ -28860,7 +30571,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/6a/%22You_Move_Like_a_Dwarf%21%22.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22You_Move_Like_a_Dwarf!%22",
         "Ranks": [
-            [44, 51, 58, 66, 73, 80, 80, 80, 80, 80, 80], [8, 9, 11, 12, 14, 15, 15, 15, 15, 15, 15]]
+            [44, 51, 58, 66, 73, 80, 80, 80, 80, 80, 80],
+            [8, 9, 11, 12, 14, 15, 15, 15, 15, 15, 15]
+        ]
     }, {
         "Id": 2357,
         "Name": "A Touch of Guile",
@@ -28882,7 +30595,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/2d/A_Touch_of_Guile.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/A_Touch_of_Guile",
         "Ranks": [
-            [44, 51, 58, 66, 73, 80, 80, 80, 80, 80, 80], [5, 6, 6, 7, 7, 8, 8, 8, 8, 8, 8]]
+            [44, 51, 58, 66, 73, 80, 80, 80, 80, 80, 80],
+            [5, 6, 6, 7, 7, 8, 8, 8, 8, 8, 8]
+        ]
     }, {
         "Id": 2361,
         "Name": "Club of a Thousand Bears",
@@ -28904,7 +30619,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/dc/Club_of_a_Thousand_Bears.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Club_of_a_Thousand_Bears",
         "Ranks": [
-            [6, 7, 7, 8, 8, 9, 9, 9, 9, 9, 9]]
+            [6, 7, 7, 8, 8, 9, 9, 9, 9, 9, 9]
+        ]
     }, {
         "Id": 2360,
         "Name": "Feel No Pain",
@@ -28926,7 +30642,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/fe/Feel_No_Pain.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Feel_No_Pain",
         "Ranks": [
-            [2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3], [200, 220, 240, 260, 280, 300, 300, 300, 300, 300, 300]]
+            [2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3],
+            [200, 220, 240, 260, 280, 300, 300, 300, 300, 300, 300]
+        ]
     }, {
         "Id": 2384,
         "Name": "Raven Blessing",
@@ -28948,7 +30666,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/0a/Raven_Blessing.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Raven_Blessing",
         "Ranks": [
-            [660, 668, 676, 684, 692, 700, 700, 700, 700, 700, 700], [20, 22, 24, 26, 28, 30, 30, 30, 30, 30, 30]]
+            [660, 668, 676, 684, 692, 700, 700, 700, 700, 700, 700],
+            [20, 22, 24, 26, 28, 30, 30, 30, 30, 30, 30]
+        ]
     }, {
         "Id": 2374,
         "Name": "Ursan Blessing",
@@ -28970,7 +30690,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/7b/Ursan_Blessing.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Ursan_Blessing",
         "Ranks": [
-            [750, 760, 770, 780, 790, 800, 800, 800, 800, 800, 800]]
+            [750, 760, 770, 780, 790, 800, 800, 800, 800, 800, 800]
+        ]
     }, {
         "Id": 2379,
         "Name": "Volfen Blessing",
@@ -28992,7 +30713,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/b2/Volfen_Blessing.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Volfen_Blessing",
         "Ranks": [
-            [660, 668, 676, 684, 692, 700, 700, 700, 700, 700, 700], [2, 2, 3, 3, 4, 4, 4, 4, 4, 4, 4]]
+            [660, 668, 676, 684, 692, 700, 700, 700, 700, 700, 700],
+            [2, 2, 3, 3, 4, 4, 4, 4, 4, 4, 4]
+        ]
     }, {
         "Id": 2808,
         "Name": "Enraged Smash (PvP)",
@@ -29014,7 +30737,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/1e/Enraged_Smash_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Enraged_Smash_(PvP)",
         "Ranks": [
-            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5], [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]]
+            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5],
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]
+        ]
     }, {
         "Id": 3143,
         "Name": "Renewing Smash (PvP)",
@@ -29036,7 +30761,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/1a/Renewing_Smash_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Renewing_Smash_(PvP)",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 3204,
         "Name": "Defy Pain (PvP)",
@@ -29058,7 +30784,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/72/Defy_Pain_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Defy_Pain_(PvP)",
         "Ranks": [
-            [90, 104, 118, 132, 146, 160, 174, 188, 202, 216, 230, 244, 258, 272, 286, 300, 314, 328, 342, 356, 370, 384]]
+            [90, 104, 118, 132, 146, 160, 174, 188, 202, 216, 230, 244, 258, 272, 286, 300, 314, 328, 342, 356, 370, 384]
+        ]
     }, {
         "Id": 3002,
         "Name": "Warrior's Endurance (PvP)",
@@ -29080,7 +30807,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/15/Warrior%27s_Endurance_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Warrior%27s_Endurance_(PvP)",
         "Ranks": [
-            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47], [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]]
+            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47],
+            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
+        ]
     }, {
         "Id": 2858,
         "Name": "\"Watch Yourself!\" (PvP)",
@@ -29102,7 +30831,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/16/%22Watch_Yourself%21%22_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22Watch_Yourself!%22_(PvP)",
         "Ranks": [
-            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32, 33], [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4]]
+            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32, 33],
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4]
+        ]
     }, {
         "Id": 3156,
         "Name": "Soldier's Stance (PvP)",
@@ -29124,7 +30855,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/dd/Soldier%27s_Stance_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Soldier%27s_Stance_(PvP)",
         "Ranks": [
-            [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 12]]
+            [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 12]
+        ]
     }, {
         "Id": 2883,
         "Name": "\"For Great Justice!\" (PvP)",
@@ -29145,8 +30877,7 @@ var skillTable = [
         "Campaign": "Core",
         "Image": "https://wiki.guildwars.com/images/0/00/%22For_Great_Justice%21%22_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22For_Great_Justice!%22_(PvP)",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 2657,
         "Name": "Call of Haste (PvP)",
@@ -29167,8 +30898,7 @@ var skillTable = [
         "Campaign": "Core",
         "Image": "https://wiki.guildwars.com/images/2/22/Call_of_Haste_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Call_of_Haste_(PvP)",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 3068,
         "Name": "Charm Animal (Codex)",
@@ -29189,8 +30919,7 @@ var skillTable = [
         "Campaign": "Core",
         "Image": "https://wiki.guildwars.com/images/0/03/Charm_Animal_%28Codex%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Charm_Animal_(Codex)",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 3045,
         "Name": "Comfort Animal (PvP)",
@@ -29212,7 +30941,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f1/Comfort_Animal_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Comfort_Animal_(PvP)",
         "Ranks": [
-            [20, 26, 31, 37, 42, 48, 54, 59, 65, 70, 76, 82, 87, 93, 98, 104, 110, 115, 121, 126, 132], [10, 13, 16, 20, 23, 26, 29, 32, 36, 39, 42, 45, 48, 52, 55, 58, 61, 64, 68, 71, 74]]
+            [20, 26, 31, 37, 42, 48, 54, 59, 65, 70, 76, 82, 87, 93, 98, 104, 110, 115, 121, 126, 132],
+            [10, 13, 16, 20, 23, 26, 29, 32, 36, 39, 42, 45, 48, 52, 55, 58, 61, 64, 68, 71, 74]
+        ]
     }, {
         "Id": 3051,
         "Name": "Enraged Lunge (PvP)",
@@ -29234,7 +30965,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/17/Enraged_Lunge_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Enraged_Lunge_(PvP)",
         "Ranks": [
-            [3, 4, 6, 7, 8, 10, 11, 12, 14, 15, 16, 18, 19, 20, 22, 23, 24, 26, 27, 28, 30]]
+            [3, 4, 6, 7, 8, 10, 11, 12, 14, 15, 16, 18, 19, 20, 22, 23, 24, 26, 27, 28, 30]
+        ]
     }, {
         "Id": 3144,
         "Name": "Heal as One (PvP)",
@@ -29256,7 +30988,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a9/Heal_as_One_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Heal_as_One_(PvP)",
         "Ranks": [
-            [25, 33, 41, 49, 57, 65, 73, 81, 89, 97, 105, 113, 121, 129, 137, 145, 153, 161, 169, 177, 185]]
+            [25, 33, 41, 49, 57, 65, 73, 81, 89, 97, 105, 113, 121, 129, 137, 145, 153, 161, 169, 177, 185]
+        ]
     }, {
         "Id": 3047,
         "Name": "Melandru's Assault (PvP)",
@@ -29278,7 +31011,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/5d/Melandru%27s_Assault_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Melandru%27s_Assault_(PvP)",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25], [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
+            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45]
+        ]
     }, {
         "Id": 3050,
         "Name": "Predatory Bond (PvP)",
@@ -29300,7 +31035,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/bc/Predatory_Bond_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Predatory_Bond_(PvP)",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25], [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
+            [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41]
+        ]
     }, {
         "Id": 2959,
         "Name": "Expert's Dexterity (PvP)",
@@ -29322,7 +31059,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/51/Expert%27s_Dexterity_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Expert%27s_Dexterity_(PvP)",
         "Ranks": [
-            [1, 2, 4, 5, 6, 7, 9, 10, 11, 12, 14, 15, 16, 17, 19, 20, 21, 23, 24, 25, 26]]
+            [1, 2, 4, 5, 6, 7, 9, 10, 11, 12, 14, 15, 16, 17, 19, 20, 21, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 3060,
         "Name": "Escape (PvP)",
@@ -29344,7 +31082,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/52/Escape_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Escape_(PvP)",
         "Ranks": [
-            [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10]]
+            [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10]
+        ]
     }, {
         "Id": 3145,
         "Name": "Glass Arrows (PvP)",
@@ -29366,7 +31105,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f5/Glass_Arrows_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Glass_Arrows_(PvP)",
         "Ranks": [
-            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43], [5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 12, 13, 13, 14, 14], [10, 11, 11, 12, 13, 13, 14, 15, 15, 16, 17, 17, 18, 19, 19, 20, 21, 21, 22, 23, 23]]
+            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43],
+            [5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 12, 13, 13, 14, 14],
+            [10, 11, 11, 12, 13, 13, 14, 15, 15, 16, 17, 17, 18, 19, 19, 20, 21, 21, 22, 23, 23]
+        ]
     }, {
         "Id": 3141,
         "Name": "Lightning Reflexes (PvP)",
@@ -29388,7 +31130,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/aa/Lightning_Reflexes_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Lightning_Reflexes_(PvP)",
         "Ranks": [
-            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13]]
+            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13]
+        ]
     }, {
         "Id": 2861,
         "Name": "Penetrating Attack (PvP)",
@@ -29410,7 +31153,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/39/Penetrating_Attack_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Penetrating_Attack_(PvP)",
         "Ranks": [
-            [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 13]]
+            [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 13]
+        ]
     }, {
         "Id": 2969,
         "Name": "Read the Wind (PvP)",
@@ -29431,8 +31175,7 @@ var skillTable = [
         "Campaign": "Core",
         "Image": "https://wiki.guildwars.com/images/9/9f/Read_the_Wind_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Read_the_Wind_(PvP)",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 2925,
         "Name": "Sloth Hunter's Shot (PvP)",
@@ -29454,7 +31197,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/66/Sloth_Hunter%27s_Shot_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Sloth_Hunter%27s_Shot_(PvP)",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19]
+        ]
     }, {
         "Id": 2864,
         "Name": "Sundering Attack (PvP)",
@@ -29476,7 +31221,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f3/Sundering_Attack_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Sundering_Attack_(PvP)",
         "Ranks": [
-            [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 13]]
+            [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 13]
+        ]
     }, {
         "Id": 3147,
         "Name": "Keen Arrow (PvP)",
@@ -29498,7 +31244,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/7c/Keen_Arrow_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Keen_Arrow_(PvP)",
         "Ranks": [
-            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7], [5, 7, 8, 10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40]]
+            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7],
+            [5, 7, 8, 10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40]
+        ]
     }, {
         "Id": 2895,
         "Name": "Smiter's Boon (PvP)",
@@ -29520,7 +31268,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/da/Smiter%27s_Boon_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Smiter%27s_Boon_(PvP)",
         "Ranks": [
-            [0, 3, 6, 10, 13, 16, 19, 22, 26, 29, 32, 35, 38, 42, 45, 48, 51, 54, 58, 61, 64, 67]]
+            [0, 3, 6, 10, 13, 16, 19, 22, 26, 29, 32, 35, 38, 42, 45, 48, 51, 54, 58, 61, 64, 67]
+        ]
     }, {
         "Id": 2891,
         "Name": "Unyielding Aura (PvP)",
@@ -29541,8 +31290,7 @@ var skillTable = [
         "Campaign": "Prophecies",
         "Image": "https://wiki.guildwars.com/images/4/4b/Unyielding_Aura_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Unyielding_Aura_(PvP)",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 2871,
         "Name": "Light of Deliverance (PvP)",
@@ -29564,7 +31312,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/51/Light_of_Deliverance_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Light_of_Deliverance_(PvP)",
         "Ranks": [
-            [5, 9, 14, 18, 22, 27, 31, 35, 40, 44, 48, 53, 57, 61, 66, 70, 74, 79, 83, 87, 92, 96]]
+            [5, 9, 14, 18, 22, 27, 31, 35, 40, 44, 48, 53, 57, 61, 66, 70, 74, 79, 83, 87, 92, 96]
+        ]
     }, {
         "Id": 3232,
         "Name": "Heal Party (PvP)",
@@ -29586,7 +31335,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/43/Heal_Party_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Heal_Party_(PvP)",
         "Ranks": [
-            [30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87, 90, 93]]
+            [30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87, 90, 93]
+        ]
     }, {
         "Id": 2857,
         "Name": "Aegis (PvP)",
@@ -29608,7 +31358,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c8/Aegis_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Aegis_(PvP)",
         "Ranks": [
-            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4]]
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4]
+        ]
     }, {
         "Id": 2892,
         "Name": "Spirit Bond (PvP)",
@@ -29630,7 +31381,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/72/Spirit_Bond_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Spirit_Bond_(PvP)",
         "Ranks": [
-            [30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 98, 102, 106, 110, 114]]
+            [30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 98, 102, 106, 110, 114]
+        ]
     }, {
         "Id": 2887,
         "Name": "Signet of Judgment (PvP)",
@@ -29652,7 +31404,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/78/Signet_of_Judgment_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Signet_of_Judgment_(PvP)",
         "Ranks": [
-            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]]
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]
+        ]
     }, {
         "Id": 2999,
         "Name": "Strength of Honor (PvP)",
@@ -29674,7 +31427,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/ce/Strength_of_Honor_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Strength_of_Honor_(PvP)",
         "Ranks": [
-            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]]
+            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]
+        ]
     }, {
         "Id": 3059,
         "Name": "Signet of Agony (PvP)",
@@ -29696,7 +31450,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/14/Signet_of_Agony_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Signet_of_Agony_(PvP)",
         "Ranks": [
-            [10, 14, 18, 22, 26, 30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94]]
+            [10, 14, 18, 22, 26, 30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94]
+        ]
     }, {
         "Id": 3233,
         "Name": "Spoil Victor (PvP)",
@@ -29718,7 +31473,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a9/Spoil_Victor_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Spoil_Victor_(PvP)",
         "Ranks": [
-            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19, 20], [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]]
+            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19, 20],
+            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]
+        ]
     }, {
         "Id": 3058,
         "Name": "Unholy Feast (PvP)",
@@ -29740,7 +31497,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/0b/Unholy_Feast_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Unholy_Feast_(PvP)",
         "Ranks": [
-            [10, 14, 17, 21, 25, 28, 32, 36, 39, 43, 47, 50, 54, 58, 61, 65, 69, 72, 76, 80, 83, 87], [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5]]
+            [10, 14, 17, 21, 25, 28, 32, 36, 39, 43, 47, 50, 54, 58, 61, 65, 69, 72, 76, 80, 83, 87],
+            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5]
+        ]
     }, {
         "Id": 2859,
         "Name": "Enfeeble (PvP)",
@@ -29762,7 +31521,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a2/Enfeeble_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Enfeeble_(PvP)",
         "Ranks": [
-            [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38]]
+            [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38]
+        ]
     }, {
         "Id": 2885,
         "Name": "Enfeebling Blood (PvP)",
@@ -29784,7 +31544,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/b7/Enfeebling_Blood_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Enfeebling_Blood_(PvP)",
         "Ranks": [
-            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]]
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]
+        ]
     }, {
         "Id": 2863,
         "Name": "Discord (PvP)",
@@ -29806,7 +31567,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/1f/Discord_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Discord_(PvP)",
         "Ranks": [
-            [30, 35, 41, 46, 51, 57, 62, 67, 73, 78, 83, 89, 94, 99, 105, 110, 115, 121, 126, 131, 137, 142]]
+            [30, 35, 41, 46, 51, 57, 62, 67, 73, 78, 83, 89, 94, 99, 105, 110, 115, 121, 126, 131, 137, 142]
+        ]
     }, {
         "Id": 3054,
         "Name": "Masochism (PvP)",
@@ -29828,7 +31590,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/64/Masochism_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Masochism_(PvP)",
         "Ranks": [
-            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4]]
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4]
+        ]
     }, {
         "Id": 3151,
         "Name": "Empathy (PvP)",
@@ -29850,7 +31613,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/74/Empathy_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Empathy_(PvP)",
         "Ranks": [
-            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19], [15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57]]
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19],
+            [15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57]
+        ]
     }, {
         "Id": 3192,
         "Name": "Enchanter's Conundrum (PvP)",
@@ -29872,7 +31637,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c0/Enchanter%27s_Conundrum_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Enchanter%27s_Conundrum_(PvP)",
         "Ranks": [
-            [100, 107, 113, 120, 127, 133, 140, 147, 153, 160, 167, 173, 180, 187, 193, 200, 207, 213, 220, 227, 233, 240], [10, 16, 22, 28, 34, 40, 46, 52, 58, 64, 70, 76, 82, 88, 94, 100, 106, 112, 118, 124, 130, 136]]
+            [100, 107, 113, 120, 127, 133, 140, 147, 153, 160, 167, 173, 180, 187, 193, 200, 207, 213, 220, 227, 233, 240],
+            [10, 16, 22, 28, 34, 40, 46, 52, 58, 64, 70, 76, 82, 88, 94, 100, 106, 112, 118, 124, 130, 136]
+        ]
     }, {
         "Id": 2734,
         "Name": "Mind Wrack (PvP)",
@@ -29894,7 +31661,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/31/Mind_Wrack_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mind_Wrack_(PvP)",
         "Ranks": [
-            [5, 7, 10, 12, 14, 17, 19, 21, 24, 26, 28, 31, 33, 35, 38, 40, 42, 45, 47, 49, 52, 54], [15, 21, 26, 32, 38, 43, 49, 55, 60, 66, 72, 77, 83, 89, 94, 100, 106, 111, 117, 123, 128, 134]]
+            [5, 7, 10, 12, 14, 17, 19, 21, 24, 26, 28, 31, 33, 35, 38, 40, 42, 45, 47, 49, 52, 54],
+            [15, 21, 26, 32, 38, 43, 49, 55, 60, 66, 72, 77, 83, 89, 94, 100, 106, 111, 117, 123, 128, 134]
+        ]
     }, {
         "Id": 3191,
         "Name": "Mistrust (PvP)",
@@ -29916,7 +31685,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f9/Mistrust_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mistrust_(PvP)",
         "Ranks": [
-            [10, 14, 19, 23, 27, 32, 36, 40, 45, 49, 53, 58, 62, 66, 71, 75, 79, 84, 88, 92, 97, 101]]
+            [10, 14, 19, 23, 27, 32, 36, 40, 45, 49, 53, 58, 62, 66, 71, 75, 79, 84, 88, 92, 97, 101]
+        ]
     }, {
         "Id": 3180,
         "Name": "Shatter Delusions (PvP)",
@@ -29938,7 +31708,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/7c/Shatter_Delusions_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Shatter_Delusions_(PvP)",
         "Ranks": [
-            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]]
+            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]
+        ]
     }, {
         "Id": 3189,
         "Name": "Spiritual Pain (PvP)",
@@ -29960,7 +31731,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/98/Spiritual_Pain_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Spiritual_Pain_(PvP)",
         "Ranks": [
-            [5, 7, 10, 12, 14, 17, 19, 21, 24, 26, 28, 31, 33, 35, 38, 40, 42, 45, 47, 49, 52, 54], [25, 32, 38, 45, 52, 58, 65, 72, 78, 85, 92, 98, 105, 112, 118, 125, 132, 138, 145, 152, 158, 165]]
+            [5, 7, 10, 12, 14, 17, 19, 21, 24, 26, 28, 31, 33, 35, 38, 40, 42, 45, 47, 49, 52, 54],
+            [25, 32, 38, 45, 52, 58, 65, 72, 78, 85, 92, 98, 105, 112, 118, 125, 132, 138, 145, 152, 158, 165]
+        ]
     }, {
         "Id": 3188,
         "Name": "Unnatural Signet (PvP)",
@@ -29982,7 +31755,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/4f/Unnatural_Signet_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Unnatural_Signet_(PvP)",
         "Ranks": [
-            [10, 13, 17, 20, 23, 27, 30, 33, 37, 40, 43, 47, 50, 53, 57, 60, 63, 67, 70, 73, 77, 80], [10, 13, 17, 20, 23, 27, 30, 33, 37, 40, 43, 47, 50, 53, 57, 60, 63, 67, 70, 73, 77, 80]]
+            [10, 13, 17, 20, 23, 27, 30, 33, 37, 40, 43, 47, 50, 53, 57, 60, 63, 67, 70, 73, 77, 80],
+            [10, 13, 17, 20, 23, 27, 30, 33, 37, 40, 43, 47, 50, 53, 57, 60, 63, 67, 70, 73, 77, 80]
+        ]
     }, {
         "Id": 3234,
         "Name": "Visions of Regret (PvP)",
@@ -30004,7 +31779,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/b1/Visions_of_Regret_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Visions_of_Regret_(PvP)",
         "Ranks": [
-            [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38], [5, 7, 10, 12, 14, 17, 19, 21, 24, 26, 28, 31, 33, 35, 38, 40, 42, 45, 47, 49, 52, 54]]
+            [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38],
+            [5, 7, 10, 12, 14, 17, 19, 21, 24, 26, 28, 31, 33, 35, 38, 40, 42, 45, 47, 49, 52, 54]
+        ]
     }, {
         "Id": 3185,
         "Name": "Psychic Instability (PvP)",
@@ -30026,7 +31803,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/35/Psychic_Instability_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Psychic_Instability_(PvP)",
         "Ranks": [
-            [2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]]
+            [2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+        ]
     }, {
         "Id": 3187,
         "Name": "Stolen Speed (PvP)",
@@ -30048,7 +31826,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/33/Stolen_Speed_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Stolen_Speed_(PvP)",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]
+        ]
     }, {
         "Id": 3184,
         "Name": "Accumulated Pain (PvP)",
@@ -30070,7 +31849,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/7c/Accumulated_Pain_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Accumulated_Pain_(PvP)",
         "Ranks": [
-            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 3196,
         "Name": "Calculated Risk (PvP)",
@@ -30092,7 +31873,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/1f/Calculated_Risk_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Calculated_Risk_(PvP)",
         "Ranks": [
-            [3, 4, 4, 5, 5, 6, 7, 7, 8, 8, 9, 10, 10, 11, 11, 12, 13, 13, 14, 14, 15, 16], [10, 13, 17, 20, 23, 27, 30, 33, 37, 40, 43, 47, 50, 53, 57, 60, 63, 67, 70, 73, 77, 80]]
+            [3, 4, 4, 5, 5, 6, 7, 7, 8, 8, 9, 10, 10, 11, 11, 12, 13, 13, 14, 14, 15, 16],
+            [10, 13, 17, 20, 23, 27, 30, 33, 37, 40, 43, 47, 50, 53, 57, 60, 63, 67, 70, 73, 77, 80]
+        ]
     }, {
         "Id": 3152,
         "Name": "Crippling Anguish (PvP)",
@@ -30114,7 +31897,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c7/Crippling_Anguish_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Crippling_Anguish_(PvP)",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]
+        ]
     }, {
         "Id": 3289,
         "Name": "Fevered Dreams (PvP)",
@@ -30136,7 +31921,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/8c/Fevered_Dreams_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Fevered_Dreams_(PvP)",
         "Ranks": [
-            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19]]
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19]
+        ]
     }, {
         "Id": 2998,
         "Name": "Fragility (PvP)",
@@ -30158,7 +31944,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a9/Fragility_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Fragility_(PvP)",
         "Ranks": [
-            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [8, 9, 10, 10, 11, 12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 3190,
         "Name": "Frustration (PvP)",
@@ -30180,7 +31968,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/6f/Frustration_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Frustration_(PvP)",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]
+        ]
     }, {
         "Id": 3373,
         "Name": "Illusion of Haste (PvP)",
@@ -30202,7 +31992,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/36/Illusion_of_Haste_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Illusion_of_Haste_(PvP)",
         "Ranks": [
-            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13, 13]]
+            [5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 11, 12, 12, 13, 13, 13]
+        ]
     }, {
         "Id": 3374,
         "Name": "Illusion of Pain (PvP)",
@@ -30224,7 +32015,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f3/Illusion_of_Pain_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Illusion_of_Pain_(PvP)",
         "Ranks": [
-            [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 13], [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 13], [36, 42, 47, 53, 58, 64, 70, 75, 81, 86, 92, 98, 103, 109, 114, 120, 126, 131, 137, 142, 148, 154]]
+            [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 13],
+            [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 13],
+            [36, 42, 47, 53, 58, 64, 70, 75, 81, 86, 92, 98, 103, 109, 114, 120, 126, 131, 137, 142, 148, 154]
+        ]
     }, {
         "Id": 3181,
         "Name": "Illusionary Weaponry (PvP)",
@@ -30246,7 +32040,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a9/Illusionary_Weaponry_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Illusionary_Weaponry_(PvP)",
         "Ranks": [
-            [8, 10, 12, 14, 17, 19, 21, 23, 25, 27, 29, 31, 34, 36, 38, 40, 42, 44, 46, 49, 51, 53]]
+            [8, 10, 12, 14, 17, 19, 21, 23, 25, 27, 29, 31, 34, 36, 38, 40, 42, 44, 46, 49, 51, 53]
+        ]
     }, {
         "Id": 3183,
         "Name": "Migraine (PvP)",
@@ -30268,7 +32063,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/49/Migraine_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Migraine_(PvP)",
         "Ranks": [
-            [3, 4, 4, 5, 5, 6, 7, 7, 8, 8, 9, 10, 10, 11, 11, 12, 13, 13, 14, 14, 15, 16], [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 11]]
+            [3, 4, 4, 5, 5, 6, 7, 7, 8, 8, 9, 10, 10, 11, 11, 12, 13, 13, 14, 14, 15, 16],
+            [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 11]
+        ]
     }, {
         "Id": 3186,
         "Name": "Shared Burden (PvP)",
@@ -30290,7 +32087,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/17/Shared_Burden_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Shared_Burden_(PvP)",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 3193,
         "Name": "Signet of Clumsiness (PvP)",
@@ -30312,7 +32110,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/fb/Signet_of_Clumsiness_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Signet_of_Clumsiness_(PvP)",
         "Ranks": [
-            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78]]
+            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78]
+        ]
     }, {
         "Id": 3195,
         "Name": "Wandering Eye (PvP)",
@@ -30334,7 +32133,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/dc/Wandering_Eye_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Wandering_Eye_(PvP)",
         "Ranks": [
-            [10, 15, 21, 26, 32, 37, 43, 48, 54, 59, 65, 70, 76, 81, 87, 92, 97, 103, 108, 114, 119, 125]]
+            [10, 15, 21, 26, 32, 37, 43, 48, 54, 59, 65, 70, 76, 81, 87, 92, 97, 103, 108, 114, 119, 125]
+        ]
     }, {
         "Id": 3063,
         "Name": "Mantra of Resolve (PvP)",
@@ -30356,7 +32156,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/6f/Mantra_of_Resolve_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mantra_of_Resolve_(PvP)",
         "Ranks": [
-            [10, 10, 9, 9, 8, 8, 8, 7, 7, 6, 6, 6, 5, 5, 4, 4, 4, 3, 3, 2, 2, 2]]
+            [10, 10, 9, 9, 8, 8, 8, 7, 7, 6, 6, 6, 5, 5, 4, 4, 4, 3, 3, 2, 2, 2]
+        ]
     }, {
         "Id": 3179,
         "Name": "Mantra of Signets (PvP)",
@@ -30378,7 +32179,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/8f/Mantra_of_Signets_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mantra_of_Signets_(PvP)",
         "Ranks": [
-            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52], [5, 9, 12, 16, 20, 23, 27, 31, 34, 38, 42, 45, 49, 53, 56, 60, 64, 67, 71, 75, 78, 82]]
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52],
+            [5, 9, 12, 16, 20, 23, 27, 31, 34, 38, 42, 45, 49, 53, 56, 60, 64, 67, 71, 75, 78, 82]
+        ]
     }, {
         "Id": 3194,
         "Name": "Mirror of Disenchantment (PvP)",
@@ -30399,8 +32202,7 @@ var skillTable = [
         "Campaign": "Nightfall",
         "Image": "https://wiki.guildwars.com/images/9/9f/Mirror_of_Disenchantment_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mirror_of_Disenchantment_(PvP)",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 3386,
         "Name": "Web of Disruption (PvP)",
@@ -30421,8 +32223,7 @@ var skillTable = [
         "Campaign": "Nightfall",
         "Image": "https://wiki.guildwars.com/images/7/75/Web_of_Disruption_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Web_of_Disruption_(PvP)",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 3396,
         "Name": "Lightning Hammer (PvP)",
@@ -30444,7 +32245,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e2/Lightning_Hammer_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Lightning_Hammer_(PvP)",
         "Ranks": [
-            [10, 16, 22, 28, 34, 40, 46, 52, 58, 64, 70, 76, 82, 88, 94, 100, 106, 112, 118, 124, 130, 136]]
+            [10, 16, 22, 28, 34, 40, 46, 52, 58, 64, 70, 76, 82, 88, 94, 100, 106, 112, 118, 124, 130, 136]
+        ]
     }, {
         "Id": 2804,
         "Name": "Mind Shock (PvP)",
@@ -30466,7 +32268,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a0/Mind_Shock_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mind_Shock_(PvP)",
         "Ranks": [
-            [10, 13, 15, 18, 21, 23, 26, 29, 31, 34, 37, 39, 42, 45, 47, 50, 53, 55, 58, 61, 63, 66], [10, 13, 15, 18, 21, 23, 26, 29, 31, 34, 37, 39, 42, 45, 47, 50, 53, 55, 58, 61, 63, 66]]
+            [10, 13, 15, 18, 21, 23, 26, 29, 31, 34, 37, 39, 42, 45, 47, 50, 53, 55, 58, 61, 63, 66],
+            [10, 13, 15, 18, 21, 23, 26, 29, 31, 34, 37, 39, 42, 45, 47, 50, 53, 55, 58, 61, 63, 66]
+        ]
     }, {
         "Id": 2807,
         "Name": "Ride the Lightning (PvP)",
@@ -30488,7 +32292,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/74/Ride_the_Lightning_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Ride_the_Lightning_(PvP)",
         "Ranks": [
-            [10, 14, 18, 22, 26, 30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94], [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]]
+            [10, 14, 18, 22, 26, 30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94],
+            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]
+        ]
     }, {
         "Id": 2809,
         "Name": "Obsidian Flame (PvP)",
@@ -30510,7 +32316,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/dd/Obsidian_Flame_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Obsidian_Flame_(PvP)",
         "Ranks": [
-            [22, 27, 31, 36, 41, 45, 50, 55, 59, 64, 69, 73, 78, 83, 87, 92, 97, 101, 106, 111, 115, 120]]
+            [22, 27, 31, 36, 41, 45, 50, 55, 59, 64, 69, 73, 78, 83, 87, 92, 97, 101, 106, 111, 115, 120]
+        ]
     }, {
         "Id": 2860,
         "Name": "Ether Renewal (PvP)",
@@ -30532,7 +32339,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/8e/Ether_Renewal_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Ether_Renewal_(PvP)",
         "Ranks": [
-            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 3375,
         "Name": "Aura of Restoration (PvP)",
@@ -30554,7 +32363,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/81/Aura_of_Restoration_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Aura_of_Restoration_(PvP)",
         "Ranks": [
-            [200, 213, 227, 240, 253, 267, 280, 293, 307, 320, 333, 347, 360, 373, 387, 400, 413, 427, 440, 453, 467, 480], [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]]
+            [200, 213, 227, 240, 253, 267, 280, 293, 307, 320, 333, 347, 360, 373, 387, 400, 413, 427, 440, 453, 467, 480],
+            [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+        ]
     }, {
         "Id": 3397,
         "Name": "Elemental Flame (PvP)",
@@ -30576,7 +32387,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/45/Elemental_Flame_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Elemental_Flame_(PvP)",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+        ]
     }, {
         "Id": 3021,
         "Name": "Savannah Heat (PvP)",
@@ -30598,7 +32411,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/79/Savannah_Heat_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Savannah_Heat_(PvP)",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [75, 90, 105, 120, 135, 150, 165, 180, 195, 210, 225, 240, 255, 270, 285, 300, 315, 330, 345, 360, 375, 390]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [75, 90, 105, 120, 135, 150, 165, 180, 195, 210, 225, 240, 255, 270, 285, 300, 315, 330, 345, 360, 375, 390]
+        ]
     }, {
         "Id": 2803,
         "Name": "Mind Freeze (PvP)",
@@ -30620,7 +32436,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/8a/Mind_Freeze_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mind_Freeze_(PvP)",
         "Ranks": [
-            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52], [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52], [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]]
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52],
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52],
+            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]
+        ]
     }, {
         "Id": 2805,
         "Name": "Mist Form (PvP)",
@@ -30642,7 +32461,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/ed/Mist_Form_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mist_Form_(PvP)",
         "Ranks": [
-            [10, 12, 15, 17, 19, 22, 24, 26, 29, 31, 33, 36, 38, 40, 43, 45, 47, 50, 52, 54, 57, 59], [50, 63, 77, 90, 103, 117, 130, 143, 157, 170, 183, 197, 210, 223, 237, 250, 263, 277, 290, 303, 317, 330]]
+            [10, 12, 15, 17, 19, 22, 24, 26, 29, 31, 33, 36, 38, 40, 43, 45, 47, 50, 52, 54, 57, 59],
+            [50, 63, 77, 90, 103, 117, 130, 143, 157, 170, 183, 197, 210, 223, 237, 250, 263, 277, 290, 303, 317, 330]
+        ]
     }, {
         "Id": 3398,
         "Name": "Slippery Ground (PvP)",
@@ -30663,8 +32484,7 @@ var skillTable = [
         "Campaign": "Eye of the North",
         "Image": "https://wiki.guildwars.com/images/2/29/Slippery_Ground_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Slippery_Ground_(PvP)",
-        "Ranks": [
-        ]
+        "Ranks": []
     }, {
         "Id": 2806,
         "Name": "Ward Against Harm (PvP)",
@@ -30686,7 +32506,11 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/92/Ward_Against_Harm_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Ward_Against_Harm_(PvP)",
         "Ranks": [
-            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19], [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4], [12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25, 26, 26, 27, 28, 29], [12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25, 26, 26, 27, 28, 29]]
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19],
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4],
+            [12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25, 26, 26, 27, 28, 29],
+            [12, 13, 14, 14, 15, 16, 17, 18, 18, 19, 20, 21, 22, 22, 23, 24, 25, 26, 26, 27, 28, 29]
+        ]
     }, {
         "Id": 2869,
         "Name": "Assassin's Remedy (PvP)",
@@ -30708,7 +32532,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/bf/Assassin%27s_Remedy_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Assassin%27s_Remedy_(PvP)",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13]
+        ]
     }, {
         "Id": 3061,
         "Name": "Death Blossom (PvP)",
@@ -30730,7 +32555,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/29/Death_Blossom_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Death_Blossom_(PvP)",
         "Ranks": [
-            [20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45, 47, 48, 50, 52, 53, 55], [20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45, 47, 48, 50, 52, 53, 55]]
+            [20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45, 47, 48, 50, 52, 53, 55],
+            [20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45, 47, 48, 50, 52, 53, 55]
+        ]
     }, {
         "Id": 3251,
         "Name": "Fox Fangs (PvP)",
@@ -30752,7 +32579,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/39/Fox_Fangs_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Fox_Fangs_(PvP)",
         "Ranks": [
-            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]]
+            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
+        ]
     }, {
         "Id": 3252,
         "Name": "Wild Strike (PvP)",
@@ -30774,7 +32602,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/26/Wild_Strike_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Wild_Strike_(PvP)",
         "Ranks": [
-            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45]]
+            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45]
+        ]
     }, {
         "Id": 3053,
         "Name": "Signet of Deadly Corruption (PvP)",
@@ -30796,7 +32625,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/6e/Signet_of_Deadly_Corruption_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Signet_of_Deadly_Corruption_(PvP)",
         "Ranks": [
-            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45]]
+            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45]
+        ]
     }, {
         "Id": 2862,
         "Name": "Shadow Form (PvP)",
@@ -30818,7 +32648,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/94/Shadow_Form_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Shadow_Form_(PvP)",
         "Ranks": [
-            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18], [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65]]
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18],
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65]
+        ]
     }, {
         "Id": 3048,
         "Name": "Shroud of Distress (PvP)",
@@ -30840,7 +32672,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/6d/Shroud_of_Distress_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Shroud_of_Distress_(PvP)",
         "Ranks": [
-            [30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70]]
+            [30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70]
+        ]
     }, {
         "Id": 3049,
         "Name": "Unseen Fury (PvP)",
@@ -30862,7 +32695,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/69/Unseen_Fury_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Unseen_Fury_(PvP)",
         "Ranks": [
-            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75]]
+            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75]
+        ]
     }, {
         "Id": 2867,
         "Name": "Ancestors' Rage (PvP)",
@@ -30884,7 +32718,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/5c/Ancestors%27_Rage_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Ancestors%27_Rage_(PvP)",
         "Ranks": [
-            [1, 4, 6, 9, 12, 14, 17, 20, 22, 25, 28, 30, 33, 36, 38, 41, 44, 46, 49, 52, 54, 57]]
+            [1, 4, 6, 9, 12, 14, 17, 20, 22, 25, 28, 30, 33, 36, 38, 41, 44, 46, 49, 52, 54, 57]
+        ]
     }, {
         "Id": 2965,
         "Name": "Signet of Spirits (PvP)",
@@ -30906,7 +32741,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/16/Signet_of_Spirits_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Signet_of_Spirits_(PvP)",
         "Ranks": [
-            [3, 4, 4, 5, 5, 6, 7, 7, 8, 8, 9, 10, 10, 11, 11, 12, 13, 13, 14, 14, 15, 16]]
+            [3, 4, 4, 5, 5, 6, 7, 7, 8, 8, 9, 10, 10, 11, 11, 12, 13, 13, 14, 14, 15, 16]
+        ]
     }, {
         "Id": 2868,
         "Name": "Splinter Weapon (PvP)",
@@ -30928,7 +32764,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f4/Splinter_Weapon_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Splinter_Weapon_(PvP)",
         "Ranks": [
-            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7], [5, 7, 8, 10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40]]
+            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7],
+            [5, 7, 8, 10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40]
+        ]
     }, {
         "Id": 3038,
         "Name": "Agony (PvP)",
@@ -30950,7 +32788,11 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/04/Agony_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Agony_(PvP)",
         "Ranks": [
-            [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 11], [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 13], [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 13], [30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 98, 102, 106, 110, 114]]
+            [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 11],
+            [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 13],
+            [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 13],
+            [30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 98, 102, 106, 110, 114]
+        ]
     }, {
         "Id": 3019,
         "Name": "Bloodsong (PvP)",
@@ -30972,7 +32814,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/84/Bloodsong_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Bloodsong_(PvP)",
         "Ranks": [
-            [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 11], [30, 38, 46, 54, 62, 70, 78, 86, 94, 102, 110, 118, 126, 134, 142, 150, 158, 166, 174, 182, 190, 198], [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32, 33]]
+            [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 11],
+            [30, 38, 46, 54, 62, 70, 78, 86, 94, 102, 110, 118, 126, 134, 142, 150, 158, 166, 174, 182, 190, 198],
+            [5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 29, 30, 32, 33]
+        ]
     }, {
         "Id": 3008,
         "Name": "Destruction (PvP)",
@@ -30994,7 +32839,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/aa/Destruction_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Destruction_(PvP)",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14], [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14],
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]
+        ]
     }, {
         "Id": 3022,
         "Name": "Gaze of Fury (PvP)",
@@ -31016,7 +32863,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/cb/Gaze_of_Fury_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Gaze_of_Fury_(PvP)",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72]
+        ]
     }, {
         "Id": 2966,
         "Name": "Signet of Ghostly Might (PvP)",
@@ -31038,7 +32888,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/fc/Signet_of_Ghostly_Might_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Signet_of_Ghostly_Might_(PvP)",
         "Ranks": [
-            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47]]
+            [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47]
+        ]
     }, {
         "Id": 3023,
         "Name": "Anguish (PvP)",
@@ -31060,7 +32911,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/fa/Anguish_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Anguish_(PvP)",
         "Ranks": [
-            [1, 1, 2, 2, 3, 3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57]]
+            [1, 1, 2, 2, 3, 3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57]
+        ]
     }, {
         "Id": 3003,
         "Name": "Armor of Unfeeling (PvP)",
@@ -31082,7 +32936,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f8/Armor_of_Unfeeling_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Armor_of_Unfeeling_(PvP)",
         "Ranks": [
-            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45]]
+            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45]
+        ]
     }, {
         "Id": 3017,
         "Name": "Disenchantment (PvP)",
@@ -31104,7 +32959,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/2b/Disenchantment_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Disenchantment_(PvP)",
         "Ranks": [
-            [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 11], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45]]
+            [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 11],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45]
+        ]
     }, {
         "Id": 3010,
         "Name": "Displacement (PvP)",
@@ -31126,7 +32984,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/b4/Displacement_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Displacement_(PvP)",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14], [30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72], [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14],
+            [30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72],
+            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5]
+        ]
     }, {
         "Id": 3014,
         "Name": "Dissonance (PvP)",
@@ -31148,7 +33009,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/2d/Dissonance_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Dissonance_(PvP)",
         "Ranks": [
-            [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 11], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]]
+            [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 11],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
+        ]
     }, {
         "Id": 3015,
         "Name": "Earthbind (PvP)",
@@ -31170,7 +33034,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/66/Earthbind_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Earthbind_(PvP)",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14], [50, 48, 47, 45, 43, 42, 40, 38, 37, 35, 33, 32, 30, 28, 27, 25, 23, 22, 20, 18, 17, 15], [15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14],
+            [50, 48, 47, 45, 43, 42, 40, 38, 37, 35, 33, 32, 30, 28, 27, 25, 23, 22, 20, 18, 17, 15],
+            [15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57]
+        ]
     }, {
         "Id": 3007,
         "Name": "Pain (PvP)",
@@ -31192,7 +33059,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/5b/Pain_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Pain_(PvP)",
         "Ranks": [
-            [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 11], [5, 7, 8, 10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40], [30, 38, 46, 54, 62, 70, 78, 86, 94, 102, 110, 118, 126, 134, 142, 150, 158, 166, 174, 182, 190, 198]]
+            [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 11],
+            [5, 7, 8, 10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40],
+            [30, 38, 46, 54, 62, 70, 78, 86, 94, 102, 110, 118, 126, 134, 142, 150, 158, 166, 174, 182, 190, 198]
+        ]
     }, {
         "Id": 3018,
         "Name": "Restoration (PvP)",
@@ -31214,7 +33084,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/0f/Restoration_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Restoration_(PvP)",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14], [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14],
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]
+        ]
     }, {
         "Id": 3006,
         "Name": "Shadowsong (PvP)",
@@ -31236,7 +33108,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/3a/Shadowsong_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Shadowsong_(PvP)",
         "Ranks": [
-            [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8], [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8],
+            [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 3016,
         "Name": "Shelter (PvP)",
@@ -31258,7 +33133,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/9c/Shelter_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Shelter_(PvP)",
         "Ranks": [
-            [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 11], [75, 73, 71, 69, 67, 65, 63, 61, 59, 57, 55, 53, 51, 49, 47, 45, 43, 41, 39, 37, 35, 33], [30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72]]
+            [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 11],
+            [75, 73, 71, 69, 67, 65, 63, 61, 59, 57, 55, 53, 51, 49, 47, 45, 43, 41, 39, 37, 35, 33],
+            [30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72]
+        ]
     }, {
         "Id": 3009,
         "Name": "Soothing (PvP)",
@@ -31280,7 +33158,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/42/Soothing_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Soothing_(PvP)",
         "Ranks": [
-            [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 11], [15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57]]
+            [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 11],
+            [15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57]
+        ]
     }, {
         "Id": 3005,
         "Name": "Union (PvP)",
@@ -31302,7 +33182,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/7b/Union_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Union_(PvP)",
         "Ranks": [
-            [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 11], [30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72]]
+            [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 11],
+            [30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72]
+        ]
     }, {
         "Id": 3020,
         "Name": "Wanderlust (PvP)",
@@ -31324,7 +33206,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/b3/Wanderlust_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Wanderlust_(PvP)",
         "Ranks": [
-            [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 11], [70, 69, 67, 66, 65, 63, 62, 61, 59, 58, 57, 55, 54, 53, 51, 50, 49, 47, 46, 45, 43, 42], [30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72]]
+            [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 11],
+            [70, 69, 67, 66, 65, 63, 62, 61, 59, 58, 57, 55, 54, 53, 51, 50, 49, 47, 46, 45, 43, 42],
+            [30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72]
+        ]
     }, {
         "Id": 2872,
         "Name": "Death Pact Signet (PvP)",
@@ -31346,7 +33231,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/06/Death_Pact_Signet_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Death_Pact_Signet_(PvP)",
         "Ranks": [
-            [15, 21, 26, 32, 38, 43, 49, 55, 60, 66, 72, 77, 83, 89, 94, 100, 106, 111, 117, 123, 128, 134]]
+            [15, 21, 26, 32, 38, 43, 49, 55, 60, 66, 72, 77, 83, 89, 94, 100, 106, 111, 117, 123, 128, 134]
+        ]
     }, {
         "Id": 2866,
         "Name": "Flesh of My Flesh (PvP)",
@@ -31368,7 +33254,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/01/Flesh_of_My_Flesh_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Flesh_of_My_Flesh_(PvP)",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 2893,
         "Name": "Weapon of Warding (PvP)",
@@ -31390,7 +33277,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/ba/Weapon_of_Warding_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Weapon_of_Warding_(PvP)",
         "Ranks": [
-            [3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10], [2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5]]
+            [3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10],
+            [2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5]
+        ]
     }, {
         "Id": 3012,
         "Name": "Life (PvP)",
@@ -31412,7 +33301,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/2a/Life_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Life_(PvP)",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14], [1, 1, 2, 2, 3, 3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14],
+            [1, 1, 2, 2, 3, 3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9]
+        ]
     }, {
         "Id": 3011,
         "Name": "Preservation (PvP)",
@@ -31434,7 +33325,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/40/Preservation_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Preservation_(PvP)",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14], [10, 17, 24, 31, 38, 45, 52, 59, 66, 73, 80, 87, 94, 101, 108, 115, 122, 129, 136, 143, 150, 157]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14],
+            [10, 17, 24, 31, 38, 45, 52, 59, 66, 73, 80, 87, 94, 101, 108, 115, 122, 129, 136, 143, 150, 157]
+        ]
     }, {
         "Id": 3025,
         "Name": "Recovery (PvP)",
@@ -31456,7 +33349,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/44/Recovery_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Recovery_(PvP)",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14], [20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62], [30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14],
+            [20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62],
+            [30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72]
+        ]
     }, {
         "Id": 3013,
         "Name": "Recuperation (PvP)",
@@ -31478,7 +33374,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/46/Recuperation_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Recuperation_(PvP)",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14], [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4], [15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14],
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4],
+            [15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57]
+        ]
     }, {
         "Id": 3039,
         "Name": "Rejuvenation (PvP)",
@@ -31500,7 +33399,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a4/Rejuvenation_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Rejuvenation_(PvP)",
         "Ranks": [
-            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22], [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 13], [30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 98, 102, 106, 110, 114]]
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22],
+            [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 13],
+            [30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 98, 102, 106, 110, 114]
+        ]
     }, {
         "Id": 3024,
         "Name": "Empowerment (PvP)",
@@ -31522,7 +33424,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f8/Empowerment_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Empowerment_(PvP)",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14], [15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57], [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14],
+            [15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57],
+            [15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78]
+        ]
     }, {
         "Id": 2879,
         "Name": "\"Incoming!\" (PvP)",
@@ -31544,7 +33449,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/91/%22Incoming%21%22_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22Incoming!%22_(PvP)",
         "Ranks": [
-            [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 12], [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19]]
+            [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 12],
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19]
+        ]
     }, {
         "Id": 2880,
         "Name": "\"Never Surrender!\" (PvP)",
@@ -31566,7 +33473,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/16/%22Never_Surrender%21%22_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22Never_Surrender!%22_(PvP)",
         "Ranks": [
-            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]]
+            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]
+        ]
     }, {
         "Id": 3027,
         "Name": "\"Brace Yourself!\" (PvP)",
@@ -31588,7 +33496,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/2c/%22Brace_Yourself%21%22_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22Brace_Yourself!%22_(PvP)",
         "Ranks": [
-            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19], [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]]
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19],
+            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]
+        ]
     }, {
         "Id": 3031,
         "Name": "\"Can't Touch This!\" (PvP)",
@@ -31610,7 +33520,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c8/%22Can%27t_Touch_This%21%22_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22Can%27t_Touch_This!%22_(PvP)",
         "Ranks": [
-            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]]
+            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7]
+        ]
     }, {
         "Id": 3037,
         "Name": "\"Fall Back!\" (PvP)",
@@ -31632,7 +33543,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/5a/%22Fall_Back%21%22_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22Fall_Back!%22_(PvP)",
         "Ranks": [
-            [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 12], [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19]]
+            [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12, 12],
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18, 19]
+        ]
     }, {
         "Id": 3034,
         "Name": "\"Find Their Weakness!\" (PvP)",
@@ -31654,7 +33567,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/b6/%22Find_Their_Weakness%21%22_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22Find_Their_Weakness!%22_(PvP)",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 3026,
         "Name": "\"Go for the Eyes!\" (PvP)",
@@ -31676,7 +33591,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/eb/%22Go_for_the_Eyes%21%22_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22Go_for_the_Eyes!%22_(PvP)",
         "Ranks": [
-            [30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87, 90, 93]]
+            [30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87, 90, 93]
+        ]
     }, {
         "Id": 3036,
         "Name": "\"Help Me!\" (PvP)",
@@ -31698,7 +33614,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/53/%22Help_Me%21%22_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22Help_Me!%22_(PvP)",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14], [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14],
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]
+        ]
     }, {
         "Id": 3035,
         "Name": "\"Never Give Up!\" (PvP)",
@@ -31720,7 +33638,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/3d/%22Never_Give_Up%21%22_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22Never_Give_Up!%22_(PvP)",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]
+        ]
     }, {
         "Id": 3032,
         "Name": "\"Stand Your Ground!\" (PvP)",
@@ -31742,7 +33661,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c6/%22Stand_Your_Ground%21%22_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22Stand_Your_Ground!%22_(PvP)",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 3033,
         "Name": "\"We Shall Return!\" (PvP)",
@@ -31764,7 +33684,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/7c/%22We_Shall_Return%21%22_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22We_Shall_Return!%22_(PvP)",
         "Ranks": [
-            [10, 14, 19, 23, 27, 32, 36, 40, 45, 49, 53, 58, 62, 66, 71, 75, 79, 84, 88, 92, 97, 101], [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]]
+            [10, 14, 19, 23, 27, 32, 36, 40, 45, 49, 53, 58, 62, 66, 71, 75, 79, 84, 88, 92, 97, 101],
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65, 68]
+        ]
     }, {
         "Id": 3040,
         "Name": "Anthem of Disruption (PvP)",
@@ -31786,7 +33708,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/9f/Anthem_of_Disruption_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Anthem_of_Disruption_(PvP)",
         "Ranks": [
-            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]]
+            [1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13, 14]
+        ]
     }, {
         "Id": 3148,
         "Name": "Anthem of Envy (PvP)",
@@ -31808,7 +33731,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/e/e6/Anthem_of_Envy_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Anthem_of_Envy_(PvP)",
         "Ranks": [
-            [10, 11, 11, 12, 13, 13, 14, 15, 15, 16, 17, 17, 18, 19, 19, 20, 21, 21, 22, 23, 23, 24]]
+            [10, 11, 11, 12, 13, 13, 14, 15, 15, 16, 17, 17, 18, 19, 19, 20, 21, 21, 22, 23, 23, 24]
+        ]
     }, {
         "Id": 3029,
         "Name": "Bladeturn Refrain (PvP)",
@@ -31830,7 +33754,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/8/8e/Bladeturn_Refrain_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Bladeturn_Refrain_(PvP)",
         "Ranks": [
-            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]]
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]
+        ]
     }, {
         "Id": 2876,
         "Name": "Defensive Anthem (PvP)",
@@ -31852,7 +33777,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c0/Defensive_Anthem_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Defensive_Anthem_(PvP)",
         "Ranks": [
-            [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12]]
+            [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12]
+        ]
     }, {
         "Id": 3028,
         "Name": "Blazing Finale (PvP)",
@@ -31874,7 +33800,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/ab/Blazing_Finale_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Blazing_Finale_(PvP)",
         "Ranks": [
-            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43], [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4]]
+            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43],
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4]
+        ]
     }, {
         "Id": 3030,
         "Name": "Signet of Return (PvP)",
@@ -31896,7 +33824,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/6f/Signet_of_Return_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Signet_of_Return_(PvP)",
         "Ranks": [
-            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18], [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5]]
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18],
+            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5]
+        ]
     }, {
         "Id": 2877,
         "Name": "Ballad of Restoration (PvP)",
@@ -31918,7 +33848,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/3/31/Ballad_of_Restoration_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Ballad_of_Restoration_(PvP)",
         "Ranks": [
-            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]]
+            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]
+        ]
     }, {
         "Id": 2878,
         "Name": "Song of Restoration (PvP)",
@@ -31940,7 +33871,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/28/Song_of_Restoration_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Song_of_Restoration_(PvP)",
         "Ranks": [
-            [45, 49, 54, 58, 62, 67, 71, 75, 80, 84, 88, 93, 97, 101, 106, 110, 114, 119, 123, 127, 132, 136]]
+            [45, 49, 54, 58, 62, 67, 71, 75, 80, 84, 88, 93, 97, 101, 106, 110, 114, 119, 123, 127, 132, 136]
+        ]
     }, {
         "Id": 3062,
         "Name": "Finale of Restoration (PvP)",
@@ -31962,7 +33894,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/9a/Finale_of_Restoration_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Finale_of_Restoration_(PvP)",
         "Ranks": [
-            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45], [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]]
+            [10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42, 43, 45],
+            [15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99]
+        ]
     }, {
         "Id": 3149,
         "Name": "Mending Refrain (PvP)",
@@ -31984,7 +33918,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/b5/Mending_Refrain_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mending_Refrain_(PvP)",
         "Ranks": [
-            [2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]]
+            [2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+        ]
     }, {
         "Id": 2875,
         "Name": "Harrier's Toss (PvP)",
@@ -32006,7 +33941,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/66/Harrier%27s_Toss_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Harrier%27s_Toss_(PvP)",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26], [5, 7, 8, 10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+            [5, 7, 8, 10, 12, 13, 15, 17, 18, 20, 22, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40]
+        ]
     }, {
         "Id": 2884,
         "Name": "Mystic Regeneration (PvP)",
@@ -32028,7 +33965,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/ac/Mystic_Regeneration_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mystic_Regeneration_(PvP)",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25], [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
+            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5]
+        ]
     }, {
         "Id": 3346,
         "Name": "Aura of Thorns (PvP)",
@@ -32050,7 +33989,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/54/Aura_of_Thorns_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Aura_of_Thorns_(PvP)",
         "Ranks": [
-            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18], [3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10]]
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18],
+            [3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10]
+        ]
     }, {
         "Id": 3347,
         "Name": "Dust Cloak (PvP)",
@@ -32072,7 +34013,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/b/ba/Dust_Cloak_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Dust_Cloak_(PvP)",
         "Ranks": [
-            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50], [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5]]
+            [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50],
+            [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5]
+        ]
     }, {
         "Id": 3270,
         "Name": "Avatar of Dwayna (PvP)",
@@ -32094,7 +34037,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/f1/Avatar_of_Dwayna_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Avatar_of_Dwayna_(PvP)",
         "Ranks": [
-            [10, 15, 21, 26, 31, 37, 42, 47, 53, 58, 63, 69, 74, 79, 85, 90, 95, 101, 106, 111, 117], [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65]]
+            [10, 15, 21, 26, 31, 37, 42, 47, 53, 58, 63, 69, 74, 79, 85, 90, 95, 101, 106, 111, 117],
+            [5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59, 62, 65]
+        ]
     }, {
         "Id": 3271,
         "Name": "Avatar of Melandru (PvP)",
@@ -32116,7 +34061,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/c1/Avatar_of_Melandru_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Avatar_of_Melandru_(PvP)",
         "Ranks": [
-            [10, 15, 21, 26, 31, 37, 42, 47, 53, 58, 63, 69, 74, 79, 85, 90, 95, 101, 106, 111, 117]]
+            [10, 15, 21, 26, 31, 37, 42, 47, 53, 58, 63, 69, 74, 79, 85, 90, 95, 101, 106, 111, 117]
+        ]
     }, {
         "Id": 3263,
         "Name": "Banishing Strike (PvP)",
@@ -32138,7 +34084,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/c/ca/Banishing_Strike_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Banishing_Strike_(PvP)",
         "Ranks": [
-            [10, 13, 17, 20, 23, 27, 30, 33, 37, 40, 43, 47, 50, 53, 57, 60, 63, 67, 70, 73, 77]]
+            [10, 13, 17, 20, 23, 27, 30, 33, 37, 40, 43, 47, 50, 53, 57, 60, 63, 67, 70, 73, 77]
+        ]
     }, {
         "Id": 3366,
         "Name": "Heart of Fury (PvP)",
@@ -32160,7 +34107,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/1/17/Heart_of_Fury_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Heart_of_Fury_(PvP)",
         "Ranks": [
-            [2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13]]
+            [2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12, 13]
+        ]
     }, {
         "Id": 3368,
         "Name": "Pious Fury (PvP)",
@@ -32182,7 +34130,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/96/Pious_Fury_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Pious_Fury_(PvP)",
         "Ranks": [
-            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6]]
+            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6]
+        ]
     }, {
         "Id": 3265,
         "Name": "Irresistible Sweep (PvP)",
@@ -32204,7 +34153,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/49/Irresistible_Sweep_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Irresistible_Sweep_(PvP)",
         "Ranks": [
-            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19, 20]]
+            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19, 20]
+        ]
     }, {
         "Id": 3266,
         "Name": "Pious Assault (PvP)",
@@ -32226,7 +34176,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/02/Pious_Assault_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Pious_Assault_(PvP)",
         "Ranks": [
-            [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38]]
+            [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38]
+        ]
     }, {
         "Id": 3264,
         "Name": "Twin Moon Sweep (PvP)",
@@ -32248,7 +34199,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/a/a0/Twin_Moon_Sweep_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Twin_Moon_Sweep_(PvP)",
         "Ranks": [
-            [10, 11, 11, 12, 13, 13, 14, 15, 15, 16, 17, 17, 18, 19, 19, 20, 21, 21, 22, 23, 23, 24], [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38]]
+            [10, 11, 11, 12, 13, 13, 14, 15, 15, 16, 17, 17, 18, 19, 19, 20, 21, 21, 22, 23, 23, 24],
+            [10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38]
+        ]
     }, {
         "Id": 3367,
         "Name": "Wounding Strike (PvP)",
@@ -32270,7 +34223,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/7/78/Wounding_Strike_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Wounding_Strike_(PvP)",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        ]
     }, {
         "Id": 3269,
         "Name": "Guiding Hands (PvP)",
@@ -32292,7 +34246,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/0c/Guiding_Hands_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Guiding_Hands_(PvP)",
         "Ranks": [
-            [0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4]]
+            [0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4]
+        ]
     }, {
         "Id": 3348,
         "Name": "Lyssa's Haste (PvP)",
@@ -32314,7 +34269,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/61/Lyssa%27s_Haste_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Lyssa%27s_Haste_(PvP)",
         "Ranks": [
-            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19]]
+            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19]
+        ]
     }, {
         "Id": 3272,
         "Name": "Mystic Healing (PvP)",
@@ -32336,7 +34292,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/fb/Mystic_Healing_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Mystic_Healing_(PvP)",
         "Ranks": [
-            [5, 9, 13, 17, 21, 25, 29, 33, 37, 41, 45, 49, 53, 57, 61, 65, 69, 73, 77, 81, 85]]
+            [5, 9, 13, 17, 21, 25, 29, 33, 37, 41, 45, 49, 53, 57, 61, 65, 69, 73, 77, 81, 85]
+        ]
     }, {
         "Id": 3365,
         "Name": "Onslaught (PvP)",
@@ -32358,7 +34315,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/2/20/Onslaught_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Onslaught_(PvP)",
         "Ranks": [
-            [2, 2, 3, 3, 4, 4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10]]
+            [2, 2, 3, 3, 4, 4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9, 10, 10]
+        ]
     }, {
         "Id": 3273,
         "Name": "Signet of Pious Restraint (PvP)",
@@ -32380,7 +34338,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/fa/Signet_of_Pious_Restraint_%28PvP%29.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Signet_of_Pious_Restraint_(PvP)",
         "Ranks": [
-            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18]]
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18]
+        ]
     }, {
         "Id": 3422,
         "Name": "Time Ward",
@@ -32402,7 +34361,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/90/Time_Ward.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Time_Ward",
         "Ranks": [
-            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19, 20], [15, 15, 16, 16, 16, 17, 17, 17, 18, 18, 18, 19, 19, 19, 20, 20, 20, 21, 21, 21, 22, 22], [15, 15, 16, 16, 16, 17, 17, 17, 18, 18, 18, 19, 19, 19, 20, 20, 20, 21, 21, 21, 22, 22]]
+            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19, 20],
+            [15, 15, 16, 16, 16, 17, 17, 17, 18, 18, 18, 19, 19, 19, 20, 20, 20, 21, 21, 21, 22, 22],
+            [15, 15, 16, 16, 16, 17, 17, 17, 18, 18, 18, 19, 19, 19, 20, 20, 20, 21, 21, 21, 22, 22]
+        ]
     }, {
         "Id": 3423,
         "Name": "Soul Taker",
@@ -32424,7 +34386,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/4e/Soul_Taker.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Soul_Taker",
         "Ranks": [
-            [3, 5, 7, 8, 10, 12, 14, 16, 17, 19, 21, 23, 25, 26, 28, 30, 32, 34, 35, 37, 39, 41], [15, 15, 16, 16, 16, 17, 17, 17, 18, 18, 18, 19, 19, 19, 20, 20, 20, 21, 21, 21, 22, 22], [15, 15, 16, 16, 16, 17, 17, 17, 18, 18, 18, 19, 19, 19, 20, 20, 20, 21, 21, 21, 22, 22]]
+            [3, 5, 7, 8, 10, 12, 14, 16, 17, 19, 21, 23, 25, 26, 28, 30, 32, 34, 35, 37, 39, 41],
+            [15, 15, 16, 16, 16, 17, 17, 17, 18, 18, 18, 19, 19, 19, 20, 20, 20, 21, 21, 21, 22, 22],
+            [15, 15, 16, 16, 16, 17, 17, 17, 18, 18, 18, 19, 19, 19, 20, 20, 20, 21, 21, 21, 22, 22]
+        ]
     }, {
         "Id": 3424,
         "Name": "Over the Limit",
@@ -32446,7 +34411,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/5/5a/Over_the_Limit.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Over_the_Limit",
         "Ranks": [
-            [15, 15, 16, 16, 16, 17, 17, 17, 18, 18, 18, 19, 19, 19, 20, 20, 20, 21, 21, 21, 22, 22], [15, 17, 20, 22, 24, 27, 29, 31, 34, 36, 38, 41, 43, 45, 48, 50, 52, 55, 57, 59, 62, 64]]
+            [15, 15, 16, 16, 16, 17, 17, 17, 18, 18, 18, 19, 19, 19, 20, 20, 20, 21, 21, 21, 22, 22],
+            [15, 17, 20, 22, 24, 27, 29, 31, 34, 36, 38, 41, 43, 45, 48, 50, 52, 55, 57, 59, 62, 64]
+        ]
     }, {
         "Id": 3425,
         "Name": "Judgment Strike",
@@ -32468,7 +34435,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/63/Judgment_Strike.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Judgment_Strike",
         "Ranks": [
-            [13, 14, 15, 16, 18, 19, 20, 21, 22, 23, 24, 25, 27, 28, 29, 30, 31, 32, 33, 35, 36, 37]]
+            [13, 14, 15, 16, 18, 19, 20, 21, 22, 23, 24, 25, 27, 28, 29, 30, 31, 32, 33, 35, 36, 37]
+        ]
     }, {
         "Id": 3426,
         "Name": "Seven Weapons Stance",
@@ -32490,7 +34458,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/d/d7/Seven_Weapons_Stance.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Seven_Weapons_Stance",
         "Ranks": [
-            [3, 4, 5, 6, 8, 9, 10, 11, 12, 13, 14, 15, 17, 18, 19, 20, 21, 22, 23, 25, 26, 27], [1, 2, 3, 4, 5, 6, 7, 8, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]]
+            [3, 4, 5, 6, 8, 9, 10, 11, 12, 13, 14, 15, 17, 18, 19, 20, 21, 22, 23, 25, 26, 27],
+            [1, 2, 3, 4, 5, 6, 7, 8, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+        ]
     }, {
         "Id": 3427,
         "Name": "\"Together as One!\"",
@@ -32512,7 +34482,10 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/f/ff/%22Together_as_One%21%22.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/%22Together_as_One!%22",
         "Ranks": [
-            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19], [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18], [1, 1, 2, 2, 3, 3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9]]
+            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19],
+            [5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 16, 17, 18, 18],
+            [1, 1, 2, 2, 3, 3, 3, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 9, 9]
+        ]
     }, {
         "Id": 3428,
         "Name": "Shadow Theft",
@@ -32534,7 +34507,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/9/91/Shadow_Theft.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Shadow_Theft",
         "Ranks": [
-            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25], [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6]]
+            [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
+            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6]
+        ]
     }, {
         "Id": 3429,
         "Name": "Weapons of Three Forges",
@@ -32556,7 +34531,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/0/08/Weapons_of_Three_Forges.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Weapons_of_Three_Forges",
         "Ranks": [
-            [3, 4, 5, 6, 8, 9, 10, 11, 12, 13, 14, 15, 17, 18, 19, 20, 21, 22, 23, 25, 26, 27]]
+            [3, 4, 5, 6, 8, 9, 10, 11, 12, 13, 14, 15, 17, 18, 19, 20, 21, 22, 23, 25, 26, 27]
+        ]
     }, {
         "Id": 3430,
         "Name": "Vow of Revolution",
@@ -32578,7 +34554,9 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/4/48/Vow_of_Revolution.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Vow_of_Revolution",
         "Ranks": [
-            [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12], [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6]]
+            [3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 11, 11, 12, 12],
+            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6]
+        ]
     }, {
         "Id": 3431,
         "Name": "Heroic Refrain",
@@ -32600,5 +34578,8 @@ var skillTable = [
         "Image": "https://wiki.guildwars.com/images/6/6e/Heroic_Refrain.jpg",
         "Wiki": "https://wiki.guildwars.com/wiki/Heroic_Refrain",
         "Ranks": [
-            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19], [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4]]
-    }]
+            [3, 4, 5, 5, 6, 7, 8, 9, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 17, 18, 19],
+            [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4]
+        ]
+    }
+]
