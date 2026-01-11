@@ -1,2 +1,4 @@
 
 node_modules/gh-pages/.cache/
+node_modules
+build
