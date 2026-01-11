@@ -154,7 +154,7 @@ export function SkillData(code) {
       template +=
         '<div id="skill-' +
         (skillIndex + 1) +
-        '" class="skill tooltip" onClick={window.open("\'';
+        '" class="skill tooltip" onClick={window.open(\'';
       template += skills[skillIndex]["Wiki"];
       template += "\')}>";
 
